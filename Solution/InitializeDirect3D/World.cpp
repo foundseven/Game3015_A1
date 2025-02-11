@@ -14,6 +14,8 @@ World::World(Game* game)
 void World::update(const GameTimer& gt)
 {
 	mSceneGraph->update(gt);
+
+	//todo: should add some logic in here
 }
 
 void World::draw()
@@ -27,7 +29,9 @@ void World::buildScene()
 	mPlayerAircraft = player.get();
 	mPlayerAircraft->setPosition(0, 0.1, 0.0);
 	mPlayerAircraft->setScale(0.5, 0.5, 0.5);
-	//mPlayerAircraft->setVelocity(mScrollSpeed, 0.0, 0.0);
+	//enable this
+	//to do: set this so the world is moving and not the player?
+	mPlayerAircraft->setVelocity(mScrollSpeed, 0.0, 0.0);
 	mSceneGraph->attachChild(std::move(player));
 
 	std::unique_ptr<Aircraft> enemy1(new Aircraft(Aircraft::Raptor, mGame));
@@ -49,7 +53,8 @@ void World::buildScene()
 	//mBackground->setPosition(mWorldBounds.left, mWorldBounds.top);
 	mBackground->setPosition(0, 0, 0.0);
 	mBackground->setScale(10.0, 1.0, 200.0);
-	//mBackground->setVelocity(0, 0, -mScrollSpeed);
+	//background scrolling enabled
+	mBackground->setVelocity(0, 0, -mScrollSpeed);
 	mSceneGraph->attachChild(std::move(backgroundSprite));
 
 	mSceneGraph->build();

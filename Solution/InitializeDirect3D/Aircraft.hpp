@@ -25,4 +25,6 @@ private:
 private:
 	Type				mType;
 	std::string			mSprite;
+
+	//add a render item in here?
 };

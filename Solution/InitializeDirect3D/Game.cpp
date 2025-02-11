@@ -131,7 +131,9 @@ void Game::Draw(const GameTimer& gt)
 	auto passCB = mCurrFrameResource->PassCB->Resource();
 	mCommandList->SetGraphicsRootConstantBufferView(2, passCB->GetGPUVirtualAddress());
 
+	//i think he doesnt want this line?
 	mWorld.draw();
+
 	DrawRenderItems(mCommandList.Get(), mOpaqueRitems);
 
 	// Indicate a state transition on the resource usage.
@@ -183,6 +185,8 @@ void Game::OnMouseMove(WPARAM btnState, int x, int y)
 		mCamera.Pitch(dy);
 		mCamera.RotateY(dx);
 	}
+	//to do: add another mouse input?
+
 	mLastMousePos.x = x;
 	mLastMousePos.y = y;
 }

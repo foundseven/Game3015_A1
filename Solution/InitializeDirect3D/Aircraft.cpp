@@ -18,6 +18,7 @@ Aircraft::Aircraft(Type type, Game* game) : Entity(game)
 	}
 }
 
+//i believe some work will have to be done in here
 void Aircraft::drawCurrent() const
 {	
 }
