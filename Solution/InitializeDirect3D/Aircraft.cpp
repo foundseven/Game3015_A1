@@ -21,6 +21,31 @@ Aircraft::Aircraft(Type type, Game* game) : Entity(game)
 //i believe some work will have to be done in here
 void Aircraft::drawCurrent() const
 {	
+	UINT objCBByteSize = d3dUtil::CalcConstantBufferByteSize(sizeof(ObjectConstants));
+	UINT matCBByteSize = d3dUtil::CalcConstantBufferByteSize(sizeof(MaterialConstants));
+
+	auto objectCB = game->mCurrFrameResource->ObjectCB->Resource();
+	auto matCB = game->mCurrFrameResource->MaterialCB->Resource();
+
+	if (mAircraftRitem != nullptr)
+	{
+		//logic here
+		auto vbv = mAircraftRitem->Geo->VertexBufferView();
+		auto ibv = mAircraftRitem->Geo->IndexBufferView();
+
+		game->getCmdList()->IASetVertexBuffers(0, 1, &vbv);
+		game->getCmdList()->IASetIndexBuffer(&ibv);
+		game->getCmdList()->IASetPrimitiveTopology(mAircraftRitem->PrimitiveType);
+
+		CD3DX12_GPU_DESCRIPTOR_HANDLE tex(game->mSrvDescriptorHeap->GetGPUDescriptorHandleForHeapStart());
+		tex.Offset(mAircraftRitem->Mat->DiffuseSrvHeapIndex, game->mCbvSrvDescriptorSize);
+		D3D12_GPU_VIRTUAL_ADDRESS objCBAddress = objectCB->GetGPUVirtualAddress() + (UINT64)mAircraftRitem->ObjCBIndex * objCBByteSize;
+		D3D12_GPU_VIRTUAL_ADDRESS matCBAddress = matCB->GetGPUVirtualAddress() + (UINT64)mAircraftRitem->Mat->MatCBIndex * matCBByteSize;
+		game->getCmdList()->SetGraphicsRootDescriptorTable(0, tex);
+		game->getCmdList()->SetGraphicsRootConstantBufferView(1, objCBAddress);
+		game->getCmdList()->SetGraphicsRootConstantBufferView(3, matCBAddress);
+		game->getCmdList()->DrawIndexedInstanced(mAircraftRitem->IndexCount, 1, mAircraftRitem->StartIndexLocation, mAircraftRitem->BaseVertexLocation, 0);
+	}
 }
 
 void Aircraft::buildCurrent()

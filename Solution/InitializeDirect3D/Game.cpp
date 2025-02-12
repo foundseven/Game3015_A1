@@ -190,6 +190,7 @@ void Game::OnMouseMove(WPARAM btnState, int x, int y)
 	mLastMousePos.x = x;
 	mLastMousePos.y = y;
 }
+#pragma region Keyboard Input
 
 void Game::OnKeyboardInput(const GameTimer& gt)
 {
@@ -243,6 +244,8 @@ void Game::OnKeyboardInput(const GameTimer& gt)
 
 	mCamera.UpdateViewMatrix();
 }
+
+#pragma endregion
 
 void Game::UpdateCamera(const GameTimer& gt)
 {

@@ -92,6 +92,7 @@ private:
 	XMFLOAT3				mWorldPosition;
 	XMFLOAT3				mWorldRotation;
 	XMFLOAT3				mWorldScaling;
+
 	std::vector<Ptr>		mChildren;
 	SceneNode*				mParent;
 };

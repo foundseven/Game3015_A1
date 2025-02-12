@@ -16,6 +16,9 @@
     <Filter Include="Common">
       <UniqueIdentifier>{4da73e88-7b09-42c1-b89e-7222bf705633}</UniqueIdentifier>
     </Filter>
+    <Filter Include="GameEngine">
+      <UniqueIdentifier>{3ccdfc72-cb58-432b-a4df-6dc70acfc8d2}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="main.cpp">
@@ -42,12 +45,6 @@
     <ClCompile Include="..\..\Common\MathHelper.cpp">
       <Filter>Common</Filter>
     </ClCompile>
-    <ClCompile Include="Aircraft.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="Entity.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
     <ClCompile Include="FrameResource.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
@@ -55,13 +52,19 @@
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="SceneNode.cpp">
-      <Filter>Source Files</Filter>
+      <Filter>GameEngine</Filter>
+    </ClCompile>
+    <ClCompile Include="Entity.cpp">
+      <Filter>GameEngine</Filter>
+    </ClCompile>
+    <ClCompile Include="Aircraft.cpp">
+      <Filter>GameEngine</Filter>
     </ClCompile>
     <ClCompile Include="SpriteNode.cpp">
-      <Filter>Source Files</Filter>
+      <Filter>GameEngine</Filter>
     </ClCompile>
     <ClCompile Include="World.cpp">
-      <Filter>Source Files</Filter>
+      <Filter>GameEngine</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -92,12 +95,6 @@
     <ClInclude Include="..\..\Common\MathHelper.h">
       <Filter>Common</Filter>
     </ClInclude>
-    <ClInclude Include="Aircraft.hpp">
-      <Filter>Source Files</Filter>
-    </ClInclude>
-    <ClInclude Include="Entity.hpp">
-      <Filter>Source Files</Filter>
-    </ClInclude>
     <ClInclude Include="FrameResource.h">
       <Filter>Source Files</Filter>
     </ClInclude>
@@ -105,13 +102,22 @@
       <Filter>Source Files</Filter>
     </ClInclude>
     <ClInclude Include="SceneNode.hpp">
-      <Filter>Source Files</Filter>
+      <Filter>GameEngine</Filter>
+    </ClInclude>
+    <ClInclude Include="Entity.hpp">
+      <Filter>GameEngine</Filter>
+    </ClInclude>
+    <ClInclude Include="Aircraft.hpp">
+      <Filter>GameEngine</Filter>
     </ClInclude>
     <ClInclude Include="SpriteNode.h">
-      <Filter>Source Files</Filter>
+      <Filter>GameEngine</Filter>
     </ClInclude>
     <ClInclude Include="World.hpp">
-      <Filter>Source Files</Filter>
+      <Filter>GameEngine</Filter>
+    </ClInclude>
+    <ClInclude Include="Category.hpp">
+      <Filter>GameEngine</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>

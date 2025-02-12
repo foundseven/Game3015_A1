@@ -26,5 +26,6 @@ private:
 	Type				mType;
 	std::string			mSprite;
 
-	//add a render item in here?
+	//add a render item in here
+	RenderItem* mAircraftRitem;
 };
