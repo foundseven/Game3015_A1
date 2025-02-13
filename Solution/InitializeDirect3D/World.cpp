@@ -5,7 +5,7 @@ World::World(Game* game)
 	, mGame(game)
 	, mPlayerAircraft(nullptr)
 	, mBackground(nullptr)
-	, mWorldBounds(-1.5f, 1.5f, 200.0f, 0.0f) //Left, Right, Down, Up
+	, mWorldBounds(-1.75f, 1.75f, 200.0f, 0.0f) //Left, Right, Down, Up
 	, mSpawnPosition(0.f, 0.f)
 	, mScrollSpeed(1.0f)
 {
@@ -16,6 +16,12 @@ void World::update(const GameTimer& gt)
 	mSceneGraph->update(gt);
 
 	//todo: should add some logic in here
+	if (mPlayerAircraft->getWorldPosition().x < mWorldBounds.x
+		|| mPlayerAircraft->getWorldPosition().x > mWorldBounds.y)
+	{
+		//keep the player in the bounds of the screen
+		mPlayerAircraft->setVelocity(XMFLOAT3(mPlayerAircraft->getVelocity().x * -1.0f, 0, 0));
+	}
 }
 
 void World::draw()
@@ -31,6 +37,7 @@ void World::buildScene()
 	mPlayerAircraft->setScale(0.5, 0.5, 0.5);
 	//enable this
 	//to do: set this so the world is moving and not the player?
+	//yeah input for assignment 2 will later over rule this i am sure
 	mPlayerAircraft->setVelocity(mScrollSpeed, 0.0, 0.0);
 	mSceneGraph->attachChild(std::move(player));
 
@@ -50,7 +57,6 @@ void World::buildScene()
 
 	std::unique_ptr<SpriteNode> backgroundSprite(new SpriteNode(mGame));
 	mBackground = backgroundSprite.get();
-	//figure out a way to get this working
 	//mBackground->setPosition(mWorldBounds.left, mWorldBounds.top);
 	mBackground->setPosition(0, 0, 0.0);
 	mBackground->setScale(10.0, 1.0, 200.0);
