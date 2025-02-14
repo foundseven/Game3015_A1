@@ -1,10 +1,20 @@
 #include "SpriteNode.h"
 #include "Game.hpp"
 
+/**
+ * @brief Constructor for SpriteNode.
+ * @param game Pointer to the Game object.
+ */
 SpriteNode::SpriteNode(Game* game) : Entity(game)
 {
 }
 
+/**
+ * @brief Draws the current sprite node.
+ *
+ * This method handles the rendering of the sprite node, including setting up
+ * the necessary DirectX 12 commands and resources.
+ */
 void SpriteNode::drawCurrent() const
 {
 	renderer->World = getTransform();
@@ -34,6 +44,12 @@ void SpriteNode::drawCurrent() const
 	}
 }
 
+/**
+ * @brief Builds the current sprite node.
+ *
+ * This method sets up the RenderItem for the sprite node, including its
+ * world transform, material, geometry, and other rendering properties.
+ */
 void SpriteNode::buildCurrent()
 {
 	auto render = std::make_unique<RenderItem>();

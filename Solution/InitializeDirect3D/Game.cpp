@@ -2,18 +2,52 @@
 
 const int gNumFrameResources = 3;
 
+/**
+ * @brief Constructor for the Game class.
+ *
+ * Initializes the D3DApp base class and the World object.
+ *
+ * @param hInstance The HINSTANCE of the application.
+ */
 Game::Game(HINSTANCE hInstance)
 	: D3DApp(hInstance)
-	, mWorld(this)
+	, mWorld(this) // Pass 'this' pointer to the World constructor
 {
 }
 
+/**
+ * @brief Destructor for the Game class.
+ *
+ * Flushes the command queue to ensure all GPU operations are complete before destruction.
+ */
 Game::~Game()
 {
 	if (md3dDevice != nullptr)
 		FlushCommandQueue();
 }
 
+/**
+ * @brief Initializes the game.
+ *
+ * This method performs the following steps:
+ * 1. Initializes the D3DApp base class.
+ * 2. Sets the initial camera position and orientation.
+ * 3. Resets the command list to prepare for initialization commands.
+ * 4. Gets the increment size of a descriptor in the CBV/SRV/UAV descriptor heap.
+ * 5. Loads textures.
+ * 6. Builds the root signature.
+ * 7. Builds the descriptor heaps.
+ * 8. Builds the shaders and input layout.
+ * 9. Builds the shape geometry.
+ * 10. Builds the materials.
+ * 11. Builds the render items.
+ * 12. Builds the frame resources.
+ * 13. Builds the pipeline state objects.
+ * 14. Executes the initialization commands.
+ * 15. Waits for initialization to complete.
+ *
+ * @return true if initialization was successful, false otherwise.
+ */
 bool Game::Initialize()
 {
 	if (!D3DApp::Initialize())
@@ -51,6 +85,11 @@ bool Game::Initialize()
 	return true;
 }
 
+/**
+ * @brief Handles window resizing.
+ *
+ * Updates the aspect ratio and recomputes the projection matrix.
+ */
 void Game::OnResize()
 {
 	D3DApp::OnResize();
@@ -62,6 +101,21 @@ void Game::OnResize()
 	mCamera.SetLens(0.25f * MathHelper::Pi, AspectRatio(), 1.0f, 1000.0f);
 }
 
+/**
+ * @brief Updates the game state.
+ *
+ * This method performs the following steps:
+ * 1. Handles keyboard input.
+ * 2. Updates the world.
+ * 3. Cycles through the circular frame resource array.
+ * 4. Waits for the GPU to finish processing commands for the current frame resource.
+ * 5. Animates the materials.
+ * 6. Updates the object constant buffers.
+ * 7. Updates the material constant buffers.
+ * 8. Updates the main pass constant buffer.
+ *
+ * @param gt A const reference to a GameTimer object.
+ */
 void Game::Update(const GameTimer& gt)
 {
 	OnKeyboardInput(gt);
@@ -88,6 +142,32 @@ void Game::Update(const GameTimer& gt)
 	UpdateMainPassCB(gt);
 }
 
+/**
+ * @brief Draws the game scene.
+ *
+ * This method performs the following steps:
+ * 1. Gets the command list allocator for the current frame resource.
+ * 2. Resets the command list allocator.
+ * 3. Resets the command list.
+ * 4. Sets the viewport and scissor rectangle.
+ * 5. Transitions the back buffer to the render target state.
+ * 6. Clears the back buffer and depth buffer.
+ * 7. Sets the render targets.
+ * 8. Sets the descriptor heaps.
+ * 9. Sets the root signature.
+ * 10. Sets the pass constant buffer.
+ * 11. Draws the world.
+ * 12. Draws the render items.
+ * 13. Transitions the back buffer to the present state.
+ * 14. Closes the command list.
+ * 15. Executes the command list.
+ * 16. Presents the back buffer.
+ * 17. Advances the current back buffer index.
+ * 18. Advances the fence value.
+ * 19. Signals the command queue.
+ *
+ * @param gt A const reference to a GameTimer object.
+ */
 void Game::Draw(const GameTimer& gt)
 {
 	auto cmdListAlloc = mCurrFrameResource->CmdListAlloc;
@@ -162,6 +242,15 @@ void Game::Draw(const GameTimer& gt)
 	mCommandQueue->Signal(mFence.Get(), mCurrentFence);
 }
 
+/**
+ * @brief Handles mouse button down events.
+ *
+ * Sets the last mouse position and captures the mouse input.
+ *
+ * @param btnState The state of the mouse buttons.
+ * @param x The x-coordinate of the mouse.
+ * @param y The y-coordinate of the mouse.
+ */
 void Game::OnMouseDown(WPARAM btnState, int x, int y)
 {
 	mLastMousePos.x = x;
@@ -170,11 +259,29 @@ void Game::OnMouseDown(WPARAM btnState, int x, int y)
 	SetCapture(mhMainWnd);
 }
 
+/**
+ * @brief Handles mouse button up events.
+ *
+ * Releases the mouse capture.
+ *
+ * @param btnState The state of the mouse buttons.
+ * @param x The x-coordinate of the mouse.
+ * @param y The y-coordinate of the mouse.
+ */
 void Game::OnMouseUp(WPARAM btnState, int x, int y)
 {
 	ReleaseCapture();
 }
 
+/**
+ * @brief Handles mouse move events.
+ *
+ * Updates the camera's orientation based on mouse movement.
+ *
+ * @param btnState The state of the mouse buttons.
+ * @param x The x-coordinate of the mouse.
+ * @param y The y-coordinate of the mouse.
+ */
 void Game::OnMouseMove(WPARAM btnState, int x, int y)
 {
 	if ((btnState & MK_LBUTTON) != 0)
@@ -191,8 +298,15 @@ void Game::OnMouseMove(WPARAM btnState, int x, int y)
 	mLastMousePos.x = x;
 	mLastMousePos.y = y;
 }
-#pragma region Keyboard Input
 
+#pragma region Keyboard Input
+/**
+ * @brief Handles keyboard input.
+ *
+ * Moves the camera based on keyboard input.
+ *
+ * @param gt A const reference to a GameTimer object.
+ */
 void Game::OnKeyboardInput(const GameTimer& gt)
 {
 	const float dt = gt.DeltaTime();
@@ -248,6 +362,13 @@ void Game::OnKeyboardInput(const GameTimer& gt)
 
 #pragma endregion
 
+/**
+ * @brief Updates the camera.
+ *
+ * This is left empty, but can be used to update the camera's position and orientation.
+ *
+ * @param gt A const reference to a GameTimer object.
+ */
 void Game::UpdateCamera(const GameTimer& gt)
 {
 	// Convert Spherical to Cartesian coordinates.
@@ -264,11 +385,25 @@ void Game::UpdateCamera(const GameTimer& gt)
 	//XMStoreFloat4x4(&mView, view);
 }
 
+/**
+ * @brief Animates the materials.
+ *
+ * This is left empty, but can be used to animate the materials in the scene.
+ *
+ * @param gt A const reference to a GameTimer object.
+ */
 void Game::AnimateMaterials(const GameTimer& gt)
 {
 
 }
 
+/**
+ * @brief Updates the object constant buffers.
+ *
+ * Iterates through all render items and updates their corresponding constant buffers if they are dirty.
+ *
+ * @param gt A const reference to a GameTimer object.
+ */
 void Game::UpdateObjectCBs(const GameTimer& gt)
 {
 	auto currObjectCB = mCurrFrameResource->ObjectCB.get();
@@ -293,6 +428,13 @@ void Game::UpdateObjectCBs(const GameTimer& gt)
 	}
 }
 
+/**
+ * @brief Updates the material constant buffers.
+ *
+ * Iterates through all materials and updates their corresponding constant buffers if they are dirty.
+ *
+ * @param gt A const reference to a GameTimer object.
+ */
 void Game::UpdateMaterialCBs(const GameTimer& gt)
 {
 	auto currMaterialCB = mCurrFrameResource->MaterialCB.get();
@@ -319,6 +461,13 @@ void Game::UpdateMaterialCBs(const GameTimer& gt)
 	}
 }
 
+/**
+ * @brief Updates the main pass constant buffer.
+ *
+ * Updates the main pass constant buffer with the latest view, projection, and lighting information.
+ *
+ * @param gt A const reference to a GameTimer object.
+ */
 void Game::UpdateMainPassCB(const GameTimer& gt)
 {
 	XMMATRIX view = mCamera.GetView();
@@ -360,6 +509,11 @@ void Game::UpdateMainPassCB(const GameTimer& gt)
 	currPassCB->CopyData(0, mMainPassCB);
 }
 
+/**
+ * @brief Loads the textures.
+ *
+ * Loads the textures from files and creates the corresponding resources and SRVs.
+ */
 void Game::LoadTextures()
 {
 	//Eagle
@@ -403,6 +557,11 @@ void Game::LoadTextures()
 	mTextures[galaxyTex->Name] = std::move(galaxyTex);
 }
 
+/**
+ * @brief Builds the root signature.
+ *
+ * Defines the root signature used in the shaders.
+ */
 void Game::BuildRootSignature()
 {
 	CD3DX12_DESCRIPTOR_RANGE texTable;
@@ -444,6 +603,12 @@ void Game::BuildRootSignature()
 		serializedRootSig->GetBufferSize(),
 		IID_PPV_ARGS(mRootSignature.GetAddressOf())));
 }
+
+/**
+ * @brief Builds the descriptor heaps.
+ *
+ * Creates and fills the descriptor heaps used for shader resource views (SRVs).
+ */
 
 //Once a texture resource is created, we need to create an SRV descriptor to it which we
 //can set to a root signature parameter slot for use by the shader programs.
@@ -510,6 +675,11 @@ void Game::BuildDescriptorHeaps()
 
 }
 
+/**
+ * @brief Builds the shaders and input layout.
+ *
+ * Loads the shaders from files and defines the input layout for the vertex shader.
+ */
 void Game::BuildShadersAndInputLayout()
 {
 	mShaders["standardVS"] = d3dUtil::CompileShader(L"Shaders\\Default.hlsl", nullptr, "VS", "vs_5_1");
@@ -525,6 +695,11 @@ void Game::BuildShadersAndInputLayout()
 	};
 }
 
+/**
+ * @brief Builds the shape geometry.
+ *
+ * Creates the vertex and index buffers for the shapes used in the scene.
+ */
 void Game::BuildShapeGeometry()
 {
 	GeometryGenerator geoGen;
@@ -574,6 +749,11 @@ void Game::BuildShapeGeometry()
 	mGeometries[geo->Name] = std::move(geo);
 }
 
+/**
+ * @brief Builds the pipeline state objects (PSOs).
+ *
+ * Creates the PSOs for different rendering techniques.
+ */
 void Game::BuildPSOs()
 {
 	D3D12_GRAPHICS_PIPELINE_STATE_DESC opaquePsoDesc;
@@ -607,6 +787,11 @@ void Game::BuildPSOs()
 	ThrowIfFailed(md3dDevice->CreateGraphicsPipelineState(&opaquePsoDesc, IID_PPV_ARGS(&mOpaquePSO)));
 }
 
+/**
+ * @brief Builds the frame resources.
+ *
+ * Creates the frame resources used for double buffering.
+ */
 void Game::BuildFrameResources()
 {
 	for (int i = 0; i < gNumFrameResources; ++i)
@@ -615,6 +800,12 @@ void Game::BuildFrameResources()
 			1, (UINT)mAllRitems.size(), (UINT)mMaterials.size()));
 	}
 }
+
+/**
+ * @brief Builds the materials.
+ *
+ * Creates the materials used in the scene.
+ */
 //step13
 void Game::BuildMaterials()
 {
@@ -660,6 +851,11 @@ void Game::BuildMaterials()
 
 }
 
+/**
+ * @brief Builds the render items.
+ *
+ * Creates the render items used in the scene and adds them to the appropriate lists.
+ */
 void Game::BuildRenderItems()
 {
 	mWorld.buildScene();
@@ -669,6 +865,14 @@ void Game::BuildRenderItems()
 		mOpaqueRitems.push_back(e.get());
 }
 
+/**
+ * @brief Draws the render items.
+ *
+ * Draws the specified render items using the given command list.
+ *
+ * @param cmdList The command list to use for drawing.
+ * @param ritems The render items to draw.
+ */
 void Game::DrawRenderItems(ID3D12GraphicsCommandList* cmdList, const std::vector<RenderItem*>& ritems)
 {
 	UINT objCBByteSize = d3dUtil::CalcConstantBufferByteSize(sizeof(ObjectConstants));
@@ -705,6 +909,13 @@ void Game::DrawRenderItems(ID3D12GraphicsCommandList* cmdList, const std::vector
 	}
 }
 
+/**
+ * @brief Gets the static samplers.
+ *
+ * Returns an array of static sampler descriptions.
+ *
+ * @return An array of const CD3DX12_STATIC_SAMPLER_DESC objects.
+ */
 //step21
 std::array<const CD3DX12_STATIC_SAMPLER_DESC, 6> Game::GetStaticSamplers()
 {

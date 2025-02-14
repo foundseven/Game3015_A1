@@ -1,6 +1,11 @@
 #include "Aircraft.hpp"
 #include "Game.hpp"
 
+/**
+ * @brief Constructor for Aircraft.
+ * @param type The type of aircraft.
+ * @param game Pointer to the Game object.
+ */
 Aircraft::Aircraft(Type type, Game* game) : Entity(game)
 	, mType(type)
 {
@@ -18,8 +23,13 @@ Aircraft::Aircraft(Type type, Game* game) : Entity(game)
 	}
 }
 
-//i believe some work will have to be done in here
-void Aircraft::drawCurrent() const
+/**
+ * @brief Draws the current aircraft.
+ *
+ * This method handles the rendering of the aircraft, including setting up
+ * the necessary DirectX 12 commands and resources.
+ */
+void Aircraft::drawCurrent() const // I believe some work will have to be done in here
 {	
 	UINT objCBByteSize = d3dUtil::CalcConstantBufferByteSize(sizeof(ObjectConstants));
 	UINT matCBByteSize = d3dUtil::CalcConstantBufferByteSize(sizeof(MaterialConstants));
@@ -29,7 +39,7 @@ void Aircraft::drawCurrent() const
 
 	if (mAircraftRitem != nullptr)
 	{
-		//logic here
+		// Logic here
 		auto vbv = mAircraftRitem->Geo->VertexBufferView();
 		auto ibv = mAircraftRitem->Geo->IndexBufferView();
 
@@ -48,6 +58,12 @@ void Aircraft::drawCurrent() const
 	}
 }
 
+/**
+ * @brief Builds the current aircraft.
+ *
+ * This method sets up the RenderItem for the aircraft, including its
+ * world transform, material, geometry, and other rendering properties.
+ */
 void Aircraft::buildCurrent()
 {
 	auto render = std::make_unique<RenderItem>();

@@ -4,12 +4,18 @@
 #include "../../Common/MathHelper.h"
 #include "../../Common/UploadBuffer.h"
 
+/**
+ * @brief Struct representing constants for each object.
+ */
 struct ObjectConstants
 {
     DirectX::XMFLOAT4X4 World = MathHelper::Identity4x4();
 	DirectX::XMFLOAT4X4 TexTransform = MathHelper::Identity4x4();
 };
 
+/**
+ * @brief Struct representing constants for each pass.
+ */
 struct PassConstants
 {
     DirectX::XMFLOAT4X4 View = MathHelper::Identity4x4();
@@ -36,6 +42,9 @@ struct PassConstants
     Light Lights[MaxLights];
 };
 
+/**
+ * @brief Struct representing a vertex.
+ */
 struct Vertex
 {
     DirectX::XMFLOAT3 Pos;
@@ -44,15 +53,26 @@ struct Vertex
 	DirectX::XMFLOAT2 TexC;
 };
 
-// Stores the resources needed for the CPU to build the command lists
-// for a frame.  
+/**
+ * @brief Class representing resources needed for the CPU to build command lists for a frame.
+ */
 struct FrameResource
 {
 public:
     
+    /**
+     * @brief Constructor for FrameResource.
+     * @param device Pointer to the D3D12 device.
+     * @param passCount Number of passes.
+     * @param objectCount Number of objects.
+     * @param materialCount Number of materials.
+     */
     FrameResource(ID3D12Device* device, UINT passCount, UINT objectCount, UINT materialCount);
     FrameResource(const FrameResource& rhs) = delete;
     FrameResource& operator=(const FrameResource& rhs) = delete;
+    /**
+     * @brief Destructor for FrameResource.
+     */
     ~FrameResource();
 
     // We cannot reset the allocator until the GPU is done processing the commands.
@@ -61,7 +81,7 @@ public:
 
     // We cannot update a cbuffer until the GPU is done processing the commands
     // that reference it.  So each frame needs their own cbuffers.
-   // std::unique_ptr<UploadBuffer<FrameConstants>> FrameCB = nullptr;
+    // std::unique_ptr<UploadBuffer<FrameConstants>> FrameCB = nullptr;
     std::unique_ptr<UploadBuffer<PassConstants>> PassCB = nullptr;
     std::unique_ptr<UploadBuffer<MaterialConstants>> MaterialCB = nullptr;
     std::unique_ptr<UploadBuffer<ObjectConstants>> ObjectCB = nullptr;
