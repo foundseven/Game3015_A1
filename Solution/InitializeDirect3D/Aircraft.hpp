@@ -27,6 +27,9 @@ public:
 	 */
 	Aircraft(Type type, Game* game);
 
+#pragma region Step 2
+	virtual unsigned int getCategory() const;
+#pragma endregion
 private:
 	/**
 	 * @brief Draws the current aircraft.

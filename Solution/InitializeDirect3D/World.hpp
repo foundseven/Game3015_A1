@@ -3,6 +3,11 @@
 #include "Aircraft.hpp"
 #include "SpriteNode.h"
 
+#pragma region Step 12
+#include "CommandQueue.hpp"
+#include "Command.hpp"
+#pragma endregion
+
 /**
  * @brief Represents the game world, managing all game objects and their interactions.
  */
@@ -30,6 +35,17 @@ public:
 	 */
 	void								buildScene();
 
+
+#pragma region Step 13
+	CommandQueue&						getCommandQueue();
+private:
+	CommandQueue						mCommandQueue;
+
+	//cleaning it up a bit
+	void PlayerPosition();
+
+	void PlayerVelocity();
+#pragma endregion
 
 private:
 	/**

@@ -33,6 +33,14 @@ public:
 	 */
 	XMFLOAT3			getVelocity() const;
 
+#pragma region Step 4
+
+	void				accelerate(XMFLOAT3 velocity);
+	void				accelerate(float vx, float vy, float vz);
+
+#pragma endregion
+
+
 	/**
 	 * @brief Updates the current state of the entity.
 	 * @param gt const reference to GameTimer object.

@@ -1,3 +1,4 @@
+#define NOMINMAX
 #include "World.hpp"
 
 /**
@@ -15,6 +16,13 @@ World::World(Game* game)
 {
 }
 
+#pragma region Step 14
+CommandQueue& World::getCommandQueue()
+{
+	return mCommandQueue;
+}
+#pragma endregion
+
 /**
  * @brief Updates the game world.
  *
@@ -24,15 +32,24 @@ World::World(Game* game)
  */
 void World::update(const GameTimer& gt)
 {
+#pragma region Step 15
+	mPlayerAircraft->setVelocity(0.0f, 0.0f, 0.0f);
+	while (!mCommandQueue.isEmpty())
+		mSceneGraph->onCommand(mCommandQueue.pop(), gt);
+
+	PlayerPosition();
 	mSceneGraph->update(gt);
+	PlayerPosition();
 
 	//todo: should add some logic in here
-	if (mPlayerAircraft->getWorldPosition().x < mWorldBounds.x
-		|| mPlayerAircraft->getWorldPosition().x > mWorldBounds.y)
-	{
-		//keep the player in the bounds of the screen
-		mPlayerAircraft->setVelocity(XMFLOAT3(mPlayerAircraft->getVelocity().x * -1.0f, 0, 0));
-	}
+	//if (mPlayerAircraft->getWorldPosition().x < mWorldBounds.x
+	//	|| mPlayerAircraft->getWorldPosition().x > mWorldBounds.y)
+	//{
+	//	//keep the player in the bounds of the screen
+	//	mPlayerAircraft->setVelocity(XMFLOAT3(mPlayerAircraft->getVelocity().x * -1.0f, 0, 0));
+	//}
+#pragma endregion
+
 }
 
 /**
@@ -91,4 +108,27 @@ void World::buildScene()
 
 	// Build the scene graph
 	mSceneGraph->build();
+}
+
+//part of step 15
+void World::PlayerPosition()
+{
+	const float borderDistance = 10.f;
+
+	XMFLOAT3 position = mPlayerAircraft->getWorldPosition();
+	position.x = std::max(position.x, mWorldBounds.x);
+	position.x = std::min(position.x, mWorldBounds.y);
+	position.z = std::max(position.z, mWorldBounds.z);
+	position.z = std::min(position.z, mWorldBounds.w);
+	mPlayerAircraft->setPosition(position.x, position.y, position.z);
+}
+
+void World::PlayerVelocity()
+{
+	XMFLOAT3 velocity = mPlayerAircraft->getVelocity();
+
+	if (velocity.x != 0.0f && velocity.z != 0.0f)
+	{
+		mPlayerAircraft->setVelocity(velocity.x / std::sqrt(2.f), velocity.y / std::sqrt(2.f), velocity.z / std::sqrt(2.f));
+	}
 }

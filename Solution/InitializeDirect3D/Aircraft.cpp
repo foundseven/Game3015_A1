@@ -23,6 +23,17 @@ Aircraft::Aircraft(Type type, Game* game) : Entity(game)
 	}
 }
 
+unsigned int Aircraft::getCategory() const
+{
+	switch (mType)
+	{
+	case Type::Eagle:
+		return Category::PlayerAircraft;
+	default:
+		return Category::EnemyAircraft;
+	}
+}
+
 /**
  * @brief Draws the current aircraft.
  *

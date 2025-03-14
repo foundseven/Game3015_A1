@@ -1,5 +1,5 @@
 #include "World.hpp"
-
+#include "Player.hpp"
 /**
  * @brief The Game class, responsible for managing the game's resources, rendering, and logic.
  * Inherits from D3DApp.
@@ -32,6 +32,8 @@ private:
 	 * @brief Handles window resizing.
 	 */
 	virtual void OnResize() override;
+
+	void ProcessInput();
 
 	/**
 	 * @brief Updates the game state.
@@ -264,6 +266,10 @@ public: // Changed from private to public
 	 * @brief The game world.
 	 */
 	World mWorld;
+
+#pragma region Step 19
+	Player mPlayer;
+#pragma endregion
 
 public:
 	/**

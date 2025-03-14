@@ -6,6 +6,10 @@
 #include "../../Common/Camera.h"
 #include "FrameResource.h"
 
+#pragma region Step 3
+#include "Category.hpp"
+#pragma endregion
+
 using Microsoft::WRL::ComPtr;
 using namespace DirectX;
 using namespace DirectX::PackedVector;
@@ -47,6 +51,10 @@ struct RenderItem
 };
 
 class Game;
+
+#pragma region Step 7
+struct Command;
+#pragma endregion
 
 /**
  * @brief Represents a node in the scene graph.
@@ -144,6 +152,13 @@ public:
 	 * @param z Movement in Z-direction.
 	 */
 	void					move(float x, float y, float z);
+
+#pragma region Step 8
+	//so this will allow us to now act on the command
+	void					onCommand(const Command& command, const GameTimer& gt);
+	virtual unsigned int    getCategory() const;
+#pragma endregion
+
 private:
 	/**
 	 * @brief Updates this node.
