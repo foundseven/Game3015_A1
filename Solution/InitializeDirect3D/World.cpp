@@ -10,7 +10,7 @@ World::World(Game* game)
 	, mGame(game)
 	, mPlayerAircraft(nullptr)
 	, mBackground(nullptr)
-	, mWorldBounds(-1.75f, 1.75f, 200.0f, 0.0f) //Left, Right, Down, Up
+	, mWorldBounds(-3.25f, 3.25f, -1.5f, 2.5f) //Left, Right, Down, Up - this can be changed depending on wher eyou want the player to be
 	, mSpawnPosition(0.f, 0.f)
 	, mScrollSpeed(1.0f)
 {
@@ -39,7 +39,7 @@ void World::update(const GameTimer& gt)
 
 	PlayerPosition();
 	mSceneGraph->update(gt);
-	PlayerPosition();
+	PlayerVelocity();
 
 	//todo: should add some logic in here
 	//if (mPlayerAircraft->getWorldPosition().x < mWorldBounds.x
@@ -84,17 +84,19 @@ void World::buildScene()
 	// Create and set up first enemy aircraft
 	std::unique_ptr<Aircraft> enemy1(new Aircraft(Aircraft::Raptor, mGame));
 	auto raptor = enemy1.get();
-	raptor->setPosition(0.5, 0, 1);
+	raptor->setPosition(0.5, 0, -1);
 	raptor->setScale(1.0, 1.0, 1.0);
-	raptor->setWorldRotation(0, XM_PI, 0);
+	raptor->setWorldRotation(0, 0.0, 0);
 	mPlayerAircraft->attachChild(std::move(enemy1));
 
 	// Create and set up second enemy aircraft
 	std::unique_ptr<Aircraft> enemy2(new Aircraft(Aircraft::Raptor, mGame));
 	auto raptor2 = enemy2.get();
-	raptor2->setPosition(-0.5, 0, 1);
+	//raptor2->setPosition(-0.5, 0, 1);
+	raptor2->setPosition(-0.5, 0, -1);
 	raptor2->setScale(1.0, 1.0, 1.0);
-	raptor2->setWorldRotation(0, XM_PI, 0);
+	//raptor2->setWorldRotation(0, XM_PI, 0);
+	raptor2->setWorldRotation(0, 0.0, 0);
 	mPlayerAircraft->attachChild(std::move(enemy2));
 
 	// Create and set up background sprite

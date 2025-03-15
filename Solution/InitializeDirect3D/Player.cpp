@@ -56,7 +56,6 @@ void Player::HandleEvent(CommandQueue& commands)
         {
               if (GetAsyncKeyState(pair.first) & 0x8000)
               {
-                  //mKeyFlag[pair.first] = true; //PRESSED
                   commands.push(mActionBinding[pair.second]);
               }
         }
@@ -106,21 +105,21 @@ void Player::InitializeActions()
 {
     const float ps = 5.0f;
 
-    mActionBinding[MoveLeft].action = derivedAction<Aircraft>(AircraftMover(-ps, 0.f, 0.0f));
-    mActionBinding[MoveRight].action = derivedAction<Aircraft>(AircraftMover(+ps, 0.f, 0.0f));
+    mActionBinding[MoveLeft].action = derivedAction<Aircraft>(AircraftMover(-ps, 0.0f, 0.0f));
+    mActionBinding[MoveRight].action = derivedAction<Aircraft>(AircraftMover(+ps, 0.0f, 0.0f));
     //not working for some reason...?
-    mActionBinding[MoveUp].action = derivedAction<Aircraft>(AircraftMover(0.f, 0.0f, +ps));
-    mActionBinding[MoveDown].action = derivedAction<Aircraft>(AircraftMover(0.f, 0.0f, -ps));
+    mActionBinding[MoveUp].action = derivedAction<Aircraft>(AircraftMover(0.0f, 0.0f, +ps));
+    mActionBinding[MoveDown].action = derivedAction<Aircraft>(AircraftMover(0.0f, 0.0f, -ps));
 }
 
 bool Player::isRealTimeAction(Action action)
 {
     switch (action)
     {
-    case Player::MoveLeft:
-    case Player::MoveRight:
-    case Player::MoveDown:
-    case Player::MoveUp:
+    case MoveLeft:
+    case MoveRight:
+    case MoveDown:
+    case MoveUp:
         return true;
 
     default:

@@ -1,2 +1,3 @@
-﻿  Player.cpp
+﻿  World.cpp
+D:\School\Game Engine Development 2\Game3015_A1\Solution\InitializeDirect3D\World.cpp(76,34): warning C4305: 'argument': truncation from 'double' to 'float'
   InitializeDirect3D.vcxproj -> D:\School\Game Engine Development 2\Game3015_A1\Solution\x64\Debug\InitializeDirect3D.exe
