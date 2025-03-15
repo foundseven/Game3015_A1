@@ -76,7 +76,7 @@ private:
 	 * @brief Handles keyboard input.
 	 * @param gt A const reference to a GameTimer object.
 	 */
-	void OnKeyboardInput(const GameTimer& gt);
+	//void OnKeyboardInput(const GameTimer& gt);
 
 	/**
 	 * @brief Updates the camera.

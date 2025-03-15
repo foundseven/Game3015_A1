@@ -12,6 +12,7 @@ const int gNumFrameResources = 3;
 Game::Game(HINSTANCE hInstance)
 	: D3DApp(hInstance)
 	, mWorld(this) // Pass 'this' pointer to the World constructor
+	, mPlayer()
 {
 }
 
@@ -118,9 +119,10 @@ void Game::OnResize()
  */
 void Game::Update(const GameTimer& gt)
 {
-	OnKeyboardInput(gt);
+	//OnKeyboardInput(gt);
+	ProcessInput();
 	mWorld.update(gt);
-	//UpdateCamera(gt);
+	UpdateCamera(gt);
 
 	// Cycle through the circular frame resource array.
 	mCurrFrameResourceIndex = (mCurrFrameResourceIndex + 1) % gNumFrameResources;
@@ -392,6 +394,7 @@ void Game::UpdateCamera(const GameTimer& gt)
 
 	//XMMATRIX view = XMMatrixLookAtLH(pos, target, up);
 	//XMStoreFloat4x4(&mView, view);
+	mCamera.UpdateViewMatrix();
 }
 
 /**

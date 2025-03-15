@@ -1,24 +1,2 @@
-﻿  Camera.cpp
-  d3dApp.cpp
-  d3dUtil.cpp
-  DDSTextureLoader.cpp
-  GameTimer.cpp
-  GeometryGenerator.cpp
-  MathHelper.cpp
-  Aircraft.cpp
-D:\School\Game Engine Development 2\Game3015_A1\Solution\InitializeDirect3D\Aircraft.cpp(83,52): warning C4267: '=': conversion from 'size_t' to 'UINT', possible loss of data
-  Command.cpp
-  CommandQueue.cpp
-  Entity.cpp
-  FrameResource.cpp
-  Game.cpp
-D:\School\Game Engine Development 2\Game3015_A1\Solution\InitializeDirect3D\Game.cpp(58,21): warning C4305: 'argument': truncation from 'double' to 'float'
-  main.cpp
-  Player.cpp
-  SceneNode.cpp
-  SpriteNode.cpp
-D:\School\Game Engine Development 2\Game3015_A1\Solution\InitializeDirect3D\SpriteNode.cpp(59,52): warning C4267: '=': conversion from 'size_t' to 'UINT', possible loss of data
-  World.cpp
-D:\School\Game Engine Development 2\Game3015_A1\Solution\InitializeDirect3D\World.cpp(76,34): warning C4305: 'argument': truncation from 'double' to 'float'
-  Generating Code...
+﻿  Player.cpp
   InitializeDirect3D.vcxproj -> D:\School\Game Engine Development 2\Game3015_A1\Solution\x64\Debug\InitializeDirect3D.exe
