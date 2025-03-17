@@ -2,13 +2,6 @@
 
 const int gNumFrameResources = 3;
 
-/**
- * @brief Constructor for the Game class.
- *
- * Initializes the D3DApp base class and the World object.
- *
- * @param hInstance The HINSTANCE of the application.
- */
 Game::Game(HINSTANCE hInstance)
 	: D3DApp(hInstance)
 	, mWorld(this) // Pass 'this' pointer to the World constructor
@@ -16,39 +9,12 @@ Game::Game(HINSTANCE hInstance)
 {
 }
 
-/**
- * @brief Destructor for the Game class.
- *
- * Flushes the command queue to ensure all GPU operations are complete before destruction.
- */
 Game::~Game()
 {
 	if (md3dDevice != nullptr)
 		FlushCommandQueue();
 }
 
-/**
- * @brief Initializes the game.
- *
- * This method performs the following steps:
- * 1. Initializes the D3DApp base class.
- * 2. Sets the initial camera position and orientation.
- * 3. Resets the command list to prepare for initialization commands.
- * 4. Gets the increment size of a descriptor in the CBV/SRV/UAV descriptor heap.
- * 5. Loads textures.
- * 6. Builds the root signature.
- * 7. Builds the descriptor heaps.
- * 8. Builds the shaders and input layout.
- * 9. Builds the shape geometry.
- * 10. Builds the materials.
- * 11. Builds the render items.
- * 12. Builds the frame resources.
- * 13. Builds the pipeline state objects.
- * 14. Executes the initialization commands.
- * 15. Waits for initialization to complete.
- *
- * @return true if initialization was successful, false otherwise.
- */
 bool Game::Initialize()
 {
 	if (!D3DApp::Initialize())
@@ -70,6 +36,7 @@ bool Game::Initialize()
 	BuildDescriptorHeaps();
 	BuildShadersAndInputLayout();
 	BuildShapeGeometry();
+	BuildHillGeometry();
 	BuildMaterials();
 	BuildRenderItems();
 	BuildFrameResources();
@@ -86,11 +53,6 @@ bool Game::Initialize()
 	return true;
 }
 
-/**
- * @brief Handles window resizing.
- *
- * Updates the aspect ratio and recomputes the projection matrix.
- */
 void Game::OnResize()
 {
 	D3DApp::OnResize();
@@ -102,21 +64,6 @@ void Game::OnResize()
 	mCamera.SetLens(0.25f * MathHelper::Pi, AspectRatio(), 1.0f, 1000.0f);
 }
 
-/**
- * @brief Updates the game state.
- *
- * This method performs the following steps:
- * 1. Handles keyboard input.
- * 2. Updates the world.
- * 3. Cycles through the circular frame resource array.
- * 4. Waits for the GPU to finish processing commands for the current frame resource.
- * 5. Animates the materials.
- * 6. Updates the object constant buffers.
- * 7. Updates the material constant buffers.
- * 8. Updates the main pass constant buffer.
- *
- * @param gt A const reference to a GameTimer object.
- */
 void Game::Update(const GameTimer& gt)
 {
 	//OnKeyboardInput(gt);
@@ -144,32 +91,6 @@ void Game::Update(const GameTimer& gt)
 	UpdateMainPassCB(gt);
 }
 
-/**
- * @brief Draws the game scene.
- *
- * This method performs the following steps:
- * 1. Gets the command list allocator for the current frame resource.
- * 2. Resets the command list allocator.
- * 3. Resets the command list.
- * 4. Sets the viewport and scissor rectangle.
- * 5. Transitions the back buffer to the render target state.
- * 6. Clears the back buffer and depth buffer.
- * 7. Sets the render targets.
- * 8. Sets the descriptor heaps.
- * 9. Sets the root signature.
- * 10. Sets the pass constant buffer.
- * 11. Draws the world.
- * 12. Draws the render items.
- * 13. Transitions the back buffer to the present state.
- * 14. Closes the command list.
- * 15. Executes the command list.
- * 16. Presents the back buffer.
- * 17. Advances the current back buffer index.
- * 18. Advances the fence value.
- * 19. Signals the command queue.
- *
- * @param gt A const reference to a GameTimer object.
- */
 void Game::Draw(const GameTimer& gt)
 {
 	auto cmdListAlloc = mCurrFrameResource->CmdListAlloc;
@@ -244,15 +165,6 @@ void Game::Draw(const GameTimer& gt)
 	mCommandQueue->Signal(mFence.Get(), mCurrentFence);
 }
 
-/**
- * @brief Handles mouse button down events.
- *
- * Sets the last mouse position and captures the mouse input.
- *
- * @param btnState The state of the mouse buttons.
- * @param x The x-coordinate of the mouse.
- * @param y The y-coordinate of the mouse.
- */
 void Game::OnMouseDown(WPARAM btnState, int x, int y)
 {
 	mLastMousePos.x = x;
@@ -318,6 +230,8 @@ void Game::ProcessInput()
 	mPlayer.HandeRealTimeInput(commands);
 }
 #pragma endregion
+
+#pragma region Old Keyboard Input
 //void Game::OnKeyboardInput(const GameTimer& gt)
 //{
 //	const float dt = gt.DeltaTime();
@@ -373,13 +287,8 @@ void Game::ProcessInput()
 
 #pragma endregion
 
-/**
- * @brief Updates the camera.
- *
- * This is left empty, but can be used to update the camera's position and orientation.
- *
- * @param gt A const reference to a GameTimer object.
- */
+#pragma endregion
+
 void Game::UpdateCamera(const GameTimer& gt)
 {
 	// Convert Spherical to Cartesian coordinates.
@@ -397,25 +306,11 @@ void Game::UpdateCamera(const GameTimer& gt)
 	mCamera.UpdateViewMatrix();
 }
 
-/**
- * @brief Animates the materials.
- *
- * This is left empty, but can be used to animate the materials in the scene.
- *
- * @param gt A const reference to a GameTimer object.
- */
 void Game::AnimateMaterials(const GameTimer& gt)
 {
 
 }
 
-/**
- * @brief Updates the object constant buffers.
- *
- * Iterates through all render items and updates their corresponding constant buffers if they are dirty.
- *
- * @param gt A const reference to a GameTimer object.
- */
 void Game::UpdateObjectCBs(const GameTimer& gt)
 {
 	auto currObjectCB = mCurrFrameResource->ObjectCB.get();
@@ -440,13 +335,6 @@ void Game::UpdateObjectCBs(const GameTimer& gt)
 	}
 }
 
-/**
- * @brief Updates the material constant buffers.
- *
- * Iterates through all materials and updates their corresponding constant buffers if they are dirty.
- *
- * @param gt A const reference to a GameTimer object.
- */
 void Game::UpdateMaterialCBs(const GameTimer& gt)
 {
 	auto currMaterialCB = mCurrFrameResource->MaterialCB.get();
@@ -473,13 +361,6 @@ void Game::UpdateMaterialCBs(const GameTimer& gt)
 	}
 }
 
-/**
- * @brief Updates the main pass constant buffer.
- *
- * Updates the main pass constant buffer with the latest view, projection, and lighting information.
- *
- * @param gt A const reference to a GameTimer object.
- */
 void Game::UpdateMainPassCB(const GameTimer& gt)
 {
 	XMMATRIX view = mCamera.GetView();
@@ -521,11 +402,6 @@ void Game::UpdateMainPassCB(const GameTimer& gt)
 	currPassCB->CopyData(0, mMainPassCB);
 }
 
-/**
- * @brief Loads the textures.
- *
- * Loads the textures from files and creates the corresponding resources and SRVs.
- */
 void Game::LoadTextures()
 {
 	//Eagle
@@ -687,11 +563,7 @@ void Game::BuildDescriptorHeaps()
 
 }
 
-/**
- * @brief Builds the shaders and input layout.
- *
- * Loads the shaders from files and defines the input layout for the vertex shader.
- */
+
 void Game::BuildShadersAndInputLayout()
 {
 	mShaders["standardVS"] = d3dUtil::CompileShader(L"Shaders\\Default.hlsl", nullptr, "VS", "vs_5_1");
@@ -716,6 +588,7 @@ void Game::BuildShapeGeometry()
 {
 	GeometryGenerator geoGen;
 	GeometryGenerator::MeshData box = geoGen.CreateBox(1, 0, 1, 1);
+
 	SubmeshGeometry boxSubmesh;
 	boxSubmesh.IndexCount = (UINT)box.Indices32.size();
 	boxSubmesh.StartIndexLocation = 0;
@@ -759,6 +632,64 @@ void Game::BuildShapeGeometry()
 	geo->DrawArgs["box"] = boxSubmesh;
 
 	mGeometries[geo->Name] = std::move(geo);
+
+}
+
+void Game::BuildHillGeometry()
+{
+	GeometryGenerator geoGen;
+	GeometryGenerator::MeshData grid = geoGen.CreateGrid(1, 1, 50, 50);
+
+	SubmeshGeometry gridSubmesh;
+	gridSubmesh.IndexCount = (UINT)grid.Indices32.size();
+	gridSubmesh.StartIndexLocation = 0;
+	gridSubmesh.BaseVertexLocation = 0;
+
+
+	std::vector<Vertex> vertices(grid.Vertices.size());
+
+	for (size_t i = 0; i < grid.Vertices.size(); ++i)
+	{
+		auto& p = grid.Vertices[i].Position;
+		vertices[i].Pos = p;
+		vertices[i].Pos.y = GetHillsHeight(p.x, p.z);
+		vertices[i].Normal = GetHillsNormal(p.x, p.z);
+		//vertices[i].TexC = grid.Vertices[i].TexC;
+
+		//vertices[k].Pos = grid.Vertices[i].Position;
+		//vertices[k].Normal = grid.Vertices[i].Normal;
+		vertices[i].TexC = grid.Vertices[i].TexC;
+	}
+
+	std::vector<std::uint16_t> indices = grid.GetIndices16();
+
+	const UINT vbByteSize = (UINT)vertices.size() * sizeof(Vertex);
+	const UINT ibByteSize = (UINT)indices.size() * sizeof(std::uint16_t);
+
+	auto geo = std::make_unique<MeshGeometry>();
+	geo->Name = "gridGeo";
+
+	ThrowIfFailed(D3DCreateBlob(vbByteSize, &geo->VertexBufferCPU));
+	CopyMemory(geo->VertexBufferCPU->GetBufferPointer(), vertices.data(), vbByteSize);
+
+	ThrowIfFailed(D3DCreateBlob(ibByteSize, &geo->IndexBufferCPU));
+	CopyMemory(geo->IndexBufferCPU->GetBufferPointer(), indices.data(), ibByteSize);
+
+	geo->VertexBufferGPU = d3dUtil::CreateDefaultBuffer(md3dDevice.Get(),
+		mCommandList.Get(), vertices.data(), vbByteSize, geo->VertexBufferUploader);
+
+	geo->IndexBufferGPU = d3dUtil::CreateDefaultBuffer(md3dDevice.Get(),
+		mCommandList.Get(), indices.data(), ibByteSize, geo->IndexBufferUploader);
+
+	geo->VertexByteStride = sizeof(Vertex);
+	geo->VertexBufferByteSize = vbByteSize;
+	geo->IndexFormat = DXGI_FORMAT_R16_UINT;
+	geo->IndexBufferByteSize = ibByteSize;
+
+	geo->DrawArgs["grid"] = gridSubmesh;
+
+	mGeometries[geo->Name] = std::move(geo);
+
 }
 
 /**
@@ -984,4 +915,23 @@ std::array<const CD3DX12_STATIC_SAMPLER_DESC, 6> Game::GetStaticSamplers()
 		pointWrap, pointClamp,
 		linearWrap, linearClamp,
 		anisotropicWrap, anisotropicClamp };
+}
+
+float Game::GetHillsHeight(float x, float z)const
+{
+	return 0.1f * (z * sinf(0.1f * x) + x * cosf(0.1f * z));
+}
+
+XMFLOAT3 Game::GetHillsNormal(float x, float z)const
+{
+	// n = (-df/dx, 1, -df/dz)
+	XMFLOAT3 n(
+		-0.03f * z * cosf(0.1f * x) - 0.3f * cosf(0.1f * z),
+		1.0f,
+		-0.3f * sinf(0.1f * x) + 0.03f * x * sinf(0.1f * z));
+
+	XMVECTOR unitNormal = XMVector3Normalize(XMLoadFloat3(&n));
+	XMStoreFloat3(&n, unitNormal);
+
+	return n;
 }

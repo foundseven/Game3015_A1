@@ -58,11 +58,11 @@ void SpriteNode::buildCurrent()
 	XMStoreFloat4x4(&renderer->TexTransform, XMMatrixScaling(1.0f, 1.0f, 1.0f));
 	renderer->ObjCBIndex = game->getRenderItems().size();
 	renderer->Mat = game->getMaterials()["Galaxy"].get();
-	renderer->Geo = game->getGeometries()["boxGeo"].get();
+	renderer->Geo = game->getGeometries()["gridGeo"].get();
 	renderer->PrimitiveType = D3D_PRIMITIVE_TOPOLOGY_TRIANGLELIST;
-	renderer->IndexCount = renderer->Geo->DrawArgs["box"].IndexCount;
-	renderer->StartIndexLocation = renderer->Geo->DrawArgs["box"].StartIndexLocation;
-	renderer->BaseVertexLocation = renderer->Geo->DrawArgs["box"].BaseVertexLocation;
+	renderer->IndexCount = renderer->Geo->DrawArgs["grid"].IndexCount;
+	renderer->StartIndexLocation = renderer->Geo->DrawArgs["grid"].StartIndexLocation;
+	renderer->BaseVertexLocation = renderer->Geo->DrawArgs["grid"].BaseVertexLocation;
 
 	game->getRenderItems().push_back(std::move(render));
 }

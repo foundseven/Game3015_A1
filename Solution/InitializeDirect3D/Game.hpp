@@ -135,6 +135,8 @@ private:
 	 */
 	void BuildShapeGeometry();
 
+	void BuildHillGeometry();
+
 	/**
 	 * @brief Builds the pipeline state objects.
 	 */
@@ -161,6 +163,10 @@ private:
 	 * @param ritems The render items to draw.
 	 */
 	void DrawRenderItems(ID3D12GraphicsCommandList* cmdList, const std::vector<RenderItem*>& ritems);
+
+	//for hills
+	float GetHillsHeight(float x, float z)const;
+	XMFLOAT3 GetHillsNormal(float x, float z)const;
 
 	/**
 	 * @brief Returns an array of static sampler descriptions.

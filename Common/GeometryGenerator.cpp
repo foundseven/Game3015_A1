@@ -655,3 +655,10 @@ GeometryGenerator::MeshData GeometryGenerator::CreateQuad(float x, float y, floa
 
     return meshData;
 }
+
+//getting from old assignment
+GeometryGenerator::MeshData GeometryGenerator::CreateTriangularPrism(float bottomRad, float height, uint32 stackCount)
+{
+	return CreateCylinder(bottomRad, 2, height, 3, stackCount); //by taking from the cylinder function i can make shapes like the tri prism and change the slice count accordinly hehehe
+}
+

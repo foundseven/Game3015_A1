@@ -10,7 +10,7 @@ World::World(Game* game)
 	, mGame(game)
 	, mPlayerAircraft(nullptr)
 	, mBackground(nullptr)
-	, mWorldBounds(-3.25f, 3.25f, -1.5f, 2.5f) //Left, Right, Down, Up - this can be changed depending on wher eyou want the player to be
+	, mWorldBounds(-3.25f, 3.25f, -1.5f, 2.5f) //Left, Right, Down, Up - this can be changed depending on where you want the player to be
 	, mSpawnPosition(0.f, 0.f)
 	, mScrollSpeed(1.0f)
 {
