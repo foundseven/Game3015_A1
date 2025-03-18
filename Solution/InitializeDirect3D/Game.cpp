@@ -2,6 +2,10 @@
 
 const int gNumFrameResources = 3;
 
+/**
+ * @brief Constructor for the Game class.
+ * @param hInstance The HINSTANCE of the application.
+ */
 Game::Game(HINSTANCE hInstance)
 	: D3DApp(hInstance)
 	, mWorld(this) // Pass 'this' pointer to the World constructor
@@ -9,28 +13,43 @@ Game::Game(HINSTANCE hInstance)
 {
 }
 
+/**
+ * @brief Destructor for the Game class.
+ *
+ * Flushes the command queue to ensure all GPU commands are completed
+ * before releasing resources.
+ */
 Game::~Game()
 {
 	if (md3dDevice != nullptr)
 		FlushCommandQueue();
 }
 
+/**
+ * @brief Initializes the game.
+ *
+ * This method initializes D3D, creates resources, loads textures,
+ * builds the root signature, descriptor heaps, shaders, geometry,
+ * materials, render items, frame resources, and pipeline state objects.
+ *
+ * @return true if initialization was successful, false otherwise.
+ */
 bool Game::Initialize()
 {
 	if (!D3DApp::Initialize())
 		return false;
 
-
+	// Set initial camera position and orientation
 	mCamera.SetPosition(0, 8, 0);
 	mCamera.Pitch(3.14 / 2);
 
 	// Reset the command list to prep for initialization commands.
 	ThrowIfFailed(mCommandList->Reset(mDirectCmdListAlloc.Get(), nullptr));
 
-	// Get the increment size of a descriptor in this heap type.  This is hardware specific, 
-	// so we have to query this information.
+	// Get the increment size of a descriptor in this heap type
 	mCbvSrvDescriptorSize = md3dDevice->GetDescriptorHandleIncrementSize(D3D12_DESCRIPTOR_HEAP_TYPE_CBV_SRV_UAV);
 
+	// Build the core game resources
 	LoadTextures();
 	BuildRootSignature();
 	BuildDescriptorHeaps();
@@ -53,6 +72,12 @@ bool Game::Initialize()
 	return true;
 }
 
+/**
+ * @brief Handles window resizing.
+ *
+ * Updates the aspect ratio and recomputes the projection matrix
+ * based on the new window dimensions.
+ */
 void Game::OnResize()
 {
 	D3DApp::OnResize();
@@ -61,12 +86,22 @@ void Game::OnResize()
 	//XMMATRIX P = XMMatrixPerspectiveFovLH(0.25f * MathHelper::Pi, AspectRatio(), 1.0f, 1000.0f);
 	//XMStoreFloat4x4(&mProj, P);
 
+	// Update the camera projection matrix
 	mCamera.SetLens(0.25f * MathHelper::Pi, AspectRatio(), 1.0f, 1000.0f);
 }
 
+/**
+ * @brief Updates the game state.
+ *
+ * This method processes input, updates the game world, updates the camera,
+ * cycles through frame resources, waits for the GPU to complete previous
+ * commands, animates materials, and updates constant buffers.
+ *
+ * @param gt A const reference to a GameTimer object.
+ */
 void Game::Update(const GameTimer& gt)
 {
-	//OnKeyboardInput(gt);
+	// Handle input and game world updates
 	ProcessInput();
 	mWorld.update(gt);
 	UpdateCamera(gt);
@@ -75,8 +110,7 @@ void Game::Update(const GameTimer& gt)
 	mCurrFrameResourceIndex = (mCurrFrameResourceIndex + 1) % gNumFrameResources;
 	mCurrFrameResource = mFrameResources[mCurrFrameResourceIndex].get();
 
-	// Has the GPU finished processing the commands of the current frame resource?
-	// If not, wait until the GPU has completed commands up to this fence point.
+	// Wait for GPU completion
 	if (mCurrFrameResource->Fence != 0 && mFence->GetCompletedValue() < mCurrFrameResource->Fence)
 	{
 		HANDLE eventHandle = CreateEventEx(nullptr, nullptr, false, EVENT_ALL_ACCESS);
@@ -85,12 +119,27 @@ void Game::Update(const GameTimer& gt)
 		CloseHandle(eventHandle);
 	}
 
+	// Update scene-dependent constant buffers
 	AnimateMaterials(gt);
 	UpdateObjectCBs(gt);
 	UpdateMaterialCBs(gt);
 	UpdateMainPassCB(gt);
 }
 
+/**
+ * @brief Draws the game scene.
+ *
+ * This method draws the game scene by resetting the command list,
+ * setting the viewport and scissor rectangles, transitioning the
+ * back buffer to the render target state, clearing the back buffer
+ * and depth buffer, setting render targets, setting descriptor heaps,
+ * setting the root signature, setting the pass constant buffer,
+ * drawing the game world, drawing render items, transitioning the
+ * back buffer to the present state, executing the command list,
+ * presenting the back buffer, and advancing the fence value.
+ *
+ * @param gt A const reference to a GameTimer object.
+ */
 void Game::Draw(const GameTimer& gt)
 {
 	auto cmdListAlloc = mCurrFrameResource->CmdListAlloc;
@@ -99,6 +148,7 @@ void Game::Draw(const GameTimer& gt)
 	// We can only reset when the associated command lists have finished execution on the GPU.
 	ThrowIfFailed(cmdListAlloc->Reset());
 
+	// Reuse the command list
 	// A command list can be reset after it has been added to the command queue via ExecuteCommandList.
 	// Reusing the command list reuses memory.
 	ThrowIfFailed(mCommandList->Reset(cmdListAlloc.Get(), mOpaquePSO.Get()));
@@ -108,6 +158,7 @@ void Game::Draw(const GameTimer& gt)
 	//mScreenViewport.Height = 200;
 	//mScreenViewport.Height = 200;
 
+	// Set the viewport and scissor rectangle
 	mCommandList->RSSetViewports(1, &mScreenViewport);
 	mCommandList->RSSetScissorRects(1, &mScissorRect);
 
@@ -120,27 +171,31 @@ void Game::Draw(const GameTimer& gt)
 	mCommandList->ClearRenderTargetView(CurrentBackBufferView(), Colors::LightSteelBlue, 0, nullptr);
 	mCommandList->ClearDepthStencilView(DepthStencilView(), D3D12_CLEAR_FLAG_DEPTH | D3D12_CLEAR_FLAG_STENCIL, 1.0f, 0, 0, nullptr);
 
-
+	// Specify render targets
 	auto dsv = DepthStencilView();
+
 	// Specify the buffers we are going to render to.
 	auto buffer = CurrentBackBufferView();
 	mCommandList->OMSetRenderTargets(1, &buffer, true, &dsv);
 
+	// Set descriptor heaps
 	ID3D12DescriptorHeap* descriptorHeaps[] = { mSrvDescriptorHeap.Get() };
 	mCommandList->SetDescriptorHeaps(_countof(descriptorHeaps), descriptorHeaps);
 
+	// Set root signature
 	mCommandList->SetGraphicsRootSignature(mRootSignature.Get());
 
+	// Set pass constant buffer
 	auto passCB = mCurrFrameResource->PassCB->Resource();
 	mCommandList->SetGraphicsRootConstantBufferView(2, passCB->GetGPUVirtualAddress());
 
-	//i think he doesnt want this line?
-	//make entities draw themselves... but they are when it uses this line of code
+	// Draw the game world
 	mWorld.draw();
 
+	// Draw render items
 	DrawRenderItems(mCommandList.Get(), mOpaqueRitems);
 
-	// Indicate a state transition on the resource usage.
+	// Transition the back buffer to the present state
 	auto transition2 = CD3DX12_RESOURCE_BARRIER::Transition(CurrentBackBuffer(),
 		D3D12_RESOURCE_STATE_RENDER_TARGET, D3D12_RESOURCE_STATE_PRESENT);
 	mCommandList->ResourceBarrier(1, &transition2);
@@ -152,7 +207,7 @@ void Game::Draw(const GameTimer& gt)
 	ID3D12CommandList* cmdsLists[] = { mCommandList.Get() };
 	mCommandQueue->ExecuteCommandLists(_countof(cmdsLists), cmdsLists);
 
-	// Swap the back and front buffers
+	// Present the back buffer
 	ThrowIfFailed(mSwapChain->Present(0, 0));
 	mCurrBackBuffer = (mCurrBackBuffer + 1) % SwapChainBufferCount;
 
@@ -165,6 +220,15 @@ void Game::Draw(const GameTimer& gt)
 	mCommandQueue->Signal(mFence.Get(), mCurrentFence);
 }
 
+/**
+ * @brief Handles mouse button down events.
+ *
+ * Stores the current mouse position and captures the mouse input.
+ *
+ * @param btnState The state of the mouse buttons.
+ * @param x The x-coordinate of the mouse.
+ * @param y The y-coordinate of the mouse.
+ */
 void Game::OnMouseDown(WPARAM btnState, int x, int y)
 {
 	mLastMousePos.x = x;
@@ -223,6 +287,12 @@ void Game::OnMouseMove(WPARAM btnState, int x, int y)
  */
 
 #pragma region Step 20
+ /**
+  * @brief Processes input from the player
+  *
+  * Retrieves the command queue from the world, handles player events, and
+  * handles real-time player input.
+  */
 void Game::ProcessInput()
 {
 	CommandQueue& commands = mWorld.getCommandQueue();
@@ -289,6 +359,12 @@ void Game::ProcessInput()
 
 #pragma endregion
 
+/**
+ * @brief Updates the camera.
+ *
+ * Updates the view matrix of the camera.
+ *
+ */
 void Game::UpdateCamera(const GameTimer& gt)
 {
 	// Convert Spherical to Cartesian coordinates.
@@ -306,18 +382,32 @@ void Game::UpdateCamera(const GameTimer& gt)
 	mCamera.UpdateViewMatrix();
 }
 
+/**
+ * @brief Animates the materials.
+ *
+ * Currently, this method is empty.
+ *
+ * @param gt A const reference to a GameTimer object.
+ */
 void Game::AnimateMaterials(const GameTimer& gt)
 {
-
+	//No Implementation as of right now.
 }
 
+/**
+ * @brief Updates the object constant buffers.
+ *
+ * Updates the object constant buffers for each render item if the
+ * constants have changed.
+ *
+ * @param gt A const reference to a GameTimer object.
+ */
 void Game::UpdateObjectCBs(const GameTimer& gt)
 {
 	auto currObjectCB = mCurrFrameResource->ObjectCB.get();
 	for (auto& e : mAllRitems)
 	{
 		// Only update the cbuffer data if the constants have changed.  
-		// This needs to be tracked per frame resource.
 		if (e->NumFramesDirty > 0)
 		{
 			XMMATRIX world = XMLoadFloat4x4(&e->World);
@@ -335,6 +425,14 @@ void Game::UpdateObjectCBs(const GameTimer& gt)
 	}
 }
 
+/**
+ * @brief Updates the material constant buffers.
+ *
+ * Updates the material constant buffers for each material if the
+ * constants have changed.
+ *
+ * @param gt A const reference to a GameTimer object.
+ */
 void Game::UpdateMaterialCBs(const GameTimer& gt)
 {
 	auto currMaterialCB = mCurrFrameResource->MaterialCB.get();
@@ -361,14 +459,24 @@ void Game::UpdateMaterialCBs(const GameTimer& gt)
 	}
 }
 
+/**
+ * @brief Updates the main pass constant buffer.
+ *
+ * Updates the main pass constant buffer with view, projection, and
+ * lighting information.
+ *
+ * @param gt A const reference to a GameTimer object.
+ */
 void Game::UpdateMainPassCB(const GameTimer& gt)
 {
+	// Get the view and projection matrices from the camera
 	XMMATRIX view = mCamera.GetView();
 	XMMATRIX proj = mCamera.GetProj();
 
+	// Calculate the view-projection matrix
 	XMMATRIX viewProj = XMMatrixMultiply(view, proj);
 
-
+	// Calculate the inverse view, projection, and view-projection matrices
 	auto detView = XMMatrixDeterminant(view);
 	auto detProj = XMMatrixDeterminant(proj);
 	auto detViewProj = XMMatrixDeterminant(viewProj);
@@ -377,12 +485,15 @@ void Game::UpdateMainPassCB(const GameTimer& gt)
 	XMMATRIX invProj = XMMatrixInverse(&detProj, proj);
 	XMMATRIX invViewProj = XMMatrixInverse(&detViewProj, viewProj);
 
+	// Store the matrices in the main pass constant buffer
 	XMStoreFloat4x4(&mMainPassCB.View, XMMatrixTranspose(view));
 	XMStoreFloat4x4(&mMainPassCB.InvView, XMMatrixTranspose(invView));
 	XMStoreFloat4x4(&mMainPassCB.Proj, XMMatrixTranspose(proj));
 	XMStoreFloat4x4(&mMainPassCB.InvProj, XMMatrixTranspose(invProj));
 	XMStoreFloat4x4(&mMainPassCB.ViewProj, XMMatrixTranspose(viewProj));
 	XMStoreFloat4x4(&mMainPassCB.InvViewProj, XMMatrixTranspose(invViewProj));
+
+	// Set other pass constants
 	mMainPassCB.EyePosW = mCamera.GetPosition3f();
 	mMainPassCB.RenderTargetSize = XMFLOAT2((float)mClientWidth, (float)mClientHeight);
 	mMainPassCB.InvRenderTargetSize = XMFLOAT2(1.0f / mClientWidth, 1.0f / mClientHeight);
@@ -398,10 +509,16 @@ void Game::UpdateMainPassCB(const GameTimer& gt)
 	mMainPassCB.Lights[2].Direction = { 0.0f, -0.707f, -0.707f };
 	mMainPassCB.Lights[2].Strength = { 0.15f, 0.15f, 0.15f };
 
+	// Copy the pass constant buffer data
 	auto currPassCB = mCurrFrameResource->PassCB.get();
 	currPassCB->CopyData(0, mMainPassCB);
 }
 
+/**
+ * @brief Loads the textures.
+ *
+ * Loads texture resources from files and stores them in the texture map.
+ */
 void Game::LoadTextures()
 {
 	//Eagle
@@ -414,7 +531,7 @@ void Game::LoadTextures()
 
 	mTextures[EagleTex->Name] = std::move(EagleTex);
 
-	//Raptor
+	// Raptor
 	auto RaptorTex = std::make_unique<Texture>();
 	RaptorTex->Name = "RaptorTex";
 	RaptorTex->Filename = L"../../Textures/Raptor.dds";
@@ -424,7 +541,7 @@ void Game::LoadTextures()
 
 	mTextures[RaptorTex->Name] = std::move(RaptorTex);
 
-	//Desert
+	// Desert texture
 	auto DesertTex = std::make_unique<Texture>();
 	DesertTex->Name = "DesertTex";
 	DesertTex->Filename = L"../../Textures/Desert.dds";
@@ -434,7 +551,7 @@ void Game::LoadTextures()
 
 	mTextures[DesertTex->Name] = std::move(DesertTex);
 
-	//galaxy
+	// Galaxy texture
 	auto galaxyTex = std::make_unique<Texture>();
 	galaxyTex->Name = "GalaxyTex";
 	galaxyTex->Filename = L"../../Textures/galaxy.dds";

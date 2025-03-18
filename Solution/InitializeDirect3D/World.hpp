@@ -9,14 +9,19 @@
 #pragma endregion
 
 /**
- * @brief Represents the game world, managing all game objects and their interactions.
+ * @brief Constructs the World object
+ * @param game Pointer to the Game object
+ *
+ * Initializes the scene graph, world bounds, and scroll speed.
  */
 class World 
 {
 public:
 	/**
-	 * @brief Constructor for World.
-	 * @param window Pointer to the Game object.
+	 * @brief Constructs the World object
+	 * @param game Pointer to the Game object
+	 *
+	 * Initializes the scene graph, world bounds, and scroll speed.
 	 */
 	explicit							World(Game* window);
 	/**
@@ -37,13 +42,22 @@ public:
 
 
 #pragma region Step 13
+	/**
+	* @brief Retrieves the command queue for the world
+	* @return Reference to the CommandQueue
+	*/
 	CommandQueue&						getCommandQueue();
 private:
 	CommandQueue						mCommandQueue;
 
-	//cleaning it up a bit
+	/**
+	 * @brief Adjusts player position to stay within world bounds
+	 */
 	void PlayerPosition();
 
+	/**
+	 * @brief Normalizes player velocity for diagonal movement
+	 */
 	void PlayerVelocity();
 #pragma endregion
 

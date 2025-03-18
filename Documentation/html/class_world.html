@@ -5,7 +5,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=11"/>
 <meta name="generator" content="Doxygen 1.13.2"/>
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
-<title>AircraftShooter: World Class Reference</title>
+<title>Game3015_A2: World Class Reference</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
@@ -32,9 +32,9 @@
  <tbody>
  <tr id="projectrow">
   <td id="projectalign">
-   <div id="projectname">AircraftShooter
+   <div id="projectname">Game3015_A2<span id="projectnumber">&#160;2.0</span>
    </div>
-   <div id="projectbrief">Building an Aircraft Shooter from SFML to DX12</div>
+   <div id="projectbrief">A DirectX 12-based aircraft combat game.</div>
   </td>
     <td>        <div id="MSearchBox" class="MSearchBoxInactive">
         <span class="left">
@@ -110,7 +110,7 @@ $(function(){initNavTree('class_world.html',''); initResizable(true); });
 </div><!--header-->
 <div class="contents">
 
-<p>Represents the game world, managing all game objects and their interactions.  
+<p>Constructs the <a class="el" href="class_world.html" title="Constructs the World object.">World</a> object.  
  <a href="#details">More...</a></p>
 
 <p><code>#include &lt;<a class="el" href="_world_8hpp_source.html">World.hpp</a>&gt;</code></p>
@@ -118,7 +118,7 @@ $(function(){initNavTree('class_world.html',''); initResizable(true); });
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pub-methods" name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
 <tr class="memitem:a712eb4a5b0d12588dd61d10c91b83366" id="r_a712eb4a5b0d12588dd61d10c91b83366"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a712eb4a5b0d12588dd61d10c91b83366">World</a> (<a class="el" href="class_game.html">Game</a> *window)</td></tr>
-<tr class="memdesc:a712eb4a5b0d12588dd61d10c91b83366"><td class="mdescLeft">&#160;</td><td class="mdescRight">Constructor for <a class="el" href="class_world.html" title="Represents the game world, managing all game objects and their interactions.">World</a>.  <br /></td></tr>
+<tr class="memdesc:a712eb4a5b0d12588dd61d10c91b83366"><td class="mdescLeft">&#160;</td><td class="mdescRight">Constructs the <a class="el" href="class_world.html" title="Constructs the World object.">World</a> object.  <br /></td></tr>
 <tr class="separator:a712eb4a5b0d12588dd61d10c91b83366"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a36c003f54e14e022a360551af5e7923e" id="r_a36c003f54e14e022a360551af5e7923e"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a36c003f54e14e022a360551af5e7923e">update</a> (const GameTimer &amp;gt)</td></tr>
 <tr class="memdesc:a36c003f54e14e022a360551af5e7923e"><td class="mdescLeft">&#160;</td><td class="mdescRight">Updates the world.  <br /></td></tr>
@@ -129,9 +129,19 @@ Public Member Functions</h2></td></tr>
 <tr class="memitem:ae7df49f5d488e5cd1254bf360966f410" id="r_ae7df49f5d488e5cd1254bf360966f410"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ae7df49f5d488e5cd1254bf360966f410">buildScene</a> ()</td></tr>
 <tr class="memdesc:ae7df49f5d488e5cd1254bf360966f410"><td class="mdescLeft">&#160;</td><td class="mdescRight">Builds the scene graph and initializes game objects.  <br /></td></tr>
 <tr class="separator:ae7df49f5d488e5cd1254bf360966f410"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:af224b413f30c86ec99d042d0f4df56ee" id="r_af224b413f30c86ec99d042d0f4df56ee"><td class="memItemLeft" align="right" valign="top"><a class="el" href="class_command_queue.html">CommandQueue</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#af224b413f30c86ec99d042d0f4df56ee">getCommandQueue</a> ()</td></tr>
+<tr class="memdesc:af224b413f30c86ec99d042d0f4df56ee"><td class="mdescLeft">&#160;</td><td class="mdescRight">Retrieves the command queue for the world.  <br /></td></tr>
+<tr class="separator:af224b413f30c86ec99d042d0f4df56ee"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
-<div class="textblock"><p>Represents the game world, managing all game objects and their interactions. </p>
+<div class="textblock"><p>Constructs the <a class="el" href="class_world.html" title="Constructs the World object.">World</a> object. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">game</td><td>Pointer to the <a class="el" href="class_game.html" title="Main game class managing resources, rendering, and game logic.">Game</a> object</td></tr>
+  </table>
+  </dd>
+</dl>
+<p>Initializes the scene graph, world bounds, and scroll speed. </p>
 </div><h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
 <a id="a712eb4a5b0d12588dd61d10c91b83366" name="a712eb4a5b0d12588dd61d10c91b83366"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a712eb4a5b0d12588dd61d10c91b83366">&#9670;&#160;</a></span>World()</h2>
@@ -156,11 +166,18 @@ Public Member Functions</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p>Constructor for <a class="el" href="class_world.html" title="Represents the game world, managing all game objects and their interactions.">World</a>. </p>
+<p>Constructs the <a class="el" href="class_world.html" title="Constructs the World object.">World</a> object. </p>
+<p>Constructor for <a class="el" href="class_world.html" title="Constructs the World object.">World</a>.</p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname">window</td><td>Pointer to the <a class="el" href="class_game.html" title="The Game class, responsible for managing the game&#39;s resources, rendering, and logic....">Game</a> object.</td></tr>
-    <tr><td class="paramname">game</td><td>Pointer to the <a class="el" href="class_game.html" title="The Game class, responsible for managing the game&#39;s resources, rendering, and logic....">Game</a> object. </td></tr>
+    <tr><td class="paramname">game</td><td>Pointer to the <a class="el" href="class_game.html" title="Main game class managing resources, rendering, and game logic.">Game</a> object</td></tr>
+  </table>
+  </dd>
+</dl>
+<p>Initializes the scene graph, world bounds, and scroll speed.</p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">game</td><td>Pointer to the <a class="el" href="class_game.html" title="Main game class managing resources, rendering, and game logic.">Game</a> object. </td></tr>
   </table>
   </dd>
 </dl>
@@ -208,6 +225,26 @@ Public Member Functions</h2></td></tr>
 
 </div>
 </div>
+<a id="af224b413f30c86ec99d042d0f4df56ee" name="af224b413f30c86ec99d042d0f4df56ee"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#af224b413f30c86ec99d042d0f4df56ee">&#9670;&#160;</a></span>getCommandQueue()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="class_command_queue.html">CommandQueue</a> &amp; World::getCommandQueue </td>
+          <td>(</td>
+          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Retrieves the command queue for the world. </p>
+<dl class="section return"><dt>Returns</dt><dd>Reference to the <a class="el" href="class_command_queue.html" title="A FIFO queue for managing game commands.">CommandQueue</a> </dd></dl>
+
+</div>
+</div>
 <a id="a36c003f54e14e022a360551af5e7923e" name="a36c003f54e14e022a360551af5e7923e"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a36c003f54e14e022a360551af5e7923e">&#9670;&#160;</a></span>update()</h2>
 
@@ -243,7 +280,7 @@ Public Member Functions</h2></td></tr>
 </div>
 <hr/>The documentation for this class was generated from the following files:<ul>
 <li>InitializeDirect3D/<a class="el" href="_world_8hpp_source.html">World.hpp</a></li>
-<li>InitializeDirect3D/<a class="el" href="_world_8cpp.html">World.cpp</a></li>
+<li>InitializeDirect3D/<b>World.cpp</b></li>
 </ul>
 </div><!-- contents -->
 </div><!-- doc-content -->

@@ -1,5 +1,5 @@
 var searchData=
 [
-  ['_7eframeresource_0',['~FrameResource',['../struct_frame_resource.html#a93d669d1d4db3b4ed5cd6f0f6b921809',1,'FrameResource']]],
-  ['_7egame_1',['~Game',['../class_game.html#ae3d112ca6e0e55150d2fdbc704474530',1,'Game']]]
+  ['update_0',['update',['../class_scene_node.html#a858b7a088c0a2d01aaa90baf05d58d08',1,'SceneNode::update()'],['../class_world.html#a36c003f54e14e022a360551af5e7923e',1,'World::update()']]],
+  ['updatecurrent_1',['updateCurrent',['../class_entity.html#ac2ba9cb8ca54fff11ad7397334edcd94',1,'Entity']]]
 ];

@@ -112,7 +112,9 @@ void World::buildScene()
 	mSceneGraph->build();
 }
 
-//part of step 15
+/**
+ * @brief Adjusts player position to stay within world bounds
+ */
 void World::PlayerPosition()
 {
 	const float borderDistance = 10.f;
@@ -125,6 +127,9 @@ void World::PlayerPosition()
 	mPlayerAircraft->setPosition(position.x, position.y, position.z);
 }
 
+/**
+ * @brief Normalizes player velocity for diagonal movement
+ */
 void World::PlayerVelocity()
 {
 	XMFLOAT3 velocity = mPlayerAircraft->getVelocity();

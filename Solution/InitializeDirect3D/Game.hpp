@@ -1,8 +1,12 @@
 #include "World.hpp"
 #include "Player.hpp"
 /**
- * @brief The Game class, responsible for managing the game's resources, rendering, and logic.
- * Inherits from D3DApp.
+ * @class Game
+ * @brief Main game class managing resources, rendering, and game logic
+ *
+ * This class inherits from D3DApp and is responsible for initializing the game,
+ * managing game resources, handling input, updating game state, and rendering
+ * the game world. It serves as the central hub for all game-related operations.
  */
 class Game : public D3DApp
 {
@@ -91,8 +95,11 @@ private:
 	void AnimateMaterials(const GameTimer& gt);
 
 	/**
-	 * @brief Updates the object constant buffers.
-	 * @param gt A const reference to a GameTimer object.
+	 * @brief Updates the object constant buffers
+	 * @param gt A const reference to a GameTimer object
+	 *
+	 * @note This method may be performance-critical. Consider optimizing
+	 *       or parallelizing if it becomes a bottleneck.
 	 */
 	void UpdateObjectCBs(const GameTimer& gt);
 
@@ -135,6 +142,9 @@ private:
 	 */
 	void BuildShapeGeometry();
 
+	/**
+	 * @brief Builds the hill geometry.
+	 */
 	void BuildHillGeometry();
 
 	/**
@@ -158,9 +168,12 @@ private:
 	void BuildRenderItems();
 
 	/**
-	 * @brief Draws the render items.
-	 * @param cmdList The command list to draw with.
-	 * @param ritems The render items to draw.
+	 * @brief Draws the render items
+	 * @param cmdList The command list to draw with
+	 * @param ritems The render items to draw
+	 *
+	 * @see RenderItem
+	 * @see ID3D12GraphicsCommandList
 	 */
 	void DrawRenderItems(ID3D12GraphicsCommandList* cmdList, const std::vector<RenderItem*>& ritems);
 
@@ -264,16 +277,28 @@ public: // Changed from private to public
 	POINT mLastMousePos;
 
 	/**
-	 * @brief The camera used in the game.
+	 * @brief The camera used for rendering the game world
+	 *
+	 * This camera object manages the view and projection matrices,
+	 * as well as camera movement and orientation.
 	 */
 	Camera mCamera;
 
 	/**
-	 * @brief The game world.
+	 * @brief The game world object
+	 *
+	 * Manages all entities, scene graph, and game-specific logic
+	 * that isn't directly related to rendering or input handling.
 	 */
 	World mWorld;
 
 #pragma region Step 19
+	/**
+	* @brief The player object
+	*
+	* Handles player-specific logic, including input mapping and
+	* player state management.
+	*/
 	Player mPlayer;
 #pragma endregion
 

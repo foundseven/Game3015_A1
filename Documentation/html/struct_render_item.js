@@ -1,6 +1,5 @@
 var struct_render_item =
 [
-    [ "RenderItem", "struct_render_item.html#ad6c4cbd7fea14ab4b71bd3be38208487", null ],
     [ "BaseVertexLocation", "struct_render_item.html#a3750ef7b2791ea922df46e222649f3dc", null ],
     [ "Geo", "struct_render_item.html#a7e4ddbefdc41b7efcad3c3a4b0ceccd9", null ],
     [ "IndexCount", "struct_render_item.html#ad95fafa012c0d99c216b998f11207e38", null ],

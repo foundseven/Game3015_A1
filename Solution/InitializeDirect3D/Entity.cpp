@@ -1,8 +1,10 @@
 #include "Entity.hpp"
 
 /**
- * @brief Constructor for Entity.
- * @param game Pointer to the Game object.
+ * @brief Constructs an Entity object
+ * @param game Pointer to the parent Game object
+ *
+ * Initializes the Entity with zero velocity and sets up the SceneNode hierarchy.
  */
 Entity::Entity(Game* game) : SceneNode(game), mVelocity(0, 0, 0)
 {
@@ -40,14 +42,15 @@ XMFLOAT3 Entity::getVelocity() const
 }
 
 /**
- * @brief Updates the current state of the entity.
+ * @brief Updates the entity's position based on its velocity
+ * @param gt Reference to GameTimer for frame timing
  *
- * This method calculates the displacement based on the entity's velocity and the time elapsed,
- * moves the entity accordingly, updates the world transform, and marks the renderer as dirty.
- *
- * @param gt const reference to GameTimer object.
+ * This method:
+ * 1. Calculates displacement based on velocity and elapsed time
+ * 2. Updates the entity's position
+ * 3. Updates the world transform
+ * 4. Marks the renderer as dirty for the next frame
  */
-//using our game timer
 void Entity::updateCurrent(const GameTimer& gt) 
 {
 	XMFLOAT3 mV;
@@ -61,7 +64,12 @@ void Entity::updateCurrent(const GameTimer& gt)
 	renderer->NumFramesDirty++;
 }
 
-//adding definition of accelerate
+/**
+ * @brief Applies an acceleration to the entity's velocity
+ * @param velocity Acceleration vector to apply
+ *
+ * Adds the given velocity vector to the current velocity.
+ */
 void Entity::accelerate(XMFLOAT3 velocity)
 {
 	mVelocity.x = mVelocity.x + velocity.x;
@@ -69,6 +77,14 @@ void Entity::accelerate(XMFLOAT3 velocity)
 	mVelocity.z = mVelocity.z + velocity.z;
 }
 
+/**
+ * @brief Applies an acceleration to the entity's velocity using components
+ * @param vx Acceleration in the x-direction
+ * @param vy Acceleration in the y-direction
+ * @param vz Acceleration in the z-direction
+ *
+ * Adds the given velocity components to the current velocity.
+ */
 void Entity::accelerate(float vx, float vy, float vz)
 {
 	mVelocity.x = mVelocity.x + vx;

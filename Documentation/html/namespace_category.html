@@ -5,7 +5,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=11"/>
 <meta name="generator" content="Doxygen 1.13.2"/>
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
-<title>AircraftShooter: Category Namespace Reference</title>
+<title>Game3015_A2: Category Namespace Reference</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
@@ -32,9 +32,9 @@
  <tbody>
  <tr id="projectrow">
   <td id="projectalign">
-   <div id="projectname">AircraftShooter
+   <div id="projectname">Game3015_A2<span id="projectnumber">&#160;2.0</span>
    </div>
-   <div id="projectbrief">Building an Aircraft Shooter from SFML to DX12</div>
+   <div id="projectbrief">A DirectX 12-based aircraft combat game.</div>
   </td>
     <td>        <div id="MSearchBox" class="MSearchBoxInactive">
         <span class="left">
@@ -108,6 +108,9 @@ $(function(){initNavTree('namespace_category.html',''); initResizable(true); });
   <div class="headertitle"><div class="title">Category Namespace Reference</div></div>
 </div><!--header-->
 <div class="contents">
+
+<p>Bitmask categories for scene object classification and collision filtering.  
+<a href="#details">More...</a></p>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="enum-members" name="enum-members"></a>
 Enumerations</h2></td></tr>
@@ -120,9 +123,21 @@ Enumerations</h2></td></tr>
 &#160;&#160;<a class="el" href="#a2ff936dbd42aeae91fdfb6f8456a8ab0a200d37e43bb2556f6e93fcc933124034">EnemyAircraft</a> = 1 &lt;&lt; 3
 <br />
  }</td></tr>
+<tr class="memdesc:a2ff936dbd42aeae91fdfb6f8456a8ab0"><td class="mdescLeft">&#160;</td><td class="mdescRight">Bitmask flags representing object categories in the game world.  <a href="#a2ff936dbd42aeae91fdfb6f8456a8ab0">More...</a><br /></td></tr>
 <tr class="separator:a2ff936dbd42aeae91fdfb6f8456a8ab0"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
-<h2 class="groupheader">Enumeration Type Documentation</h2>
+<a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
+<div class="textblock"><p>Bitmask categories for scene object classification and collision filtering. </p>
+<p>These categories are used to:</p><ul>
+<li>Manage object interactions (collision detection)</li>
+<li>Filter rendering operations</li>
+<li>Organize scene graph queries</li>
+</ul>
+<p>@usage Combine using bitwise OR: </p><div class="fragment"><div class="line"><a class="code hl_enumeration" href="#a2ff936dbd42aeae91fdfb6f8456a8ab0">Category::Type</a> teamAircraft = <a class="code hl_enumvalue" href="#a2ff936dbd42aeae91fdfb6f8456a8ab0ac17fded322e70d4086e2f5dfcc706679">Category::PlayerAircraft</a> | <a class="code hl_enumvalue" href="#a2ff936dbd42aeae91fdfb6f8456a8ab0a05584389175665f09038745d7486f798">Category::AlliedAircraft</a>;</div>
+<div class="ttc" id="anamespace_category_html_a2ff936dbd42aeae91fdfb6f8456a8ab0"><div class="ttname"><a href="#a2ff936dbd42aeae91fdfb6f8456a8ab0">Category::Type</a></div><div class="ttdeci">Type</div><div class="ttdoc">Bitmask flags representing object categories in the game world.</div><div class="ttdef"><b>Definition</b> Category.hpp:28</div></div>
+<div class="ttc" id="anamespace_category_html_a2ff936dbd42aeae91fdfb6f8456a8ab0a05584389175665f09038745d7486f798"><div class="ttname"><a href="#a2ff936dbd42aeae91fdfb6f8456a8ab0a05584389175665f09038745d7486f798">Category::AlliedAircraft</a></div><div class="ttdeci">@ AlliedAircraft</div><div class="ttdoc">Friendly NPC aircraft (non-player combatants)</div><div class="ttdef"><b>Definition</b> Category.hpp:32</div></div>
+<div class="ttc" id="anamespace_category_html_a2ff936dbd42aeae91fdfb6f8456a8ab0ac17fded322e70d4086e2f5dfcc706679"><div class="ttname"><a href="#a2ff936dbd42aeae91fdfb6f8456a8ab0ac17fded322e70d4086e2f5dfcc706679">Category::PlayerAircraft</a></div><div class="ttdeci">@ PlayerAircraft</div><div class="ttdoc">User-controlled aircraft (see Aircraft::Eagle)</div><div class="ttdef"><b>Definition</b> Category.hpp:31</div></div>
+</div><!-- fragment --> </div><h2 class="groupheader">Enumeration Type Documentation</h2>
 <a id="a2ff936dbd42aeae91fdfb6f8456a8ab0" name="a2ff936dbd42aeae91fdfb6f8456a8ab0"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a2ff936dbd42aeae91fdfb6f8456a8ab0">&#9670;&#160;</a></span>Type</h2>
 
@@ -134,12 +149,20 @@ Enumerations</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
+
+<p>Bitmask flags representing object categories in the game world. </p>
+<p>Values represent distinct bit positions for efficient category combination and testing using bitwise operations. </p>
 <table class="fieldtable">
-<tr><th colspan="2">Enumerator</th></tr><tr><td class="fieldname"><a id="a2ff936dbd42aeae91fdfb6f8456a8ab0af5e99963224a9d7e0d16e4a782446ebf" name="a2ff936dbd42aeae91fdfb6f8456a8ab0af5e99963224a9d7e0d16e4a782446ebf"></a>None&#160;</td><td class="fielddoc"></td></tr>
-<tr><td class="fieldname"><a id="a2ff936dbd42aeae91fdfb6f8456a8ab0ae45daecedd1b5f037e9e6e915a44f3b0" name="a2ff936dbd42aeae91fdfb6f8456a8ab0ae45daecedd1b5f037e9e6e915a44f3b0"></a>Scene&#160;</td><td class="fielddoc"></td></tr>
-<tr><td class="fieldname"><a id="a2ff936dbd42aeae91fdfb6f8456a8ab0ac17fded322e70d4086e2f5dfcc706679" name="a2ff936dbd42aeae91fdfb6f8456a8ab0ac17fded322e70d4086e2f5dfcc706679"></a>PlayerAircraft&#160;</td><td class="fielddoc"></td></tr>
-<tr><td class="fieldname"><a id="a2ff936dbd42aeae91fdfb6f8456a8ab0a05584389175665f09038745d7486f798" name="a2ff936dbd42aeae91fdfb6f8456a8ab0a05584389175665f09038745d7486f798"></a>AlliedAircraft&#160;</td><td class="fielddoc"></td></tr>
-<tr><td class="fieldname"><a id="a2ff936dbd42aeae91fdfb6f8456a8ab0a200d37e43bb2556f6e93fcc933124034" name="a2ff936dbd42aeae91fdfb6f8456a8ab0a200d37e43bb2556f6e93fcc933124034"></a>EnemyAircraft&#160;</td><td class="fielddoc"></td></tr>
+<tr><th colspan="2">Enumerator</th></tr><tr><td class="fieldname"><a id="a2ff936dbd42aeae91fdfb6f8456a8ab0af5e99963224a9d7e0d16e4a782446ebf" name="a2ff936dbd42aeae91fdfb6f8456a8ab0af5e99963224a9d7e0d16e4a782446ebf"></a>None&#160;</td><td class="fielddoc"><p>Default/no category (inactive objects) </p>
+</td></tr>
+<tr><td class="fieldname"><a id="a2ff936dbd42aeae91fdfb6f8456a8ab0ae45daecedd1b5f037e9e6e915a44f3b0" name="a2ff936dbd42aeae91fdfb6f8456a8ab0ae45daecedd1b5f037e9e6e915a44f3b0"></a>Scene&#160;</td><td class="fielddoc"><p>Static environment/level geometry. </p>
+</td></tr>
+<tr><td class="fieldname"><a id="a2ff936dbd42aeae91fdfb6f8456a8ab0ac17fded322e70d4086e2f5dfcc706679" name="a2ff936dbd42aeae91fdfb6f8456a8ab0ac17fded322e70d4086e2f5dfcc706679"></a>PlayerAircraft&#160;</td><td class="fielddoc"><p>User-controlled aircraft (see <a class="el" href="class_aircraft.html#a7dae28542933e088032b753600046acdaed1ed20dae2d2d8eaa1d2186c6ee9315" title="Player-controlled aircraft.">Aircraft::Eagle</a>) </p>
+</td></tr>
+<tr><td class="fieldname"><a id="a2ff936dbd42aeae91fdfb6f8456a8ab0a05584389175665f09038745d7486f798" name="a2ff936dbd42aeae91fdfb6f8456a8ab0a05584389175665f09038745d7486f798"></a>AlliedAircraft&#160;</td><td class="fielddoc"><p>Friendly NPC aircraft (non-player combatants) </p>
+</td></tr>
+<tr><td class="fieldname"><a id="a2ff936dbd42aeae91fdfb6f8456a8ab0a200d37e43bb2556f6e93fcc933124034" name="a2ff936dbd42aeae91fdfb6f8456a8ab0a200d37e43bb2556f6e93fcc933124034"></a>EnemyAircraft&#160;</td><td class="fielddoc"><p>Hostile aircraft (see <a class="el" href="class_aircraft.html#a7dae28542933e088032b753600046acdaf080b57c0c515dea65f056395cc6d59b" title="AI-controlled enemy aircraft.">Aircraft::Raptor</a>) </p>
+</td></tr>
 </table>
 
 </div>

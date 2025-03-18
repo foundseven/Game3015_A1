@@ -5,7 +5,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=11"/>
 <meta name="generator" content="Doxygen 1.13.2"/>
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
-<title>AircraftShooter: SpriteNode Class Reference</title>
+<title>Game3015_A2: SpriteNode Class Reference</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
@@ -32,9 +32,9 @@
  <tbody>
  <tr id="projectrow">
   <td id="projectalign">
-   <div id="projectname">AircraftShooter
+   <div id="projectname">Game3015_A2<span id="projectnumber">&#160;2.0</span>
    </div>
-   <div id="projectbrief">Building an Aircraft Shooter from SFML to DX12</div>
+   <div id="projectbrief">A DirectX 12-based aircraft combat game.</div>
   </td>
     <td>        <div id="MSearchBox" class="MSearchBoxInactive">
         <span class="left">
@@ -111,7 +111,7 @@ $(function(){initNavTree('class_sprite_node.html',''); initResizable(true); });
 </div><!--header-->
 <div class="contents">
 
-<p>Represents a sprite node in the game, inheriting from <a class="el" href="class_entity.html" title="Represents an entity in the game world, inheriting from SceneNode.">Entity</a>.  
+<p>Represents a sprite node in the game, inheriting from <a class="el" href="class_entity.html" title="Represents a movable object in the game world.">Entity</a>.  
  <a href="#details">More...</a></p>
 
 <p><code>#include &lt;<a class="el" href="_sprite_node_8h_source.html">SpriteNode.h</a>&gt;</code></p>
@@ -121,8 +121,9 @@ Inheritance diagram for SpriteNode:</div>
  <div class="center">
   <img src="class_sprite_node.png" usemap="#SpriteNode_map" alt=""/>
   <map id="SpriteNode_map" name="SpriteNode_map">
-<area href="class_entity.html" title="Represents an entity in the game world, inheriting from SceneNode." alt="Entity" shape="rect" coords="0,56,78,80"/>
+<area href="class_entity.html" title="Represents a movable object in the game world." alt="Entity" shape="rect" coords="44,56,122,80"/>
 <area href="class_scene_node.html" title="Represents a node in the scene graph." alt="SceneNode" shape="rect" coords="0,0,78,24"/>
+<area href="class_scene_node.html" title="Represents a node in the scene graph." alt="SceneNode" shape="rect" coords="88,0,166,24"/>
   </map>
 </div></div>
 <table class="memberdecls">
@@ -133,38 +134,46 @@ Public Member Functions</h2></td></tr>
 <tr class="separator:af9a13269b4f3d7a194e1826c704155dc"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="inherit_header pub_methods_class_entity"><td colspan="2" onclick="javascript:dynsection.toggleInherit('pub_methods_class_entity')"><img src="closed.png" alt="-"/>&#160;Public Member Functions inherited from <a class="el" href="class_entity.html">Entity</a></td></tr>
 <tr class="memitem:a9f6b0ce5dcbdb9107ba1972da24003a6 inherit pub_methods_class_entity" id="r_a9f6b0ce5dcbdb9107ba1972da24003a6"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_entity.html#a9f6b0ce5dcbdb9107ba1972da24003a6">Entity</a> (<a class="el" href="class_game.html">Game</a> *<a class="el" href="class_scene_node.html#a06d1261ef839789469f228e7a7f2bfb9">game</a>)</td></tr>
-<tr class="memdesc:a9f6b0ce5dcbdb9107ba1972da24003a6 inherit pub_methods_class_entity"><td class="mdescLeft">&#160;</td><td class="mdescRight">Constructor for <a class="el" href="class_entity.html" title="Represents an entity in the game world, inheriting from SceneNode.">Entity</a>.  <br /></td></tr>
+<tr class="memdesc:a9f6b0ce5dcbdb9107ba1972da24003a6 inherit pub_methods_class_entity"><td class="mdescLeft">&#160;</td><td class="mdescRight">Constructs an <a class="el" href="class_entity.html" title="Represents a movable object in the game world.">Entity</a> with zero initial velocity.  <br /></td></tr>
 <tr class="separator:a9f6b0ce5dcbdb9107ba1972da24003a6 inherit pub_methods_class_entity"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a472e1690df5fb48c6c7f052e4cb39c78 inherit pub_methods_class_entity" id="r_a472e1690df5fb48c6c7f052e4cb39c78"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_entity.html#a472e1690df5fb48c6c7f052e4cb39c78">setVelocity</a> (XMFLOAT3 velocity)</td></tr>
-<tr class="memdesc:a472e1690df5fb48c6c7f052e4cb39c78 inherit pub_methods_class_entity"><td class="mdescLeft">&#160;</td><td class="mdescRight">Sets the velocity of the entity.  <br /></td></tr>
+<tr class="memdesc:a472e1690df5fb48c6c7f052e4cb39c78 inherit pub_methods_class_entity"><td class="mdescLeft">&#160;</td><td class="mdescRight">Sets the entity's velocity vector.  <br /></td></tr>
 <tr class="separator:a472e1690df5fb48c6c7f052e4cb39c78 inherit pub_methods_class_entity"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:abb3c22fe7e78968131560642e360e12b inherit pub_methods_class_entity" id="r_abb3c22fe7e78968131560642e360e12b"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_entity.html#abb3c22fe7e78968131560642e360e12b">setVelocity</a> (float vx, float vy, float vz)</td></tr>
 <tr class="memdesc:abb3c22fe7e78968131560642e360e12b inherit pub_methods_class_entity"><td class="mdescLeft">&#160;</td><td class="mdescRight">Sets the velocity of the entity using individual components.  <br /></td></tr>
 <tr class="separator:abb3c22fe7e78968131560642e360e12b inherit pub_methods_class_entity"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:af4fcc5c9f7e9d705502269444ef3eca3 inherit pub_methods_class_entity" id="r_af4fcc5c9f7e9d705502269444ef3eca3"><td class="memItemLeft" align="right" valign="top">XMFLOAT3&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_entity.html#af4fcc5c9f7e9d705502269444ef3eca3">getVelocity</a> () const</td></tr>
-<tr class="memdesc:af4fcc5c9f7e9d705502269444ef3eca3 inherit pub_methods_class_entity"><td class="mdescLeft">&#160;</td><td class="mdescRight">Gets the velocity of the entity.  <br /></td></tr>
+<tr class="memdesc:af4fcc5c9f7e9d705502269444ef3eca3 inherit pub_methods_class_entity"><td class="mdescLeft">&#160;</td><td class="mdescRight">Retrieves the current velocity of the entity.  <br /></td></tr>
 <tr class="separator:af4fcc5c9f7e9d705502269444ef3eca3 inherit pub_methods_class_entity"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a6604e7ba4eee5511a6aa21345cbdaf28 inherit pub_methods_class_entity" id="r_a6604e7ba4eee5511a6aa21345cbdaf28"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_entity.html#a6604e7ba4eee5511a6aa21345cbdaf28">accelerate</a> (XMFLOAT3 velocity)</td></tr>
+<tr class="memdesc:a6604e7ba4eee5511a6aa21345cbdaf28 inherit pub_methods_class_entity"><td class="mdescLeft">&#160;</td><td class="mdescRight">Applies an acceleration to the entity's velocity.  <br /></td></tr>
+<tr class="separator:a6604e7ba4eee5511a6aa21345cbdaf28 inherit pub_methods_class_entity"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aa2c71a179fcbb868c8ae01e98aaf79a9 inherit pub_methods_class_entity" id="r_aa2c71a179fcbb868c8ae01e98aaf79a9"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_entity.html#aa2c71a179fcbb868c8ae01e98aaf79a9">accelerate</a> (float vx, float vy, float vz)</td></tr>
+<tr class="memdesc:aa2c71a179fcbb868c8ae01e98aaf79a9 inherit pub_methods_class_entity"><td class="mdescLeft">&#160;</td><td class="mdescRight">Applies an acceleration using individual components.  <br /></td></tr>
+<tr class="separator:aa2c71a179fcbb868c8ae01e98aaf79a9 inherit pub_methods_class_entity"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ac2ba9cb8ca54fff11ad7397334edcd94 inherit pub_methods_class_entity" id="r_ac2ba9cb8ca54fff11ad7397334edcd94"><td class="memItemLeft" align="right" valign="top">virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_entity.html#ac2ba9cb8ca54fff11ad7397334edcd94">updateCurrent</a> (const GameTimer &amp;gt)</td></tr>
-<tr class="memdesc:ac2ba9cb8ca54fff11ad7397334edcd94 inherit pub_methods_class_entity"><td class="mdescLeft">&#160;</td><td class="mdescRight">Updates the current state of the entity.  <br /></td></tr>
+<tr class="memdesc:ac2ba9cb8ca54fff11ad7397334edcd94 inherit pub_methods_class_entity"><td class="mdescLeft">&#160;</td><td class="mdescRight">Updates the entity's position based on its velocity.  <br /></td></tr>
 <tr class="separator:ac2ba9cb8ca54fff11ad7397334edcd94 inherit pub_methods_class_entity"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="inherit_header pub_methods_class_scene_node"><td colspan="2" onclick="javascript:dynsection.toggleInherit('pub_methods_class_scene_node')"><img src="closed.png" alt="-"/>&#160;Public Member Functions inherited from <a class="el" href="class_scene_node.html">SceneNode</a></td></tr>
 <tr class="memitem:af1f3bf5e98c8b2c90b36057df2577d1a inherit pub_methods_class_scene_node" id="r_af1f3bf5e98c8b2c90b36057df2577d1a"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_scene_node.html#af1f3bf5e98c8b2c90b36057df2577d1a">SceneNode</a> (<a class="el" href="class_game.html">Game</a> *<a class="el" href="class_scene_node.html#a06d1261ef839789469f228e7a7f2bfb9">game</a>)</td></tr>
 <tr class="memdesc:af1f3bf5e98c8b2c90b36057df2577d1a inherit pub_methods_class_scene_node"><td class="mdescLeft">&#160;</td><td class="mdescRight">Constructor for <a class="el" href="class_scene_node.html" title="Represents a node in the scene graph.">SceneNode</a>.  <br /></td></tr>
 <tr class="separator:af1f3bf5e98c8b2c90b36057df2577d1a inherit pub_methods_class_scene_node"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:acdfa2c2ba28bce076c886eaba2d9e650 inherit pub_methods_class_scene_node" id="r_acdfa2c2ba28bce076c886eaba2d9e650"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_scene_node.html#acdfa2c2ba28bce076c886eaba2d9e650">attachChild</a> (<a class="el" href="class_scene_node.html#aaf5c9ad8475874b51b70e400822f2e9a">Ptr</a> child)</td></tr>
+<tr class="memitem:acdfa2c2ba28bce076c886eaba2d9e650 inherit pub_methods_class_scene_node" id="r_acdfa2c2ba28bce076c886eaba2d9e650"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_scene_node.html#acdfa2c2ba28bce076c886eaba2d9e650">attachChild</a> (Ptr child)</td></tr>
 <tr class="memdesc:acdfa2c2ba28bce076c886eaba2d9e650 inherit pub_methods_class_scene_node"><td class="mdescLeft">&#160;</td><td class="mdescRight">Attaches a child node to this node.  <br /></td></tr>
 <tr class="separator:acdfa2c2ba28bce076c886eaba2d9e650 inherit pub_methods_class_scene_node"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a3b9681eb3db7d9e575945b57e275e040 inherit pub_methods_class_scene_node" id="r_a3b9681eb3db7d9e575945b57e275e040"><td class="memItemLeft" align="right" valign="top"><a class="el" href="class_scene_node.html#aaf5c9ad8475874b51b70e400822f2e9a">Ptr</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_scene_node.html#a3b9681eb3db7d9e575945b57e275e040">detachChild</a> (const <a class="el" href="class_scene_node.html">SceneNode</a> &amp;node)</td></tr>
+<tr class="memitem:a3b9681eb3db7d9e575945b57e275e040 inherit pub_methods_class_scene_node" id="r_a3b9681eb3db7d9e575945b57e275e040"><td class="memItemLeft" align="right" valign="top">Ptr&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_scene_node.html#a3b9681eb3db7d9e575945b57e275e040">detachChild</a> (const <a class="el" href="class_scene_node.html">SceneNode</a> &amp;node)</td></tr>
 <tr class="memdesc:a3b9681eb3db7d9e575945b57e275e040 inherit pub_methods_class_scene_node"><td class="mdescLeft">&#160;</td><td class="mdescRight">Detaches a child node from this node.  <br /></td></tr>
 <tr class="separator:a3b9681eb3db7d9e575945b57e275e040 inherit pub_methods_class_scene_node"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a858b7a088c0a2d01aaa90baf05d58d08 inherit pub_methods_class_scene_node" id="r_a858b7a088c0a2d01aaa90baf05d58d08"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_scene_node.html#a858b7a088c0a2d01aaa90baf05d58d08">update</a> (const GameTimer &amp;gt)</td></tr>
 <tr class="memdesc:a858b7a088c0a2d01aaa90baf05d58d08 inherit pub_methods_class_scene_node"><td class="mdescLeft">&#160;</td><td class="mdescRight">Updates this node and its children.  <br /></td></tr>
 <tr class="separator:a858b7a088c0a2d01aaa90baf05d58d08 inherit pub_methods_class_scene_node"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a41b1a847182e49103bc145bd4604e056 inherit pub_methods_class_scene_node" id="r_a41b1a847182e49103bc145bd4604e056"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_scene_node.html#a41b1a847182e49103bc145bd4604e056">draw</a> () const</td></tr>
-<tr class="memdesc:a41b1a847182e49103bc145bd4604e056 inherit pub_methods_class_scene_node"><td class="mdescLeft">&#160;</td><td class="mdescRight">Draws this node and its children.  <br /></td></tr>
+<tr class="memitem:a41b1a847182e49103bc145bd4604e056 inherit pub_methods_class_scene_node" id="r_a41b1a847182e49103bc145bd4604e056"><td class="memItemLeft" align="right" valign="top">
+void&#160;</td><td class="memItemRight" valign="bottom"><b>draw</b> () const</td></tr>
+<tr class="memdesc:a41b1a847182e49103bc145bd4604e056 inherit pub_methods_class_scene_node"><td class="mdescLeft">&#160;</td><td class="mdescRight">Draws this node and its children. <br /></td></tr>
 <tr class="separator:a41b1a847182e49103bc145bd4604e056 inherit pub_methods_class_scene_node"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a67ca883a91d8c45004a0786330548d8f inherit pub_methods_class_scene_node" id="r_a67ca883a91d8c45004a0786330548d8f"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_scene_node.html#a67ca883a91d8c45004a0786330548d8f">build</a> ()</td></tr>
-<tr class="memdesc:a67ca883a91d8c45004a0786330548d8f inherit pub_methods_class_scene_node"><td class="mdescLeft">&#160;</td><td class="mdescRight">Builds this node and its children.  <br /></td></tr>
+<tr class="memitem:a67ca883a91d8c45004a0786330548d8f inherit pub_methods_class_scene_node" id="r_a67ca883a91d8c45004a0786330548d8f"><td class="memItemLeft" align="right" valign="top">
+void&#160;</td><td class="memItemRight" valign="bottom"><b>build</b> ()</td></tr>
+<tr class="memdesc:a67ca883a91d8c45004a0786330548d8f inherit pub_methods_class_scene_node"><td class="mdescLeft">&#160;</td><td class="mdescRight">Builds this node and its children. <br /></td></tr>
 <tr class="separator:a67ca883a91d8c45004a0786330548d8f inherit pub_methods_class_scene_node"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a6ba2f5754854829e7e49f135bb4fce45 inherit pub_methods_class_scene_node" id="r_a6ba2f5754854829e7e49f135bb4fce45"><td class="memItemLeft" align="right" valign="top">XMFLOAT3&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_scene_node.html#a6ba2f5754854829e7e49f135bb4fce45">getWorldPosition</a> () const</td></tr>
 <tr class="memdesc:a6ba2f5754854829e7e49f135bb4fce45 inherit pub_methods_class_scene_node"><td class="mdescLeft">&#160;</td><td class="mdescRight">Gets the world position of this node.  <br /></td></tr>
@@ -193,32 +202,43 @@ Public Member Functions</h2></td></tr>
 <tr class="memitem:aec657f40def4be5c901192ec85027a35 inherit pub_methods_class_scene_node" id="r_aec657f40def4be5c901192ec85027a35"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_scene_node.html#aec657f40def4be5c901192ec85027a35">move</a> (float x, float y, float z)</td></tr>
 <tr class="memdesc:aec657f40def4be5c901192ec85027a35 inherit pub_methods_class_scene_node"><td class="mdescLeft">&#160;</td><td class="mdescRight">Moves this node by the specified amount.  <br /></td></tr>
 <tr class="separator:aec657f40def4be5c901192ec85027a35 inherit pub_methods_class_scene_node"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a378e78ad679c28301c0db51afa389cb6 inherit pub_methods_class_scene_node" id="r_a378e78ad679c28301c0db51afa389cb6"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_scene_node.html#a378e78ad679c28301c0db51afa389cb6">onCommand</a> (const <a class="el" href="struct_command.html">Command</a> &amp;command, const GameTimer &amp;gt)</td></tr>
+<tr class="memdesc:a378e78ad679c28301c0db51afa389cb6 inherit pub_methods_class_scene_node"><td class="mdescLeft">&#160;</td><td class="mdescRight">Executes a command on this node and its children.  <br /></td></tr>
+<tr class="separator:a378e78ad679c28301c0db51afa389cb6 inherit pub_methods_class_scene_node"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:af713a8c58831a27bc791a2efdfb7c495 inherit pub_methods_class_scene_node" id="r_af713a8c58831a27bc791a2efdfb7c495"><td class="memItemLeft" align="right" valign="top">virtual unsigned int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_scene_node.html#af713a8c58831a27bc791a2efdfb7c495">getCategory</a> () const</td></tr>
+<tr class="memdesc:af713a8c58831a27bc791a2efdfb7c495 inherit pub_methods_class_scene_node"><td class="mdescLeft">&#160;</td><td class="mdescRight">Gets the category of this node.  <br /></td></tr>
+<tr class="separator:af713a8c58831a27bc791a2efdfb7c495 inherit pub_methods_class_scene_node"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pub-attribs" name="pub-attribs"></a>
 Public Attributes</h2></td></tr>
-<tr class="memitem:a578b6103c79f36b95541dab9dc4918f4" id="r_a578b6103c79f36b95541dab9dc4918f4"><td class="memItemLeft" align="right" valign="top"><a class="el" href="struct_render_item.html">RenderItem</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a578b6103c79f36b95541dab9dc4918f4">mSpriteNodeRitem</a></td></tr>
-<tr class="memdesc:a578b6103c79f36b95541dab9dc4918f4"><td class="mdescLeft">&#160;</td><td class="mdescRight">Pointer to the <a class="el" href="struct_render_item.html" title="Lightweight structure to store parameters for drawing a shape.">RenderItem</a> for this sprite node.  <br /></td></tr>
+<tr class="memitem:a578b6103c79f36b95541dab9dc4918f4" id="r_a578b6103c79f36b95541dab9dc4918f4"><td class="memItemLeft" align="right" valign="top"><a id="a578b6103c79f36b95541dab9dc4918f4" name="a578b6103c79f36b95541dab9dc4918f4"></a>
+<a class="el" href="struct_render_item.html">RenderItem</a> *&#160;</td><td class="memItemRight" valign="bottom"><b>mSpriteNodeRitem</b></td></tr>
+<tr class="memdesc:a578b6103c79f36b95541dab9dc4918f4"><td class="mdescLeft">&#160;</td><td class="mdescRight">Pointer to the <a class="el" href="struct_render_item.html" title="Lightweight structure to store parameters for drawing a shape.">RenderItem</a> for this sprite node. <br /></td></tr>
 <tr class="separator:a578b6103c79f36b95541dab9dc4918f4"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="inherit_header pub_attribs_class_entity"><td colspan="2" onclick="javascript:dynsection.toggleInherit('pub_attribs_class_entity')"><img src="closed.png" alt="-"/>&#160;Public Attributes inherited from <a class="el" href="class_entity.html">Entity</a></td></tr>
-<tr class="memitem:a15aa77787228598dfa35f5f822695c43 inherit pub_attribs_class_entity" id="r_a15aa77787228598dfa35f5f822695c43"><td class="memItemLeft" align="right" valign="top">XMFLOAT3&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_entity.html#a15aa77787228598dfa35f5f822695c43">mVelocity</a></td></tr>
-<tr class="memdesc:a15aa77787228598dfa35f5f822695c43 inherit pub_attribs_class_entity"><td class="mdescLeft">&#160;</td><td class="mdescRight">The velocity of the entity.  <br /></td></tr>
+<tr class="memitem:a15aa77787228598dfa35f5f822695c43 inherit pub_attribs_class_entity" id="r_a15aa77787228598dfa35f5f822695c43"><td class="memItemLeft" align="right" valign="top">
+XMFLOAT3&#160;</td><td class="memItemRight" valign="bottom"><b>mVelocity</b></td></tr>
+<tr class="memdesc:a15aa77787228598dfa35f5f822695c43 inherit pub_attribs_class_entity"><td class="mdescLeft">&#160;</td><td class="mdescRight">Current velocity vector of the entity. <br /></td></tr>
 <tr class="separator:a15aa77787228598dfa35f5f822695c43 inherit pub_attribs_class_entity"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="inherited" name="inherited"></a>
 Additional Inherited Members</h2></td></tr>
 <tr class="inherit_header pub_types_class_scene_node"><td colspan="2" onclick="javascript:dynsection.toggleInherit('pub_types_class_scene_node')"><img src="closed.png" alt="-"/>&#160;Public Types inherited from <a class="el" href="class_scene_node.html">SceneNode</a></td></tr>
-<tr class="memitem:aaf5c9ad8475874b51b70e400822f2e9a inherit pub_types_class_scene_node" id="r_aaf5c9ad8475874b51b70e400822f2e9a"><td class="memItemLeft" align="right" valign="top">typedef std::unique_ptr&lt; <a class="el" href="class_scene_node.html">SceneNode</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_scene_node.html#aaf5c9ad8475874b51b70e400822f2e9a">Ptr</a></td></tr>
+<tr class="memitem:aaf5c9ad8475874b51b70e400822f2e9a inherit pub_types_class_scene_node" id="r_aaf5c9ad8475874b51b70e400822f2e9a"><td class="memItemLeft" align="right" valign="top">
+typedef std::unique_ptr&lt; <a class="el" href="class_scene_node.html">SceneNode</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><b>Ptr</b></td></tr>
 <tr class="separator:aaf5c9ad8475874b51b70e400822f2e9a inherit pub_types_class_scene_node"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="inherit_header pro_attribs_class_scene_node"><td colspan="2" onclick="javascript:dynsection.toggleInherit('pro_attribs_class_scene_node')"><img src="closed.png" alt="-"/>&#160;Protected Attributes inherited from <a class="el" href="class_scene_node.html">SceneNode</a></td></tr>
-<tr class="memitem:a06d1261ef839789469f228e7a7f2bfb9 inherit pro_attribs_class_scene_node" id="r_a06d1261ef839789469f228e7a7f2bfb9"><td class="memItemLeft" align="right" valign="top"><a class="el" href="class_game.html">Game</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_scene_node.html#a06d1261ef839789469f228e7a7f2bfb9">game</a></td></tr>
-<tr class="memdesc:a06d1261ef839789469f228e7a7f2bfb9 inherit pro_attribs_class_scene_node"><td class="mdescLeft">&#160;</td><td class="mdescRight">Pointer to the <a class="el" href="class_game.html" title="The Game class, responsible for managing the game&#39;s resources, rendering, and logic....">Game</a> object.  <br /></td></tr>
+<tr class="memitem:a06d1261ef839789469f228e7a7f2bfb9 inherit pro_attribs_class_scene_node" id="r_a06d1261ef839789469f228e7a7f2bfb9"><td class="memItemLeft" align="right" valign="top">
+<a class="el" href="class_game.html">Game</a> *&#160;</td><td class="memItemRight" valign="bottom"><b>game</b></td></tr>
+<tr class="memdesc:a06d1261ef839789469f228e7a7f2bfb9 inherit pro_attribs_class_scene_node"><td class="mdescLeft">&#160;</td><td class="mdescRight">Pointer to the <a class="el" href="class_game.html" title="Main game class managing resources, rendering, and game logic.">Game</a> object. <br /></td></tr>
 <tr class="separator:a06d1261ef839789469f228e7a7f2bfb9 inherit pro_attribs_class_scene_node"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a51b22a4d6789039a96ebab097ed03db0 inherit pro_attribs_class_scene_node" id="r_a51b22a4d6789039a96ebab097ed03db0"><td class="memItemLeft" align="right" valign="top"><a class="el" href="struct_render_item.html">RenderItem</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_scene_node.html#a51b22a4d6789039a96ebab097ed03db0">renderer</a></td></tr>
-<tr class="memdesc:a51b22a4d6789039a96ebab097ed03db0 inherit pro_attribs_class_scene_node"><td class="mdescLeft">&#160;</td><td class="mdescRight">Pointer to the <a class="el" href="struct_render_item.html" title="Lightweight structure to store parameters for drawing a shape.">RenderItem</a> for this node.  <br /></td></tr>
+<tr class="memitem:a51b22a4d6789039a96ebab097ed03db0 inherit pro_attribs_class_scene_node" id="r_a51b22a4d6789039a96ebab097ed03db0"><td class="memItemLeft" align="right" valign="top">
+<a class="el" href="struct_render_item.html">RenderItem</a> *&#160;</td><td class="memItemRight" valign="bottom"><b>renderer</b></td></tr>
+<tr class="memdesc:a51b22a4d6789039a96ebab097ed03db0 inherit pro_attribs_class_scene_node"><td class="mdescLeft">&#160;</td><td class="mdescRight">Pointer to the <a class="el" href="struct_render_item.html" title="Lightweight structure to store parameters for drawing a shape.">RenderItem</a> for this node. <br /></td></tr>
 <tr class="separator:a51b22a4d6789039a96ebab097ed03db0 inherit pro_attribs_class_scene_node"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
-<div class="textblock"><p>Represents a sprite node in the game, inheriting from <a class="el" href="class_entity.html" title="Represents an entity in the game world, inheriting from SceneNode.">Entity</a>. </p>
+<div class="textblock"><p>Represents a sprite node in the game, inheriting from <a class="el" href="class_entity.html" title="Represents a movable object in the game world.">Entity</a>. </p>
 </div><h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
 <a id="af9a13269b4f3d7a194e1826c704155dc" name="af9a13269b4f3d7a194e1826c704155dc"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#af9a13269b4f3d7a194e1826c704155dc">&#9670;&#160;</a></span>SpriteNode()</h2>
@@ -238,33 +258,16 @@ Additional Inherited Members</h2></td></tr>
 <p>Constructor for <a class="el" href="class_sprite_node.html" title="Represents a sprite node in the game, inheriting from Entity.">SpriteNode</a>. </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname">game</td><td>Pointer to the <a class="el" href="class_game.html" title="The Game class, responsible for managing the game&#39;s resources, rendering, and logic....">Game</a> object. </td></tr>
+    <tr><td class="paramname">game</td><td>Pointer to the <a class="el" href="class_game.html" title="Main game class managing resources, rendering, and game logic.">Game</a> object. </td></tr>
   </table>
   </dd>
 </dl>
 
 </div>
 </div>
-<h2 class="groupheader">Member Data Documentation</h2>
-<a id="a578b6103c79f36b95541dab9dc4918f4" name="a578b6103c79f36b95541dab9dc4918f4"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a578b6103c79f36b95541dab9dc4918f4">&#9670;&#160;</a></span>mSpriteNodeRitem</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname"><a class="el" href="struct_render_item.html">RenderItem</a>* SpriteNode::mSpriteNodeRitem</td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-<p>Pointer to the <a class="el" href="struct_render_item.html" title="Lightweight structure to store parameters for drawing a shape.">RenderItem</a> for this sprite node. </p>
-
-</div>
-</div>
 <hr/>The documentation for this class was generated from the following files:<ul>
 <li>InitializeDirect3D/<a class="el" href="_sprite_node_8h_source.html">SpriteNode.h</a></li>
-<li>InitializeDirect3D/<a class="el" href="_sprite_node_8cpp.html">SpriteNode.cpp</a></li>
+<li>InitializeDirect3D/<b>SpriteNode.cpp</b></li>
 </ul>
 </div><!-- contents -->
 </div><!-- doc-content -->

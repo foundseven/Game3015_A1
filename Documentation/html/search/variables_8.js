@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['lights_0',['Lights',['../struct_pass_constants.html#ab8ff697b065ed13983d022e44e09f35f',1,'PassConstants']]]
+  ['primitivetype_0',['PrimitiveType',['../struct_render_item.html#ab3aad9050526250c4877956789e50b3a',1,'RenderItem']]]
 ];

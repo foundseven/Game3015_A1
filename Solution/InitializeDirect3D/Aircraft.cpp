@@ -23,6 +23,13 @@ Aircraft::Aircraft(Type type, Game* game) : Entity(game)
 	}
 }
 
+/**
+ * @brief Gets collision category flags for this aircraft
+ * @return unsigned int Category flag from Category enumeration
+ *
+ * @retval Category::PlayerAircraft If aircraft type is Eagle
+ * @retval Category::EnemyAircraft For all other types (including Raptor)
+ */
 unsigned int Aircraft::getCategory() const
 {
 	switch (mType)
@@ -35,12 +42,18 @@ unsigned int Aircraft::getCategory() const
 }
 
 /**
- * @brief Draws the current aircraft.
+ * @brief Executes DirectX 12 rendering commands for the aircraft
  *
- * This method handles the rendering of the aircraft, including setting up
- * the necessary DirectX 12 commands and resources.
+ * Configures and submits draw calls using current frame resources:
+ * 1. Retrieves constant buffer resources
+ * 2. Sets up vertex/index buffers
+ * 3. Binds shader resources (textures, materials)
+ * 4. Submits indexed draw call
+ *
+ * @note Skips rendering if mAircraftRitem is null. Requires valid
+ *       frame resource setup in Game class.
  */
-void Aircraft::drawCurrent() const // I believe some work will have to be done in here
+void Aircraft::drawCurrent() const
 {	
 	UINT objCBByteSize = d3dUtil::CalcConstantBufferByteSize(sizeof(ObjectConstants));
 	UINT matCBByteSize = d3dUtil::CalcConstantBufferByteSize(sizeof(MaterialConstants));
@@ -50,7 +63,7 @@ void Aircraft::drawCurrent() const // I believe some work will have to be done i
 
 	if (mAircraftRitem != nullptr)
 	{
-		// Logic here
+		// Vertex buffer setup
 		auto vbv = mAircraftRitem->Geo->VertexBufferView();
 		auto ibv = mAircraftRitem->Geo->IndexBufferView();
 
@@ -58,6 +71,7 @@ void Aircraft::drawCurrent() const // I believe some work will have to be done i
 		game->getCmdList()->IASetIndexBuffer(&ibv);
 		game->getCmdList()->IASetPrimitiveTopology(mAircraftRitem->PrimitiveType);
 
+		// Resource binding
 		CD3DX12_GPU_DESCRIPTOR_HANDLE tex(game->mSrvDescriptorHeap->GetGPUDescriptorHandleForHeapStart());
 		tex.Offset(mAircraftRitem->Mat->DiffuseSrvHeapIndex, game->mCbvSrvDescriptorSize);
 		D3D12_GPU_VIRTUAL_ADDRESS objCBAddress = objectCB->GetGPUVirtualAddress() + (UINT64)mAircraftRitem->ObjCBIndex * objCBByteSize;
@@ -70,10 +84,18 @@ void Aircraft::drawCurrent() const // I believe some work will have to be done i
 }
 
 /**
- * @brief Builds the current aircraft.
+ * @brief Constructs render data for the aircraft
  *
- * This method sets up the RenderItem for the aircraft, including its
- * world transform, material, geometry, and other rendering properties.
+ * Creates and configures a RenderItem that contains:
+ * - World transformation matrix
+ * - Object CBV index
+ * - Material reference
+ * - Geometry data (currently using placeholder 'boxGeo')
+ * - Draw parameters for indexed rendering
+ *
+ * @note The created RenderItem is added to Game's render item list.
+ *       Geometry is currently hardcoded to 'boxGeo' - consider making
+ *       this configurable based on aircraft type if using different meshes.
  */
 void Aircraft::buildCurrent()
 {

@@ -237,18 +237,33 @@ void SceneNode::move(float x, float y, float z)
 }
 
 #pragma region Step 9
+/**
+ * @brief Executes a command on this node and its children
+ * @param command The command to execute
+ * @param gt GameTimer object for time-based actions
+ *
+ * This method implements the Command pattern, allowing for
+ * flexible execution of actions on the scene graph.
+ */
 void SceneNode::onCommand(const Command& command, const GameTimer& gt)
 {
-	//Command on current node, if category matches
+	// Execute command on current node if category matches
 	if (command.category & getCategory())
 		command.action(*this, gt);
 
-	//cmd children
+	// Recursively execute command on children
 	for (Ptr& child : mChildren)
 		child->onCommand(command, gt);
 
 }
 
+/**
+ * @brief Gets the category of this node
+ * @return unsigned int representing the node's category
+ *
+ * Override this method in derived classes to specify different categories.
+ * This base implementation returns the general Scene category.
+ */
 unsigned int SceneNode::getCategory() const
 {
 	return Category::Scene;
