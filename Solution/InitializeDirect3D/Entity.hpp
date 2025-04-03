@@ -18,7 +18,7 @@ public:
 	 * @brief Constructs an Entity with zero initial velocity
 	 * @param game Pointer to the parent Game object
 	 */
-	Entity(Game* game);
+	Entity(State* state);
 
 	/**
 	 * @brief Sets the entity's velocity vector

@@ -1,18 +1,2 @@
-﻿  Aircraft.cpp
-D:\School\Game Engine Development 2\Game3015_A1\Solution\InitializeDirect3D\Aircraft.cpp(105,52): warning C4267: '=': conversion from 'size_t' to 'UINT', possible loss of data
-  Game.cpp
-D:\School\Game Engine Development 2\Game3015_A1\Solution\InitializeDirect3D\Game.cpp(44,21): warning C4305: 'argument': truncation from 'double' to 'float'
-D:\School\Game Engine Development 2\Game3015_A1\Solution\InitializeDirect3D\Game.cpp(299,9): error C2660: 'Player::HandleEvent': function does not take 1 arguments
-  D:\School\Game Engine Development 2\Game3015_A1\Solution\InitializeDirect3D\Player.hpp(30,10):
-  see declaration of 'Player::HandleEvent'
-  D:\School\Game Engine Development 2\Game3015_A1\Solution\InitializeDirect3D\Game.cpp(299,9):
-  while trying to match the argument list '(CommandQueue)'
-  
-  main.cpp
-  Player.cpp
-  SceneNode.cpp
-  SpriteNode.cpp
-D:\School\Game Engine Development 2\Game3015_A1\Solution\InitializeDirect3D\SpriteNode.cpp(59,52): warning C4267: '=': conversion from 'size_t' to 'UINT', possible loss of data
-  State.cpp
-  StateStack.cpp
-  Generating Code...
+﻿  SpriteNode.cpp
+  InitializeDirect3D.vcxproj -> D:\School\Game Engine Development 2\Game3015_A1\Solution\x64\Debug\InitializeDirect3D.exe

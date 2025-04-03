@@ -1,5 +1,6 @@
 #include "State.hpp"
 #include "Game.hpp"
+#include <iostream>
 
 State::Context::Context(Game* _game, Player* _player)
     : game(_game)
@@ -10,6 +11,7 @@ State::Context::Context(Game* _game, Player* _player)
 State::State(StateStack* stack, Context* context)
     : mStack(stack)
     , mContext(context)
+    , mSceneGraph(std::make_unique<SceneNode>(this))
 {
 }
 

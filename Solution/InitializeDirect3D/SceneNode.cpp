@@ -5,10 +5,10 @@
  * @brief Constructor for SceneNode.
  * @param game Pointer to the Game object.
  */
-SceneNode::SceneNode(Game* game)
+SceneNode::SceneNode(State* state)
 	: mChildren()
 	, mParent(nullptr)
-	, game(game)
+	, mState(state)
 {
 	mWorldPosition = XMFLOAT3(0, 0, 0);
 	mWorldScaling = XMFLOAT3(1, 1, 1);
@@ -105,6 +105,8 @@ void SceneNode::drawChildren() const
  */
 void SceneNode::build()
 {
+	OutputDebugStringA("Building...\n");
+
 	buildCurrent();
 	buildChildren();
 }

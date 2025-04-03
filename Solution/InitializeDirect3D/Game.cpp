@@ -1,5 +1,8 @@
 #include "Game.hpp"
 #include "StateStack.hpp"
+#include "TitleState.hpp"
+#include "GameState.hpp"
+
 
 const int gNumFrameResources = 3;
 
@@ -9,8 +12,9 @@ const int gNumFrameResources = 3;
  */
 Game::Game(HINSTANCE hInstance)
 	: D3DApp(hInstance)
-	, mWorld(this) // Pass 'this' pointer to the World constructor
+	//, mWorld(this) // Pass 'this' pointer to the World constructor
 	, mPlayer()
+	, mStateStack(State::Context(this, &mPlayer))
 {
 }
 
@@ -58,8 +62,10 @@ bool Game::Initialize()
 	BuildShapeGeometry();
 	BuildHillGeometry();
 	BuildMaterials();
-	BuildRenderItems();
-	BuildFrameResources();
+
+	RegisterStates();
+	mStateStack.pushState(States::Title);
+
 	BuildPSOs();
 
 	// Execute the initialization commands.
@@ -103,8 +109,17 @@ void Game::OnResize()
 void Game::Update(const GameTimer& gt)
 {
 	// Handle input and game world updates
-	ProcessInput();
-	mWorld.update(gt);
+	//ProcessInput();
+	//mWorld.update(gt);
+	mStateStack.Update(gt);
+	mStateStack.handleRealTimeInput();
+
+	if (mStateStack.isEmpty())
+	{
+		PostQuitMessage(0);
+		return;
+	}
+
 	UpdateCamera(gt);
 
 	// Cycle through the circular frame resource array.
@@ -190,11 +205,8 @@ void Game::Draw(const GameTimer& gt)
 	auto passCB = mCurrFrameResource->PassCB->Resource();
 	mCommandList->SetGraphicsRootConstantBufferView(2, passCB->GetGPUVirtualAddress());
 
-	// Draw the game world
-	mWorld.draw();
 
-	// Draw render items
-	DrawRenderItems(mCommandList.Get(), mOpaqueRitems);
+	mStateStack.Draw();
 
 	// Transition the back buffer to the present state
 	auto transition2 = CD3DX12_RESOURCE_BARRIER::Transition(CurrentBackBuffer(),
@@ -278,6 +290,11 @@ void Game::OnMouseMove(WPARAM btnState, int x, int y)
 	mLastMousePos.y = y;
 }
 
+void Game::OnKeyDown(WPARAM btnState)
+{
+	mStateStack.HandleEvent(btnState);
+}
+
 #pragma region Keyboard Input
 /**
  * @brief Handles keyboard input.
@@ -294,12 +311,12 @@ void Game::OnMouseMove(WPARAM btnState, int x, int y)
   * Retrieves the command queue from the world, handles player events, and
   * handles real-time player input.
   */
-void Game::ProcessInput()
-{
-	CommandQueue& commands = mWorld.getCommandQueue();
-	mPlayer.HandleEvent(commands);
-	mPlayer.HandeRealTimeInput(commands);
-}
+//void Game::ProcessInput()
+//{
+//	CommandQueue& commands = mWorld.getCommandQueue();
+//	mPlayer.HandleEvent(commands);
+//	mPlayer.HandeRealTimeInput(commands);
+//}
 #pragma endregion
 
 #pragma region Old Keyboard Input
@@ -405,8 +422,10 @@ void Game::AnimateMaterials(const GameTimer& gt)
  */
 void Game::UpdateObjectCBs(const GameTimer& gt)
 {
+	State* currentState = mStateStack.GetCurrentState();
+
 	auto currObjectCB = mCurrFrameResource->ObjectCB.get();
-	for (auto& e : mAllRitems)
+	for (auto& e : currentState->getRenderItems())
 	{
 		// Only update the cbuffer data if the constants have changed.  
 		if (e->NumFramesDirty > 0)
@@ -520,47 +539,29 @@ void Game::UpdateMainPassCB(const GameTimer& gt)
  *
  * Loads texture resources from files and stores them in the texture map.
  */
+void Game::CreateTexture(std::string Name, std::wstring FileName)
+{
+	auto texture = std::make_unique<Texture>();
+	texture->Name = Name;
+	texture->Filename = FileName;
+	ThrowIfFailed(DirectX::CreateDDSTextureFromFile12(md3dDevice.Get(),
+		mCommandList.Get(), texture->Filename.c_str(),
+		texture->Resource, texture->UploadHeap));
+	mTextures[texture->Name] = std::move(texture);
+}
 void Game::LoadTextures()
 {
 	//Eagle
-	auto EagleTex = std::make_unique<Texture>();
-	EagleTex->Name = "EagleTex";
-	EagleTex->Filename = L"../../Textures/Eagle.dds";
-	ThrowIfFailed(DirectX::CreateDDSTextureFromFile12(md3dDevice.Get(),
-		mCommandList.Get(), EagleTex->Filename.c_str(),
-		EagleTex->Resource, EagleTex->UploadHeap));
+	CreateTexture("EagleTex", L"../../Textures/Eagle.dds");
+	//Raptor
+	CreateTexture("RaptorTex", L"../../Textures/Raptor.dds");
+	//Desert
+	CreateTexture("DesertTex", L"../../Textures/Desert.dds");
+	//galaxy
+	CreateTexture("GalaxyTex", L"../../Textures/galaxy.dds");
+	//title
+	CreateTexture("TitleTex", L"../../Textures/galaxy.dds");
 
-	mTextures[EagleTex->Name] = std::move(EagleTex);
-
-	// Raptor
-	auto RaptorTex = std::make_unique<Texture>();
-	RaptorTex->Name = "RaptorTex";
-	RaptorTex->Filename = L"../../Textures/Raptor.dds";
-	ThrowIfFailed(DirectX::CreateDDSTextureFromFile12(md3dDevice.Get(),
-		mCommandList.Get(), RaptorTex->Filename.c_str(),
-		RaptorTex->Resource, RaptorTex->UploadHeap));
-
-	mTextures[RaptorTex->Name] = std::move(RaptorTex);
-
-	// Desert texture
-	auto DesertTex = std::make_unique<Texture>();
-	DesertTex->Name = "DesertTex";
-	DesertTex->Filename = L"../../Textures/Desert.dds";
-	ThrowIfFailed(DirectX::CreateDDSTextureFromFile12(md3dDevice.Get(),
-		mCommandList.Get(), DesertTex->Filename.c_str(),
-		DesertTex->Resource, DesertTex->UploadHeap));
-
-	mTextures[DesertTex->Name] = std::move(DesertTex);
-
-	// Galaxy texture
-	auto galaxyTex = std::make_unique<Texture>();
-	galaxyTex->Name = "GalaxyTex";
-	galaxyTex->Filename = L"../../Textures/galaxy.dds";
-	ThrowIfFailed(DirectX::CreateDDSTextureFromFile12(md3dDevice.Get(),
-		mCommandList.Get(), galaxyTex->Filename.c_str(),
-		galaxyTex->Resource, galaxyTex->UploadHeap));
-
-	mTextures[galaxyTex->Name] = std::move(galaxyTex);
 }
 
 /**
@@ -624,7 +625,7 @@ void Game::BuildDescriptorHeaps()
 	// Create the SRV heap.
 	//
 	D3D12_DESCRIPTOR_HEAP_DESC srvHeapDesc = {};
-	srvHeapDesc.NumDescriptors = 4;
+	srvHeapDesc.NumDescriptors = 5;
 	srvHeapDesc.Type = D3D12_DESCRIPTOR_HEAP_TYPE_CBV_SRV_UAV;
 	srvHeapDesc.Flags = D3D12_DESCRIPTOR_HEAP_FLAG_SHADER_VISIBLE;
 	ThrowIfFailed(md3dDevice->CreateDescriptorHeap(&srvHeapDesc, IID_PPV_ARGS(&mSrvDescriptorHeap)));
@@ -638,6 +639,7 @@ void Game::BuildDescriptorHeaps()
 	auto RaptorTex = mTextures["RaptorTex"]->Resource;
 	auto DesertTex = mTextures["DesertTex"]->Resource;
 	auto GalaxyTex = mTextures["GalaxyTex"]->Resource;
+	auto TitleTex = mTextures["TitleTex"]->Resource;
 
 
 	D3D12_SHADER_RESOURCE_VIEW_DESC srvDesc = {};
@@ -661,7 +663,6 @@ void Game::BuildDescriptorHeaps()
 	//Specifies the minimum mipmap level that can be accessed. 0.0 means all the mipmap levels can be accessed.
 	//Specifying 3.0 means mipmap levels 3.0 to MipCount - 1 can be accessed.
 	srvDesc.Texture2D.ResourceMinLODClamp = 0.0f;
-
 	md3dDevice->CreateShaderResourceView(EagleTex.Get(), &srvDesc, hDescriptor);
 
 	//Raptor Descriptor
@@ -678,6 +679,11 @@ void Game::BuildDescriptorHeaps()
 	hDescriptor.Offset(1, mCbvSrvDescriptorSize);
 	srvDesc.Format = GalaxyTex->GetDesc().Format;
 	md3dDevice->CreateShaderResourceView(GalaxyTex.Get(), &srvDesc, hDescriptor);
+
+	//Title Descriptor
+	hDescriptor.Offset(1, mCbvSrvDescriptorSize);
+	srvDesc.Format = TitleTex->GetDesc().Format;
+	md3dDevice->CreateShaderResourceView(TitleTex.Get(), &srvDesc, hDescriptor);
 
 }
 
@@ -704,6 +710,8 @@ void Game::BuildShadersAndInputLayout()
  */
 void Game::BuildShapeGeometry()
 {
+	//mWorld.buildShapeGeometry(md3dDevice, mCommandList, mGeometries);
+
 	GeometryGenerator geoGen;
 	GeometryGenerator::MeshData box = geoGen.CreateBox(1, 0, 1, 1);
 
@@ -853,12 +861,12 @@ void Game::BuildPSOs()
  *
  * Creates the frame resources used for double buffering.
  */
-void Game::BuildFrameResources()
+void Game::BuildFrameResources(int renderItemCount)
 {
 	for (int i = 0; i < gNumFrameResources; ++i)
 	{
 		mFrameResources.push_back(std::make_unique<FrameResource>(md3dDevice.Get(),
-			1, (UINT)mAllRitems.size(), (UINT)mMaterials.size()));
+			1, (UINT)renderItemCount, (UINT)mMaterials.size()));
 	}
 }
 
@@ -870,105 +878,98 @@ void Game::BuildFrameResources()
 //step13
 void Game::BuildMaterials()
 {
-	auto Eagle = std::make_unique<Material>();
-	Eagle->Name = "Eagle";
-	Eagle->MatCBIndex = 0;
-	Eagle->DiffuseSrvHeapIndex = 0;
-	Eagle->DiffuseAlbedo = XMFLOAT4(1.0f, 1.0f, 1.0f, 1.0f);
-	Eagle->FresnelR0 = XMFLOAT3(0.05f, 0.05f, 0.05f);
-	Eagle->Roughness = 0.2f;
+	//mWorld.buildMaterials(mMaterials);
+	OutputDebugStringA("Building materials...\n");
+	mCurrentMaterialCBIndex = 0;
+	mCurrentDiffuseSrvHeapIndex = 0;
+	CreateMaterials("Eagle", XMFLOAT4(1.0f, 1.0f, 1.0f, 1.0f), XMFLOAT3(0.05f, 0.05f, 0.05f), 0.2f);
+	CreateMaterials("Raptor", XMFLOAT4(1.0f, 1.0f, 1.0f, 1.0f), XMFLOAT3(0.05f, 0.05f, 0.05f), 0.2f);
+	CreateMaterials("Desert", XMFLOAT4(1.0f, 1.0f, 1.0f, 1.0f), XMFLOAT3(0.05f, 0.05f, 0.05f), 0.2f);
+	CreateMaterials("Galaxy", XMFLOAT4(1.0f, 1.0f, 1.0f, 1.0f), XMFLOAT3(0.05f, 0.05f, 0.05f), 0.2f);
+	CreateMaterials("Title", XMFLOAT4(1.0f, 1.0f, 1.0f, 1.0f), XMFLOAT3(0.05f, 0.05f, 0.05f), 0.2f);
+}
 
-	mMaterials["Eagle"] = std::move(Eagle);
+void Game::CreateMaterials(std::string Name, XMFLOAT4 DiffuseAlbedo, XMFLOAT3 FresnelR0, float Roughness)
+{
+	auto material = std::make_unique<Material>();
+	material->Name = Name;
+	material->MatCBIndex = mCurrentMaterialCBIndex++;
+	material->DiffuseSrvHeapIndex = mCurrentDiffuseSrvHeapIndex++;
+	material->DiffuseAlbedo = DiffuseAlbedo;
+	material->FresnelR0 = FresnelR0;
+	material->Roughness = Roughness;
 
-	auto Raptor = std::make_unique<Material>();
-	Raptor->Name = "Raptor";
-	Raptor->MatCBIndex = 1;
-	Raptor->DiffuseSrvHeapIndex = 1;
-	Raptor->DiffuseAlbedo = XMFLOAT4(1.0f, 1.0f, 1.0f, 1.0f);
-	Raptor->FresnelR0 = XMFLOAT3(0.05f, 0.05f, 0.05f);
-	Raptor->Roughness = 0.2f;
+	mMaterials[Name] = std::move(material);
+}
 
-	mMaterials["Raptor"] = std::move(Raptor);
-
-	auto Desert = std::make_unique<Material>();
-	Desert->Name = "Desert";
-	Desert->MatCBIndex = 2;
-	Desert->DiffuseSrvHeapIndex = 2;
-	Desert->DiffuseAlbedo = XMFLOAT4(1.0f, 1.0f, 1.0f, 1.0f);
-	Desert->FresnelR0 = XMFLOAT3(0.05f, 0.05f, 0.05f);
-	Desert->Roughness = 0.2f;
-
-	mMaterials["Desert"] = std::move(Desert);
-
-	auto Galaxy = std::make_unique<Material>();
-	Galaxy->Name = "Galaxy";
-	Galaxy->MatCBIndex = 3;
-	Galaxy->DiffuseSrvHeapIndex = 3;
-	Galaxy->DiffuseAlbedo = XMFLOAT4(1.0f, 1.0f, 1.0f, 1.0f);
-	Galaxy->FresnelR0 = XMFLOAT3(0.05f, 0.05f, 0.05f);
-	Galaxy->Roughness = 0.2f;
-
-	mMaterials["Galaxy"] = std::move(Galaxy);
+void Game::RegisterStates()
+{
+	mStateStack.registerState<TitleState>(States::Title);
+	mStateStack.registerState<GameState>(States::Game);
 
 }
 
+void Game::ResetFrameResources()
+{
+	mFrameResources.clear();
+}
 /**
  * @brief Builds the render items.
  *
  * Creates the render items used in the scene and adds them to the appropriate lists.
  */
-void Game::BuildRenderItems()
-{
-	mWorld.buildScene();
-
-	// All the render items are opaque.
-	for (auto& e : mAllRitems)
-		mOpaqueRitems.push_back(e.get());
-}
-
-/**
- * @brief Draws the render items.
- *
- * Draws the specified render items using the given command list.
- *
- * @param cmdList The command list to use for drawing.
- * @param ritems The render items to draw.
- */
-void Game::DrawRenderItems(ID3D12GraphicsCommandList* cmdList, const std::vector<RenderItem*>& ritems)
-{
-	UINT objCBByteSize = d3dUtil::CalcConstantBufferByteSize(sizeof(ObjectConstants));
-	UINT matCBByteSize = d3dUtil::CalcConstantBufferByteSize(sizeof(MaterialConstants));
-
-	auto objectCB = mCurrFrameResource->ObjectCB->Resource();
-	auto matCB = mCurrFrameResource->MaterialCB->Resource();
-
-	// For each render item...
-	for (size_t i = 0; i < ritems.size(); ++i)
-	{
-		auto ri = ritems[i];
-
-		auto vbv = ri->Geo->VertexBufferView();
-		auto ibv = ri->Geo->IndexBufferView();
-
-		cmdList->IASetVertexBuffers(0, 1, &vbv);
-		cmdList->IASetIndexBuffer(&ibv);
-		cmdList->IASetPrimitiveTopology(ri->PrimitiveType);
-
-		//step18
-		CD3DX12_GPU_DESCRIPTOR_HANDLE tex(mSrvDescriptorHeap->GetGPUDescriptorHandleForHeapStart());
-		tex.Offset(ri->Mat->DiffuseSrvHeapIndex, mCbvSrvDescriptorSize);
-
-		D3D12_GPU_VIRTUAL_ADDRESS objCBAddress = objectCB->GetGPUVirtualAddress() + ri->ObjCBIndex * objCBByteSize;
-		D3D12_GPU_VIRTUAL_ADDRESS matCBAddress = matCB->GetGPUVirtualAddress() + ri->Mat->MatCBIndex * matCBByteSize;
-
-		//step19
-		cmdList->SetGraphicsRootDescriptorTable(0, tex);
-		cmdList->SetGraphicsRootConstantBufferView(1, objCBAddress);
-		cmdList->SetGraphicsRootConstantBufferView(3, matCBAddress);
-
-		cmdList->DrawIndexedInstanced(ri->IndexCount, 1, ri->StartIndexLocation, ri->BaseVertexLocation, 0);
-	}
-}
+//void Game::BuildRenderItems()
+//{
+//	mWorld.buildScene();
+//
+//	// All the render items are opaque.
+//	for (auto& e : mAllRitems)
+//		mOpaqueRitems.push_back(e.get());
+//}
+//
+///**
+// * @brief Draws the render items.
+// *
+// * Draws the specified render items using the given command list.
+// *
+// * @param cmdList The command list to use for drawing.
+// * @param ritems The render items to draw.
+// */
+//void Game::DrawRenderItems(ID3D12GraphicsCommandList* cmdList, const std::vector<RenderItem*>& ritems)
+//{
+//	UINT objCBByteSize = d3dUtil::CalcConstantBufferByteSize(sizeof(ObjectConstants));
+//	UINT matCBByteSize = d3dUtil::CalcConstantBufferByteSize(sizeof(MaterialConstants));
+//
+//	auto objectCB = mCurrFrameResource->ObjectCB->Resource();
+//	auto matCB = mCurrFrameResource->MaterialCB->Resource();
+//
+//	// For each render item...
+//	for (size_t i = 0; i < ritems.size(); ++i)
+//	{
+//		auto ri = ritems[i];
+//
+//		auto vbv = ri->Geo->VertexBufferView();
+//		auto ibv = ri->Geo->IndexBufferView();
+//
+//		cmdList->IASetVertexBuffers(0, 1, &vbv);
+//		cmdList->IASetIndexBuffer(&ibv);
+//		cmdList->IASetPrimitiveTopology(ri->PrimitiveType);
+//
+//		//step18
+//		CD3DX12_GPU_DESCRIPTOR_HANDLE tex(mSrvDescriptorHeap->GetGPUDescriptorHandleForHeapStart());
+//		tex.Offset(ri->Mat->DiffuseSrvHeapIndex, mCbvSrvDescriptorSize);
+//
+//		D3D12_GPU_VIRTUAL_ADDRESS objCBAddress = objectCB->GetGPUVirtualAddress() + ri->ObjCBIndex * objCBByteSize;
+//		D3D12_GPU_VIRTUAL_ADDRESS matCBAddress = matCB->GetGPUVirtualAddress() + ri->Mat->MatCBIndex * matCBByteSize;
+//
+//		//step19
+//		cmdList->SetGraphicsRootDescriptorTable(0, tex);
+//		cmdList->SetGraphicsRootConstantBufferView(1, objCBAddress);
+//		cmdList->SetGraphicsRootConstantBufferView(3, matCBAddress);
+//
+//		cmdList->DrawIndexedInstanced(ri->IndexCount, 1, ri->StartIndexLocation, ri->BaseVertexLocation, 0);
+//	}
+//}
 
 /**
  * @brief Gets the static samplers.

@@ -1,10 +1,13 @@
 #pragma once
-#include "StateStack.hpp"
 #include "../../Common/d3dApp.h"
 #include "FrameResource.h"
 #include "SceneNode.hpp"
 
 #include <memory>
+
+using Microsoft::WRL::ComPtr;
+using namespace DirectX;
+using namespace DirectX::PackedVector;
 
 namespace sf
 {
@@ -51,15 +54,21 @@ public:
 	virtual bool				HandleEvent(WPARAM btnState) = 0;
 	virtual bool				HandleRealTimeInput() = 0;
 
+
+	std::vector<std::unique_ptr<RenderItem>>& getRenderItems() { return mAllRitems; }
+	Context*					GetContext() const;
+
 protected:
 	void						RequestStackPush(States::ID stateID);
 	void						RequestStackPop();
 	void						RequestStateClear();
 
-	Context*					GetContext() const;
-
-private:
+protected:
 	StateStack*					mStack;
 	Context*					mContext;
+
+	std::unique_ptr<SceneNode> mSceneGraph;
+
+	std::vector<std::unique_ptr<RenderItem>> mAllRitems;
 };
 

@@ -1,171 +1,63 @@
 #include "World.hpp"
 #include "Player.hpp"
-/**
- * @class Game
- * @brief Main game class managing resources, rendering, and game logic
- *
- * This class inherits from D3DApp and is responsible for initializing the game,
- * managing game resources, handling input, updating game state, and rendering
- * the game world. It serves as the central hub for all game-related operations.
- */
+#include "StateStack.hpp"
+
 class Game : public D3DApp
 {
 public:
-	/**
-	 * @brief Constructor for the Game class.
-	 * @param hInstance The HINSTANCE of the application.
-	 */
+	
 	Game(HINSTANCE hInstance);
 
-	/**
-	 * @brief Deleted copy constructor.  Objects of this class cannot be copied.
-	 * @param rhs Unused.
-	 */
+
 	Game(const Game& rhs) = delete;
 	Game& operator=(const Game& rhs) = delete;
 	~Game();
 
-	/**
-	 * @brief Initializes the game. This includes D3D, Resource creation, etc.
-	 * @return true if initialization was successful, false otherwise.
-	 */
 	virtual bool Initialize()override;
 
+
 private:
-	/**
-	 * @brief Handles window resizing.
-	 */
+	
 	virtual void OnResize() override;
 
-	void ProcessInput();
+	//void ProcessInput();
+	void RegisterStates();
 
-	/**
-	 * @brief Updates the game state.
-	 * @param gt A const reference to a GameTimer object.
-	 */
 	virtual void Update(const GameTimer& gt) override;
-
-	/**
-	 * @brief Draws the game scene.
-	 * @param gt A const reference to a GameTimer object.
-	 */
 	virtual void Draw(const GameTimer& gt) override;
 
-
-	/**
-	 * @brief Handles mouse button down events.
-	 * @param btnState The state of the mouse buttons.
-	 * @param x The x-coordinate of the mouse.
-	 * @param y The y-coordinate of the mouse.
-	 */
 	virtual void OnMouseDown(WPARAM btnState, int x, int y) override;
-
-	/**
-	 * @brief Handles mouse button up events.
-	 * @param btnState The state of the mouse buttons.
-	 * @param x The x-coordinate of the mouse.
-	 * @param y The y-coordinate of the mouse.
-	 */
 	virtual void OnMouseUp(WPARAM btnState, int x, int y) override;
-
-	/**
-	 * @brief Handles mouse move events.
-	 * @param btnState The state of the mouse buttons.
-	 * @param x The x-coordinate of the mouse.
-	 * @param y The y-coordinate of the mouse.
-	 */
 	virtual void OnMouseMove(WPARAM btnState, int x, int y) override;
 
-	/**
-	 * @brief Handles keyboard input.
-	 * @param gt A const reference to a GameTimer object.
-	 */
-	//void OnKeyboardInput(const GameTimer& gt);
+	virtual void OnKeyDown(WPARAM btnState)override;
 
-	/**
-	 * @brief Updates the camera.
-	 * @param gt A const reference to a GameTimer object.
-	 */
 	void UpdateCamera(const GameTimer& gt);
-
-	/**
-	 * @brief Animates the materials.
-	 * @param gt A const reference to a GameTimer object.
-	 */
 	void AnimateMaterials(const GameTimer& gt);
-
-	/**
-	 * @brief Updates the object constant buffers
-	 * @param gt A const reference to a GameTimer object
-	 *
-	 * @note This method may be performance-critical. Consider optimizing
-	 *       or parallelizing if it becomes a bottleneck.
-	 */
 	void UpdateObjectCBs(const GameTimer& gt);
-
-	/**
-	 * @brief Updates the material constant buffers.
-	 * @param gt A const reference to a GameTimer object.
-	 */
 	void UpdateMaterialCBs(const GameTimer& gt);
-
-	/**
-	 * @brief Updates the main pass constant buffer.
-	 * @param gt A const reference to a GameTimer object.
-	 */
 	void UpdateMainPassCB(const GameTimer& gt);
 
+	void CreateTexture(std::string Name, std::wstring FileName);
+	void CreateMaterials(std::string Name, XMFLOAT4 DiffuseAlbedo, XMFLOAT3 FresnelR0, float Roughness);
+
+public:
 	/**
 	 * @brief Loads the textures.
 	 */
 	//step5
 	void LoadTextures();
-	
-	/**
-	 * @brief Builds the root signature.
-	 */
 	void BuildRootSignature();
-
-	/**
-	 * @brief Builds the descriptor heaps.
-	 */
-	//step9
 	void BuildDescriptorHeaps();
-
-	/**
-	 * @brief Builds the shaders and input layout.
-	 */
 	void BuildShadersAndInputLayout();
-
-	/**
-	 * @brief Builds the shape geometry.
-	 */
 	void BuildShapeGeometry();
-
-	/**
-	 * @brief Builds the hill geometry.
-	 */
 	void BuildHillGeometry();
-
-	/**
-	 * @brief Builds the pipeline state objects.
-	 */
 	void BuildPSOs();
-
-	/**
-	 * @brief Builds the frame resources.
-	 */
-	void BuildFrameResources();
-
-	/**
-	 * @brief Builds the materials.
-	 */
+	void BuildFrameResources(int renderItemCount);
 	void BuildMaterials();
+	//void BuildRenderItems();
 
-	/**
-	 * @brief Builds the render items.
-	 */
-	void BuildRenderItems();
+	void ResetFrameResources();
 
 	/**
 	 * @brief Draws the render items
@@ -203,6 +95,10 @@ public: // Changed from private to public
 	 * @brief The index of the current FrameResource.
 	 */
 	int mCurrFrameResourceIndex = 0;
+
+	int mCurrentMaterialCBIndex = 0;
+
+	int mCurrentDiffuseSrvHeapIndex = 0;
 
 	/**
 	 * @brief The size of a CBV/SRV descriptor on the GPU.
@@ -290,7 +186,7 @@ public: // Changed from private to public
 	 * Manages all entities, scene graph, and game-specific logic
 	 * that isn't directly related to rendering or input handling.
 	 */
-	World mWorld;
+	//World mWorld;
 
 #pragma region Step 19
 	/**
@@ -301,6 +197,8 @@ public: // Changed from private to public
 	*/
 	Player mPlayer;
 #pragma endregion
+
+	StateStack mStateStack;
 
 public:
 	/**
@@ -313,7 +211,7 @@ public:
 	 * @brief Returns the list of render items.
 	 * @return A reference to the vector of unique pointers to RenderItem objects.
 	 */
-	std::vector<std::unique_ptr<RenderItem>>& getRenderItems() { return mAllRitems; }
+	//std::vector<std::unique_ptr<RenderItem>>& getRenderItems() { return mAllRitems; }
 
 	/**
 	 * @brief Returns the list of materials.

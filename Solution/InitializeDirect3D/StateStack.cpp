@@ -1,4 +1,7 @@
 #include "StateStack.hpp"
+#include <cassert>
+#include "Game.hpp"
+
 #pragma region step 6 - A3
 StateStack::StateStack(State::Context context)
     : mStack()
@@ -37,8 +40,16 @@ void StateStack::HandleEvent(WPARAM btnState)
         if (!(*itr)->HandleEvent(btnState))
             break;
     }
+}
 
-    applyPendingChanges();
+void StateStack::handleRealTimeInput()
+{
+    //Iterate from Top to Bottom, stop as soon as HandleEvent() returns false
+    for (auto itr = mStack.rbegin(); itr != mStack.rend(); ++itr)
+    {
+        if (!(*itr)->HandleRealTimeInput())
+            break;
+    }
 }
 
 void StateStack::pushState(States::ID stateID)
@@ -56,9 +67,23 @@ void StateStack::clearStates()
     mPendingList.push_back(PendingChange(Clear));
 }
 
+
 bool StateStack::isEmpty() const
 {
     return mStack.empty();
+}
+
+State* StateStack::GetCurrentState()
+{
+    return mStack.back().get();
+}
+
+State* StateStack::GetPreviousState()
+{
+    if (mStack.size() >= 2)
+    {
+        return mStack[mStack.size() - 2].get();
+    }
 }
 
 State::StatePtr StateStack::createState(States::ID stateID)
@@ -91,8 +116,17 @@ void StateStack::applyPendingChanges()
 }
 
 StateStack::PendingChange::PendingChange(Action action, States::ID stateID)
-    : action(action),
-    stateID(stateID)
+    : action(action)
+    , stateID(stateID)
 {
 }
+
+//template <typename T>
+//void StateStack::registerState(States::ID stateID)
+//{
+//    mFactories[stateID] = [this]()
+//        {
+//            return State::StatePtr(new T(*this, mContext));
+//        };
+//}
 #pragma endregion

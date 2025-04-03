@@ -23,7 +23,7 @@ public:
 	 *
 	 * Initializes the scene graph, world bounds, and scroll speed.
 	 */
-	explicit							World(Game* window);
+	explicit							World(State* state);
 	/**
 	 * @brief Updates the world.
 	 * @param gt const reference to GameTimer object.
@@ -74,7 +74,7 @@ private:
 
 
 private:
-	Game*								mGame; ///< Pointer to the Game object.
+	State*								mState; ///< Pointer to the Game object.
 
 	SceneNode*							mSceneGraph; ///< Root node of the scene graph.
 	std::array<SceneNode*, LayerCount>	mSceneLayers; ///< Array of scene layers.

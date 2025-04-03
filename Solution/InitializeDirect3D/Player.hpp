@@ -27,7 +27,7 @@ public:
 	 */
 #pragma region Step 1 - A3
 	//void				HandleEvent(CommandQueue& commands);
-	void				HandleEvent(CommandQueue& commands, WPARAM btnState);
+	void				HandleEvent(CommandQueue& commands/*, WPARAM btnState*/);
 #pragma endregion
 	/**
 	* @brief Handles real-time input (e.g., continuous key holds)

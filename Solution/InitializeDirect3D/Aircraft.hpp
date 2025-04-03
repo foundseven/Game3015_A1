@@ -31,7 +31,7 @@ public:
 	 *
 	 * @warning The Game object must outlive the Aircraft instance
 	 */
-	Aircraft(Type type, Game* game);
+	Aircraft(Type type, State* state);
 
 #pragma region Step 2
 	/**

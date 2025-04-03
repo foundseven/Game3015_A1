@@ -6,10 +6,12 @@ class TitleState : public State
 {
 public:
 	TitleState(StateStack* stack, Context* context);
+    virtual ~TitleState();
+
     virtual void                Draw();
-    virtual bool                Update(const GameTimer& gt);
-    virtual bool                HandleEvent(WPARAM btnState);
-    virtual bool                HandleRealTimeInput();
+    virtual bool                Update(const GameTimer& gt)override;
+    virtual bool                HandleEvent(WPARAM btnState)override;
+    virtual bool                HandleRealTimeInput()override;
 };
 
 #pragma endregion

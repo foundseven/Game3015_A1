@@ -84,7 +84,7 @@ Player::Player()
  * @brief Handles non-real-time events
  * @param commands Reference to the CommandQueue to push commands to
  */
-void Player::HandleEvent(CommandQueue& commands, WPARAM btnState)
+void Player::HandleEvent(CommandQueue& commands/*, WPARAM btnState*/)
 {
     for (auto& pair : mKeyBinding)
     {

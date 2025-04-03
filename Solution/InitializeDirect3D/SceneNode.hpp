@@ -50,8 +50,8 @@ struct RenderItem
 	int BaseVertexLocation = 0; ///< Base vertex location
 };
 
-class Game;
-
+//class Game;
+class State;
 #pragma region Step 7
 struct Command;
 #pragma endregion
@@ -69,7 +69,7 @@ public:
 	 * @brief Constructor for SceneNode.
 	 * @param game Pointer to the Game object.
 	*/
-	SceneNode(Game* game);
+	SceneNode(State* state);
 
 	/**
 	 * @brief Attaches a child node to this node.
@@ -189,7 +189,7 @@ private:
 	void					buildChildren();
 
 protected:
-	Game*					game; ///< Pointer to the Game object
+	State*					mState; ///< Pointer to the Game object
 	RenderItem*				renderer; ///< Pointer to the RenderItem for this node
 private:
 	XMFLOAT3				mWorldPosition; ///< World position of this node

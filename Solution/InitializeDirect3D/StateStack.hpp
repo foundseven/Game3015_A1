@@ -1,11 +1,12 @@
 #pragma once
 #include "State.hpp"
-#include "../../Common/d3dApp.h"
 
 #include <vector>
 #include <utility>
 #include <functional>
 #include <map>
+
+class Game;
 
 class StateStack
 {
@@ -19,18 +20,23 @@ public:
 
 public:
     explicit                    StateStack(State::Context context);
+
     template <typename T>
     void                        registerState(States::ID stateID);
 
     void                        Update(const GameTimer& timer);
     void                        Draw();
     void                        HandleEvent(WPARAM btnState);
+    void                        handleRealTimeInput();
 
     void                        pushState(States::ID stateID);
     void                        popState();
     void                        clearStates();
 
-    bool                        isEmpty() const { return mStack.empty(); }
+    bool                        isEmpty() const;
+
+    State*                      GetCurrentState();
+    State*                      GetPreviousState();
 
 private:
     State::StatePtr             createState(States::ID stateID);
@@ -52,3 +58,11 @@ private:
     std::map<States::ID, std::function<State::StatePtr()>> mFactories;
 };
 
+template <typename T>
+void StateStack::registerState(States::ID stateID)
+{
+    mFactories[stateID] = [this]()
+        {
+            return State::StatePtr(new T(this, &mContext));
+        };
+}

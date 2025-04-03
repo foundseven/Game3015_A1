@@ -1,24 +1,46 @@
 #include "TitleState.hpp"
 #include "SpriteNode.h"
 #include "Game.hpp"
+#include <windows.h>
 
 TitleState::TitleState(StateStack* stack, Context* context)
     : State(stack, context)
 {
-    //render items here
-    //background
+    if (!mSceneGraph)
+    {
+        OutputDebugStringA("Error: mSceneGraph is nullptr!\n");
+    }
+    else
+    {
+        OutputDebugStringA("mSceneGraph initialized.\n");
+    }
+    mAllRitems.clear();
+    mContext->game->ResetFrameResources();
+    mContext->game->BuildMaterials();
 
-    //text
+    std::unique_ptr<SpriteNode> backgroundSprite = std::make_unique<SpriteNode>(this);
+    backgroundSprite->SetDrawName("Galaxy", "boxGeo", "box");
+    backgroundSprite->setScale(10.0, 1.0, 7.0);
+    backgroundSprite->setPosition(0, 0, 0);
+    mSceneGraph->attachChild(std::move(backgroundSprite));
+
+    mSceneGraph->build();
+    mContext->game->BuildFrameResources(mAllRitems.size());
+}
+
+TitleState::~TitleState()
+{
 }
 
 void TitleState::Draw()
 {
-    //mSceneGraph->draw();
+    OutputDebugStringA("Drawing title frame...\n");
+    mSceneGraph->draw();
 }
 
 bool TitleState::Update(const GameTimer& gt)
 {
-    //mSceneGraph->update(gt);
+    mSceneGraph->update(gt);
 
     return true;
 }
@@ -27,7 +49,9 @@ bool TitleState::HandleEvent(WPARAM btnState)
 {
     // If any key is pressed, trigger the next screen
     RequestStackPop();
-    //RequestStackPush(States::Menu);
+    OutputDebugStringA("Moving to game...\n");
+
+    RequestStackPush(States::Game);
 
     return true;
 }

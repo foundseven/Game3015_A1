@@ -5,9 +5,9 @@
  * @brief Constructor for World.
  * @param game Pointer to the Game object.
  */
-World::World(Game* game)
-	: mSceneGraph(new SceneNode(game))
-	, mGame(game)
+World::World(State* state)
+	: mSceneGraph(new SceneNode(state))
+	, mState(state)
 	, mPlayerAircraft(nullptr)
 	, mBackground(nullptr)
 	, mWorldBounds(-3.25f, 3.25f, -1.5f, 2.5f) //Left, Right, Down, Up - this can be changed depending on where you want the player to be
@@ -41,13 +41,6 @@ void World::update(const GameTimer& gt)
 	mSceneGraph->update(gt);
 	PlayerVelocity();
 
-	//todo: should add some logic in here
-	//if (mPlayerAircraft->getWorldPosition().x < mWorldBounds.x
-	//	|| mPlayerAircraft->getWorldPosition().x > mWorldBounds.y)
-	//{
-	//	//keep the player in the bounds of the screen
-	//	mPlayerAircraft->setVelocity(XMFLOAT3(mPlayerAircraft->getVelocity().x * -1.0f, 0, 0));
-	//}
 #pragma endregion
 
 }
@@ -71,18 +64,15 @@ void World::draw()
 void World::buildScene()
 {
 	// Create and set up player aircraft
-	std::unique_ptr<Aircraft> player(new Aircraft(Aircraft::Eagle, mGame));
+	std::unique_ptr<Aircraft> player(new Aircraft(Aircraft::Eagle, mState));
 	mPlayerAircraft = player.get();
 	mPlayerAircraft->setPosition(0, 0.1, 0.0);
 	mPlayerAircraft->setScale(0.5, 0.5, 0.5);
-	//enable this
-	//to do: set this so the world is moving and not the player?
-	//yeah input for assignment 2 will later over rule this i am sure
 	mPlayerAircraft->setVelocity(mScrollSpeed, 0.0, 0.0);
 	mSceneGraph->attachChild(std::move(player));
 
 	// Create and set up first enemy aircraft
-	std::unique_ptr<Aircraft> enemy1(new Aircraft(Aircraft::Raptor, mGame));
+	std::unique_ptr<Aircraft> enemy1(new Aircraft(Aircraft::Raptor, mState));
 	auto raptor = enemy1.get();
 	raptor->setPosition(0.5, 0, -1);
 	raptor->setScale(1.0, 1.0, 1.0);
@@ -90,7 +80,7 @@ void World::buildScene()
 	mPlayerAircraft->attachChild(std::move(enemy1));
 
 	// Create and set up second enemy aircraft
-	std::unique_ptr<Aircraft> enemy2(new Aircraft(Aircraft::Raptor, mGame));
+	std::unique_ptr<Aircraft> enemy2(new Aircraft(Aircraft::Raptor, mState));
 	auto raptor2 = enemy2.get();
 	//raptor2->setPosition(-0.5, 0, 1);
 	raptor2->setPosition(-0.5, 0, -1);
@@ -100,7 +90,8 @@ void World::buildScene()
 	mPlayerAircraft->attachChild(std::move(enemy2));
 
 	// Create and set up background sprite
-	std::unique_ptr<SpriteNode> backgroundSprite(new SpriteNode(mGame));
+	std::unique_ptr<SpriteNode> backgroundSprite(new SpriteNode(mState));
+	backgroundSprite->SetDrawName("Galaxy", "boxGeo", "box");
 	mBackground = backgroundSprite.get();
 	//mBackground->setPosition(mWorldBounds.left, mWorldBounds.top);
 	mBackground->setPosition(0, 0, 0.0);
