@@ -1,4 +1,5 @@
 #include "Game.hpp"
+#include "StateStack.hpp"
 
 const int gNumFrameResources = 3;
 

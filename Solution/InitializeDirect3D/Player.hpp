@@ -11,6 +11,8 @@
  * game commands that are pushed into a CommandQueue. It supports both
  * event-driven and real-time input handling.
  */
+class CommandQueue;
+
 class Player
 {
 public:
@@ -23,8 +25,10 @@ public:
 	 * @brief Handles event-driven input (e.g., key presses/releases)
 	 * @param commands Reference to the CommandQueue for storing generated commands
 	 */
-	void				HandleEvent(CommandQueue& commands);
-
+#pragma region Step 1 - A3
+	//void				HandleEvent(CommandQueue& commands);
+	void				HandleEvent(CommandQueue& commands, WPARAM btnState);
+#pragma endregion
 	/**
 	* @brief Handles real-time input (e.g., continuous key holds)
 	* @param commands Reference to the CommandQueue for storing generated commands

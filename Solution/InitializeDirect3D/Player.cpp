@@ -7,7 +7,11 @@
 #include <string>
 #include <algorithm>
 #include <iostream>
+#pragma region Step 2 - A3
 
+using Microsoft::WRL::ComPtr;
+using namespace DirectX;
+using namespace DirectX::PackedVector;
 /**
  * @struct AircraftMover
  * @brief Functor for aircraft movement
@@ -80,7 +84,7 @@ Player::Player()
  * @brief Handles non-real-time events
  * @param commands Reference to the CommandQueue to push commands to
  */
-void Player::HandleEvent(CommandQueue& commands)
+void Player::HandleEvent(CommandQueue& commands, WPARAM btnState)
 {
     for (auto& pair : mKeyBinding)
     {
@@ -143,7 +147,9 @@ char Player::getAssignedKey(Action action) const
             return pair.first;
     }
 
-    return 0x00;
+   // return 0x00;
+    return 0;
+
 }
 
 /**
@@ -179,4 +185,5 @@ bool Player::isRealTimeAction(Action action)
 
     }
 }
+#pragma endregion
 #pragma endregion
