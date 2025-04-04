@@ -30,6 +30,14 @@ MainMenuState::MainMenuState(StateStack* stack, Context* context)
     MMTextSprite->setPosition(2, 1, -1);
     mSceneGraph->attachChild(std::move(MMTextSprite));
 
+    std::unique_ptr<SpriteNode> ShipMMSprite = std::make_unique<SpriteNode>(this);
+    ShipMMSprite->SetDrawName("ShipMM", "boxGeo", "box");
+    ShipMMSprite->setScale(3.0, 3.0, 3.0);
+    //ShipMMSprite->setWorldRotation(0.0, 20.0, 0.0);
+    ShipMMSprite->setPosition(-2, 1, 0);
+    mShipMMSprite = ShipMMSprite.get();
+    mSceneGraph->attachChild(std::move(ShipMMSprite));
+
     //mContext->game->CreateText(L"TESTING");
     mSceneGraph->build();
     mContext->game->BuildFrameResources(mAllRitems.size());
@@ -49,7 +57,14 @@ void MainMenuState::Draw()
 bool MainMenuState::Update(const GameTimer& gt)
 {
     mSceneGraph->update(gt);
+    if (mShipMMSprite)
+    {
+        mWiggleAngle += gt.DeltaTime() * XM_2PI * mWiggleSpeed;
+        float angle = sinf(mWiggleAngle) * mWiggleAmplitude; // degrees
 
+        // Convert to radians for rotation method
+        mShipMMSprite->setWorldRotation(0.0f, XMConvertToRadians(angle), 0.0f);
+    }
     return true;
 }
 

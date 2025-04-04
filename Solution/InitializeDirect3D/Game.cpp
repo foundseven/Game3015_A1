@@ -641,6 +641,8 @@ void Game::LoadTextures()
 	CreateTexture("PlanetTex2", L"../../Textures/planet_Two.dds");
 	//star image
 	CreateTexture("StarTex", L"../../Textures/star_One.dds");
+	//ship MM image
+	CreateTexture("ShipMM", L"../../Textures/spaceShipMM.dds");
 }
 
 /**
@@ -704,7 +706,7 @@ void Game::BuildDescriptorHeaps()
 	// Create the SRV heap.
 	//
 	D3D12_DESCRIPTOR_HEAP_DESC srvHeapDesc = {};
-	srvHeapDesc.NumDescriptors = 9;
+	srvHeapDesc.NumDescriptors = 10;
 	srvHeapDesc.Type = D3D12_DESCRIPTOR_HEAP_TYPE_CBV_SRV_UAV;
 	srvHeapDesc.Flags = D3D12_DESCRIPTOR_HEAP_FLAG_SHADER_VISIBLE;
 	ThrowIfFailed(md3dDevice->CreateDescriptorHeap(&srvHeapDesc, IID_PPV_ARGS(&mSrvDescriptorHeap)));
@@ -723,6 +725,7 @@ void Game::BuildDescriptorHeaps()
 	auto PlanetTex = mTextures["PlanetTex"]->Resource;
 	auto PlanetTex2 = mTextures["PlanetTex2"]->Resource;
 	auto StarTex = mTextures["StarTex"]->Resource;
+	auto ShipMMTex = mTextures["ShipMM"]->Resource;
 
 	D3D12_SHADER_RESOURCE_VIEW_DESC srvDesc = {};
 
@@ -786,6 +789,11 @@ void Game::BuildDescriptorHeaps()
 	hDescriptor.Offset(1, mCbvSrvDescriptorSize);
 	srvDesc.Format = StarTex->GetDesc().Format;
 	md3dDevice->CreateShaderResourceView(StarTex.Get(), &srvDesc, hDescriptor);
+	
+	//Star Descriptor
+	hDescriptor.Offset(1, mCbvSrvDescriptorSize);
+	srvDesc.Format = ShipMMTex->GetDesc().Format;
+	md3dDevice->CreateShaderResourceView(ShipMMTex.Get(), &srvDesc, hDescriptor);
 }
 
 
@@ -992,6 +1000,8 @@ void Game::BuildMaterials()
 	CreateMaterials("PlanetOne", XMFLOAT4(1.0f, 1.0f, 1.0f, 1.0f), XMFLOAT3(0.05f, 0.05f, 0.05f), 0.2f);
 	CreateMaterials("PlanetTwo", XMFLOAT4(1.0f, 1.0f, 1.0f, 1.0f), XMFLOAT3(0.05f, 0.05f, 0.05f), 0.2f);
 	CreateMaterials("Star", XMFLOAT4(1.0f, 1.0f, 1.0f, 1.0f), XMFLOAT3(0.05f, 0.05f, 0.05f), 0.2f);
+	CreateMaterials("ShipMM", XMFLOAT4(1.0f, 1.0f, 1.0f, 1.0f), XMFLOAT3(0.05f, 0.05f, 0.05f), 0.2f);
+
 }
 
 void Game::CreateMaterials(std::string Name, XMFLOAT4 DiffuseAlbedo, XMFLOAT3 FresnelR0, float Roughness)
