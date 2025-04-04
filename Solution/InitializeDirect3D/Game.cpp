@@ -3,6 +3,7 @@
 #include "TitleState.hpp"
 #include "GameState.hpp"
 #include "MainMenuState.hpp"
+#include "PauseState.hpp"
 
 
 const int gNumFrameResources = 3;
@@ -1022,12 +1023,33 @@ void Game::RegisterStates()
 	mStateStack.registerState<TitleState>(States::Title);
 	mStateStack.registerState<MainMenuState>(States::Menu);
 	mStateStack.registerState<GameState>(States::Game);
+	mStateStack.registerState<PauseState>(States::Pause);
+}
 
+void Game::WaitForGPU()
+{
+	// Schedule a Signal command in the queue
+	ThrowIfFailed(mCommandQueue->Signal(mFence.Get(), mCurrentFence));
+
+	// Wait until the GPU has completed commands up to this fence point.
+	if (mFence->GetCompletedValue() < mCurrentFence)
+	{
+		HANDLE eventHandle = CreateEventEx(nullptr, FALSE, FALSE, EVENT_ALL_ACCESS);
+
+		ThrowIfFailed(mFence->SetEventOnCompletion(mCurrentFence, eventHandle));
+		WaitForSingleObject(eventHandle, INFINITE);
+		CloseHandle(eventHandle);
+	}
+
+	mCurrentFence++;
 }
 
 void Game::ResetFrameResources()
 {
+	WaitForGPU();
+
 	mFrameResources.clear();
+	
 }
 /**
  * @brief Builds the render items.

@@ -33,7 +33,6 @@ MainMenuState::MainMenuState(StateStack* stack, Context* context)
     std::unique_ptr<SpriteNode> ShipMMSprite = std::make_unique<SpriteNode>(this);
     ShipMMSprite->SetDrawName("ShipMM", "boxGeo", "box");
     ShipMMSprite->setScale(3.0, 3.0, 3.0);
-    //ShipMMSprite->setWorldRotation(0.0, 20.0, 0.0);
     ShipMMSprite->setPosition(-2, 1, 0);
     mShipMMSprite = ShipMMSprite.get();
     mSceneGraph->attachChild(std::move(ShipMMSprite));

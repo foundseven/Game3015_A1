@@ -5,10 +5,6 @@
 
 #include <memory>
 
-using Microsoft::WRL::ComPtr;
-using namespace DirectX;
-using namespace DirectX::PackedVector;
-
 namespace sf
 {
 	class RenderWindow;
@@ -54,6 +50,7 @@ public:
 	virtual bool				HandleEvent(WPARAM btnState) = 0;
 	virtual bool				HandleRealTimeInput() = 0;
 
+	virtual bool				IsTransparent() const { return false; }
 
 	std::vector<std::unique_ptr<RenderItem>>& getRenderItems() { return mAllRitems; }
 	Context*					GetContext() const;

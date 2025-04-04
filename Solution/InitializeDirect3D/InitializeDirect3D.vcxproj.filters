@@ -93,6 +93,9 @@
     <ClCompile Include="Text.cpp">
       <Filter>GameEngine</Filter>
     </ClCompile>
+    <ClCompile Include="PauseState.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="..\..\Common\UploadBuffer.h">
@@ -172,6 +175,9 @@
     </ClInclude>
     <ClInclude Include="Text.h">
       <Filter>GameEngine</Filter>
+    </ClInclude>
+    <ClInclude Include="PauseState.hpp">
+      <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>

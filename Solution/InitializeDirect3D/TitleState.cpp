@@ -83,15 +83,10 @@ bool TitleState::Update(const GameTimer& gt)
                 spriteNode->SetVisible(mIsVisible);
                 break;  // Stop once the "Title" node is found and updated
             }
-            else
-            {
-                OutputDebugStringA("Could not find title...\n");
-            }
         }
         else
         {
             OutputDebugStringA("Could not cast...\n");
-
         }
     }
     return true;

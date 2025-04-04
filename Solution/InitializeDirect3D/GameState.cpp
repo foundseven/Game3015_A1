@@ -40,8 +40,8 @@ bool GameState::HandleEvent(WPARAM btnState)
 {
 	if (d3dUtil::IsKeyDown('P'))
 	{
-		//RequestStackPop();
-		//RequestStackPush(States::Pause);
+		RequestStackPop();
+		RequestStackPush(States::Pause);
 	}
 
 	return true;

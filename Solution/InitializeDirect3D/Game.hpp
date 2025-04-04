@@ -60,6 +60,8 @@ public:
 	//void BuildRenderItems();
 
 	void ResetFrameResources();
+
+	void WaitForGPU();
 	//bool CreateText(const wchar_t* text);
 	//void DrawTheText();
 
