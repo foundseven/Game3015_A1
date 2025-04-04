@@ -1,6 +1,9 @@
 #include "World.hpp"
 #include "Player.hpp"
 #include "StateStack.hpp"
+#include <dwrite.h>
+#include <d2d1.h>
+
 
 class Game : public D3DApp
 {
@@ -8,13 +11,11 @@ public:
 	
 	Game(HINSTANCE hInstance);
 
-
 	Game(const Game& rhs) = delete;
 	Game& operator=(const Game& rhs) = delete;
 	~Game();
 
 	virtual bool Initialize()override;
-
 
 private:
 	
@@ -39,7 +40,8 @@ private:
 	void UpdateMainPassCB(const GameTimer& gt);
 
 	void CreateTexture(std::string Name, std::wstring FileName);
-	void CreateMaterials(std::string Name, XMFLOAT4 DiffuseAlbedo, XMFLOAT3 FresnelR0, float Roughness);
+	void CreateMaterials(std::string Name, XMFLOAT4 DiffuseAlbedo, XMFLOAT3 FresnelR0, float Roughness);	
+
 
 public:
 	/**
@@ -58,7 +60,8 @@ public:
 	//void BuildRenderItems();
 
 	void ResetFrameResources();
-
+	bool CreateText(const wchar_t* text);
+	void DrawTheText();
 	/**
 	 * @brief Draws the render items
 	 * @param cmdList The command list to draw with
@@ -224,4 +227,20 @@ public:
 	 * @return A reference to the unordered map of mesh geometries.
 	 */
 	std::unordered_map<std::string, std::unique_ptr<MeshGeometry>>& getGeometries() { return mGeometries; }
+
+	//text rendering attempt
+	private:
+
+		// Direct2D
+		ID2D1Factory* pD2DFactory_;
+		ID2D1HwndRenderTarget* pRT_;
+		ID2D1SolidColorBrush* pBlackBrush_;
+
+		// DirectWrite
+		IDWriteFactory* pDWriteFactory_;
+		IDWriteTextFormat* pTextFormat_;
+
+		const wchar_t* wszText_;
+		UINT32 cTextLength_;
+
 };

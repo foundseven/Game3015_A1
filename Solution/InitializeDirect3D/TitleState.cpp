@@ -3,6 +3,7 @@
 #include "Game.hpp"
 #include <windows.h>
 
+
 TitleState::TitleState(StateStack* stack, Context* context)
     : State(stack, context)
 {
@@ -24,6 +25,7 @@ TitleState::TitleState(StateStack* stack, Context* context)
     backgroundSprite->setPosition(0, 0, 0);
     mSceneGraph->attachChild(std::move(backgroundSprite));
 
+    mContext->game->CreateText(L"TESTING");
     mSceneGraph->build();
     mContext->game->BuildFrameResources(mAllRitems.size());
 }
@@ -36,6 +38,8 @@ void TitleState::Draw()
 {
     OutputDebugStringA("Drawing title frame...\n");
     mSceneGraph->draw();
+
+    mContext->game->DrawTheText();
 }
 
 bool TitleState::Update(const GameTimer& gt)
@@ -60,3 +64,4 @@ bool TitleState::HandleRealTimeInput()
 {
     return true;
 }
+

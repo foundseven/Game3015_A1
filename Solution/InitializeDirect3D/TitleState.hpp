@@ -12,6 +12,7 @@ public:
     virtual bool                Update(const GameTimer& gt)override;
     virtual bool                HandleEvent(WPARAM btnState)override;
     virtual bool                HandleRealTimeInput()override;
+
 };
 
 #pragma endregion

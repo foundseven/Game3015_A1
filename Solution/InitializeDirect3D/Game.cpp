@@ -62,9 +62,9 @@ bool Game::Initialize()
 	BuildShapeGeometry();
 	BuildHillGeometry();
 	BuildMaterials();
-
 	RegisterStates();
 	mStateStack.pushState(States::Title);
+	//CreateText();
 
 	BuildPSOs();
 
@@ -205,7 +205,6 @@ void Game::Draw(const GameTimer& gt)
 	auto passCB = mCurrFrameResource->PassCB->Resource();
 	mCommandList->SetGraphicsRootConstantBufferView(2, passCB->GetGPUVirtualAddress());
 
-
 	mStateStack.Draw();
 
 	// Transition the back buffer to the present state
@@ -233,15 +232,6 @@ void Game::Draw(const GameTimer& gt)
 	mCommandQueue->Signal(mFence.Get(), mCurrentFence);
 }
 
-/**
- * @brief Handles mouse button down events.
- *
- * Stores the current mouse position and captures the mouse input.
- *
- * @param btnState The state of the mouse buttons.
- * @param x The x-coordinate of the mouse.
- * @param y The y-coordinate of the mouse.
- */
 void Game::OnMouseDown(WPARAM btnState, int x, int y)
 {
 	mLastMousePos.x = x;
@@ -250,29 +240,11 @@ void Game::OnMouseDown(WPARAM btnState, int x, int y)
 	SetCapture(mhMainWnd);
 }
 
-/**
- * @brief Handles mouse button up events.
- *
- * Releases the mouse capture.
- *
- * @param btnState The state of the mouse buttons.
- * @param x The x-coordinate of the mouse.
- * @param y The y-coordinate of the mouse.
- */
 void Game::OnMouseUp(WPARAM btnState, int x, int y)
 {
 	ReleaseCapture();
 }
 
-/**
- * @brief Handles mouse move events.
- *
- * Updates the camera's orientation based on mouse movement.
- *
- * @param btnState The state of the mouse buttons.
- * @param x The x-coordinate of the mouse.
- * @param y The y-coordinate of the mouse.
- */
 void Game::OnMouseMove(WPARAM btnState, int x, int y)
 {
 	if ((btnState & MK_LBUTTON) != 0)
@@ -293,6 +265,111 @@ void Game::OnMouseMove(WPARAM btnState, int x, int y)
 void Game::OnKeyDown(WPARAM btnState)
 {
 	mStateStack.HandleEvent(btnState);
+}
+
+bool Game::CreateText(const wchar_t* text)
+{
+	// Create Direct2D factory
+	HRESULT hr = D2D1CreateFactory(D2D1_FACTORY_TYPE_SINGLE_THREADED, &pD2DFactory_);
+	if (FAILED(hr))
+	{
+		MessageBox(0, L"Failed to create Direct2D factory", L"Error", MB_OK);
+		return false;
+	}
+
+	// Create DirectWrite factory
+	hr = DWriteCreateFactory(DWRITE_FACTORY_TYPE_SHARED, __uuidof(IDWriteFactory), reinterpret_cast<IUnknown**>(&pDWriteFactory_));
+	if (FAILED(hr))
+	{
+		MessageBox(0, L"Failed to create DirectWrite factory", L"Error", MB_OK);
+		return false;
+	}
+
+	wszText_ = text;
+	cTextLength_ = (UINT32)wcslen(wszText_);
+
+
+	// Create text format
+	hr = pDWriteFactory_->CreateTextFormat(
+		L"Gabriola",                    // Font family
+		NULL,                         // No custom font collection
+		DWRITE_FONT_WEIGHT_REGULAR,
+		DWRITE_FONT_STYLE_NORMAL,
+		DWRITE_FONT_STRETCH_NORMAL,
+		72.0f,                           // Font size
+		L"en-us",                        // Locale
+		&pTextFormat_);                  // Output text format
+
+	if (FAILED(hr))
+	{
+		MessageBox(0, L"Failed to create text format", L"Error", MB_OK);
+		return false;
+	}
+	if (SUCCEEDED(hr))
+	{
+		hr = pTextFormat_->SetTextAlignment(DWRITE_TEXT_ALIGNMENT_CENTER);
+	}
+
+	if (SUCCEEDED(hr))
+	{
+		hr = pTextFormat_->SetParagraphAlignment(DWRITE_PARAGRAPH_ALIGNMENT_CENTER);
+	}
+
+	// Center align text horizontally and vertically
+	//pTextFormat_->SetTextAlignment(DWRITE_TEXT_ALIGNMENT_CENTER);
+	//pTextFormat_->SetParagraphAlignment(DWRITE_PARAGRAPH_ALIGNMENT_CENTER);
+
+	// Create Direct2D render target
+	hr = pD2DFactory_->CreateHwndRenderTarget(
+		D2D1::RenderTargetProperties(),
+		D2D1::HwndRenderTargetProperties(mhMainWnd, D2D1::SizeU(mClientWidth, mClientHeight)),
+		&pRT_);
+
+	if (FAILED(hr))
+	{
+		MessageBox(0, L"Failed to create Direct2D render target", L"Error", MB_OK);
+		return false;
+	}
+
+	// Create a brush to draw the text (Black brush)
+	hr = pRT_->CreateSolidColorBrush(D2D1::ColorF(D2D1::ColorF::Black), &pBlackBrush_);
+	if (FAILED(hr))
+	{
+		MessageBox(0, L"Failed to create Direct2D solid color brush", L"Error", MB_OK);
+		return false;
+	}
+
+	return true;
+}
+
+void Game::DrawTheText()
+{
+	OutputDebugStringA("Drawing text...\n");
+	if (!pRT_) return;
+
+	// Direct2D and DirectWrite rendering
+	// Prepare Direct2D rendering context
+	pRT_->BeginDraw();
+	D2D1_RECT_F layoutRect = D2D1::RectF(100, 100, 600, 400);
+
+	// Clear the render target with the background color.
+	//pRT_->Clear(D2D1::ColorF(D2D1::ColorF::AliceBlue));
+
+	// Draw the text using DirectWrite
+	pRT_->DrawText(
+		wszText_,                   // Text to display
+		cTextLength_,               // Length of text
+		pTextFormat_,               // Text format (font, size, etc.)
+		D2D1::RectF(100.0f, 100.0f, 500.0f, 200.0f),  // Position of the text
+		pBlackBrush_               // Brush to draw with
+	);
+
+	// Finish the drawing
+	HRESULT hr = pRT_->EndDraw();
+	if (FAILED(hr))
+	{
+		MessageBox(0, L"Direct2D rendering failed", L"Error", MB_OK);
+	}
 }
 
 #pragma region Keyboard Input
