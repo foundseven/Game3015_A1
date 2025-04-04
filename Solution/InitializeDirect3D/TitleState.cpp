@@ -6,6 +6,8 @@
 
 TitleState::TitleState(StateStack* stack, Context* context)
     : State(stack, context)
+    , mFlashTimer(0.0f)
+    , mIsVisible(true)
 {
     if (!mSceneGraph)
     {
@@ -61,6 +63,37 @@ bool TitleState::Update(const GameTimer& gt)
 {
     mSceneGraph->update(gt);
 
+    // Increment the flash timer by the elapsed time
+    mFlashTimer += gt.DeltaTime();
+
+    // If 0.5 seconds have passed, toggle the visibility of the title text sprite
+    if (mFlashTimer >= 0.5f)
+    {
+        mFlashTimer = 0.0f;  // Reset the timer
+        mIsVisible = !mIsVisible;  // Toggle visibility
+    }
+
+    for (auto& node : mSceneGraph->getChildren())
+    {
+        if (auto spriteNode = dynamic_cast<SpriteNode*>(node.get()))
+        {
+            if (spriteNode->GetDrawName() == "Title")
+            {
+                // Set visibility for the sprite node
+                spriteNode->SetVisible(mIsVisible);
+                break;  // Stop once the "Title" node is found and updated
+            }
+            else
+            {
+                OutputDebugStringA("Could not find title...\n");
+            }
+        }
+        else
+        {
+            OutputDebugStringA("Could not cast...\n");
+
+        }
+    }
     return true;
 }
 

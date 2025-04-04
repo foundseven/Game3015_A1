@@ -18,8 +18,10 @@ public:
 	 * @brief Pointer to the RenderItem for this sprite node.
 	 */
 	RenderItem* mSpriteNodeRitem;
-	void SetDrawName(std::string Mat, std::string Geo, std::string DrawName);
 
+	void SetDrawName(std::string Mat, std::string Geo, std::string DrawName);
+	std::string GetDrawName();
+	void SetVisible(bool visible);
 private:
 	/**
 	 * @brief Draws the current sprite node.
@@ -33,4 +35,5 @@ private:
 	std::string mMat;
 	std::string mGeo;
 	std::string mDrawName;
+	bool mIsVisible;
 };

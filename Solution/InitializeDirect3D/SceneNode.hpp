@@ -82,6 +82,10 @@ public:
 	 * @return Unique pointer to the detached node.
 	 */
 	Ptr						detachChild(const SceneNode& node);
+
+	const std::vector<Ptr>& getChildren() const;
+
+
 	/**
 	 * @brief Updates this node and its children.
 	 * @param gt GameTimer object.

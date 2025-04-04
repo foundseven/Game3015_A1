@@ -1,6 +1,8 @@
 #pragma once
 #pragma region step 7
 #include "State.hpp"
+#include "../../Common/GameTimer.h"
+#include <memory>
 
 class TitleState : public State
 {
@@ -13,6 +15,9 @@ public:
     virtual bool                HandleEvent(WPARAM btnState)override;
     virtual bool                HandleRealTimeInput()override;
 
+private:
+    float                       mFlashTimer;
+    bool                        mIsVisible;
 };
 
 #pragma endregion

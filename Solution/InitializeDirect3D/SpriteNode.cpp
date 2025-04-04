@@ -5,7 +5,7 @@
  * @brief Constructor for SpriteNode.
  * @param game Pointer to the Game object.
  */
-SpriteNode::SpriteNode(State* state) : Entity(state)
+SpriteNode::SpriteNode(State* state) : Entity(state), mIsVisible(true)
 {
 }
 
@@ -17,6 +17,8 @@ SpriteNode::SpriteNode(State* state) : Entity(state)
  */
 void SpriteNode::drawCurrent() const
 {
+	if (!mIsVisible) return;
+
 	UINT objCBByteSize = d3dUtil::CalcConstantBufferByteSize(sizeof(ObjectConstants));
 	UINT matCBByteSize = d3dUtil::CalcConstantBufferByteSize(sizeof(MaterialConstants));
 
@@ -78,4 +80,14 @@ void SpriteNode::SetDrawName(std::string Mat, std::string Geo, std::string DrawN
 	mMat = Mat;
 	mGeo = Geo;
 	mDrawName = DrawName;
+}
+
+std::string SpriteNode::GetDrawName()
+{
+	return mMat;
+}
+
+void SpriteNode::SetVisible(bool visible)
+{
+	mIsVisible = visible;  // Set the visibility flag
 }

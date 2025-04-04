@@ -1,3 +1,4 @@
-﻿  MainMenuState.cpp
-D:\School\Game Engine Development 2\Game3015_A1\Solution\InitializeDirect3D\MainMenuState.cpp(35,56): warning C4267: 'argument': conversion from 'size_t' to 'int', possible loss of data
+﻿  TitleState.cpp
+D:\School\Game Engine Development 2\Game3015_A1\Solution\InitializeDirect3D\TitleState.cpp(45,29): warning C4305: 'argument': truncation from 'double' to 'float'
+D:\School\Game Engine Development 2\Game3015_A1\Solution\InitializeDirect3D\TitleState.cpp(49,56): warning C4267: 'argument': conversion from 'size_t' to 'int', possible loss of data
   InitializeDirect3D.vcxproj -> D:\School\Game Engine Development 2\Game3015_A1\Solution\x64\Debug\InitializeDirect3D.exe

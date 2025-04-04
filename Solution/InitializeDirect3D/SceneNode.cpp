@@ -41,6 +41,11 @@ SceneNode::Ptr SceneNode::detachChild(const SceneNode& node)
 	return result;
 }
 
+const std::vector<SceneNode::Ptr>& SceneNode::getChildren() const
+{
+	return mChildren;
+}
+
 /**
  * @brief Updates this node and its children.
  * @param gt GameTimer object.
