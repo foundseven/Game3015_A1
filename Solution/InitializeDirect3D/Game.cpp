@@ -2,6 +2,7 @@
 #include "StateStack.hpp"
 #include "TitleState.hpp"
 #include "GameState.hpp"
+#include "MainMenuState.hpp"
 
 
 const int gNumFrameResources = 3;
@@ -64,7 +65,6 @@ bool Game::Initialize()
 	BuildMaterials();
 	RegisterStates();
 	mStateStack.pushState(States::Title);
-	//CreateText();
 
 	BuildPSOs();
 
@@ -230,6 +230,7 @@ void Game::Draw(const GameTimer& gt)
 	// Because we are on the GPU timeline, the new fence point won't be 
 	// set until the GPU finishes processing all the commands prior to this Signal().
 	mCommandQueue->Signal(mFence.Get(), mCurrentFence);
+
 }
 
 void Game::OnMouseDown(WPARAM btnState, int x, int y)
@@ -267,119 +268,113 @@ void Game::OnKeyDown(WPARAM btnState)
 	mStateStack.HandleEvent(btnState);
 }
 
-bool Game::CreateText(const wchar_t* text)
-{
-	// Create Direct2D factory
-	HRESULT hr = D2D1CreateFactory(D2D1_FACTORY_TYPE_SINGLE_THREADED, &pD2DFactory_);
-	if (FAILED(hr))
-	{
-		MessageBox(0, L"Failed to create Direct2D factory", L"Error", MB_OK);
-		return false;
-	}
+//bool Game::CreateText(const wchar_t* text)
+//{
+//	// Create Direct2D factory
+//	HRESULT hr = D2D1CreateFactory(D2D1_FACTORY_TYPE_SINGLE_THREADED, &pD2DFactory_);
+//	if (FAILED(hr))
+//	{
+//		MessageBox(0, L"Failed to create Direct2D factory", L"Error", MB_OK);
+//		return false;
+//	}
+//
+//	// Create DirectWrite factory
+//	hr = DWriteCreateFactory(DWRITE_FACTORY_TYPE_SHARED, __uuidof(IDWriteFactory), reinterpret_cast<IUnknown**>(&pDWriteFactory_));
+//	if (FAILED(hr))
+//	{
+//		MessageBox(0, L"Failed to create DirectWrite factory", L"Error", MB_OK);
+//		return false;
+//	}
+//
+//	wszText_ = text;
+//	cTextLength_ = (UINT32)wcslen(wszText_);
+//
+//
+//	// Create text format
+//	hr = pDWriteFactory_->CreateTextFormat(
+//		L"Gabriola",                    // Font family
+//		NULL,                         // No custom font collection
+//		DWRITE_FONT_WEIGHT_REGULAR,
+//		DWRITE_FONT_STYLE_NORMAL,
+//		DWRITE_FONT_STRETCH_NORMAL,
+//		72.0f,                           // Font size
+//		L"en-us",                        // Locale
+//		&pTextFormat_);                  // Output text format
+//
+//	if (FAILED(hr))
+//	{
+//		MessageBox(0, L"Failed to create text format", L"Error", MB_OK);
+//		return false;
+//	}
+//	if (SUCCEEDED(hr))
+//	{
+//		hr = pTextFormat_->SetTextAlignment(DWRITE_TEXT_ALIGNMENT_CENTER);
+//	}
+//
+//	if (SUCCEEDED(hr))
+//	{
+//		hr = pTextFormat_->SetParagraphAlignment(DWRITE_PARAGRAPH_ALIGNMENT_CENTER);
+//	}
+//
+//	// Center align text horizontally and vertically
+//	//pTextFormat_->SetTextAlignment(DWRITE_TEXT_ALIGNMENT_CENTER);
+//	//pTextFormat_->SetParagraphAlignment(DWRITE_PARAGRAPH_ALIGNMENT_CENTER);
+//
+//	// Create Direct2D render target
+//	hr = pD2DFactory_->CreateHwndRenderTarget(
+//		D2D1::RenderTargetProperties(),
+//		D2D1::HwndRenderTargetProperties(mhMainWnd, D2D1::SizeU(mClientWidth, mClientHeight)),
+//		&pRT_);
+//
+//	if (FAILED(hr))
+//	{
+//		MessageBox(0, L"Failed to create Direct2D render target", L"Error", MB_OK);
+//		return false;
+//	}
+//
+//	// Create a brush to draw the text (Black brush)
+//	hr = pRT_->CreateSolidColorBrush(D2D1::ColorF(D2D1::ColorF::Black), &pBlackBrush_);
+//	if (FAILED(hr))
+//	{
+//		MessageBox(0, L"Failed to create Direct2D solid color brush", L"Error", MB_OK);
+//		return false;
+//	}
+//
+//	return true;
+//}
 
-	// Create DirectWrite factory
-	hr = DWriteCreateFactory(DWRITE_FACTORY_TYPE_SHARED, __uuidof(IDWriteFactory), reinterpret_cast<IUnknown**>(&pDWriteFactory_));
-	if (FAILED(hr))
-	{
-		MessageBox(0, L"Failed to create DirectWrite factory", L"Error", MB_OK);
-		return false;
-	}
-
-	wszText_ = text;
-	cTextLength_ = (UINT32)wcslen(wszText_);
-
-
-	// Create text format
-	hr = pDWriteFactory_->CreateTextFormat(
-		L"Gabriola",                    // Font family
-		NULL,                         // No custom font collection
-		DWRITE_FONT_WEIGHT_REGULAR,
-		DWRITE_FONT_STYLE_NORMAL,
-		DWRITE_FONT_STRETCH_NORMAL,
-		72.0f,                           // Font size
-		L"en-us",                        // Locale
-		&pTextFormat_);                  // Output text format
-
-	if (FAILED(hr))
-	{
-		MessageBox(0, L"Failed to create text format", L"Error", MB_OK);
-		return false;
-	}
-	if (SUCCEEDED(hr))
-	{
-		hr = pTextFormat_->SetTextAlignment(DWRITE_TEXT_ALIGNMENT_CENTER);
-	}
-
-	if (SUCCEEDED(hr))
-	{
-		hr = pTextFormat_->SetParagraphAlignment(DWRITE_PARAGRAPH_ALIGNMENT_CENTER);
-	}
-
-	// Center align text horizontally and vertically
-	//pTextFormat_->SetTextAlignment(DWRITE_TEXT_ALIGNMENT_CENTER);
-	//pTextFormat_->SetParagraphAlignment(DWRITE_PARAGRAPH_ALIGNMENT_CENTER);
-
-	// Create Direct2D render target
-	hr = pD2DFactory_->CreateHwndRenderTarget(
-		D2D1::RenderTargetProperties(),
-		D2D1::HwndRenderTargetProperties(mhMainWnd, D2D1::SizeU(mClientWidth, mClientHeight)),
-		&pRT_);
-
-	if (FAILED(hr))
-	{
-		MessageBox(0, L"Failed to create Direct2D render target", L"Error", MB_OK);
-		return false;
-	}
-
-	// Create a brush to draw the text (Black brush)
-	hr = pRT_->CreateSolidColorBrush(D2D1::ColorF(D2D1::ColorF::Black), &pBlackBrush_);
-	if (FAILED(hr))
-	{
-		MessageBox(0, L"Failed to create Direct2D solid color brush", L"Error", MB_OK);
-		return false;
-	}
-
-	return true;
-}
-
-void Game::DrawTheText()
-{
-	OutputDebugStringA("Drawing text...\n");
-	if (!pRT_) return;
-
-	// Direct2D and DirectWrite rendering
-	// Prepare Direct2D rendering context
-	pRT_->BeginDraw();
-	D2D1_RECT_F layoutRect = D2D1::RectF(100, 100, 600, 400);
-
-	// Clear the render target with the background color.
-	//pRT_->Clear(D2D1::ColorF(D2D1::ColorF::AliceBlue));
-
-	// Draw the text using DirectWrite
-	pRT_->DrawText(
-		wszText_,                   // Text to display
-		cTextLength_,               // Length of text
-		pTextFormat_,               // Text format (font, size, etc.)
-		D2D1::RectF(100.0f, 100.0f, 500.0f, 200.0f),  // Position of the text
-		pBlackBrush_               // Brush to draw with
-	);
-
-	// Finish the drawing
-	HRESULT hr = pRT_->EndDraw();
-	if (FAILED(hr))
-	{
-		MessageBox(0, L"Direct2D rendering failed", L"Error", MB_OK);
-	}
-}
+//void Game::DrawTheText()
+//{
+//	OutputDebugStringA("Drawing text...\n");
+//	if (!pRT_) return;
+//
+//	// Direct2D and DirectWrite rendering
+//	// Prepare Direct2D rendering context
+//	pRT_->BeginDraw();
+//	D2D1_RECT_F layoutRect = D2D1::RectF(100, 100, 600, 400);
+//
+//	// Clear the render target with the background color.
+//	//pRT_->Clear(D2D1::ColorF(D2D1::ColorF::AliceBlue));
+//
+//	// Draw the text using DirectWrite
+//	pRT_->DrawText(
+//		wszText_,                   // Text to display
+//		cTextLength_,               // Length of text
+//		pTextFormat_,               // Text format (font, size, etc.)
+//		D2D1::RectF(100.0f, 100.0f, 500.0f, 200.0f),  // Position of the text
+//		pBlackBrush_               // Brush to draw with
+//	);
+//
+//	// Finish the drawing
+//	HRESULT hr = pRT_->EndDraw();
+//	if (FAILED(hr))
+//	{
+//		MessageBox(0, L"Direct2D rendering failed", L"Error", MB_OK);
+//	}
+//
+//}
 
 #pragma region Keyboard Input
-/**
- * @brief Handles keyboard input.
- *
- * Moves the camera based on keyboard input.
- *
- * @param gt A const reference to a GameTimer object.
- */
 
 #pragma region Step 20
  /**
@@ -636,9 +631,16 @@ void Game::LoadTextures()
 	CreateTexture("DesertTex", L"../../Textures/Desert.dds");
 	//galaxy
 	CreateTexture("GalaxyTex", L"../../Textures/galaxy.dds");
-	//title
-	CreateTexture("TitleTex", L"../../Textures/galaxy.dds");
-
+	//title text
+	CreateTexture("TitleTex", L"../../Textures/pressToStart.dds");
+	//mainmenu text
+	CreateTexture("MenuTextTex", L"../../Textures/MenuText.dds");
+	//planet image
+	CreateTexture("PlanetTex", L"../../Textures/planet_One.dds");
+	//planet image 2 
+	CreateTexture("PlanetTex2", L"../../Textures/planet_Two.dds");
+	//star image
+	CreateTexture("StarTex", L"../../Textures/star_One.dds");
 }
 
 /**
@@ -702,7 +704,7 @@ void Game::BuildDescriptorHeaps()
 	// Create the SRV heap.
 	//
 	D3D12_DESCRIPTOR_HEAP_DESC srvHeapDesc = {};
-	srvHeapDesc.NumDescriptors = 5;
+	srvHeapDesc.NumDescriptors = 9;
 	srvHeapDesc.Type = D3D12_DESCRIPTOR_HEAP_TYPE_CBV_SRV_UAV;
 	srvHeapDesc.Flags = D3D12_DESCRIPTOR_HEAP_FLAG_SHADER_VISIBLE;
 	ThrowIfFailed(md3dDevice->CreateDescriptorHeap(&srvHeapDesc, IID_PPV_ARGS(&mSrvDescriptorHeap)));
@@ -717,7 +719,10 @@ void Game::BuildDescriptorHeaps()
 	auto DesertTex = mTextures["DesertTex"]->Resource;
 	auto GalaxyTex = mTextures["GalaxyTex"]->Resource;
 	auto TitleTex = mTextures["TitleTex"]->Resource;
-
+	auto MMTextTex = mTextures["MenuTextTex"]->Resource;
+	auto PlanetTex = mTextures["PlanetTex"]->Resource;
+	auto PlanetTex2 = mTextures["PlanetTex2"]->Resource;
+	auto StarTex = mTextures["StarTex"]->Resource;
 
 	D3D12_SHADER_RESOURCE_VIEW_DESC srvDesc = {};
 
@@ -762,6 +767,25 @@ void Game::BuildDescriptorHeaps()
 	srvDesc.Format = TitleTex->GetDesc().Format;
 	md3dDevice->CreateShaderResourceView(TitleTex.Get(), &srvDesc, hDescriptor);
 
+	//MM TExt Descriptor
+	hDescriptor.Offset(1, mCbvSrvDescriptorSize);
+	srvDesc.Format = MMTextTex->GetDesc().Format;
+	md3dDevice->CreateShaderResourceView(MMTextTex.Get(), &srvDesc, hDescriptor);
+
+	//Planet One Descriptor
+	hDescriptor.Offset(1, mCbvSrvDescriptorSize);
+	srvDesc.Format = PlanetTex->GetDesc().Format;
+	md3dDevice->CreateShaderResourceView(PlanetTex.Get(), &srvDesc, hDescriptor);
+
+	//Planet Two Descriptor
+	hDescriptor.Offset(1, mCbvSrvDescriptorSize);
+	srvDesc.Format = PlanetTex2->GetDesc().Format;
+	md3dDevice->CreateShaderResourceView(PlanetTex2.Get(), &srvDesc, hDescriptor);
+
+	//Star Descriptor
+	hDescriptor.Offset(1, mCbvSrvDescriptorSize);
+	srvDesc.Format = StarTex->GetDesc().Format;
+	md3dDevice->CreateShaderResourceView(StarTex.Get(), &srvDesc, hDescriptor);
 }
 
 
@@ -964,6 +988,10 @@ void Game::BuildMaterials()
 	CreateMaterials("Desert", XMFLOAT4(1.0f, 1.0f, 1.0f, 1.0f), XMFLOAT3(0.05f, 0.05f, 0.05f), 0.2f);
 	CreateMaterials("Galaxy", XMFLOAT4(1.0f, 1.0f, 1.0f, 1.0f), XMFLOAT3(0.05f, 0.05f, 0.05f), 0.2f);
 	CreateMaterials("Title", XMFLOAT4(1.0f, 1.0f, 1.0f, 1.0f), XMFLOAT3(0.05f, 0.05f, 0.05f), 0.2f);
+	CreateMaterials("MMText", XMFLOAT4(1.0f, 1.0f, 1.0f, 1.0f), XMFLOAT3(0.05f, 0.05f, 0.05f), 0.2f);
+	CreateMaterials("PlanetOne", XMFLOAT4(1.0f, 1.0f, 1.0f, 1.0f), XMFLOAT3(0.05f, 0.05f, 0.05f), 0.2f);
+	CreateMaterials("PlanetTwo", XMFLOAT4(1.0f, 1.0f, 1.0f, 1.0f), XMFLOAT3(0.05f, 0.05f, 0.05f), 0.2f);
+	CreateMaterials("Star", XMFLOAT4(1.0f, 1.0f, 1.0f, 1.0f), XMFLOAT3(0.05f, 0.05f, 0.05f), 0.2f);
 }
 
 void Game::CreateMaterials(std::string Name, XMFLOAT4 DiffuseAlbedo, XMFLOAT3 FresnelR0, float Roughness)
@@ -982,6 +1010,7 @@ void Game::CreateMaterials(std::string Name, XMFLOAT4 DiffuseAlbedo, XMFLOAT3 Fr
 void Game::RegisterStates()
 {
 	mStateStack.registerState<TitleState>(States::Title);
+	mStateStack.registerState<MainMenuState>(States::Menu);
 	mStateStack.registerState<GameState>(States::Game);
 
 }
@@ -995,58 +1024,7 @@ void Game::ResetFrameResources()
  *
  * Creates the render items used in the scene and adds them to the appropriate lists.
  */
-//void Game::BuildRenderItems()
-//{
-//	mWorld.buildScene();
-//
-//	// All the render items are opaque.
-//	for (auto& e : mAllRitems)
-//		mOpaqueRitems.push_back(e.get());
-//}
-//
-///**
-// * @brief Draws the render items.
-// *
-// * Draws the specified render items using the given command list.
-// *
-// * @param cmdList The command list to use for drawing.
-// * @param ritems The render items to draw.
-// */
-//void Game::DrawRenderItems(ID3D12GraphicsCommandList* cmdList, const std::vector<RenderItem*>& ritems)
-//{
-//	UINT objCBByteSize = d3dUtil::CalcConstantBufferByteSize(sizeof(ObjectConstants));
-//	UINT matCBByteSize = d3dUtil::CalcConstantBufferByteSize(sizeof(MaterialConstants));
-//
-//	auto objectCB = mCurrFrameResource->ObjectCB->Resource();
-//	auto matCB = mCurrFrameResource->MaterialCB->Resource();
-//
-//	// For each render item...
-//	for (size_t i = 0; i < ritems.size(); ++i)
-//	{
-//		auto ri = ritems[i];
-//
-//		auto vbv = ri->Geo->VertexBufferView();
-//		auto ibv = ri->Geo->IndexBufferView();
-//
-//		cmdList->IASetVertexBuffers(0, 1, &vbv);
-//		cmdList->IASetIndexBuffer(&ibv);
-//		cmdList->IASetPrimitiveTopology(ri->PrimitiveType);
-//
-//		//step18
-//		CD3DX12_GPU_DESCRIPTOR_HANDLE tex(mSrvDescriptorHeap->GetGPUDescriptorHandleForHeapStart());
-//		tex.Offset(ri->Mat->DiffuseSrvHeapIndex, mCbvSrvDescriptorSize);
-//
-//		D3D12_GPU_VIRTUAL_ADDRESS objCBAddress = objectCB->GetGPUVirtualAddress() + ri->ObjCBIndex * objCBByteSize;
-//		D3D12_GPU_VIRTUAL_ADDRESS matCBAddress = matCB->GetGPUVirtualAddress() + ri->Mat->MatCBIndex * matCBByteSize;
-//
-//		//step19
-//		cmdList->SetGraphicsRootDescriptorTable(0, tex);
-//		cmdList->SetGraphicsRootConstantBufferView(1, objCBAddress);
-//		cmdList->SetGraphicsRootConstantBufferView(3, matCBAddress);
-//
-//		cmdList->DrawIndexedInstanced(ri->IndexCount, 1, ri->StartIndexLocation, ri->BaseVertexLocation, 0);
-//	}
-//}
+
 
 /**
  * @brief Gets the static samplers.

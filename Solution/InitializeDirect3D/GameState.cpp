@@ -13,6 +13,7 @@ GameState::GameState(StateStack* stack, Context* context)
 	mWorld.buildScene();
 
 	mContext->game->BuildFrameResources(mAllRitems.size());
+	//mContext->game->CreateText(L"GAME");
 }
 
 GameState::~GameState()
@@ -23,6 +24,7 @@ void GameState::Draw()
 {
 	OutputDebugStringA("Drawing game frame...\n");
 	mWorld.draw();
+	//mContext->game->DrawTheText();
 }
 
 bool GameState::Update(const GameTimer& gt)
@@ -38,8 +40,8 @@ bool GameState::HandleEvent(WPARAM btnState)
 {
 	if (d3dUtil::IsKeyDown('P'))
 	{
-		RequestStackPop();
-		RequestStackPush(States::Pause);
+		//RequestStackPop();
+		//RequestStackPush(States::Pause);
 	}
 
 	return true;
