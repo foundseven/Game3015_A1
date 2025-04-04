@@ -19,7 +19,7 @@ MainMenuState::MainMenuState(StateStack* stack, Context* context)
     mContext->game->BuildMaterials();
 
     std::unique_ptr<SpriteNode> backgroundSprite = std::make_unique<SpriteNode>(this);
-    backgroundSprite->SetDrawName("Desert", "boxGeo", "box");
+    backgroundSprite->SetDrawName("Galaxy", "boxGeo", "box");
     backgroundSprite->setScale(10.0, 1.0, 7.0);
     backgroundSprite->setPosition(0, 0, 0);
     mSceneGraph->attachChild(std::move(backgroundSprite));
