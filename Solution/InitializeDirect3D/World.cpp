@@ -99,6 +99,16 @@ void World::buildScene()
 	mBackground->setVelocity(0, 0, -mScrollSpeed); //background scrolling enabled
 	mSceneGraph->attachChild(std::move(backgroundSprite));
 
+	// Create and set up instruct sprite
+	std::unique_ptr<SpriteNode> InstructionSprite(new SpriteNode(mState));
+	InstructionSprite->SetDrawName("GameText", "boxGeo", "box");
+	mBackground = backgroundSprite.get();
+	//mBackground->setPosition(mWorldBounds.left, mWorldBounds.top);
+	InstructionSprite->setPosition(0, 1.0, 2.4);
+	InstructionSprite->setScale(2.0, 0, 2.0);
+	InstructionSprite->setVelocity(0, 0, 0); //background scrolling enabled
+	mSceneGraph->attachChild(std::move(InstructionSprite));
+
 	// Build the scene graph
 	mSceneGraph->build();
 }

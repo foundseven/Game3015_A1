@@ -26,8 +26,8 @@ MainMenuState::MainMenuState(StateStack* stack, Context* context)
 
     std::unique_ptr<SpriteNode> MMTextSprite = std::make_unique<SpriteNode>(this);
     MMTextSprite->SetDrawName("MMText", "boxGeo", "box");
-    MMTextSprite->setScale(1.75, 1.0, 1.75);
-    MMTextSprite->setPosition(2, 1, -1);
+    MMTextSprite->setScale(3, 1.0, 3);
+    MMTextSprite->setPosition(2, 1, -1.5);
     mSceneGraph->attachChild(std::move(MMTextSprite));
 
     std::unique_ptr<SpriteNode> ShipMMSprite = std::make_unique<SpriteNode>(this);
@@ -74,6 +74,11 @@ bool MainMenuState::HandleEvent(WPARAM btnState)
     {
         RequestStackPop();
         RequestStackPush(States::Game);
+    }
+    else if (d3dUtil::IsKeyDown('I'))
+    {
+        RequestStackPop();
+        RequestStackPush(States::Instructions);
     }
     else if (d3dUtil::IsKeyDown('Q'))
     {

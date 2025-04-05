@@ -5,12 +5,21 @@
 GameState::GameState(StateStack* stack, Context* context)
 	: State(stack, context)
 	, mWorld(this)
+	, mPauseStateSceneGraph(std::make_unique<SceneNode>(this))
 {
 	mAllRitems.clear();
 	mContext->game->ResetFrameResources();
 	mContext->game->BuildMaterials();
 
 	mWorld.buildScene();
+
+	std::unique_ptr<SpriteNode> PauseSprite = std::make_unique<SpriteNode>(this);
+	PauseSprite->SetDrawName("PauseText", "boxGeo", "box");
+	PauseSprite->setScale(3, 1, 3);
+	PauseSprite->setPosition(0, 1, 0);
+	mPauseStateSceneGraph->attachChild(std::move(PauseSprite));
+	
+	mPauseStateSceneGraph->build();
 
 	mContext->game->BuildFrameResources(mAllRitems.size());
 	//mContext->game->CreateText(L"GAME");
@@ -29,7 +38,7 @@ void GameState::Draw()
 
 bool GameState::Update(const GameTimer& gt)
 {
-	ProcessInput();
+	//ProcessInput();
 
 	mWorld.update(gt);
 
@@ -40,7 +49,7 @@ bool GameState::HandleEvent(WPARAM btnState)
 {
 	if (d3dUtil::IsKeyDown('P'))
 	{
-		RequestStackPop();
+		//RequestStackPop();
 		RequestStackPush(States::Pause);
 	}
 
@@ -49,6 +58,8 @@ bool GameState::HandleEvent(WPARAM btnState)
 
 bool GameState::HandleRealTimeInput()
 {
+	ProcessInput();
+
 	return true;
 }
 

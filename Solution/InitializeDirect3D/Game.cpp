@@ -1,9 +1,11 @@
 #include "Game.hpp"
 #include "StateStack.hpp"
+
 #include "TitleState.hpp"
 #include "GameState.hpp"
 #include "MainMenuState.hpp"
 #include "PauseState.hpp"
+#include "InstructionsState.hpp"
 
 
 const int gNumFrameResources = 3;
@@ -635,7 +637,11 @@ void Game::LoadTextures()
 	//title text
 	CreateTexture("TitleTex", L"../../Textures/pressToStart.dds");
 	//mainmenu text
-	CreateTexture("MenuTextTex", L"../../Textures/MenuText.dds");
+	CreateTexture("MenuTextTex", L"../../Textures/mmScreen2.dds");
+	//pauseScreen text
+	CreateTexture("PauseTextTex", L"../../Textures/pauseScreen.dds");
+	//gamescreen text
+	CreateTexture("GameTextTex", L"../../Textures/gameScreen.dds");
 	//planet image
 	CreateTexture("PlanetTex", L"../../Textures/planet_One.dds");
 	//planet image 2 
@@ -644,6 +650,11 @@ void Game::LoadTextures()
 	CreateTexture("StarTex", L"../../Textures/star_One.dds");
 	//ship MM image
 	CreateTexture("ShipMM", L"../../Textures/spaceShipMM.dds");
+	//wasd
+	CreateTexture("WASDTex", L"../../Textures/WASD.dds");
+	//back text
+	CreateTexture("BackTex", L"../../Textures/backScreen.dds");
+
 }
 
 /**
@@ -707,7 +718,7 @@ void Game::BuildDescriptorHeaps()
 	// Create the SRV heap.
 	//
 	D3D12_DESCRIPTOR_HEAP_DESC srvHeapDesc = {};
-	srvHeapDesc.NumDescriptors = 10;
+	srvHeapDesc.NumDescriptors = 14;
 	srvHeapDesc.Type = D3D12_DESCRIPTOR_HEAP_TYPE_CBV_SRV_UAV;
 	srvHeapDesc.Flags = D3D12_DESCRIPTOR_HEAP_FLAG_SHADER_VISIBLE;
 	ThrowIfFailed(md3dDevice->CreateDescriptorHeap(&srvHeapDesc, IID_PPV_ARGS(&mSrvDescriptorHeap)));
@@ -723,10 +734,14 @@ void Game::BuildDescriptorHeaps()
 	auto GalaxyTex = mTextures["GalaxyTex"]->Resource;
 	auto TitleTex = mTextures["TitleTex"]->Resource;
 	auto MMTextTex = mTextures["MenuTextTex"]->Resource;
+	auto PauseTextTex = mTextures["PauseTextTex"]->Resource;
+	auto GameTextTex = mTextures["GameTextTex"]->Resource;
 	auto PlanetTex = mTextures["PlanetTex"]->Resource;
 	auto PlanetTex2 = mTextures["PlanetTex2"]->Resource;
 	auto StarTex = mTextures["StarTex"]->Resource;
 	auto ShipMMTex = mTextures["ShipMM"]->Resource;
+	auto WASDTex = mTextures["WASDTex"]->Resource;
+	auto BackTex = mTextures["BackTex"]->Resource;
 
 	D3D12_SHADER_RESOURCE_VIEW_DESC srvDesc = {};
 
@@ -776,6 +791,16 @@ void Game::BuildDescriptorHeaps()
 	srvDesc.Format = MMTextTex->GetDesc().Format;
 	md3dDevice->CreateShaderResourceView(MMTextTex.Get(), &srvDesc, hDescriptor);
 
+	//Pause Descriptor
+	hDescriptor.Offset(1, mCbvSrvDescriptorSize);
+	srvDesc.Format = PauseTextTex->GetDesc().Format;
+	md3dDevice->CreateShaderResourceView(PauseTextTex.Get(), &srvDesc, hDescriptor);
+
+	//Game Descriptor
+	hDescriptor.Offset(1, mCbvSrvDescriptorSize);
+	srvDesc.Format = GameTextTex->GetDesc().Format;
+	md3dDevice->CreateShaderResourceView(GameTextTex.Get(), &srvDesc, hDescriptor);
+
 	//Planet One Descriptor
 	hDescriptor.Offset(1, mCbvSrvDescriptorSize);
 	srvDesc.Format = PlanetTex->GetDesc().Format;
@@ -791,10 +816,21 @@ void Game::BuildDescriptorHeaps()
 	srvDesc.Format = StarTex->GetDesc().Format;
 	md3dDevice->CreateShaderResourceView(StarTex.Get(), &srvDesc, hDescriptor);
 	
-	//Star Descriptor
+	//Ship Descriptor
 	hDescriptor.Offset(1, mCbvSrvDescriptorSize);
 	srvDesc.Format = ShipMMTex->GetDesc().Format;
 	md3dDevice->CreateShaderResourceView(ShipMMTex.Get(), &srvDesc, hDescriptor);
+
+
+	//WASD Descriptor
+	hDescriptor.Offset(1, mCbvSrvDescriptorSize);
+	srvDesc.Format = WASDTex->GetDesc().Format;
+	md3dDevice->CreateShaderResourceView(WASDTex.Get(), &srvDesc, hDescriptor);
+
+	//Back Descriptor
+	hDescriptor.Offset(1, mCbvSrvDescriptorSize);
+	srvDesc.Format = BackTex->GetDesc().Format;
+	md3dDevice->CreateShaderResourceView(BackTex.Get(), &srvDesc, hDescriptor);
 }
 
 
@@ -998,11 +1034,14 @@ void Game::BuildMaterials()
 	CreateMaterials("Galaxy", XMFLOAT4(1.0f, 1.0f, 1.0f, 1.0f), XMFLOAT3(0.05f, 0.05f, 0.05f), 0.2f);
 	CreateMaterials("Title", XMFLOAT4(1.0f, 1.0f, 1.0f, 1.0f), XMFLOAT3(0.05f, 0.05f, 0.05f), 0.2f);
 	CreateMaterials("MMText", XMFLOAT4(1.0f, 1.0f, 1.0f, 1.0f), XMFLOAT3(0.05f, 0.05f, 0.05f), 0.2f);
+	CreateMaterials("PauseText", XMFLOAT4(1.0f, 1.0f, 1.0f, 1.0f), XMFLOAT3(0.05f, 0.05f, 0.05f), 0.2f);
+	CreateMaterials("GameText", XMFLOAT4(1.0f, 1.0f, 1.0f, 1.0f), XMFLOAT3(0.05f, 0.05f, 0.05f), 0.2f);
 	CreateMaterials("PlanetOne", XMFLOAT4(1.0f, 1.0f, 1.0f, 1.0f), XMFLOAT3(0.05f, 0.05f, 0.05f), 0.2f);
 	CreateMaterials("PlanetTwo", XMFLOAT4(1.0f, 1.0f, 1.0f, 1.0f), XMFLOAT3(0.05f, 0.05f, 0.05f), 0.2f);
 	CreateMaterials("Star", XMFLOAT4(1.0f, 1.0f, 1.0f, 1.0f), XMFLOAT3(0.05f, 0.05f, 0.05f), 0.2f);
 	CreateMaterials("ShipMM", XMFLOAT4(1.0f, 1.0f, 1.0f, 1.0f), XMFLOAT3(0.05f, 0.05f, 0.05f), 0.2f);
-
+	CreateMaterials("WASD", XMFLOAT4(1.0f, 1.0f, 1.0f, 1.0f), XMFLOAT3(0.05f, 0.05f, 0.05f), 0.2f);
+	CreateMaterials("Back", XMFLOAT4(1.0f, 1.0f, 1.0f, 1.0f), XMFLOAT3(0.05f, 0.05f, 0.05f), 0.2f);
 }
 
 void Game::CreateMaterials(std::string Name, XMFLOAT4 DiffuseAlbedo, XMFLOAT3 FresnelR0, float Roughness)
@@ -1022,6 +1061,7 @@ void Game::RegisterStates()
 {
 	mStateStack.registerState<TitleState>(States::Title);
 	mStateStack.registerState<MainMenuState>(States::Menu);
+	mStateStack.registerState<InstructionsState>(States::Instructions);
 	mStateStack.registerState<GameState>(States::Game);
 	mStateStack.registerState<PauseState>(States::Pause);
 }

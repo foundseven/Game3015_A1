@@ -96,6 +96,9 @@
     <ClCompile Include="PauseState.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="InstructionsState.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="..\..\Common\UploadBuffer.h">
@@ -177,6 +180,9 @@
       <Filter>GameEngine</Filter>
     </ClInclude>
     <ClInclude Include="PauseState.hpp">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="InstructionsState.hpp">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>

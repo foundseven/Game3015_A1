@@ -20,5 +20,8 @@ public:
     void ProcessInput();
 private:
     World mWorld;
+
+public:
+    std::unique_ptr<SceneNode> mPauseStateSceneGraph;
 };
 

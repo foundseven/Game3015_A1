@@ -1,31 +1,14 @@
 #include "PauseState.hpp"
 #include "SpriteNode.h"
 #include "Game.hpp"
+#include "GameState.hpp"
+
 #include <windows.h>
 
 PauseState::PauseState(StateStack* stack, Context* context)
     : State(stack, context)
 {
-    if (!mSceneGraph)
-    {
-        OutputDebugStringA("Error: mSceneGraph is nullptr!\n");
-    }
-    else
-    {
-        OutputDebugStringA("mSceneGraph initialized.\n");
-    }
-    mAllRitems.clear();
-    mContext->game->ResetFrameResources();
-    mContext->game->BuildMaterials();
 
-    std::unique_ptr<SpriteNode> backgroundSprite = std::make_unique<SpriteNode>(this);
-    backgroundSprite->SetDrawName("Galaxy", "boxGeo", "box");
-    backgroundSprite->setScale(1.0, 1.0, 1.0);
-    backgroundSprite->setPosition(0, 0, 0);
-    mSceneGraph->attachChild(std::move(backgroundSprite));
-
-    mSceneGraph->build();
-    mContext->game->BuildFrameResources(mAllRitems.size());
 }
 
 PauseState::~PauseState()
@@ -34,26 +17,39 @@ PauseState::~PauseState()
 
 void PauseState::Draw()
 {
-    mSceneGraph->draw();
+   // mSceneGraph->draw();
+    //so i want to draw the specific from the previous state
+    ((GameState*)(mStack->GetPreviousState()))->mPauseStateSceneGraph->draw();
 }
 
 bool PauseState::Update(const GameTimer& gt)
 {
-    mSceneGraph->update(gt);
-    PauseState::CheckPause(gt);
-    return true;
+    //mSceneGraph->update(gt);
+    //PauseState::CheckPause(gt);
+    ((GameState*)(mStack->GetPreviousState()))->mPauseStateSceneGraph->update(gt);
+
+    return false;
 }
 
 bool PauseState::HandleEvent(WPARAM btnState)
 {
-
-    return true;
+    if (d3dUtil::IsKeyDown('P'))
+    {
+        RequestStackPop();
+    }
+    if (d3dUtil::IsKeyDown('Q'))
+    {
+        //RequestStackPop();
+        RequestStateClear();
+        RequestStackPush(States::Menu);
+    }
+    return false;
 }
 
 
 bool PauseState::HandleRealTimeInput()
 {
-    return true;
+    return false;
 }
 
 void PauseState::CheckPause(const GameTimer& gt)
