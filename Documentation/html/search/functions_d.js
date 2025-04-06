@@ -1,5 +1,9 @@
 var searchData=
 [
-  ['update_0',['update',['../class_scene_node.html#a858b7a088c0a2d01aaa90baf05d58d08',1,'SceneNode::update()'],['../class_world.html#a36c003f54e14e022a360551af5e7923e',1,'World::update()']]],
-  ['updatecurrent_1',['updateCurrent',['../class_entity.html#ac2ba9cb8ca54fff11ad7397334edcd94',1,'Entity']]]
+  ['registerstate_0',['registerState',['../class_state_stack.html#a9d64daa479c2cccad6f2ede77741a352',1,'StateStack']]],
+  ['registerstates_1',['RegisterStates',['../class_game.html#aebce4ccb64400e1a932f7ac96da4233b',1,'Game']]],
+  ['requeststackpop_2',['RequestStackPop',['../class_state.html#a86e0b195558375f3b09fffe42b56e4b4',1,'State']]],
+  ['requeststackpush_3',['RequestStackPush',['../class_state.html#aa6ff837626a9f78e951b968366daca36',1,'State']]],
+  ['requeststateclear_4',['RequestStateClear',['../class_state.html#adb49547f6caf41a15f4934530cbe75ee',1,'State']]],
+  ['resetframeresources_5',['ResetFrameResources',['../class_game.html#aa95aef9aabba3278be080bfc8437e735',1,'Game']]]
 ];

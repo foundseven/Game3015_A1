@@ -1,0 +1,37 @@
+\doxysection{Command.\+hpp}
+\hypertarget{_command_8hpp_source}{}\label{_command_8hpp_source}\index{InitializeDirect3D/Command.hpp@{InitializeDirect3D/Command.hpp}}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\Hypertarget{_command_8hpp_source_l00001}00001\ \textcolor{preprocessor}{\#pragma\ region\ Step\ 5}}
+\DoxyCodeLine{\Hypertarget{_command_8hpp_source_l00002}00002\ \textcolor{preprocessor}{\#pragma\ once}}
+\DoxyCodeLine{\Hypertarget{_command_8hpp_source_l00003}00003\ \textcolor{preprocessor}{\#include\ "{}Category.hpp"{}}}
+\DoxyCodeLine{\Hypertarget{_command_8hpp_source_l00004}00004\ \textcolor{preprocessor}{\#include\ "{}../../Common/d3dApp.h"{}}}
+\DoxyCodeLine{\Hypertarget{_command_8hpp_source_l00005}00005\ \textcolor{preprocessor}{\#include\ <functional>}}
+\DoxyCodeLine{\Hypertarget{_command_8hpp_source_l00006}00006\ \textcolor{preprocessor}{\#include\ <cassert>}}
+\DoxyCodeLine{\Hypertarget{_command_8hpp_source_l00007}00007\ }
+\DoxyCodeLine{\Hypertarget{_command_8hpp_source_l00008}00008\ \textcolor{keyword}{class\ }\mbox{\hyperlink{class_scene_node}{SceneNode}};}
+\DoxyCodeLine{\Hypertarget{_command_8hpp_source_l00009}00009\ }
+\DoxyCodeLine{\Hypertarget{_command_8hpp_source_l00017}\mbox{\hyperlink{struct_command}{00017}}\ \textcolor{keyword}{struct\ }\mbox{\hyperlink{struct_command_a18df2d81039392daeb0b78c346a70537}{Command}}}
+\DoxyCodeLine{\Hypertarget{_command_8hpp_source_l00018}00018\ \{}
+\DoxyCodeLine{\Hypertarget{_command_8hpp_source_l00022}00022\ \ \ \ \ \mbox{\hyperlink{struct_command_a18df2d81039392daeb0b78c346a70537}{Command}}();}
+\DoxyCodeLine{\Hypertarget{_command_8hpp_source_l00023}00023\ }
+\DoxyCodeLine{\Hypertarget{_command_8hpp_source_l00032}\mbox{\hyperlink{struct_command_adb4b67355dc411fac72c2a704ae92c74}{00032}}\ \ \ \ \ std::function<void(\mbox{\hyperlink{class_scene_node}{SceneNode}}\&,\ \textcolor{keyword}{const}\ GameTimer\&)>\ \mbox{\hyperlink{struct_command_adb4b67355dc411fac72c2a704ae92c74}{action}};}
+\DoxyCodeLine{\Hypertarget{_command_8hpp_source_l00033}00033\ }
+\DoxyCodeLine{\Hypertarget{_command_8hpp_source_l00044}\mbox{\hyperlink{struct_command_a1529e898c9e6dd47b1826b5b1eac09fb}{00044}}\ \ \ \ \ \textcolor{keywordtype}{unsigned}\ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{struct_command_a1529e898c9e6dd47b1826b5b1eac09fb}{category}};}
+\DoxyCodeLine{\Hypertarget{_command_8hpp_source_l00045}00045\ \};}
+\DoxyCodeLine{\Hypertarget{_command_8hpp_source_l00046}00046\ }
+\DoxyCodeLine{\Hypertarget{_command_8hpp_source_l00069}00069\ \textcolor{keyword}{template}\ <\textcolor{keyword}{typename}\ GameObject,\ \textcolor{keyword}{typename}\ Function>}
+\DoxyCodeLine{\Hypertarget{_command_8hpp_source_l00070}00070\ std::function<void(\mbox{\hyperlink{class_scene_node}{SceneNode}}\&,\ \textcolor{keyword}{const}\ GameTimer\&)>\ derivedAction(Function\ fn)}
+\DoxyCodeLine{\Hypertarget{_command_8hpp_source_l00071}00071\ \{}
+\DoxyCodeLine{\Hypertarget{_command_8hpp_source_l00072}00072\ \ \ \ \ \textcolor{keywordflow}{return}\ [=](\mbox{\hyperlink{class_scene_node}{SceneNode}}\&\ node,\ \textcolor{keyword}{const}\ GameTimer\&\ gameTimer)}
+\DoxyCodeLine{\Hypertarget{_command_8hpp_source_l00073}00073\ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{_command_8hpp_source_l00074}00074\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ Runtime\ type\ safety\ check\ (debug\ builds\ only)}}
+\DoxyCodeLine{\Hypertarget{_command_8hpp_source_l00075}00075\ \ \ \ \ \ \ \ \ \ \ \ \ assert(\textcolor{keyword}{dynamic\_cast<}GameObject*\textcolor{keyword}{>}(\&node)\ !=\ \textcolor{keyword}{nullptr});}
+\DoxyCodeLine{\Hypertarget{_command_8hpp_source_l00076}00076\ }
+\DoxyCodeLine{\Hypertarget{_command_8hpp_source_l00077}00077\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ Type-\/safe\ static\ dispatch}}
+\DoxyCodeLine{\Hypertarget{_command_8hpp_source_l00078}00078\ \ \ \ \ \ \ \ \ \ \ \ \ fn(\textcolor{keyword}{static\_cast<}GameObject\&\textcolor{keyword}{>}(node),\ gameTimer);}
+\DoxyCodeLine{\Hypertarget{_command_8hpp_source_l00079}00079\ \ \ \ \ \ \ \ \ \};}
+\DoxyCodeLine{\Hypertarget{_command_8hpp_source_l00080}00080\ \}}
+\DoxyCodeLine{\Hypertarget{_command_8hpp_source_l00081}00081\ \textcolor{preprocessor}{\#pragma\ endregion}}
+
+\end{DoxyCode}

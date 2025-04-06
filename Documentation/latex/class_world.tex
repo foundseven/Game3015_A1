@@ -1,0 +1,151 @@
+\doxysection{World Class Reference}
+\hypertarget{class_world}{}\label{class_world}\index{World@{World}}
+
+
+Constructs the \doxylink{class_world}{World} object.  
+
+
+
+
+{\ttfamily \#include $<$World.\+hpp$>$}
+
+\doxysubsubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{class_world_a99c692ab277a66c03ca48e8ea568ecb0}{World}} (\mbox{\hyperlink{class_state}{State}} \texorpdfstring{$\ast$}{*}state)
+\begin{DoxyCompactList}\small\item\em Constructs the \doxylink{class_world}{World} object. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_world_a36c003f54e14e022a360551af5e7923e}{update}} (const Game\+Timer \&gt)
+\begin{DoxyCompactList}\small\item\em Updates the world. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_world_ab51a17ccbb108616daacd0c34973dc8d}{draw}} ()
+\begin{DoxyCompactList}\small\item\em Draws the game world. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_world_ae7df49f5d488e5cd1254bf360966f410}{build\+Scene}} ()
+\begin{DoxyCompactList}\small\item\em Builds the scene graph and initializes game objects. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{class_command_queue}{Command\+Queue}} \& \mbox{\hyperlink{class_world_af224b413f30c86ec99d042d0f4df56ee}{get\+Command\+Queue}} ()
+\begin{DoxyCompactList}\small\item\em Retrieves the command queue for the world. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Constructs the \doxylink{class_world}{World} object. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em game} & Pointer to the \doxylink{class_game}{Game} object\\
+\hline
+\end{DoxyParams}
+Initializes the scene graph, world bounds, and scroll speed. 
+
+Definition at line \mbox{\hyperlink{_world_8hpp_source_l00017}{17}} of file \mbox{\hyperlink{_world_8hpp_source}{World.\+hpp}}.
+
+
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\Hypertarget{class_world_a99c692ab277a66c03ca48e8ea568ecb0}\index{World@{World}!World@{World}}
+\index{World@{World}!World@{World}}
+\doxysubsubsection{\texorpdfstring{World()}{World()}}
+{\footnotesize\ttfamily \label{class_world_a99c692ab277a66c03ca48e8ea568ecb0} 
+World\+::\+World (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{class_state}{State}} \texorpdfstring{$\ast$}{*}}]{state}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [explicit]}}
+
+
+
+Constructs the \doxylink{class_world}{World} object. 
+
+Constructor for \doxylink{class_world}{World}.
+
+
+\begin{DoxyParams}{Parameters}
+{\em game} & Pointer to the \doxylink{class_game}{Game} object\\
+\hline
+\end{DoxyParams}
+Initializes the scene graph, world bounds, and scroll speed.
+
+
+\begin{DoxyParams}{Parameters}
+{\em game} & Pointer to the \doxylink{class_game}{Game} object. \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line \mbox{\hyperlink{_world_8cpp_source_l00008}{8}} of file \mbox{\hyperlink{_world_8cpp_source}{World.\+cpp}}.
+
+
+
+\doxysubsection{Member Function Documentation}
+\Hypertarget{class_world_ae7df49f5d488e5cd1254bf360966f410}\index{World@{World}!buildScene@{buildScene}}
+\index{buildScene@{buildScene}!World@{World}}
+\doxysubsubsection{\texorpdfstring{buildScene()}{buildScene()}}
+{\footnotesize\ttfamily \label{class_world_ae7df49f5d488e5cd1254bf360966f410} 
+void World\+::build\+Scene (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})}
+
+
+
+Builds the scene graph and initializes game objects. 
+
+This method creates and positions the player aircraft, enemy aircraft, and background sprite. It also sets up the initial velocities and rotations of these objects. 
+
+Definition at line \mbox{\hyperlink{_world_8cpp_source_l00064}{64}} of file \mbox{\hyperlink{_world_8cpp_source}{World.\+cpp}}.
+
+\Hypertarget{class_world_ab51a17ccbb108616daacd0c34973dc8d}\index{World@{World}!draw@{draw}}
+\index{draw@{draw}!World@{World}}
+\doxysubsubsection{\texorpdfstring{draw()}{draw()}}
+{\footnotesize\ttfamily \label{class_world_ab51a17ccbb108616daacd0c34973dc8d} 
+void World\+::draw (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})}
+
+
+
+Draws the game world. 
+
+This method calls the draw method of the scene graph to render all game objects. 
+
+Definition at line \mbox{\hyperlink{_world_8cpp_source_l00053}{53}} of file \mbox{\hyperlink{_world_8cpp_source}{World.\+cpp}}.
+
+\Hypertarget{class_world_af224b413f30c86ec99d042d0f4df56ee}\index{World@{World}!getCommandQueue@{getCommandQueue}}
+\index{getCommandQueue@{getCommandQueue}!World@{World}}
+\doxysubsubsection{\texorpdfstring{getCommandQueue()}{getCommandQueue()}}
+{\footnotesize\ttfamily \label{class_world_af224b413f30c86ec99d042d0f4df56ee} 
+\mbox{\hyperlink{class_command_queue}{Command\+Queue}} \& World\+::get\+Command\+Queue (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})}
+
+
+
+Retrieves the command queue for the world. 
+
+\begin{DoxyReturn}{Returns}
+Reference to the \doxylink{class_command_queue}{Command\+Queue} 
+\end{DoxyReturn}
+
+
+Definition at line \mbox{\hyperlink{_world_8cpp_source_l00020}{20}} of file \mbox{\hyperlink{_world_8cpp_source}{World.\+cpp}}.
+
+\Hypertarget{class_world_a36c003f54e14e022a360551af5e7923e}\index{World@{World}!update@{update}}
+\index{update@{update}!World@{World}}
+\doxysubsubsection{\texorpdfstring{update()}{update()}}
+{\footnotesize\ttfamily \label{class_world_a36c003f54e14e022a360551af5e7923e} 
+void World\+::update (\begin{DoxyParamCaption}\item[{const Game\+Timer \&}]{gt}{}\end{DoxyParamCaption})}
+
+
+
+Updates the world. 
+
+Updates the game world.
+
+
+\begin{DoxyParams}{Parameters}
+{\em gt} & const reference to Game\+Timer object.\\
+\hline
+\end{DoxyParams}
+This method updates the scene graph and handles player aircraft movement within world bounds.
+
+
+\begin{DoxyParams}{Parameters}
+{\em gt} & const reference to Game\+Timer object. \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line \mbox{\hyperlink{_world_8cpp_source_l00033}{33}} of file \mbox{\hyperlink{_world_8cpp_source}{World.\+cpp}}.
+
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+Initialize\+Direct3\+D/World.\+hpp\item 
+Initialize\+Direct3\+D/World.\+cpp\end{DoxyCompactItemize}

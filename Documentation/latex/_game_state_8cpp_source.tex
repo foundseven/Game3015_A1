@@ -1,0 +1,77 @@
+\doxysection{Game\+State.\+cpp}
+\hypertarget{_game_state_8cpp_source}{}\label{_game_state_8cpp_source}\index{InitializeDirect3D/GameState.cpp@{InitializeDirect3D/GameState.cpp}}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\Hypertarget{_game_state_8cpp_source_l00001}00001\ \textcolor{preprocessor}{\#include\ "{}GameState.hpp"{}}}
+\DoxyCodeLine{\Hypertarget{_game_state_8cpp_source_l00002}00002\ \textcolor{preprocessor}{\#include\ "{}Game.hpp"{}}}
+\DoxyCodeLine{\Hypertarget{_game_state_8cpp_source_l00003}00003\ \textcolor{preprocessor}{\#include\ <windows.h>}}
+\DoxyCodeLine{\Hypertarget{_game_state_8cpp_source_l00004}00004\ }
+\DoxyCodeLine{\Hypertarget{_game_state_8cpp_source_l00016}\mbox{\hyperlink{class_game_state_a05f2b11b65c32912f95c06d68b8bd4c4}{00016}}\ \mbox{\hyperlink{class_game_state_a05f2b11b65c32912f95c06d68b8bd4c4}{GameState::GameState}}(\mbox{\hyperlink{class_state_stack}{StateStack}}*\ stack,\ \mbox{\hyperlink{struct_state_1_1_context}{Context}}*\ context)}
+\DoxyCodeLine{\Hypertarget{_game_state_8cpp_source_l00017}00017\ \ \ \ \ :\ \mbox{\hyperlink{class_state_a56e553adc0a9d1ae254c4987d7959e80}{State}}(stack,\ context)}
+\DoxyCodeLine{\Hypertarget{_game_state_8cpp_source_l00018}00018\ \ \ \ \ ,\ \mbox{\hyperlink{class_game_state_abae3784758f93e8affba727139d51455}{mWorld}}(this)}
+\DoxyCodeLine{\Hypertarget{_game_state_8cpp_source_l00019}00019\ \ \ \ \ ,\ \mbox{\hyperlink{class_game_state_a02e4e919bb98bd3f89b18c66d82a6c59}{mPauseStateSceneGraph}}(std::make\_unique<\mbox{\hyperlink{class_scene_node}{SceneNode}}>(this))}
+\DoxyCodeLine{\Hypertarget{_game_state_8cpp_source_l00020}00020\ \{}
+\DoxyCodeLine{\Hypertarget{_game_state_8cpp_source_l00021}00021\ \ \ \ \ \textcolor{comment}{//\ Reset\ rendering\ resources}}
+\DoxyCodeLine{\Hypertarget{_game_state_8cpp_source_l00022}00022\ \ \ \ \ \mbox{\hyperlink{class_state_a505581614dd080700cda88bd1b930960}{mAllRitems}}.clear();}
+\DoxyCodeLine{\Hypertarget{_game_state_8cpp_source_l00023}00023\ \ \ \ \ \mbox{\hyperlink{class_state_aa800112d4ab036b690e8db72c21d7a4b}{mContext}}-\/>game-\/>ResetFrameResources();}
+\DoxyCodeLine{\Hypertarget{_game_state_8cpp_source_l00024}00024\ \ \ \ \ \mbox{\hyperlink{class_state_aa800112d4ab036b690e8db72c21d7a4b}{mContext}}-\/>game-\/>BuildMaterials();}
+\DoxyCodeLine{\Hypertarget{_game_state_8cpp_source_l00025}00025\ }
+\DoxyCodeLine{\Hypertarget{_game_state_8cpp_source_l00026}00026\ \ \ \ \ \textcolor{comment}{//\ Initialize\ game\ world}}
+\DoxyCodeLine{\Hypertarget{_game_state_8cpp_source_l00027}00027\ \ \ \ \ \mbox{\hyperlink{class_game_state_abae3784758f93e8affba727139d51455}{mWorld}}.buildScene();}
+\DoxyCodeLine{\Hypertarget{_game_state_8cpp_source_l00028}00028\ }
+\DoxyCodeLine{\Hypertarget{_game_state_8cpp_source_l00029}00029\ \ \ \ \ \textcolor{comment}{//-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/}}
+\DoxyCodeLine{\Hypertarget{_game_state_8cpp_source_l00030}00030\ \ \ \ \ \textcolor{comment}{//\ Pause\ State\ UI\ Setup}}
+\DoxyCodeLine{\Hypertarget{_game_state_8cpp_source_l00031}00031\ \ \ \ \ \textcolor{comment}{//-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/}}
+\DoxyCodeLine{\Hypertarget{_game_state_8cpp_source_l00032}00032\ \ \ \ \ std::unique\_ptr<SpriteNode>\ PauseSprite\ =\ std::make\_unique<SpriteNode>(\textcolor{keyword}{this});}
+\DoxyCodeLine{\Hypertarget{_game_state_8cpp_source_l00033}00033\ \ \ \ \ PauseSprite-\/>SetDrawName(\textcolor{stringliteral}{"{}PauseText"{}},\ \textcolor{stringliteral}{"{}boxGeo"{}},\ \textcolor{stringliteral}{"{}box"{}});}
+\DoxyCodeLine{\Hypertarget{_game_state_8cpp_source_l00034}00034\ \ \ \ \ PauseSprite-\/>setScale(3,\ 1,\ 3);}
+\DoxyCodeLine{\Hypertarget{_game_state_8cpp_source_l00035}00035\ \ \ \ \ PauseSprite-\/>setPosition(0,\ 1,\ 0);}
+\DoxyCodeLine{\Hypertarget{_game_state_8cpp_source_l00036}00036\ \ \ \ \ \mbox{\hyperlink{class_game_state_a02e4e919bb98bd3f89b18c66d82a6c59}{mPauseStateSceneGraph}}-\/>attachChild(std::move(PauseSprite));}
+\DoxyCodeLine{\Hypertarget{_game_state_8cpp_source_l00037}00037\ \ \ \ \ }
+\DoxyCodeLine{\Hypertarget{_game_state_8cpp_source_l00038}00038\ \ \ \ \ \mbox{\hyperlink{class_game_state_a02e4e919bb98bd3f89b18c66d82a6c59}{mPauseStateSceneGraph}}-\/>build();}
+\DoxyCodeLine{\Hypertarget{_game_state_8cpp_source_l00039}00039\ }
+\DoxyCodeLine{\Hypertarget{_game_state_8cpp_source_l00040}00040\ \ \ \ \ \textcolor{comment}{//\ Finalize\ resource\ setup}}
+\DoxyCodeLine{\Hypertarget{_game_state_8cpp_source_l00041}00041\ \ \ \ \ \mbox{\hyperlink{class_state_aa800112d4ab036b690e8db72c21d7a4b}{mContext}}-\/>game-\/>BuildFrameResources(\mbox{\hyperlink{class_state_a505581614dd080700cda88bd1b930960}{mAllRitems}}.size());}
+\DoxyCodeLine{\Hypertarget{_game_state_8cpp_source_l00042}00042\ \}}
+\DoxyCodeLine{\Hypertarget{_game_state_8cpp_source_l00043}00043\ }
+\DoxyCodeLine{\Hypertarget{_game_state_8cpp_source_l00047}\mbox{\hyperlink{class_game_state_ae623df5042cd0c17daa3394fdcb397b3}{00047}}\ \mbox{\hyperlink{class_game_state_ae623df5042cd0c17daa3394fdcb397b3}{GameState::\string~GameState}}()}
+\DoxyCodeLine{\Hypertarget{_game_state_8cpp_source_l00048}00048\ \{}
+\DoxyCodeLine{\Hypertarget{_game_state_8cpp_source_l00049}00049\ \}}
+\DoxyCodeLine{\Hypertarget{_game_state_8cpp_source_l00050}00050\ }
+\DoxyCodeLine{\Hypertarget{_game_state_8cpp_source_l00054}\mbox{\hyperlink{class_game_state_a0c1d83fbe03ca72edf6bb0fc3393f16b}{00054}}\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_game_state_a0c1d83fbe03ca72edf6bb0fc3393f16b}{GameState::Draw}}()}
+\DoxyCodeLine{\Hypertarget{_game_state_8cpp_source_l00055}00055\ \{}
+\DoxyCodeLine{\Hypertarget{_game_state_8cpp_source_l00056}00056\ \ \ \ \ OutputDebugStringA(\textcolor{stringliteral}{"{}Drawing\ game\ frame...\(\backslash\)n"{}});}
+\DoxyCodeLine{\Hypertarget{_game_state_8cpp_source_l00057}00057\ \ \ \ \ \mbox{\hyperlink{class_game_state_abae3784758f93e8affba727139d51455}{mWorld}}.draw();}
+\DoxyCodeLine{\Hypertarget{_game_state_8cpp_source_l00058}00058\ \}}
+\DoxyCodeLine{\Hypertarget{_game_state_8cpp_source_l00059}00059\ }
+\DoxyCodeLine{\Hypertarget{_game_state_8cpp_source_l00065}\mbox{\hyperlink{class_game_state_ac02eeba1f6f23760e8743aaabe0c4b66}{00065}}\ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{class_game_state_ac02eeba1f6f23760e8743aaabe0c4b66}{GameState::Update}}(\textcolor{keyword}{const}\ GameTimer\&\ gt)}
+\DoxyCodeLine{\Hypertarget{_game_state_8cpp_source_l00066}00066\ \{}
+\DoxyCodeLine{\Hypertarget{_game_state_8cpp_source_l00067}00067\ \ \ \ \ \mbox{\hyperlink{class_game_state_abae3784758f93e8affba727139d51455}{mWorld}}.update(gt);}
+\DoxyCodeLine{\Hypertarget{_game_state_8cpp_source_l00068}00068\ \ \ \ \ \textcolor{keywordflow}{return}\ \textcolor{keyword}{true};}
+\DoxyCodeLine{\Hypertarget{_game_state_8cpp_source_l00069}00069\ \}}
+\DoxyCodeLine{\Hypertarget{_game_state_8cpp_source_l00070}00070\ }
+\DoxyCodeLine{\Hypertarget{_game_state_8cpp_source_l00076}\mbox{\hyperlink{class_game_state_a7064a942c979e53745548e01c7041bc0}{00076}}\ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{class_game_state_a7064a942c979e53745548e01c7041bc0}{GameState::HandleEvent}}(WPARAM\ btnState)}
+\DoxyCodeLine{\Hypertarget{_game_state_8cpp_source_l00077}00077\ \{}
+\DoxyCodeLine{\Hypertarget{_game_state_8cpp_source_l00078}00078\ \ \ \ \ \textcolor{keywordflow}{if}\ (d3dUtil::IsKeyDown(\textcolor{charliteral}{'P'}))}
+\DoxyCodeLine{\Hypertarget{_game_state_8cpp_source_l00079}00079\ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{_game_state_8cpp_source_l00080}00080\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_state_aa6ff837626a9f78e951b968366daca36}{RequestStackPush}}(\mbox{\hyperlink{namespace_states_a571a0dc62822f97bb9511eb013d8e1c3a7cbdc18ae28451f619eac360e384790a}{States::Pause}});}
+\DoxyCodeLine{\Hypertarget{_game_state_8cpp_source_l00081}00081\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{_game_state_8cpp_source_l00082}00082\ }
+\DoxyCodeLine{\Hypertarget{_game_state_8cpp_source_l00083}00083\ \ \ \ \ \textcolor{keywordflow}{return}\ \textcolor{keyword}{true};}
+\DoxyCodeLine{\Hypertarget{_game_state_8cpp_source_l00084}00084\ \}}
+\DoxyCodeLine{\Hypertarget{_game_state_8cpp_source_l00085}00085\ }
+\DoxyCodeLine{\Hypertarget{_game_state_8cpp_source_l00090}\mbox{\hyperlink{class_game_state_acc2bebd7a5e37a7f16e3748a9de0333b}{00090}}\ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{class_game_state_acc2bebd7a5e37a7f16e3748a9de0333b}{GameState::HandleRealTimeInput}}()}
+\DoxyCodeLine{\Hypertarget{_game_state_8cpp_source_l00091}00091\ \{}
+\DoxyCodeLine{\Hypertarget{_game_state_8cpp_source_l00092}00092\ \ \ \ \ \mbox{\hyperlink{class_game_state_aaf255a97137afb613c3509da8f01aa06}{ProcessInput}}();}
+\DoxyCodeLine{\Hypertarget{_game_state_8cpp_source_l00093}00093\ }
+\DoxyCodeLine{\Hypertarget{_game_state_8cpp_source_l00094}00094\ \ \ \ \ \textcolor{keywordflow}{return}\ \textcolor{keyword}{true};}
+\DoxyCodeLine{\Hypertarget{_game_state_8cpp_source_l00095}00095\ \}}
+\DoxyCodeLine{\Hypertarget{_game_state_8cpp_source_l00096}00096\ }
+\DoxyCodeLine{\Hypertarget{_game_state_8cpp_source_l00104}\mbox{\hyperlink{class_game_state_aaf255a97137afb613c3509da8f01aa06}{00104}}\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_game_state_aaf255a97137afb613c3509da8f01aa06}{GameState::ProcessInput}}()}
+\DoxyCodeLine{\Hypertarget{_game_state_8cpp_source_l00105}00105\ \{}
+\DoxyCodeLine{\Hypertarget{_game_state_8cpp_source_l00106}00106\ \ \ \ \ \mbox{\hyperlink{class_command_queue}{CommandQueue}}\&\ commands\ =\ \mbox{\hyperlink{class_game_state_abae3784758f93e8affba727139d51455}{mWorld}}.getCommandQueue();}
+\DoxyCodeLine{\Hypertarget{_game_state_8cpp_source_l00107}00107\ \ \ \ \ \mbox{\hyperlink{class_state_aa800112d4ab036b690e8db72c21d7a4b}{mContext}}-\/>player-\/>HandleEvent(commands);}
+\DoxyCodeLine{\Hypertarget{_game_state_8cpp_source_l00108}00108\ \ \ \ \ \mbox{\hyperlink{class_state_aa800112d4ab036b690e8db72c21d7a4b}{mContext}}-\/>player-\/>HandeRealTimeInput(commands);}
+\DoxyCodeLine{\Hypertarget{_game_state_8cpp_source_l00109}00109\ \}}
+
+\end{DoxyCode}

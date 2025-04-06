@@ -1,0 +1,224 @@
+\doxysection{Aircraft Class Reference}
+\hypertarget{class_aircraft}{}\label{class_aircraft}\index{Aircraft@{Aircraft}}
+
+
+\doxylink{class_aircraft}{Aircraft} entity representing both player-\/controlled and AI-\/controlled planes.  
+
+
+
+
+{\ttfamily \#include $<$Aircraft.\+hpp$>$}
+
+Inheritance diagram for Aircraft\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=3.000000cm]{class_aircraft}
+\end{center}
+\end{figure}
+\doxysubsubsection*{Public Types}
+\begin{DoxyCompactItemize}
+\item 
+enum \mbox{\hyperlink{class_aircraft_a7dae28542933e088032b753600046acd}{Type}} \{ \mbox{\hyperlink{class_aircraft_a7dae28542933e088032b753600046acdaed1ed20dae2d2d8eaa1d2186c6ee9315}{Eagle}}
+, \mbox{\hyperlink{class_aircraft_a7dae28542933e088032b753600046acdaf080b57c0c515dea65f056395cc6d59b}{Raptor}}
+ \}
+\begin{DoxyCompactList}\small\item\em Enumeration of aircraft types. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Public Types inherited from \mbox{\hyperlink{class_scene_node}{Scene\+Node}}}
+\begin{DoxyCompactItemize}
+\item 
+typedef std\+::unique\+\_\+ptr$<$ \mbox{\hyperlink{class_scene_node}{Scene\+Node}} $>$ \mbox{\hyperlink{class_scene_node_aaf5c9ad8475874b51b70e400822f2e9a}{Ptr}}
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{class_aircraft_a6362c0f87f7f0cc5ad54e3a16c42454e}{Aircraft}} (\mbox{\hyperlink{class_aircraft_a7dae28542933e088032b753600046acd}{Type}} type, \mbox{\hyperlink{class_state}{State}} \texorpdfstring{$\ast$}{*}state)
+\begin{DoxyCompactList}\small\item\em Constructs a new \doxylink{class_aircraft}{Aircraft} entity. \end{DoxyCompactList}\item 
+virtual unsigned int \mbox{\hyperlink{class_aircraft_a01f9042934c08ef18b62351e6bca320d}{get\+Category}} () const
+\begin{DoxyCompactList}\small\item\em Gets collision category flags for this aircraft. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Public Member Functions inherited from \mbox{\hyperlink{class_entity}{Entity}}}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{class_entity_ac219200508c18e5db68225c7efb7da5d}{Entity}} (\mbox{\hyperlink{class_state}{State}} \texorpdfstring{$\ast$}{*}state)
+\begin{DoxyCompactList}\small\item\em Constructs an \doxylink{class_entity}{Entity} with zero initial velocity. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_entity_a472e1690df5fb48c6c7f052e4cb39c78}{set\+Velocity}} (XMFLOAT3 velocity)
+\begin{DoxyCompactList}\small\item\em Sets the entity\textquotesingle{}s velocity vector. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_entity_abb3c22fe7e78968131560642e360e12b}{set\+Velocity}} (float vx, float vy, float vz)
+\begin{DoxyCompactList}\small\item\em Sets the velocity of the entity using individual components. \end{DoxyCompactList}\item 
+XMFLOAT3 \mbox{\hyperlink{class_entity_af4fcc5c9f7e9d705502269444ef3eca3}{get\+Velocity}} () const
+\begin{DoxyCompactList}\small\item\em Retrieves the current velocity of the entity. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_entity_a6604e7ba4eee5511a6aa21345cbdaf28}{accelerate}} (XMFLOAT3 velocity)
+\begin{DoxyCompactList}\small\item\em Applies an acceleration to the entity\textquotesingle{}s velocity. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_entity_aa2c71a179fcbb868c8ae01e98aaf79a9}{accelerate}} (float vx, float vy, float vz)
+\begin{DoxyCompactList}\small\item\em Applies an acceleration using individual components. \end{DoxyCompactList}\item 
+virtual void \mbox{\hyperlink{class_entity_ac2ba9cb8ca54fff11ad7397334edcd94}{update\+Current}} (const Game\+Timer \&gt)
+\begin{DoxyCompactList}\small\item\em Updates the entity\textquotesingle{}s position based on its velocity. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Public Member Functions inherited from \mbox{\hyperlink{class_scene_node}{Scene\+Node}}}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{class_scene_node_a6482e34381f108470f48b59f8ce90ac4}{Scene\+Node}} (\mbox{\hyperlink{class_state}{State}} \texorpdfstring{$\ast$}{*}state)
+\begin{DoxyCompactList}\small\item\em Constructor for \doxylink{class_scene_node}{Scene\+Node}. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_scene_node_acdfa2c2ba28bce076c886eaba2d9e650}{attach\+Child}} (Ptr child)
+\begin{DoxyCompactList}\small\item\em Attaches a child node to this node. \end{DoxyCompactList}\item 
+Ptr \mbox{\hyperlink{class_scene_node_a3b9681eb3db7d9e575945b57e275e040}{detach\+Child}} (const \mbox{\hyperlink{class_scene_node}{Scene\+Node}} \&node)
+\begin{DoxyCompactList}\small\item\em Detaches a child node from this node. \end{DoxyCompactList}\item 
+const std\+::vector$<$ Ptr $>$ \& \mbox{\hyperlink{class_scene_node_ace4102e26e6017668859aaff2ce3bcaf}{get\+Children}} () const
+\item 
+void \mbox{\hyperlink{class_scene_node_a858b7a088c0a2d01aaa90baf05d58d08}{update}} (const Game\+Timer \&gt)
+\begin{DoxyCompactList}\small\item\em Updates this node and its children. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_scene_node_a41b1a847182e49103bc145bd4604e056}{draw}} () const
+\begin{DoxyCompactList}\small\item\em Draws this node and its children. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_scene_node_a67ca883a91d8c45004a0786330548d8f}{build}} ()
+\begin{DoxyCompactList}\small\item\em Builds this node and its children. \end{DoxyCompactList}\item 
+XMFLOAT3 \mbox{\hyperlink{class_scene_node_a6ba2f5754854829e7e49f135bb4fce45}{get\+World\+Position}} () const
+\begin{DoxyCompactList}\small\item\em Gets the world position of this node. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_scene_node_a45f8882749060b059fe26eb02f7f843b}{set\+Position}} (float x, float y, float z)
+\begin{DoxyCompactList}\small\item\em Sets the position of this node. \end{DoxyCompactList}\item 
+XMFLOAT3 \mbox{\hyperlink{class_scene_node_a1a5ce797162b569b79494b7c2a696713}{get\+World\+Rotation}} () const
+\begin{DoxyCompactList}\small\item\em Gets the world rotation of this node. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_scene_node_a66fa14e7553900ae540f13e4dc5f749b}{set\+World\+Rotation}} (float x, float y, float z)
+\begin{DoxyCompactList}\small\item\em Sets the rotation of this node. \end{DoxyCompactList}\item 
+XMFLOAT3 \mbox{\hyperlink{class_scene_node_af875844defd567ae06c579a3244ff025}{get\+World\+Scale}} () const
+\begin{DoxyCompactList}\small\item\em Gets the world scale of this node. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_scene_node_a753cea60b8a939a82a47258f4a51df82}{set\+Scale}} (float x, float y, float z)
+\begin{DoxyCompactList}\small\item\em Sets the scale of this node. \end{DoxyCompactList}\item 
+XMFLOAT4\+X4 \mbox{\hyperlink{class_scene_node_a58fbaea11dad15681acbe6abdbff03a7}{get\+World\+Transform}} () const
+\begin{DoxyCompactList}\small\item\em Gets the world transform of this node. \end{DoxyCompactList}\item 
+XMFLOAT4\+X4 \mbox{\hyperlink{class_scene_node_a5e503eeca953d36b652a12ceadb64d28}{get\+Transform}} () const
+\begin{DoxyCompactList}\small\item\em Gets the local transform of this node. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_scene_node_aec657f40def4be5c901192ec85027a35}{move}} (float x, float y, float z)
+\begin{DoxyCompactList}\small\item\em Moves this node by the specified amount. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_scene_node_a378e78ad679c28301c0db51afa389cb6}{on\+Command}} (const \mbox{\hyperlink{struct_command}{Command}} \&command, const Game\+Timer \&gt)
+\begin{DoxyCompactList}\small\item\em Executes a command on this node and its children. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsection*{Additional Inherited Members}
+\doxysubsection*{Public Attributes inherited from \mbox{\hyperlink{class_entity}{Entity}}}
+\begin{DoxyCompactItemize}
+\item 
+XMFLOAT3 \mbox{\hyperlink{class_entity_a15aa77787228598dfa35f5f822695c43}{m\+Velocity}}
+\begin{DoxyCompactList}\small\item\em Current velocity vector of the entity. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Protected Attributes inherited from \mbox{\hyperlink{class_scene_node}{Scene\+Node}}}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{class_state}{State}} \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{class_scene_node_a2921cf2fe98067b4d0b3558d2dc553bc}{m\+State}}
+\begin{DoxyCompactList}\small\item\em Pointer to the \doxylink{class_game}{Game} object. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{struct_render_item}{Render\+Item}} \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{class_scene_node_a51b22a4d6789039a96ebab097ed03db0}{renderer}}
+\begin{DoxyCompactList}\small\item\em Pointer to the \doxylink{struct_render_item}{Render\+Item} for this node. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+\doxylink{class_aircraft}{Aircraft} entity representing both player-\/controlled and AI-\/controlled planes. 
+
+Inherits from \doxylink{class_entity}{Entity} and implements aircraft-\/specific rendering logic. Manages both visual representation (through \doxylink{struct_render_item}{Render\+Item}) and collision category. \begin{Desc}
+\item[Examples]\par
+\mbox{\hyperlink{_create-example}{Create}}.\end{Desc}
+
+
+Definition at line \mbox{\hyperlink{_aircraft_8hpp_source_l00012}{12}} of file \mbox{\hyperlink{_aircraft_8hpp_source}{Aircraft.\+hpp}}.
+
+
+
+\doxysubsection{Member Enumeration Documentation}
+\Hypertarget{class_aircraft_a7dae28542933e088032b753600046acd}\index{Aircraft@{Aircraft}!Type@{Type}}
+\index{Type@{Type}!Aircraft@{Aircraft}}
+\doxysubsubsection{\texorpdfstring{Type}{Type}}
+{\footnotesize\ttfamily \label{class_aircraft_a7dae28542933e088032b753600046acd} 
+enum \mbox{\hyperlink{class_aircraft_a7dae28542933e088032b753600046acd}{Aircraft\+::\+Type}}}
+
+
+
+Enumeration of aircraft types. 
+
+\begin{DoxyEnumFields}[2]{Enumerator}
+\raisebox{\heightof{T}}[0pt][0pt]{\index{Eagle@{Eagle}!Aircraft@{Aircraft}}\index{Aircraft@{Aircraft}!Eagle@{Eagle}}}\Hypertarget{class_aircraft_a7dae28542933e088032b753600046acdaed1ed20dae2d2d8eaa1d2186c6ee9315}\label{class_aircraft_a7dae28542933e088032b753600046acdaed1ed20dae2d2d8eaa1d2186c6ee9315} 
+Eagle&Player-\/controlled aircraft. \\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{Raptor@{Raptor}!Aircraft@{Aircraft}}\index{Aircraft@{Aircraft}!Raptor@{Raptor}}}\Hypertarget{class_aircraft_a7dae28542933e088032b753600046acdaf080b57c0c515dea65f056395cc6d59b}\label{class_aircraft_a7dae28542933e088032b753600046acdaf080b57c0c515dea65f056395cc6d59b} 
+Raptor&AI-\/controlled enemy aircraft. \\
+\hline
+
+\end{DoxyEnumFields}
+
+
+Definition at line \mbox{\hyperlink{_aircraft_8hpp_source_l00019}{19}} of file \mbox{\hyperlink{_aircraft_8hpp_source}{Aircraft.\+hpp}}.
+
+
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\Hypertarget{class_aircraft_a6362c0f87f7f0cc5ad54e3a16c42454e}\index{Aircraft@{Aircraft}!Aircraft@{Aircraft}}
+\index{Aircraft@{Aircraft}!Aircraft@{Aircraft}}
+\doxysubsubsection{\texorpdfstring{Aircraft()}{Aircraft()}}
+{\footnotesize\ttfamily \label{class_aircraft_a6362c0f87f7f0cc5ad54e3a16c42454e} 
+Aircraft\+::\+Aircraft (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{class_aircraft_a7dae28542933e088032b753600046acd}{Type}}}]{type}{, }\item[{\mbox{\hyperlink{class_state}{State}} \texorpdfstring{$\ast$}{*}}]{state}{}\end{DoxyParamCaption})}
+
+
+
+Constructs a new \doxylink{class_aircraft}{Aircraft} entity. 
+
+Constructor for \doxylink{class_aircraft}{Aircraft}.
+
+
+\begin{DoxyParams}{Parameters}
+{\em type} & \doxylink{class_aircraft}{Aircraft} type from \doxylink{class_aircraft_a7dae28542933e088032b753600046acd}{Type} enumeration \\
+\hline
+{\em game} & Reference to parent \doxylink{class_game}{Game} instance\\
+\hline
+\end{DoxyParams}
+\begin{DoxyWarning}{Warning}
+The \doxylink{class_game}{Game} object must outlive the \doxylink{class_aircraft}{Aircraft} instance
+\end{DoxyWarning}
+
+\begin{DoxyParams}{Parameters}
+{\em type} & The type of aircraft. \\
+\hline
+{\em game} & Pointer to the \doxylink{class_game}{Game} object. \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line \mbox{\hyperlink{_aircraft_8cpp_source_l00009}{9}} of file \mbox{\hyperlink{_aircraft_8cpp_source}{Aircraft.\+cpp}}.
+
+
+
+\doxysubsection{Member Function Documentation}
+\Hypertarget{class_aircraft_a01f9042934c08ef18b62351e6bca320d}\index{Aircraft@{Aircraft}!getCategory@{getCategory}}
+\index{getCategory@{getCategory}!Aircraft@{Aircraft}}
+\doxysubsubsection{\texorpdfstring{getCategory()}{getCategory()}}
+{\footnotesize\ttfamily \label{class_aircraft_a01f9042934c08ef18b62351e6bca320d} 
+unsigned int Aircraft\+::get\+Category (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [virtual]}}
+
+
+
+Gets collision category flags for this aircraft. 
+
+\begin{DoxyReturn}{Returns}
+unsigned int Combination of \doxylink{namespace_category}{Category} flags
+\end{DoxyReturn}
+Overrides \doxylink{class_scene_node_af713a8c58831a27bc791a2efdfb7c495}{Entity\+::get\+Category()}. Return values\+:
+\begin{DoxyItemize}
+\item \doxylink{namespace_category_a2ff936dbd42aeae91fdfb6f8456a8ab0ac17fded322e70d4086e2f5dfcc706679}{Category\+::\+Player\+Aircraft} for Eagle type
+\item \doxylink{namespace_category_a2ff936dbd42aeae91fdfb6f8456a8ab0a200d37e43bb2556f6e93fcc933124034}{Category\+::\+Enemy\+Aircraft} for all other types
+\end{DoxyItemize}
+
+\begin{DoxyReturn}{Returns}
+unsigned int \doxylink{namespace_category}{Category} flag from \doxylink{namespace_category}{Category} enumeration
+\end{DoxyReturn}
+
+\begin{DoxyRetVals}{Return values}
+{\em \doxylink{namespace_category_a2ff936dbd42aeae91fdfb6f8456a8ab0ac17fded322e70d4086e2f5dfcc706679}{Category\+::\+Player\+Aircraft}} & If aircraft type is Eagle \\
+\hline
+{\em \doxylink{namespace_category_a2ff936dbd42aeae91fdfb6f8456a8ab0a200d37e43bb2556f6e93fcc933124034}{Category\+::\+Enemy\+Aircraft}} & For all other types (including Raptor) \\
+\hline
+\end{DoxyRetVals}
+
+
+Reimplemented from \mbox{\hyperlink{class_scene_node_af713a8c58831a27bc791a2efdfb7c495}{Scene\+Node}}.
+
+
+
+Definition at line \mbox{\hyperlink{_aircraft_8cpp_source_l00033}{33}} of file \mbox{\hyperlink{_aircraft_8cpp_source}{Aircraft.\+cpp}}.
+
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+Initialize\+Direct3\+D/Aircraft.\+hpp\item 
+Initialize\+Direct3\+D/Aircraft.\+cpp\end{DoxyCompactItemize}

@@ -1,0 +1,205 @@
+\doxysection{Player Class Reference}
+\hypertarget{class_player}{}\label{class_player}\index{Player@{Player}}
+
+
+Manages player input and actions.  
+
+
+
+
+{\ttfamily \#include $<$Player.\+hpp$>$}
+
+\doxysubsubsection*{Public Types}
+\begin{DoxyCompactItemize}
+\item 
+enum \mbox{\hyperlink{class_player_a2da5df212d083bbb1460237f34ab0d88}{Action}} \{ \newline
+{\bfseries Move\+Left}
+, {\bfseries Move\+Right}
+, {\bfseries Move\+Up}
+, {\bfseries Move\+Down}
+, \newline
+\mbox{\hyperlink{class_player_a2da5df212d083bbb1460237f34ab0d88a0b5dc1e9ee9644d81f6198e23da6dc74}{Action\+Count}}
+ \}
+\begin{DoxyCompactList}\small\item\em Enumeration of player actions. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{class_player_affe0cc3cb714f6deb4e62f0c0d3f1fd8}{Player}} ()
+\begin{DoxyCompactList}\small\item\em Constructs a \doxylink{class_player}{Player} object with default key bindings. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_player_a3d3000b3c1adc37c4b3e6d7fac20ce2c}{Handle\+Event}} (\mbox{\hyperlink{class_command_queue}{Command\+Queue}} \&commands)
+\begin{DoxyCompactList}\small\item\em Handles event-\/driven input (e.\+g., key presses/releases) \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_player_af37e3b0cbc12b9a9292b9d8f4b1e05f6}{Hande\+Real\+Time\+Input}} (\mbox{\hyperlink{class_command_queue}{Command\+Queue}} \&commands)
+\begin{DoxyCompactList}\small\item\em Handles real-\/time input (e.\+g., continuous key holds) \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_player_ac166d43f012b840e1d22bcaf49037b28}{Assign\+Key}} (\mbox{\hyperlink{class_player_a2da5df212d083bbb1460237f34ab0d88}{Action}} action, char key)
+\begin{DoxyCompactList}\small\item\em Assigns a key to a specific action. \end{DoxyCompactList}\item 
+char \mbox{\hyperlink{class_player_a6ffaa42ae4d105bd8a775f18ce37c463}{get\+Assigned\+Key}} (\mbox{\hyperlink{class_player_a2da5df212d083bbb1460237f34ab0d88}{Action}} action) const
+\begin{DoxyCompactList}\small\item\em Gets the key currently assigned to an action. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Manages player input and actions. 
+
+Handles player input and maps actions to commands.
+
+The \doxylink{class_player}{Player} class handles key bindings, real-\/time input, and action execution for the player.
+
+The \doxylink{class_player}{Player} class manages key bindings and translates user input into game commands that are pushed into a \doxylink{class_command_queue}{Command\+Queue}. It supports both event-\/driven and real-\/time input handling. 
+
+Definition at line \mbox{\hyperlink{_player_8hpp_source_l00016}{16}} of file \mbox{\hyperlink{_player_8hpp_source}{Player.\+hpp}}.
+
+
+
+\doxysubsection{Member Enumeration Documentation}
+\Hypertarget{class_player_a2da5df212d083bbb1460237f34ab0d88}\index{Player@{Player}!Action@{Action}}
+\index{Action@{Action}!Player@{Player}}
+\doxysubsubsection{\texorpdfstring{Action}{Action}}
+{\footnotesize\ttfamily \label{class_player_a2da5df212d083bbb1460237f34ab0d88} 
+enum \mbox{\hyperlink{class_player_a2da5df212d083bbb1460237f34ab0d88}{Player\+::\+Action}}}
+
+
+
+Enumeration of player actions. 
+
+Actions represent high-\/level gameplay behaviors such as movement. \begin{DoxyEnumFields}[2]{Enumerator}
+\raisebox{\heightof{T}}[0pt][0pt]{\index{ActionCount@{ActionCount}!Player@{Player}}\index{Player@{Player}!ActionCount@{ActionCount}}}\Hypertarget{class_player_a2da5df212d083bbb1460237f34ab0d88a0b5dc1e9ee9644d81f6198e23da6dc74}\label{class_player_a2da5df212d083bbb1460237f34ab0d88a0b5dc1e9ee9644d81f6198e23da6dc74} 
+Action\+Count&Total number of actions (used for array sizing) \\
+\hline
+
+\end{DoxyEnumFields}
+
+
+Definition at line \mbox{\hyperlink{_player_8hpp_source_l00046}{46}} of file \mbox{\hyperlink{_player_8hpp_source}{Player.\+hpp}}.
+
+
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\Hypertarget{class_player_affe0cc3cb714f6deb4e62f0c0d3f1fd8}\index{Player@{Player}!Player@{Player}}
+\index{Player@{Player}!Player@{Player}}
+\doxysubsubsection{\texorpdfstring{Player()}{Player()}}
+{\footnotesize\ttfamily \label{class_player_affe0cc3cb714f6deb4e62f0c0d3f1fd8} 
+Player\+::\+Player (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})}
+
+
+
+Constructs a \doxylink{class_player}{Player} object with default key bindings. 
+
+Constructor for \doxylink{class_player}{Player}.
+
+Initializes key bindings and action bindings for the player. 
+
+Definition at line \mbox{\hyperlink{_player_8cpp_source_l00060}{60}} of file \mbox{\hyperlink{_player_8cpp_source}{Player.\+cpp}}.
+
+
+
+\doxysubsection{Member Function Documentation}
+\Hypertarget{class_player_ac166d43f012b840e1d22bcaf49037b28}\index{Player@{Player}!AssignKey@{AssignKey}}
+\index{AssignKey@{AssignKey}!Player@{Player}}
+\doxysubsubsection{\texorpdfstring{AssignKey()}{AssignKey()}}
+{\footnotesize\ttfamily \label{class_player_ac166d43f012b840e1d22bcaf49037b28} 
+void Player\+::\+Assign\+Key (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{class_player_a2da5df212d083bbb1460237f34ab0d88}{Action}}}]{action}{, }\item[{char}]{key}{}\end{DoxyParamCaption})}
+
+
+
+Assigns a key to a specific action. 
+
+Assigns a key to an action.
+
+
+\begin{DoxyParams}{Parameters}
+{\em action} & The action to bind to a key \\
+\hline
+{\em key} & The character key to bind to the action (e.\+g., \textquotesingle{}W\textquotesingle{}, \textquotesingle{}A\textquotesingle{}, \textquotesingle{}S\textquotesingle{}, \textquotesingle{}D\textquotesingle{})\\
+\hline
+{\em action} & The action to assign \\
+\hline
+{\em key} & The key to bind to the action \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line \mbox{\hyperlink{_player_8cpp_source_l00122}{122}} of file \mbox{\hyperlink{_player_8cpp_source}{Player.\+cpp}}.
+
+\Hypertarget{class_player_a6ffaa42ae4d105bd8a775f18ce37c463}\index{Player@{Player}!getAssignedKey@{getAssignedKey}}
+\index{getAssignedKey@{getAssignedKey}!Player@{Player}}
+\doxysubsubsection{\texorpdfstring{getAssignedKey()}{getAssignedKey()}}
+{\footnotesize\ttfamily \label{class_player_a6ffaa42ae4d105bd8a775f18ce37c463} 
+char Player\+::get\+Assigned\+Key (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{class_player_a2da5df212d083bbb1460237f34ab0d88}{Action}}}]{action}{}\end{DoxyParamCaption}) const}
+
+
+
+Gets the key currently assigned to an action. 
+
+Gets the key assigned to an action.
+
+
+\begin{DoxyParams}{Parameters}
+{\em action} & The action whose assigned key is requested \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+The character key bound to the specified action
+\end{DoxyReturn}
+
+\begin{DoxyParams}{Parameters}
+{\em action} & The action to look up \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+The key assigned to the action, or 0x00 if not found 
+\end{DoxyReturn}
+
+
+Definition at line \mbox{\hyperlink{_player_8cpp_source_l00142}{142}} of file \mbox{\hyperlink{_player_8cpp_source}{Player.\+cpp}}.
+
+\Hypertarget{class_player_af37e3b0cbc12b9a9292b9d8f4b1e05f6}\index{Player@{Player}!HandeRealTimeInput@{HandeRealTimeInput}}
+\index{HandeRealTimeInput@{HandeRealTimeInput}!Player@{Player}}
+\doxysubsubsection{\texorpdfstring{HandeRealTimeInput()}{HandeRealTimeInput()}}
+{\footnotesize\ttfamily \label{class_player_af37e3b0cbc12b9a9292b9d8f4b1e05f6} 
+void Player\+::\+Hande\+Real\+Time\+Input (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{class_command_queue}{Command\+Queue}} \&}]{commands}{}\end{DoxyParamCaption})}
+
+
+
+Handles real-\/time input (e.\+g., continuous key holds) 
+
+Handles real-\/time input.
+
+
+\begin{DoxyParams}{Parameters}
+{\em commands} & Reference to the \doxylink{class_command_queue}{Command\+Queue} for storing generated commands\\
+\hline
+{\em commands} & Reference to the \doxylink{class_command_queue}{Command\+Queue} to push commands to \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line \mbox{\hyperlink{_player_8cpp_source_l00106}{106}} of file \mbox{\hyperlink{_player_8cpp_source}{Player.\+cpp}}.
+
+\Hypertarget{class_player_a3d3000b3c1adc37c4b3e6d7fac20ce2c}\index{Player@{Player}!HandleEvent@{HandleEvent}}
+\index{HandleEvent@{HandleEvent}!Player@{Player}}
+\doxysubsubsection{\texorpdfstring{HandleEvent()}{HandleEvent()}}
+{\footnotesize\ttfamily \label{class_player_a3d3000b3c1adc37c4b3e6d7fac20ce2c} 
+void Player\+::\+Handle\+Event (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{class_command_queue}{Command\+Queue}} \&}]{commands}{}\end{DoxyParamCaption})}
+
+
+
+Handles event-\/driven input (e.\+g., key presses/releases) 
+
+Handles non-\/real-\/time events.
+
+
+\begin{DoxyParams}{Parameters}
+{\em commands} & Reference to the \doxylink{class_command_queue}{Command\+Queue} for storing generated commands\\
+\hline
+{\em commands} & Reference to the \doxylink{class_command_queue}{Command\+Queue} to push commands to \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line \mbox{\hyperlink{_player_8cpp_source_l00087}{87}} of file \mbox{\hyperlink{_player_8cpp_source}{Player.\+cpp}}.
+
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+Initialize\+Direct3\+D/Player.\+hpp\item 
+Initialize\+Direct3\+D/Player.\+cpp\end{DoxyCompactItemize}

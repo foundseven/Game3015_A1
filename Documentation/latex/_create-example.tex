@@ -1,0 +1,45 @@
+\doxysection{Create}
+\hypertarget{_create-example}{}\label{_create-example}Creates type-\/safe command actions for specific Game\+Object types.
+
+Creates type-\/safe command actions for specific Game\+Object types
+\begin{DoxyTemplParams}{Template Parameters}
+{\em Game\+Object} & Derived \doxylink{class_scene_node}{Scene\+Node} type to target \\
+\hline
+{\em Function} & Callable type with signature void(\+Game\+Object\&, const Game\+Timer\&) \\
+\hline
+\end{DoxyTemplParams}
+
+\begin{DoxyParams}{Parameters}
+{\em fn} & Function to adapt \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+std\+::function$<$void(\+Scene\+Node\&, const Game\+Timer\&)$>$ Wrapped function
+\end{DoxyReturn}
+This function enables type-\/safe command dispatching by\+:
+\begin{DoxyEnumerate}
+\item Performing runtime type checking via dynamic\+\_\+cast
+\item Providing type-\/safe static\+\_\+cast to concrete Game\+Object type
+\item Generating compatible std\+::function for \doxylink{struct_command}{Command} structs
+
+a move command for \doxylink{class_aircraft}{Aircraft}\+: 
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\textcolor{keyword}{auto}\ moveLeft\ =\ derivedAction<Aircraft>([](\mbox{\hyperlink{class_aircraft}{Aircraft}}\&\ a,\ \textcolor{keyword}{const}\ GameTimer\&\ gt)\ \{}
+\DoxyCodeLine{\ \ \ \ a.\mbox{\hyperlink{class_entity_a6604e7ba4eee5511a6aa21345cbdaf28}{accelerate}}(-\/gt.DeltaTime(),\ 0);}
+\DoxyCodeLine{\});}
+
+\end{DoxyCode}
+
+\end{DoxyEnumerate}
+
+\begin{DoxyWarning}{Warning}
+The Game\+Object template parameter must be a concrete subclass of \doxylink{class_scene_node}{Scene\+Node} 
+\end{DoxyWarning}
+\begin{DoxyNote}{Note}
+Uses assert() to verify correct type at runtime in debug builds
+\end{DoxyNote}
+
+\begin{DoxyCodeInclude}{0}
+
+\end{DoxyCodeInclude}
+ 

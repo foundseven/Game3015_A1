@@ -1,0 +1,319 @@
+\doxysection{Pause\+State Class Reference}
+\hypertarget{class_pause_state}{}\label{class_pause_state}\index{PauseState@{PauseState}}
+
+
+\doxylink{class_game}{Game} pause state handling paused game overlay and menu.  
+
+
+
+
+{\ttfamily \#include $<$Pause\+State.\+hpp$>$}
+
+Inheritance diagram for Pause\+State\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=2.000000cm]{class_pause_state}
+\end{center}
+\end{figure}
+\doxysubsubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{class_pause_state_a051078d6900ac47ee4face8cc5cb7700}{Pause\+State}} (\mbox{\hyperlink{class_state_stack}{State\+Stack}} \texorpdfstring{$\ast$}{*}stack, \mbox{\hyperlink{struct_state_1_1_context}{Context}} \texorpdfstring{$\ast$}{*}context)
+\begin{DoxyCompactList}\small\item\em Constructs a \doxylink{class_pause_state}{Pause\+State} with stack and context. \end{DoxyCompactList}\item 
+virtual \mbox{\hyperlink{class_pause_state_af5d47befed16ad991bd90f219d4985c7}{\texorpdfstring{$\sim$}{\string~}\+Pause\+State}} ()
+\begin{DoxyCompactList}\small\item\em Destructor for resource cleanup. \end{DoxyCompactList}\item 
+virtual void \mbox{\hyperlink{class_pause_state_ad743f77b33b7f1e7e0600c27c1c080ca}{Draw}} () override
+\begin{DoxyCompactList}\small\item\em Renders pause menu/overlay elements @override Required \doxylink{class_state}{State} override. \end{DoxyCompactList}\item 
+virtual bool \mbox{\hyperlink{class_pause_state_acaf2c9cd4b834245bd74c3904aedddb8}{Update}} (const Game\+Timer \&gt) override
+\begin{DoxyCompactList}\small\item\em Updates pause state logic. \end{DoxyCompactList}\item 
+virtual bool \mbox{\hyperlink{class_pause_state_ae945f099ecb185e08e63a4361fb5347e}{Handle\+Event}} (WPARAM btn\+State) override
+\begin{DoxyCompactList}\small\item\em Handles discrete input events (button presses) \end{DoxyCompactList}\item 
+virtual bool \mbox{\hyperlink{class_pause_state_a3c3bd3ab6c840c80511d20533785853b}{Handle\+Real\+Time\+Input}} () override
+\begin{DoxyCompactList}\small\item\em Handles continuous input (keyboard/controller state) \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_pause_state_ae2ac63e9931e0a3382f7b1f77c13e1f7}{Check\+Pause}} (const Game\+Timer \&gt)
+\begin{DoxyCompactList}\small\item\em Checks pause conditions and state transitions. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Public Member Functions inherited from \mbox{\hyperlink{class_state}{State}}}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{class_state_a56e553adc0a9d1ae254c4987d7959e80}{State}} (\mbox{\hyperlink{class_state_stack}{State\+Stack}} \texorpdfstring{$\ast$}{*}stack, \mbox{\hyperlink{struct_state_1_1_context}{Context}} \texorpdfstring{$\ast$}{*}context)
+\begin{DoxyCompactList}\small\item\em Constructs a \doxylink{class_state}{State} with stack and context. \end{DoxyCompactList}\item 
+virtual \mbox{\hyperlink{class_state_afab438d92b90dc18d194dbd9c9c8bab3}{\texorpdfstring{$\sim$}{\string~}\+State}} ()
+\begin{DoxyCompactList}\small\item\em Destructor for state cleanup. \end{DoxyCompactList}\item 
+virtual bool \mbox{\hyperlink{class_state_a10883ba27a2ab2325030196d37049c7b}{Is\+Transparent}} () const
+\begin{DoxyCompactList}\small\item\em Checks if state allows lower states to render. \end{DoxyCompactList}\item 
+std\+::vector$<$ std\+::unique\+\_\+ptr$<$ \mbox{\hyperlink{struct_render_item}{Render\+Item}} $>$ $>$ \& \mbox{\hyperlink{class_state_a2ad4d797a56e5ac8b2984a0c1ee306df}{get\+Render\+Items}} ()
+\begin{DoxyCompactList}\small\item\em Gets render items for drawing. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{struct_state_1_1_context}{Context}} \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{class_state_a012280737b795337fdc0110c96e8a628}{Get\+Context}} () const
+\begin{DoxyCompactList}\small\item\em Gets shared context object. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsection*{Public Attributes}
+\begin{DoxyCompactItemize}
+\item 
+bool \mbox{\hyperlink{class_pause_state_a65ee6e30413a898eec0ca9188b6b2e00}{show\+Pause}}
+\begin{DoxyCompactList}\small\item\em Visibility flag for pause overlay. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsection*{Additional Inherited Members}
+\doxysubsection*{Public Types inherited from \mbox{\hyperlink{class_state}{State}}}
+\begin{DoxyCompactItemize}
+\item 
+typedef std\+::unique\+\_\+ptr$<$ \mbox{\hyperlink{class_state}{State}} $>$ \mbox{\hyperlink{class_state_a2d93174b87266daa690f8f0f3b62e5a3}{State\+Ptr}}
+\begin{DoxyCompactList}\small\item\em Unique pointer type for automatic state management. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Protected Member Functions inherited from \mbox{\hyperlink{class_state}{State}}}
+\begin{DoxyCompactItemize}
+\item 
+void \mbox{\hyperlink{class_state_aa6ff837626a9f78e951b968366daca36}{Request\+Stack\+Push}} (\mbox{\hyperlink{namespace_states_a571a0dc62822f97bb9511eb013d8e1c3}{States\+::\+ID}} state\+ID)
+\begin{DoxyCompactList}\small\item\em Requests a new state to be pushed onto the stack. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_state_a86e0b195558375f3b09fffe42b56e4b4}{Request\+Stack\+Pop}} ()
+\begin{DoxyCompactList}\small\item\em Requests current state to be popped from stack. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_state_adb49547f6caf41a15f4934530cbe75ee}{Request\+State\+Clear}} ()
+\begin{DoxyCompactList}\small\item\em Requests all states to be cleared from stack. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Protected Attributes inherited from \mbox{\hyperlink{class_state}{State}}}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{class_state_stack}{State\+Stack}} \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{class_state_af0424dd012cc1ceb6e0f416982aa9228}{m\+Stack}}
+\begin{DoxyCompactList}\small\item\em \doxylink{class_state}{State} stack manager. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{struct_state_1_1_context}{Context}} \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{class_state_aa800112d4ab036b690e8db72c21d7a4b}{m\+Context}}
+\begin{DoxyCompactList}\small\item\em Shared context reference. \end{DoxyCompactList}\item 
+std\+::unique\+\_\+ptr$<$ \mbox{\hyperlink{class_scene_node}{Scene\+Node}} $>$ \mbox{\hyperlink{class_state_a41a93dcd04a21a7978db91329d10b6d3}{m\+Scene\+Graph}}
+\begin{DoxyCompactList}\small\item\em Root scene node for state. \end{DoxyCompactList}\item 
+std\+::vector$<$ std\+::unique\+\_\+ptr$<$ \mbox{\hyperlink{struct_render_item}{Render\+Item}} $>$ $>$ \mbox{\hyperlink{class_state_a505581614dd080700cda88bd1b930960}{m\+All\+Ritems}}
+\begin{DoxyCompactList}\small\item\em Renderable items. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+\doxylink{class_game}{Game} pause state handling paused game overlay and menu. 
+
+Manages pause functionality including\+:
+\begin{DoxyItemize}
+\item Rendering pause overlay/menu
+\item Handling pause-\/related input
+\item Resume/restart/quit options
+\item Time dilation effects 
+\end{DoxyItemize}
+
+Definition at line \mbox{\hyperlink{_pause_state_8hpp_source_l00013}{13}} of file \mbox{\hyperlink{_pause_state_8hpp_source}{Pause\+State.\+hpp}}.
+
+
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\Hypertarget{class_pause_state_a051078d6900ac47ee4face8cc5cb7700}\index{PauseState@{PauseState}!PauseState@{PauseState}}
+\index{PauseState@{PauseState}!PauseState@{PauseState}}
+\doxysubsubsection{\texorpdfstring{PauseState()}{PauseState()}}
+{\footnotesize\ttfamily \label{class_pause_state_a051078d6900ac47ee4face8cc5cb7700} 
+Pause\+State\+::\+Pause\+State (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{class_state_stack}{State\+Stack}} \texorpdfstring{$\ast$}{*}}]{stack}{, }\item[{\mbox{\hyperlink{struct_state_1_1_context}{Context}} \texorpdfstring{$\ast$}{*}}]{context}{}\end{DoxyParamCaption})}
+
+
+
+Constructs a \doxylink{class_pause_state}{Pause\+State} with stack and context. 
+
+Constructs the Pause \doxylink{class_state}{State} with core resources.
+
+
+\begin{DoxyParams}{Parameters}
+{\em stack} & \doxylink{class_state}{State} stack for state management \\
+\hline
+{\em context} & Shared game context (resources, input, etc.)\\
+\hline
+{\em stack} & \doxylink{class_state}{State} stack for transition management \\
+\hline
+{\em context} & Shared context containing game resources\\
+\hline
+\end{DoxyParams}
+Initializes pause state while maintaining reference to previous game state 
+
+Definition at line \mbox{\hyperlink{_pause_state_8cpp_source_l00014}{14}} of file \mbox{\hyperlink{_pause_state_8cpp_source}{Pause\+State.\+cpp}}.
+
+\Hypertarget{class_pause_state_af5d47befed16ad991bd90f219d4985c7}\index{PauseState@{PauseState}!````~PauseState@{\texorpdfstring{$\sim$}{\string~}PauseState}}
+\index{````~PauseState@{\texorpdfstring{$\sim$}{\string~}PauseState}!PauseState@{PauseState}}
+\doxysubsubsection{\texorpdfstring{\texorpdfstring{$\sim$}{\string~}PauseState()}{\string~PauseState()}}
+{\footnotesize\ttfamily \label{class_pause_state_af5d47befed16ad991bd90f219d4985c7} 
+Pause\+State\+::\texorpdfstring{$\sim$}{\string~}\+Pause\+State (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [virtual]}}
+
+
+
+Destructor for resource cleanup. 
+
+
+
+Definition at line \mbox{\hyperlink{_pause_state_8cpp_source_l00023}{23}} of file \mbox{\hyperlink{_pause_state_8cpp_source}{Pause\+State.\+cpp}}.
+
+
+
+\doxysubsection{Member Function Documentation}
+\Hypertarget{class_pause_state_ae2ac63e9931e0a3382f7b1f77c13e1f7}\index{PauseState@{PauseState}!CheckPause@{CheckPause}}
+\index{CheckPause@{CheckPause}!PauseState@{PauseState}}
+\doxysubsubsection{\texorpdfstring{CheckPause()}{CheckPause()}}
+{\footnotesize\ttfamily \label{class_pause_state_ae2ac63e9931e0a3382f7b1f77c13e1f7} 
+void Pause\+State\+::\+Check\+Pause (\begin{DoxyParamCaption}\item[{const Game\+Timer \&}]{gt}{}\end{DoxyParamCaption})}
+
+
+
+Checks pause conditions and state transitions. 
+
+Checks for pause-\/related state transitions.
+
+
+\begin{DoxyParams}{Parameters}
+{\em gt} & Game\+Timer with frame timing information\\
+\hline
+\end{DoxyParams}
+Handles\+:
+\begin{DoxyItemize}
+\item Pause toggle detection
+\item Time dilation effects
+\item \doxylink{class_state}{State} transition validation
+\end{DoxyItemize}
+
+
+\begin{DoxyParams}{Parameters}
+{\em gt} & \doxylink{class_game}{Game} timer with frame timing\\
+\hline
+\end{DoxyParams}
+\begin{DoxyNote}{Note}
+Currently contains redundant logic with \doxylink{class_pause_state_ae945f099ecb185e08e63a4361fb5347e}{Handle\+Event()} 
+\end{DoxyNote}
+\begin{DoxyRefDesc}{Deprecated}
+\item[\mbox{\hyperlink{deprecated__deprecated000001}{Deprecated}}]Consider removing in favor of unified input handling \end{DoxyRefDesc}
+
+
+Definition at line \mbox{\hyperlink{_pause_state_8cpp_source_l00089}{89}} of file \mbox{\hyperlink{_pause_state_8cpp_source}{Pause\+State.\+cpp}}.
+
+\Hypertarget{class_pause_state_ad743f77b33b7f1e7e0600c27c1c080ca}\index{PauseState@{PauseState}!Draw@{Draw}}
+\index{Draw@{Draw}!PauseState@{PauseState}}
+\doxysubsubsection{\texorpdfstring{Draw()}{Draw()}}
+{\footnotesize\ttfamily \label{class_pause_state_ad743f77b33b7f1e7e0600c27c1c080ca} 
+void Pause\+State\+::\+Draw (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+
+
+Renders pause menu/overlay elements @override Required \doxylink{class_state}{State} override. 
+
+Renders the paused game scene.
+
+Draws the game state\textquotesingle{}s preserved scene graph to maintain visual context 
+
+Implements \mbox{\hyperlink{class_state_a8b0cdb0e7450a9bb3580a33dfbe4d981}{State}}.
+
+
+
+Definition at line \mbox{\hyperlink{_pause_state_8cpp_source_l00032}{32}} of file \mbox{\hyperlink{_pause_state_8cpp_source}{Pause\+State.\+cpp}}.
+
+\Hypertarget{class_pause_state_ae945f099ecb185e08e63a4361fb5347e}\index{PauseState@{PauseState}!HandleEvent@{HandleEvent}}
+\index{HandleEvent@{HandleEvent}!PauseState@{PauseState}}
+\doxysubsubsection{\texorpdfstring{HandleEvent()}{HandleEvent()}}
+{\footnotesize\ttfamily \label{class_pause_state_ae945f099ecb185e08e63a4361fb5347e} 
+bool Pause\+State\+::\+Handle\+Event (\begin{DoxyParamCaption}\item[{WPARAM}]{btn\+State}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+
+
+Handles discrete input events (button presses) 
+
+Handles pause-\/specific input events.
+
+
+\begin{DoxyParams}{Parameters}
+{\em btn\+State} & Bitmask of button states \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+True if event was consumed, false to propagate @override Required \doxylink{class_state}{State} override
+\end{DoxyReturn}
+
+\begin{DoxyParams}{Parameters}
+{\em btn\+State} & Bitmask of button states \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+False to propagate unhandled events 
+\end{DoxyReturn}
+
+
+Implements \mbox{\hyperlink{class_state_a60ec54e00e893e60d137c4278be8a7f6}{State}}.
+
+
+
+Definition at line \mbox{\hyperlink{_pause_state_8cpp_source_l00058}{58}} of file \mbox{\hyperlink{_pause_state_8cpp_source}{Pause\+State.\+cpp}}.
+
+\Hypertarget{class_pause_state_a3c3bd3ab6c840c80511d20533785853b}\index{PauseState@{PauseState}!HandleRealTimeInput@{HandleRealTimeInput}}
+\index{HandleRealTimeInput@{HandleRealTimeInput}!PauseState@{PauseState}}
+\doxysubsubsection{\texorpdfstring{HandleRealTimeInput()}{HandleRealTimeInput()}}
+{\footnotesize\ttfamily \label{class_pause_state_a3c3bd3ab6c840c80511d20533785853b} 
+bool Pause\+State\+::\+Handle\+Real\+Time\+Input (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+
+
+Handles continuous input (keyboard/controller state) 
+
+Handles continuous input processing.
+
+\begin{DoxyReturn}{Returns}
+True if input was processed, false to propagate @override Required \doxylink{class_state}{State} override
+
+False to propagate unprocessed input 
+\end{DoxyReturn}
+
+
+Implements \mbox{\hyperlink{class_state_a69e1835a95f6a70a0cad6ab78bcae73e}{State}}.
+
+
+
+Definition at line \mbox{\hyperlink{_pause_state_8cpp_source_l00077}{77}} of file \mbox{\hyperlink{_pause_state_8cpp_source}{Pause\+State.\+cpp}}.
+
+\Hypertarget{class_pause_state_acaf2c9cd4b834245bd74c3904aedddb8}\index{PauseState@{PauseState}!Update@{Update}}
+\index{Update@{Update}!PauseState@{PauseState}}
+\doxysubsubsection{\texorpdfstring{Update()}{Update()}}
+{\footnotesize\ttfamily \label{class_pause_state_acaf2c9cd4b834245bd74c3904aedddb8} 
+bool Pause\+State\+::\+Update (\begin{DoxyParamCaption}\item[{const Game\+Timer \&}]{gt}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+
+
+Updates pause state logic. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em gt} & Game\+Timer with frame timing information \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+True to continue updates, false to block lower states @override Required \doxylink{class_state}{State} override
+\end{DoxyReturn}
+
+\begin{DoxyParams}{Parameters}
+{\em gt} & \doxylink{class_game}{Game} timer with frame timing \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+False to block updates in lower states 
+\end{DoxyReturn}
+
+
+Implements \mbox{\hyperlink{class_state_aac563804ae22878944783a7f25b15b51}{State}}.
+
+
+
+Definition at line \mbox{\hyperlink{_pause_state_8cpp_source_l00044}{44}} of file \mbox{\hyperlink{_pause_state_8cpp_source}{Pause\+State.\+cpp}}.
+
+
+
+\doxysubsection{Member Data Documentation}
+\Hypertarget{class_pause_state_a65ee6e30413a898eec0ca9188b6b2e00}\index{PauseState@{PauseState}!showPause@{showPause}}
+\index{showPause@{showPause}!PauseState@{PauseState}}
+\doxysubsubsection{\texorpdfstring{showPause}{showPause}}
+{\footnotesize\ttfamily \label{class_pause_state_a65ee6e30413a898eec0ca9188b6b2e00} 
+bool Pause\+State\+::show\+Pause}
+
+
+
+Visibility flag for pause overlay. 
+
+\begin{DoxyNote}{Note}
+When true, renders pause menu elements 
+\end{DoxyNote}
+
+
+Definition at line \mbox{\hyperlink{_pause_state_8hpp_source_l00069}{69}} of file \mbox{\hyperlink{_pause_state_8hpp_source}{Pause\+State.\+hpp}}.
+
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+Initialize\+Direct3\+D/Pause\+State.\+hpp\item 
+Initialize\+Direct3\+D/Pause\+State.\+cpp\end{DoxyCompactItemize}

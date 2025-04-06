@@ -1,0 +1,86 @@
+\doxysection{Pause\+State.\+cpp}
+\hypertarget{_pause_state_8cpp_source}{}\label{_pause_state_8cpp_source}\index{InitializeDirect3D/PauseState.cpp@{InitializeDirect3D/PauseState.cpp}}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\Hypertarget{_pause_state_8cpp_source_l00001}00001\ \textcolor{preprocessor}{\#include\ "{}PauseState.hpp"{}}}
+\DoxyCodeLine{\Hypertarget{_pause_state_8cpp_source_l00002}00002\ \textcolor{preprocessor}{\#include\ "{}SpriteNode.h"{}}}
+\DoxyCodeLine{\Hypertarget{_pause_state_8cpp_source_l00003}00003\ \textcolor{preprocessor}{\#include\ "{}Game.hpp"{}}}
+\DoxyCodeLine{\Hypertarget{_pause_state_8cpp_source_l00004}00004\ \textcolor{preprocessor}{\#include\ "{}GameState.hpp"{}}}
+\DoxyCodeLine{\Hypertarget{_pause_state_8cpp_source_l00005}00005\ \textcolor{preprocessor}{\#include\ <windows.h>}}
+\DoxyCodeLine{\Hypertarget{_pause_state_8cpp_source_l00006}00006\ }
+\DoxyCodeLine{\Hypertarget{_pause_state_8cpp_source_l00014}\mbox{\hyperlink{class_pause_state_a051078d6900ac47ee4face8cc5cb7700}{00014}}\ \mbox{\hyperlink{class_pause_state_a051078d6900ac47ee4face8cc5cb7700}{PauseState::PauseState}}(\mbox{\hyperlink{class_state_stack}{StateStack}}*\ stack,\ \mbox{\hyperlink{struct_state_1_1_context}{Context}}*\ context)}
+\DoxyCodeLine{\Hypertarget{_pause_state_8cpp_source_l00015}00015\ \ \ \ \ :\ \mbox{\hyperlink{class_state_a56e553adc0a9d1ae254c4987d7959e80}{State}}(stack,\ context)}
+\DoxyCodeLine{\Hypertarget{_pause_state_8cpp_source_l00016}00016\ \{}
+\DoxyCodeLine{\Hypertarget{_pause_state_8cpp_source_l00017}00017\ }
+\DoxyCodeLine{\Hypertarget{_pause_state_8cpp_source_l00018}00018\ \}}
+\DoxyCodeLine{\Hypertarget{_pause_state_8cpp_source_l00019}00019\ }
+\DoxyCodeLine{\Hypertarget{_pause_state_8cpp_source_l00023}\mbox{\hyperlink{class_pause_state_af5d47befed16ad991bd90f219d4985c7}{00023}}\ \mbox{\hyperlink{class_pause_state_af5d47befed16ad991bd90f219d4985c7}{PauseState::\string~PauseState}}()}
+\DoxyCodeLine{\Hypertarget{_pause_state_8cpp_source_l00024}00024\ \{}
+\DoxyCodeLine{\Hypertarget{_pause_state_8cpp_source_l00025}00025\ \}}
+\DoxyCodeLine{\Hypertarget{_pause_state_8cpp_source_l00026}00026\ }
+\DoxyCodeLine{\Hypertarget{_pause_state_8cpp_source_l00032}\mbox{\hyperlink{class_pause_state_ad743f77b33b7f1e7e0600c27c1c080ca}{00032}}\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_pause_state_ad743f77b33b7f1e7e0600c27c1c080ca}{PauseState::Draw}}()}
+\DoxyCodeLine{\Hypertarget{_pause_state_8cpp_source_l00033}00033\ \{}
+\DoxyCodeLine{\Hypertarget{_pause_state_8cpp_source_l00034}00034\ \ \ \ \textcolor{comment}{//\ mSceneGraph-\/>draw();}}
+\DoxyCodeLine{\Hypertarget{_pause_state_8cpp_source_l00035}00035\ \ \ \ \ \textcolor{comment}{//so\ i\ want\ to\ draw\ the\ specific\ from\ the\ previous\ state}}
+\DoxyCodeLine{\Hypertarget{_pause_state_8cpp_source_l00036}00036\ \ \ \ \ ((\mbox{\hyperlink{class_game_state}{GameState}}*)(\mbox{\hyperlink{class_state_af0424dd012cc1ceb6e0f416982aa9228}{mStack}}-\/>GetPreviousState()))-\/>mPauseStateSceneGraph-\/>draw();}
+\DoxyCodeLine{\Hypertarget{_pause_state_8cpp_source_l00037}00037\ \}}
+\DoxyCodeLine{\Hypertarget{_pause_state_8cpp_source_l00038}00038\ }
+\DoxyCodeLine{\Hypertarget{_pause_state_8cpp_source_l00044}\mbox{\hyperlink{class_pause_state_acaf2c9cd4b834245bd74c3904aedddb8}{00044}}\ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{class_pause_state_acaf2c9cd4b834245bd74c3904aedddb8}{PauseState::Update}}(\textcolor{keyword}{const}\ GameTimer\&\ gt)}
+\DoxyCodeLine{\Hypertarget{_pause_state_8cpp_source_l00045}00045\ \{}
+\DoxyCodeLine{\Hypertarget{_pause_state_8cpp_source_l00046}00046\ \ \ \ \ \textcolor{comment}{//mSceneGraph-\/>update(gt);}}
+\DoxyCodeLine{\Hypertarget{_pause_state_8cpp_source_l00047}00047\ \ \ \ \ \textcolor{comment}{//PauseState::CheckPause(gt);}}
+\DoxyCodeLine{\Hypertarget{_pause_state_8cpp_source_l00048}00048\ \ \ \ \ ((\mbox{\hyperlink{class_game_state}{GameState}}*)(\mbox{\hyperlink{class_state_af0424dd012cc1ceb6e0f416982aa9228}{mStack}}-\/>GetPreviousState()))-\/>mPauseStateSceneGraph-\/>update(gt);}
+\DoxyCodeLine{\Hypertarget{_pause_state_8cpp_source_l00049}00049\ }
+\DoxyCodeLine{\Hypertarget{_pause_state_8cpp_source_l00050}00050\ \ \ \ \ \textcolor{keywordflow}{return}\ \textcolor{keyword}{false};}
+\DoxyCodeLine{\Hypertarget{_pause_state_8cpp_source_l00051}00051\ \}}
+\DoxyCodeLine{\Hypertarget{_pause_state_8cpp_source_l00052}00052\ }
+\DoxyCodeLine{\Hypertarget{_pause_state_8cpp_source_l00058}\mbox{\hyperlink{class_pause_state_ae945f099ecb185e08e63a4361fb5347e}{00058}}\ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{class_pause_state_ae945f099ecb185e08e63a4361fb5347e}{PauseState::HandleEvent}}(WPARAM\ btnState)}
+\DoxyCodeLine{\Hypertarget{_pause_state_8cpp_source_l00059}00059\ \{}
+\DoxyCodeLine{\Hypertarget{_pause_state_8cpp_source_l00060}00060\ \ \ \ \ \textcolor{keywordflow}{if}\ (d3dUtil::IsKeyDown(\textcolor{charliteral}{'P'}))}
+\DoxyCodeLine{\Hypertarget{_pause_state_8cpp_source_l00061}00061\ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{_pause_state_8cpp_source_l00062}00062\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_state_a86e0b195558375f3b09fffe42b56e4b4}{RequestStackPop}}();}
+\DoxyCodeLine{\Hypertarget{_pause_state_8cpp_source_l00063}00063\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{_pause_state_8cpp_source_l00064}00064\ \ \ \ \ \textcolor{keywordflow}{if}\ (d3dUtil::IsKeyDown(\textcolor{charliteral}{'Q'}))}
+\DoxyCodeLine{\Hypertarget{_pause_state_8cpp_source_l00065}00065\ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{_pause_state_8cpp_source_l00066}00066\ \ \ \ \ \ \ \ \ \textcolor{comment}{//RequestStackPop();}}
+\DoxyCodeLine{\Hypertarget{_pause_state_8cpp_source_l00067}00067\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_state_adb49547f6caf41a15f4934530cbe75ee}{RequestStateClear}}();}
+\DoxyCodeLine{\Hypertarget{_pause_state_8cpp_source_l00068}00068\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_state_aa6ff837626a9f78e951b968366daca36}{RequestStackPush}}(\mbox{\hyperlink{namespace_states_a571a0dc62822f97bb9511eb013d8e1c3a3d097da841211f87096e55962a1bd73f}{States::Menu}});}
+\DoxyCodeLine{\Hypertarget{_pause_state_8cpp_source_l00069}00069\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{_pause_state_8cpp_source_l00070}00070\ \ \ \ \ \textcolor{keywordflow}{return}\ \textcolor{keyword}{false};}
+\DoxyCodeLine{\Hypertarget{_pause_state_8cpp_source_l00071}00071\ \}}
+\DoxyCodeLine{\Hypertarget{_pause_state_8cpp_source_l00072}00072\ }
+\DoxyCodeLine{\Hypertarget{_pause_state_8cpp_source_l00077}\mbox{\hyperlink{class_pause_state_a3c3bd3ab6c840c80511d20533785853b}{00077}}\ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{class_pause_state_a3c3bd3ab6c840c80511d20533785853b}{PauseState::HandleRealTimeInput}}()}
+\DoxyCodeLine{\Hypertarget{_pause_state_8cpp_source_l00078}00078\ \{}
+\DoxyCodeLine{\Hypertarget{_pause_state_8cpp_source_l00079}00079\ \ \ \ \ \textcolor{keywordflow}{return}\ \textcolor{keyword}{false};}
+\DoxyCodeLine{\Hypertarget{_pause_state_8cpp_source_l00080}00080\ \}}
+\DoxyCodeLine{\Hypertarget{_pause_state_8cpp_source_l00081}00081\ }
+\DoxyCodeLine{\Hypertarget{_pause_state_8cpp_source_l00089}\mbox{\hyperlink{class_pause_state_ae2ac63e9931e0a3382f7b1f77c13e1f7}{00089}}\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_pause_state_ae2ac63e9931e0a3382f7b1f77c13e1f7}{PauseState::CheckPause}}(\textcolor{keyword}{const}\ GameTimer\&\ gt)}
+\DoxyCodeLine{\Hypertarget{_pause_state_8cpp_source_l00090}00090\ \{}
+\DoxyCodeLine{\Hypertarget{_pause_state_8cpp_source_l00091}00091\ \ \ \ \ \textcolor{keywordflow}{if}\ (d3dUtil::IsKeyDown(\textcolor{charliteral}{'P'}))}
+\DoxyCodeLine{\Hypertarget{_pause_state_8cpp_source_l00092}00092\ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{_pause_state_8cpp_source_l00093}00093\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_pause_state_a65ee6e30413a898eec0ca9188b6b2e00}{showPause}}\ =\ \textcolor{keyword}{true};}
+\DoxyCodeLine{\Hypertarget{_pause_state_8cpp_source_l00094}00094\ \ \ \ \ \ \ \ \ \textcolor{comment}{//RequestStackPop();}}
+\DoxyCodeLine{\Hypertarget{_pause_state_8cpp_source_l00095}00095\ \ \ \ \ \ \ \ \ \textcolor{comment}{//RequestStackPush(States::Game);}}
+\DoxyCodeLine{\Hypertarget{_pause_state_8cpp_source_l00096}00096\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{_pause_state_8cpp_source_l00097}00097\ \ \ \ \ \textcolor{keywordflow}{if}\ (d3dUtil::IsKeyDown(\textcolor{charliteral}{'Q'}))}
+\DoxyCodeLine{\Hypertarget{_pause_state_8cpp_source_l00098}00098\ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{_pause_state_8cpp_source_l00099}00099\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_state_a86e0b195558375f3b09fffe42b56e4b4}{RequestStackPop}}();}
+\DoxyCodeLine{\Hypertarget{_pause_state_8cpp_source_l00100}00100\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_state_aa6ff837626a9f78e951b968366daca36}{RequestStackPush}}(\mbox{\hyperlink{namespace_states_a571a0dc62822f97bb9511eb013d8e1c3a3d097da841211f87096e55962a1bd73f}{States::Menu}});}
+\DoxyCodeLine{\Hypertarget{_pause_state_8cpp_source_l00101}00101\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{_pause_state_8cpp_source_l00102}00102\ \ \ \ \ \textcolor{keywordflow}{if}\ (d3dUtil::IsKeyDown(VK\_BACK))}
+\DoxyCodeLine{\Hypertarget{_pause_state_8cpp_source_l00103}00103\ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{_pause_state_8cpp_source_l00104}00104\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_pause_state_a65ee6e30413a898eec0ca9188b6b2e00}{showPause}}\ =\ \textcolor{keyword}{false};}
+\DoxyCodeLine{\Hypertarget{_pause_state_8cpp_source_l00105}00105\ \ \ \ \ \ \ \ \textcolor{comment}{//\ RequestStackPop();}}
+\DoxyCodeLine{\Hypertarget{_pause_state_8cpp_source_l00106}00106\ \ \ \ \ \ \ \ \ \textcolor{comment}{//RequestStackPush(States::Game);}}
+\DoxyCodeLine{\Hypertarget{_pause_state_8cpp_source_l00107}00107\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{_pause_state_8cpp_source_l00108}00108\ \ \ \ \ \textcolor{keywordflow}{if}\ (\mbox{\hyperlink{class_pause_state_a65ee6e30413a898eec0ca9188b6b2e00}{showPause}})}
+\DoxyCodeLine{\Hypertarget{_pause_state_8cpp_source_l00109}00109\ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{_pause_state_8cpp_source_l00110}00110\ \ \ \ \ \ \ \ \ \textcolor{comment}{//logic\ here?}}
+\DoxyCodeLine{\Hypertarget{_pause_state_8cpp_source_l00111}00111\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{_pause_state_8cpp_source_l00112}00112\ \ \ \ \ \textcolor{keywordflow}{if}\ (!\mbox{\hyperlink{class_pause_state_a65ee6e30413a898eec0ca9188b6b2e00}{showPause}})}
+\DoxyCodeLine{\Hypertarget{_pause_state_8cpp_source_l00113}00113\ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{_pause_state_8cpp_source_l00114}00114\ }
+\DoxyCodeLine{\Hypertarget{_pause_state_8cpp_source_l00115}00115\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{_pause_state_8cpp_source_l00116}00116\ \}}
+
+\end{DoxyCode}

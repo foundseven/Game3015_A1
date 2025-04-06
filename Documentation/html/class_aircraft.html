@@ -5,7 +5,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=11"/>
 <meta name="generator" content="Doxygen 1.13.2"/>
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
-<title>Game3015_A2: Aircraft Class Reference</title>
+<title>Galaxy Invaders: Aircraft Class Reference</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
@@ -32,9 +32,9 @@
  <tbody>
  <tr id="projectrow">
   <td id="projectalign">
-   <div id="projectname">Game3015_A2<span id="projectnumber">&#160;2.0</span>
+   <div id="projectname">Galaxy Invaders<span id="projectnumber">&#160;3.0</span>
    </div>
-   <div id="projectbrief">A DirectX 12-based aircraft combat game.</div>
+   <div id="projectbrief">Roam the galaxy in 2D/3D</div>
   </td>
     <td>        <div id="MSearchBox" class="MSearchBoxInactive">
         <span class="left">
@@ -135,22 +135,21 @@ Public Types</h2></td></tr>
 <tr class="memdesc:a7dae28542933e088032b753600046acd"><td class="mdescLeft">&#160;</td><td class="mdescRight">Enumeration of aircraft types.  <a href="#a7dae28542933e088032b753600046acd">More...</a><br /></td></tr>
 <tr class="separator:a7dae28542933e088032b753600046acd"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="inherit_header pub_types_class_scene_node"><td colspan="2" onclick="javascript:dynsection.toggleInherit('pub_types_class_scene_node')"><img src="closed.png" alt="-"/>&#160;Public Types inherited from <a class="el" href="class_scene_node.html">SceneNode</a></td></tr>
-<tr class="memitem:aaf5c9ad8475874b51b70e400822f2e9a inherit pub_types_class_scene_node" id="r_aaf5c9ad8475874b51b70e400822f2e9a"><td class="memItemLeft" align="right" valign="top">
-typedef std::unique_ptr&lt; <a class="el" href="class_scene_node.html">SceneNode</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><b>Ptr</b></td></tr>
+<tr class="memitem:aaf5c9ad8475874b51b70e400822f2e9a inherit pub_types_class_scene_node" id="r_aaf5c9ad8475874b51b70e400822f2e9a"><td class="memItemLeft" align="right" valign="top">typedef std::unique_ptr&lt; <a class="el" href="class_scene_node.html">SceneNode</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_scene_node.html#aaf5c9ad8475874b51b70e400822f2e9a">Ptr</a></td></tr>
 <tr class="separator:aaf5c9ad8475874b51b70e400822f2e9a inherit pub_types_class_scene_node"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pub-methods" name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
-<tr class="memitem:ae9d52b44a62c33bf411185829158fba4" id="r_ae9d52b44a62c33bf411185829158fba4"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ae9d52b44a62c33bf411185829158fba4">Aircraft</a> (<a class="el" href="#a7dae28542933e088032b753600046acd">Type</a> type, <a class="el" href="class_game.html">Game</a> *<a class="el" href="class_scene_node.html#a06d1261ef839789469f228e7a7f2bfb9">game</a>)</td></tr>
-<tr class="memdesc:ae9d52b44a62c33bf411185829158fba4"><td class="mdescLeft">&#160;</td><td class="mdescRight">Constructs a new <a class="el" href="class_aircraft.html" title="Aircraft entity representing both player-controlled and AI-controlled planes.">Aircraft</a> entity.  <br /></td></tr>
-<tr class="separator:ae9d52b44a62c33bf411185829158fba4"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a6362c0f87f7f0cc5ad54e3a16c42454e" id="r_a6362c0f87f7f0cc5ad54e3a16c42454e"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a6362c0f87f7f0cc5ad54e3a16c42454e">Aircraft</a> (<a class="el" href="#a7dae28542933e088032b753600046acd">Type</a> type, <a class="el" href="class_state.html">State</a> *state)</td></tr>
+<tr class="memdesc:a6362c0f87f7f0cc5ad54e3a16c42454e"><td class="mdescLeft">&#160;</td><td class="mdescRight">Constructs a new <a class="el" href="class_aircraft.html" title="Aircraft entity representing both player-controlled and AI-controlled planes.">Aircraft</a> entity.  <br /></td></tr>
+<tr class="separator:a6362c0f87f7f0cc5ad54e3a16c42454e"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a01f9042934c08ef18b62351e6bca320d" id="r_a01f9042934c08ef18b62351e6bca320d"><td class="memItemLeft" align="right" valign="top">virtual unsigned int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a01f9042934c08ef18b62351e6bca320d">getCategory</a> () const</td></tr>
 <tr class="memdesc:a01f9042934c08ef18b62351e6bca320d"><td class="mdescLeft">&#160;</td><td class="mdescRight">Gets collision category flags for this aircraft.  <br /></td></tr>
 <tr class="separator:a01f9042934c08ef18b62351e6bca320d"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="inherit_header pub_methods_class_entity"><td colspan="2" onclick="javascript:dynsection.toggleInherit('pub_methods_class_entity')"><img src="closed.png" alt="-"/>&#160;Public Member Functions inherited from <a class="el" href="class_entity.html">Entity</a></td></tr>
-<tr class="memitem:a9f6b0ce5dcbdb9107ba1972da24003a6 inherit pub_methods_class_entity" id="r_a9f6b0ce5dcbdb9107ba1972da24003a6"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_entity.html#a9f6b0ce5dcbdb9107ba1972da24003a6">Entity</a> (<a class="el" href="class_game.html">Game</a> *<a class="el" href="class_scene_node.html#a06d1261ef839789469f228e7a7f2bfb9">game</a>)</td></tr>
-<tr class="memdesc:a9f6b0ce5dcbdb9107ba1972da24003a6 inherit pub_methods_class_entity"><td class="mdescLeft">&#160;</td><td class="mdescRight">Constructs an <a class="el" href="class_entity.html" title="Represents a movable object in the game world.">Entity</a> with zero initial velocity.  <br /></td></tr>
-<tr class="separator:a9f6b0ce5dcbdb9107ba1972da24003a6 inherit pub_methods_class_entity"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ac219200508c18e5db68225c7efb7da5d inherit pub_methods_class_entity" id="r_ac219200508c18e5db68225c7efb7da5d"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_entity.html#ac219200508c18e5db68225c7efb7da5d">Entity</a> (<a class="el" href="class_state.html">State</a> *state)</td></tr>
+<tr class="memdesc:ac219200508c18e5db68225c7efb7da5d inherit pub_methods_class_entity"><td class="mdescLeft">&#160;</td><td class="mdescRight">Constructs an <a class="el" href="class_entity.html" title="Represents a movable object in the game world.">Entity</a> with zero initial velocity.  <br /></td></tr>
+<tr class="separator:ac219200508c18e5db68225c7efb7da5d inherit pub_methods_class_entity"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a472e1690df5fb48c6c7f052e4cb39c78 inherit pub_methods_class_entity" id="r_a472e1690df5fb48c6c7f052e4cb39c78"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_entity.html#a472e1690df5fb48c6c7f052e4cb39c78">setVelocity</a> (XMFLOAT3 velocity)</td></tr>
 <tr class="memdesc:a472e1690df5fb48c6c7f052e4cb39c78 inherit pub_methods_class_entity"><td class="mdescLeft">&#160;</td><td class="mdescRight">Sets the entity's velocity vector.  <br /></td></tr>
 <tr class="separator:a472e1690df5fb48c6c7f052e4cb39c78 inherit pub_methods_class_entity"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -170,25 +169,25 @@ Public Member Functions</h2></td></tr>
 <tr class="memdesc:ac2ba9cb8ca54fff11ad7397334edcd94 inherit pub_methods_class_entity"><td class="mdescLeft">&#160;</td><td class="mdescRight">Updates the entity's position based on its velocity.  <br /></td></tr>
 <tr class="separator:ac2ba9cb8ca54fff11ad7397334edcd94 inherit pub_methods_class_entity"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="inherit_header pub_methods_class_scene_node"><td colspan="2" onclick="javascript:dynsection.toggleInherit('pub_methods_class_scene_node')"><img src="closed.png" alt="-"/>&#160;Public Member Functions inherited from <a class="el" href="class_scene_node.html">SceneNode</a></td></tr>
-<tr class="memitem:af1f3bf5e98c8b2c90b36057df2577d1a inherit pub_methods_class_scene_node" id="r_af1f3bf5e98c8b2c90b36057df2577d1a"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_scene_node.html#af1f3bf5e98c8b2c90b36057df2577d1a">SceneNode</a> (<a class="el" href="class_game.html">Game</a> *<a class="el" href="class_scene_node.html#a06d1261ef839789469f228e7a7f2bfb9">game</a>)</td></tr>
-<tr class="memdesc:af1f3bf5e98c8b2c90b36057df2577d1a inherit pub_methods_class_scene_node"><td class="mdescLeft">&#160;</td><td class="mdescRight">Constructor for <a class="el" href="class_scene_node.html" title="Represents a node in the scene graph.">SceneNode</a>.  <br /></td></tr>
-<tr class="separator:af1f3bf5e98c8b2c90b36057df2577d1a inherit pub_methods_class_scene_node"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a6482e34381f108470f48b59f8ce90ac4 inherit pub_methods_class_scene_node" id="r_a6482e34381f108470f48b59f8ce90ac4"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_scene_node.html#a6482e34381f108470f48b59f8ce90ac4">SceneNode</a> (<a class="el" href="class_state.html">State</a> *state)</td></tr>
+<tr class="memdesc:a6482e34381f108470f48b59f8ce90ac4 inherit pub_methods_class_scene_node"><td class="mdescLeft">&#160;</td><td class="mdescRight">Constructor for <a class="el" href="class_scene_node.html" title="Represents a node in the scene graph.">SceneNode</a>.  <br /></td></tr>
+<tr class="separator:a6482e34381f108470f48b59f8ce90ac4 inherit pub_methods_class_scene_node"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:acdfa2c2ba28bce076c886eaba2d9e650 inherit pub_methods_class_scene_node" id="r_acdfa2c2ba28bce076c886eaba2d9e650"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_scene_node.html#acdfa2c2ba28bce076c886eaba2d9e650">attachChild</a> (Ptr child)</td></tr>
 <tr class="memdesc:acdfa2c2ba28bce076c886eaba2d9e650 inherit pub_methods_class_scene_node"><td class="mdescLeft">&#160;</td><td class="mdescRight">Attaches a child node to this node.  <br /></td></tr>
 <tr class="separator:acdfa2c2ba28bce076c886eaba2d9e650 inherit pub_methods_class_scene_node"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a3b9681eb3db7d9e575945b57e275e040 inherit pub_methods_class_scene_node" id="r_a3b9681eb3db7d9e575945b57e275e040"><td class="memItemLeft" align="right" valign="top">Ptr&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_scene_node.html#a3b9681eb3db7d9e575945b57e275e040">detachChild</a> (const <a class="el" href="class_scene_node.html">SceneNode</a> &amp;node)</td></tr>
 <tr class="memdesc:a3b9681eb3db7d9e575945b57e275e040 inherit pub_methods_class_scene_node"><td class="mdescLeft">&#160;</td><td class="mdescRight">Detaches a child node from this node.  <br /></td></tr>
 <tr class="separator:a3b9681eb3db7d9e575945b57e275e040 inherit pub_methods_class_scene_node"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ace4102e26e6017668859aaff2ce3bcaf inherit pub_methods_class_scene_node" id="r_ace4102e26e6017668859aaff2ce3bcaf"><td class="memItemLeft" align="right" valign="top">const std::vector&lt; Ptr &gt; &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_scene_node.html#ace4102e26e6017668859aaff2ce3bcaf">getChildren</a> () const</td></tr>
+<tr class="separator:ace4102e26e6017668859aaff2ce3bcaf inherit pub_methods_class_scene_node"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a858b7a088c0a2d01aaa90baf05d58d08 inherit pub_methods_class_scene_node" id="r_a858b7a088c0a2d01aaa90baf05d58d08"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_scene_node.html#a858b7a088c0a2d01aaa90baf05d58d08">update</a> (const GameTimer &amp;gt)</td></tr>
 <tr class="memdesc:a858b7a088c0a2d01aaa90baf05d58d08 inherit pub_methods_class_scene_node"><td class="mdescLeft">&#160;</td><td class="mdescRight">Updates this node and its children.  <br /></td></tr>
 <tr class="separator:a858b7a088c0a2d01aaa90baf05d58d08 inherit pub_methods_class_scene_node"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a41b1a847182e49103bc145bd4604e056 inherit pub_methods_class_scene_node" id="r_a41b1a847182e49103bc145bd4604e056"><td class="memItemLeft" align="right" valign="top">
-void&#160;</td><td class="memItemRight" valign="bottom"><b>draw</b> () const</td></tr>
-<tr class="memdesc:a41b1a847182e49103bc145bd4604e056 inherit pub_methods_class_scene_node"><td class="mdescLeft">&#160;</td><td class="mdescRight">Draws this node and its children. <br /></td></tr>
+<tr class="memitem:a41b1a847182e49103bc145bd4604e056 inherit pub_methods_class_scene_node" id="r_a41b1a847182e49103bc145bd4604e056"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_scene_node.html#a41b1a847182e49103bc145bd4604e056">draw</a> () const</td></tr>
+<tr class="memdesc:a41b1a847182e49103bc145bd4604e056 inherit pub_methods_class_scene_node"><td class="mdescLeft">&#160;</td><td class="mdescRight">Draws this node and its children.  <br /></td></tr>
 <tr class="separator:a41b1a847182e49103bc145bd4604e056 inherit pub_methods_class_scene_node"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a67ca883a91d8c45004a0786330548d8f inherit pub_methods_class_scene_node" id="r_a67ca883a91d8c45004a0786330548d8f"><td class="memItemLeft" align="right" valign="top">
-void&#160;</td><td class="memItemRight" valign="bottom"><b>build</b> ()</td></tr>
-<tr class="memdesc:a67ca883a91d8c45004a0786330548d8f inherit pub_methods_class_scene_node"><td class="mdescLeft">&#160;</td><td class="mdescRight">Builds this node and its children. <br /></td></tr>
+<tr class="memitem:a67ca883a91d8c45004a0786330548d8f inherit pub_methods_class_scene_node" id="r_a67ca883a91d8c45004a0786330548d8f"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_scene_node.html#a67ca883a91d8c45004a0786330548d8f">build</a> ()</td></tr>
+<tr class="memdesc:a67ca883a91d8c45004a0786330548d8f inherit pub_methods_class_scene_node"><td class="mdescLeft">&#160;</td><td class="mdescRight">Builds this node and its children.  <br /></td></tr>
 <tr class="separator:a67ca883a91d8c45004a0786330548d8f inherit pub_methods_class_scene_node"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a6ba2f5754854829e7e49f135bb4fce45 inherit pub_methods_class_scene_node" id="r_a6ba2f5754854829e7e49f135bb4fce45"><td class="memItemLeft" align="right" valign="top">XMFLOAT3&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_scene_node.html#a6ba2f5754854829e7e49f135bb4fce45">getWorldPosition</a> () const</td></tr>
 <tr class="memdesc:a6ba2f5754854829e7e49f135bb4fce45 inherit pub_methods_class_scene_node"><td class="mdescLeft">&#160;</td><td class="mdescRight">Gets the world position of this node.  <br /></td></tr>
@@ -224,18 +223,15 @@ void&#160;</td><td class="memItemRight" valign="bottom"><b>build</b> ()</td></tr
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="inherited" name="inherited"></a>
 Additional Inherited Members</h2></td></tr>
 <tr class="inherit_header pub_attribs_class_entity"><td colspan="2" onclick="javascript:dynsection.toggleInherit('pub_attribs_class_entity')"><img src="closed.png" alt="-"/>&#160;Public Attributes inherited from <a class="el" href="class_entity.html">Entity</a></td></tr>
-<tr class="memitem:a15aa77787228598dfa35f5f822695c43 inherit pub_attribs_class_entity" id="r_a15aa77787228598dfa35f5f822695c43"><td class="memItemLeft" align="right" valign="top">
-XMFLOAT3&#160;</td><td class="memItemRight" valign="bottom"><b>mVelocity</b></td></tr>
-<tr class="memdesc:a15aa77787228598dfa35f5f822695c43 inherit pub_attribs_class_entity"><td class="mdescLeft">&#160;</td><td class="mdescRight">Current velocity vector of the entity. <br /></td></tr>
+<tr class="memitem:a15aa77787228598dfa35f5f822695c43 inherit pub_attribs_class_entity" id="r_a15aa77787228598dfa35f5f822695c43"><td class="memItemLeft" align="right" valign="top">XMFLOAT3&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_entity.html#a15aa77787228598dfa35f5f822695c43">mVelocity</a></td></tr>
+<tr class="memdesc:a15aa77787228598dfa35f5f822695c43 inherit pub_attribs_class_entity"><td class="mdescLeft">&#160;</td><td class="mdescRight">Current velocity vector of the entity.  <br /></td></tr>
 <tr class="separator:a15aa77787228598dfa35f5f822695c43 inherit pub_attribs_class_entity"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="inherit_header pro_attribs_class_scene_node"><td colspan="2" onclick="javascript:dynsection.toggleInherit('pro_attribs_class_scene_node')"><img src="closed.png" alt="-"/>&#160;Protected Attributes inherited from <a class="el" href="class_scene_node.html">SceneNode</a></td></tr>
-<tr class="memitem:a06d1261ef839789469f228e7a7f2bfb9 inherit pro_attribs_class_scene_node" id="r_a06d1261ef839789469f228e7a7f2bfb9"><td class="memItemLeft" align="right" valign="top">
-<a class="el" href="class_game.html">Game</a> *&#160;</td><td class="memItemRight" valign="bottom"><b>game</b></td></tr>
-<tr class="memdesc:a06d1261ef839789469f228e7a7f2bfb9 inherit pro_attribs_class_scene_node"><td class="mdescLeft">&#160;</td><td class="mdescRight">Pointer to the <a class="el" href="class_game.html" title="Main game class managing resources, rendering, and game logic.">Game</a> object. <br /></td></tr>
-<tr class="separator:a06d1261ef839789469f228e7a7f2bfb9 inherit pro_attribs_class_scene_node"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a51b22a4d6789039a96ebab097ed03db0 inherit pro_attribs_class_scene_node" id="r_a51b22a4d6789039a96ebab097ed03db0"><td class="memItemLeft" align="right" valign="top">
-<a class="el" href="struct_render_item.html">RenderItem</a> *&#160;</td><td class="memItemRight" valign="bottom"><b>renderer</b></td></tr>
-<tr class="memdesc:a51b22a4d6789039a96ebab097ed03db0 inherit pro_attribs_class_scene_node"><td class="mdescLeft">&#160;</td><td class="mdescRight">Pointer to the <a class="el" href="struct_render_item.html" title="Lightweight structure to store parameters for drawing a shape.">RenderItem</a> for this node. <br /></td></tr>
+<tr class="memitem:a2921cf2fe98067b4d0b3558d2dc553bc inherit pro_attribs_class_scene_node" id="r_a2921cf2fe98067b4d0b3558d2dc553bc"><td class="memItemLeft" align="right" valign="top"><a class="el" href="class_state.html">State</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_scene_node.html#a2921cf2fe98067b4d0b3558d2dc553bc">mState</a></td></tr>
+<tr class="memdesc:a2921cf2fe98067b4d0b3558d2dc553bc inherit pro_attribs_class_scene_node"><td class="mdescLeft">&#160;</td><td class="mdescRight">Pointer to the <a class="el" href="class_game.html" title="Core game application class inheriting from Direct3D base.">Game</a> object.  <br /></td></tr>
+<tr class="separator:a2921cf2fe98067b4d0b3558d2dc553bc inherit pro_attribs_class_scene_node"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a51b22a4d6789039a96ebab097ed03db0 inherit pro_attribs_class_scene_node" id="r_a51b22a4d6789039a96ebab097ed03db0"><td class="memItemLeft" align="right" valign="top"><a class="el" href="struct_render_item.html">RenderItem</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_scene_node.html#a51b22a4d6789039a96ebab097ed03db0">renderer</a></td></tr>
+<tr class="memdesc:a51b22a4d6789039a96ebab097ed03db0 inherit pro_attribs_class_scene_node"><td class="mdescLeft">&#160;</td><td class="mdescRight">Pointer to the <a class="el" href="struct_render_item.html" title="Lightweight structure to store parameters for drawing a shape.">RenderItem</a> for this node.  <br /></td></tr>
 <tr class="separator:a51b22a4d6789039a96ebab097ed03db0 inherit pro_attribs_class_scene_node"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
@@ -243,6 +239,8 @@ XMFLOAT3&#160;</td><td class="memItemRight" valign="bottom"><b>mVelocity</b></td
 <p>Inherits from <a class="el" href="class_entity.html" title="Represents a movable object in the game world.">Entity</a> and implements aircraft-specific rendering logic. Manages both visual representation (through <a class="el" href="struct_render_item.html" title="Lightweight structure to store parameters for drawing a shape.">RenderItem</a>) and collision category. </p>
 <dl class="section examples"><dt>Examples</dt><dd><a class="el" href="_create-example.html#_a0">Create</a>.</dd>
 </dl>
+
+<p class="definition">Definition at line <a class="el" href="_aircraft_8hpp_source.html#l00012">12</a> of file <a class="el" href="_aircraft_8hpp_source.html">Aircraft.hpp</a>.</p>
 </div><h2 class="groupheader">Member Enumeration Documentation</h2>
 <a id="a7dae28542933e088032b753600046acd" name="a7dae28542933e088032b753600046acd"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a7dae28542933e088032b753600046acd">&#9670;&#160;</a></span>Type</h2>
@@ -264,11 +262,13 @@ XMFLOAT3&#160;</td><td class="memItemRight" valign="bottom"><b>mVelocity</b></td
 </td></tr>
 </table>
 
+<p class="definition">Definition at line <a class="el" href="_aircraft_8hpp_source.html#l00019">19</a> of file <a class="el" href="_aircraft_8hpp_source.html">Aircraft.hpp</a>.</p>
+
 </div>
 </div>
 <h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
-<a id="ae9d52b44a62c33bf411185829158fba4" name="ae9d52b44a62c33bf411185829158fba4"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ae9d52b44a62c33bf411185829158fba4">&#9670;&#160;</a></span>Aircraft()</h2>
+<a id="a6362c0f87f7f0cc5ad54e3a16c42454e" name="a6362c0f87f7f0cc5ad54e3a16c42454e"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a6362c0f87f7f0cc5ad54e3a16c42454e">&#9670;&#160;</a></span>Aircraft()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -281,7 +281,7 @@ XMFLOAT3&#160;</td><td class="memItemRight" valign="bottom"><b>mVelocity</b></td
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype"><a class="el" href="class_game.html">Game</a> *</td>          <td class="paramname"><span class="paramname"><em>game</em></span>&#160;)</td>
+          <td class="paramtype"><a class="el" href="class_state.html">State</a> *</td>          <td class="paramname"><span class="paramname"><em>state</em></span>&#160;)</td>
         </tr>
       </table>
 </div><div class="memdoc">
@@ -291,18 +291,20 @@ XMFLOAT3&#160;</td><td class="memItemRight" valign="bottom"><b>mVelocity</b></td
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramname">type</td><td><a class="el" href="class_aircraft.html" title="Aircraft entity representing both player-controlled and AI-controlled planes.">Aircraft</a> type from <a class="el" href="#a7dae28542933e088032b753600046acd" title="Enumeration of aircraft types.">Type</a> enumeration </td></tr>
-    <tr><td class="paramname">game</td><td>Reference to parent <a class="el" href="class_game.html" title="Main game class managing resources, rendering, and game logic.">Game</a> instance</td></tr>
+    <tr><td class="paramname">game</td><td>Reference to parent <a class="el" href="class_game.html" title="Core game application class inheriting from Direct3D base.">Game</a> instance</td></tr>
   </table>
   </dd>
 </dl>
-<dl class="section warning"><dt>Warning</dt><dd>The <a class="el" href="class_game.html" title="Main game class managing resources, rendering, and game logic.">Game</a> object must outlive the <a class="el" href="class_aircraft.html" title="Aircraft entity representing both player-controlled and AI-controlled planes.">Aircraft</a> instance</dd></dl>
+<dl class="section warning"><dt>Warning</dt><dd>The <a class="el" href="class_game.html" title="Core game application class inheriting from Direct3D base.">Game</a> object must outlive the <a class="el" href="class_aircraft.html" title="Aircraft entity representing both player-controlled and AI-controlled planes.">Aircraft</a> instance</dd></dl>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramname">type</td><td>The type of aircraft. </td></tr>
-    <tr><td class="paramname">game</td><td>Pointer to the <a class="el" href="class_game.html" title="Main game class managing resources, rendering, and game logic.">Game</a> object. </td></tr>
+    <tr><td class="paramname">game</td><td>Pointer to the <a class="el" href="class_game.html" title="Core game application class inheriting from Direct3D base.">Game</a> object. </td></tr>
   </table>
   </dd>
 </dl>
+
+<p class="definition">Definition at line <a class="el" href="_aircraft_8cpp_source.html#l00009">9</a> of file <a class="el" href="_aircraft_8cpp_source.html">Aircraft.cpp</a>.</p>
 
 </div>
 </div>
@@ -347,11 +349,13 @@ XMFLOAT3&#160;</td><td class="memItemRight" valign="bottom"><b>mVelocity</b></td
 
 <p>Reimplemented from <a class="el" href="class_scene_node.html#af713a8c58831a27bc791a2efdfb7c495">SceneNode</a>.</p>
 
+<p class="definition">Definition at line <a class="el" href="_aircraft_8cpp_source.html#l00033">33</a> of file <a class="el" href="_aircraft_8cpp_source.html">Aircraft.cpp</a>.</p>
+
 </div>
 </div>
 <hr/>The documentation for this class was generated from the following files:<ul>
 <li>InitializeDirect3D/<a class="el" href="_aircraft_8hpp_source.html">Aircraft.hpp</a></li>
-<li>InitializeDirect3D/<b>Aircraft.cpp</b></li>
+<li>InitializeDirect3D/<a class="el" href="_aircraft_8cpp_source.html">Aircraft.cpp</a></li>
 </ul>
 </div><!-- contents -->
 </div><!-- doc-content -->

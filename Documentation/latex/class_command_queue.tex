@@ -1,0 +1,158 @@
+\doxysection{Command\+Queue Class Reference}
+\hypertarget{class_command_queue}{}\label{class_command_queue}\index{CommandQueue@{CommandQueue}}
+
+
+A FIFO queue for managing game commands.  
+
+
+
+
+{\ttfamily \#include $<$Command\+Queue.\+hpp$>$}
+
+\doxysubsubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \mbox{\hyperlink{class_command_queue_ad444e0d7af45d9e09b834f0cec1e1f43}{push}} (const \mbox{\hyperlink{struct_command}{Command}} \&command)
+\begin{DoxyCompactList}\small\item\em Adds a command to the end of the queue. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{struct_command}{Command}} \mbox{\hyperlink{class_command_queue_ac2dde510222b8df393b55978f4594194}{pop}} ()
+\begin{DoxyCompactList}\small\item\em Removes and returns the front command. \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{class_command_queue_a3a6eb6a7c83d9b20ad7a6cac63795ec1}{is\+Empty}} () const
+\begin{DoxyCompactList}\small\item\em Checks if queue contains any commands. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+A FIFO queue for managing game commands. 
+
+Thread-\/unsafe FIFO container for game commands.
+
+The \doxylink{class_command_queue}{Command\+Queue} class is part of the command pattern implementation. It stores commands that can be processed sequentially and applied to scene nodes in the game world.
+
+Manages a queue of \doxylink{struct_command}{Command} objects for deferred execution. Typically used to\+:
+\begin{DoxyItemize}
+\item Buffer input events between frames
+\item Queue gameplay actions for later processing
+\item Implement command patterns for undo/redo systems
+\end{DoxyItemize}
+
+\begin{DoxyNote}{Note}
+This is a temporary implementation for Step 10 -\/ consider adding\+:
+\begin{DoxyItemize}
+\item Thread safety (mutexes)
+\item Priority system
+\item Capacity limits 
+\end{DoxyItemize}
+\end{DoxyNote}
+
+
+Definition at line \mbox{\hyperlink{_command_queue_8hpp_source_l00021}{21}} of file \mbox{\hyperlink{_command_queue_8hpp_source}{Command\+Queue.\+hpp}}.
+
+
+
+\doxysubsection{Member Function Documentation}
+\Hypertarget{class_command_queue_a3a6eb6a7c83d9b20ad7a6cac63795ec1}\index{CommandQueue@{CommandQueue}!isEmpty@{isEmpty}}
+\index{isEmpty@{isEmpty}!CommandQueue@{CommandQueue}}
+\doxysubsubsection{\texorpdfstring{isEmpty()}{isEmpty()}}
+{\footnotesize\ttfamily \label{class_command_queue_a3a6eb6a7c83d9b20ad7a6cac63795ec1} 
+bool Command\+Queue\+::is\+Empty (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption}) const}
+
+
+
+Checks if queue contains any commands. 
+
+Checks if the queue is empty.
+
+\begin{DoxyReturn}{Returns}
+true if queue is empty, false otherwise
+\end{DoxyReturn}
+\begin{DoxyNote}{Note}
+Safe to call from any thread (const operation)
+\end{DoxyNote}
+\begin{DoxyReturn}{Returns}
+true if the queue is empty, false otherwise
+\end{DoxyReturn}
+This method allows you to safely check whether there are any commands left in the queue before attempting to pop a command. 
+
+Definition at line \mbox{\hyperlink{_command_queue_8cpp_source_l00049}{49}} of file \mbox{\hyperlink{_command_queue_8cpp_source}{Command\+Queue.\+cpp}}.
+
+\Hypertarget{class_command_queue_ac2dde510222b8df393b55978f4594194}\index{CommandQueue@{CommandQueue}!pop@{pop}}
+\index{pop@{pop}!CommandQueue@{CommandQueue}}
+\doxysubsubsection{\texorpdfstring{pop()}{pop()}}
+{\footnotesize\ttfamily \label{class_command_queue_ac2dde510222b8df393b55978f4594194} 
+\mbox{\hyperlink{struct_command}{Command}} Command\+Queue\+::pop (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})}
+
+
+
+Removes and returns the front command. 
+
+Removes and retrieves the front command from the queue.
+
+\begin{DoxyReturn}{Returns}
+\doxylink{struct_command}{Command} from front of queue
+\end{DoxyReturn}
+\begin{DoxyPrecond}{Precondition}
+!is\+Empty() -\/ undefined behavior if queue is empty 
+\end{DoxyPrecond}
+\begin{DoxyPostcond}{Postcondition}
+\doxylink{struct_command}{Command} is removed from queue
+\end{DoxyPostcond}
+\begin{DoxyNote}{Note}
+Use in conjunction with \doxylink{class_command_queue_a3a6eb6a7c83d9b20ad7a6cac63795ec1}{is\+Empty()} for safe consumption\+: 
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\textcolor{keywordflow}{while}\ (!queue.isEmpty())\ \{}
+\DoxyCodeLine{\ \ \ \ \textcolor{keyword}{auto}\ cmd\ =\ queue.pop();}
+\DoxyCodeLine{\ \ \ \ \textcolor{comment}{//\ process\ command}}
+\DoxyCodeLine{\}}
+
+\end{DoxyCode}
+
+\end{DoxyNote}
+\begin{DoxyReturn}{Returns}
+The \doxylink{struct_command}{Command} object at the front of the queue
+\end{DoxyReturn}
+Removes the front command from the queue and returns it. This method assumes that the queue is not empty. Use {\ttfamily \doxylink{class_command_queue_a3a6eb6a7c83d9b20ad7a6cac63795ec1}{is\+Empty()}} to check before calling this method.
+
+\begin{DoxyPrecond}{Precondition}
+The queue must not be empty. 
+\end{DoxyPrecond}
+\begin{DoxyPostcond}{Postcondition}
+The command at the front of the queue is removed. 
+\end{DoxyPostcond}
+
+
+Definition at line \mbox{\hyperlink{_command_queue_8cpp_source_l00035}{35}} of file \mbox{\hyperlink{_command_queue_8cpp_source}{Command\+Queue.\+cpp}}.
+
+\Hypertarget{class_command_queue_ad444e0d7af45d9e09b834f0cec1e1f43}\index{CommandQueue@{CommandQueue}!push@{push}}
+\index{push@{push}!CommandQueue@{CommandQueue}}
+\doxysubsubsection{\texorpdfstring{push()}{push()}}
+{\footnotesize\ttfamily \label{class_command_queue_ad444e0d7af45d9e09b834f0cec1e1f43} 
+void Command\+Queue\+::push (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{struct_command}{Command}} \&}]{command}{}\end{DoxyParamCaption})}
+
+
+
+Adds a command to the end of the queue. 
+
+Pushes a command onto the queue.
+
+
+\begin{DoxyParams}{Parameters}
+{\em command} & \doxylink{struct_command}{Command} to enqueue (copied)\\
+\hline
+\end{DoxyParams}
+\begin{DoxyWarning}{Warning}
+\doxylink{struct_command}{Command} objects should be lightweight. For heavy payloads, consider using shared pointers or move semantics.
+\end{DoxyWarning}
+
+\begin{DoxyParams}{Parameters}
+{\em command} & The \doxylink{struct_command}{Command} object to be added to the queue\\
+\hline
+\end{DoxyParams}
+Adds a new command to the back of the queue for later processing. 
+
+Definition at line \mbox{\hyperlink{_command_queue_8cpp_source_l00020}{20}} of file \mbox{\hyperlink{_command_queue_8cpp_source}{Command\+Queue.\+cpp}}.
+
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+Initialize\+Direct3\+D/Command\+Queue.\+hpp\item 
+Initialize\+Direct3\+D/Command\+Queue.\+cpp\end{DoxyCompactItemize}

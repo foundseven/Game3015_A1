@@ -1,0 +1,100 @@
+\doxysection{State\+::Context Struct Reference}
+\hypertarget{struct_state_1_1_context}{}\label{struct_state_1_1_context}\index{State::Context@{State::Context}}
+
+
+Shared context for state-\/specific resources.  
+
+
+
+
+{\ttfamily \#include $<$State.\+hpp$>$}
+
+\doxysubsubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{struct_state_1_1_context_a43e78a847efb5cfc1332e8b5f3788ed6}{Context}} (\mbox{\hyperlink{class_game}{Game}} \texorpdfstring{$\ast$}{*}\+\_\+game, \mbox{\hyperlink{class_player}{Player}} \texorpdfstring{$\ast$}{*}\+\_\+player)
+\begin{DoxyCompactList}\small\item\em Constructs a context with game and player references. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsection*{Public Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{class_game}{Game}} \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{struct_state_1_1_context_a3fd6b76972ddb3303602df2eaa98a8e9}{game}}
+\begin{DoxyCompactList}\small\item\em Main game instance containing shared resources. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{class_player}{Player}} \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{struct_state_1_1_context_a1c98434687748acdebf78fd80a4767ad}{player}}
+\begin{DoxyCompactList}\small\item\em \doxylink{class_player}{Player} entity reference. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Shared context for state-\/specific resources. 
+
+Definition at line \mbox{\hyperlink{_state_8hpp_source_l00055}{55}} of file \mbox{\hyperlink{_state_8hpp_source}{State.\+hpp}}.
+
+
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\Hypertarget{struct_state_1_1_context_a43e78a847efb5cfc1332e8b5f3788ed6}\index{State::Context@{State::Context}!Context@{Context}}
+\index{Context@{Context}!State::Context@{State::Context}}
+\doxysubsubsection{\texorpdfstring{Context()}{Context()}}
+{\footnotesize\ttfamily \label{struct_state_1_1_context_a43e78a847efb5cfc1332e8b5f3788ed6} 
+State\+::\+Context\+::\+Context (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{class_game}{Game}} \texorpdfstring{$\ast$}{*}}]{\+\_\+game}{, }\item[{\mbox{\hyperlink{class_player}{Player}} \texorpdfstring{$\ast$}{*}}]{\+\_\+player}{}\end{DoxyParamCaption})}
+
+
+
+Constructs a context with game and player references. 
+
+Constructs a \doxylink{struct_state_1_1_context}{Context} object with game and player references.
+
+
+\begin{DoxyParams}{Parameters}
+{\em \+\_\+game} & Pointer to main \doxylink{class_game}{Game} instance \\
+\hline
+{\em \+\_\+player} & Pointer to player entity\\
+\hline
+{\em \+\_\+game} & Pointer to main \doxylink{class_game}{Game} instance \\
+\hline
+{\em \+\_\+player} & Pointer to player entity\\
+\hline
+\end{DoxyParams}
+\begin{DoxyNote}{Note}
+The \doxylink{struct_state_1_1_context}{Context} object becomes invalid if Game/\+Player pointers are destroyed 
+\end{DoxyNote}
+
+
+Definition at line \mbox{\hyperlink{_state_8cpp_source_l00012}{12}} of file \mbox{\hyperlink{_state_8cpp_source}{State.\+cpp}}.
+
+
+
+\doxysubsection{Member Data Documentation}
+\Hypertarget{struct_state_1_1_context_a3fd6b76972ddb3303602df2eaa98a8e9}\index{State::Context@{State::Context}!game@{game}}
+\index{game@{game}!State::Context@{State::Context}}
+\doxysubsubsection{\texorpdfstring{game}{game}}
+{\footnotesize\ttfamily \label{struct_state_1_1_context_a3fd6b76972ddb3303602df2eaa98a8e9} 
+\mbox{\hyperlink{class_game}{Game}}\texorpdfstring{$\ast$}{*} State\+::\+Context\+::game}
+
+
+
+Main game instance containing shared resources. 
+
+
+
+Definition at line \mbox{\hyperlink{_state_8hpp_source_l00064}{64}} of file \mbox{\hyperlink{_state_8hpp_source}{State.\+hpp}}.
+
+\Hypertarget{struct_state_1_1_context_a1c98434687748acdebf78fd80a4767ad}\index{State::Context@{State::Context}!player@{player}}
+\index{player@{player}!State::Context@{State::Context}}
+\doxysubsubsection{\texorpdfstring{player}{player}}
+{\footnotesize\ttfamily \label{struct_state_1_1_context_a1c98434687748acdebf78fd80a4767ad} 
+\mbox{\hyperlink{class_player}{Player}}\texorpdfstring{$\ast$}{*} State\+::\+Context\+::player}
+
+
+
+\doxylink{class_player}{Player} entity reference. 
+
+
+
+Definition at line \mbox{\hyperlink{_state_8hpp_source_l00065}{65}} of file \mbox{\hyperlink{_state_8hpp_source}{State.\+hpp}}.
+
+
+
+The documentation for this struct was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+Initialize\+Direct3\+D/State.\+hpp\item 
+Initialize\+Direct3\+D/State.\+cpp\end{DoxyCompactItemize}

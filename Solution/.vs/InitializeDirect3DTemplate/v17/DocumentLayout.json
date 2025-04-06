@@ -3,8 +3,28 @@
   "WorkspaceRootPath": "C:\\Users\\RaphF\\OneDrive\\Desktop\\Game3015_A1\\Solution\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{83D3C7A0-2C62-4D85-A13C-38689288E782}|InitializeDirect3D\\InitializeDirect3D.vcxproj|C:\\Users\\RaphF\\OneDrive\\Desktop\\Game3015_A1\\Solution\\InitializeDirect3D\\main.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
-      "RelativeMoniker": "D:0:0:{83D3C7A0-2C62-4D85-A13C-38689288E782}|InitializeDirect3D\\InitializeDirect3D.vcxproj|solutionrelative:InitializeDirect3D\\main.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
+      "AbsoluteMoniker": "D:0:0:{83D3C7A0-2C62-4D85-A13C-38689288E782}|InitializeDirect3D\\InitializeDirect3D.vcxproj|C:\\Users\\RaphF\\OneDrive\\Desktop\\Game3015_A1\\Solution\\InitializeDirect3D\\MainMenuState.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
+      "RelativeMoniker": "D:0:0:{83D3C7A0-2C62-4D85-A13C-38689288E782}|InitializeDirect3D\\InitializeDirect3D.vcxproj|solutionrelative:InitializeDirect3D\\MainMenuState.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{83D3C7A0-2C62-4D85-A13C-38689288E782}|InitializeDirect3D\\InitializeDirect3D.vcxproj|C:\\Users\\RaphF\\OneDrive\\Desktop\\Game3015_A1\\Solution\\InitializeDirect3D\\InstructionsState.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
+      "RelativeMoniker": "D:0:0:{83D3C7A0-2C62-4D85-A13C-38689288E782}|InitializeDirect3D\\InitializeDirect3D.vcxproj|solutionrelative:InitializeDirect3D\\InstructionsState.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{83D3C7A0-2C62-4D85-A13C-38689288E782}|InitializeDirect3D\\InitializeDirect3D.vcxproj|C:\\Users\\RaphF\\OneDrive\\Desktop\\Game3015_A1\\Solution\\InitializeDirect3D\\GameState.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
+      "RelativeMoniker": "D:0:0:{83D3C7A0-2C62-4D85-A13C-38689288E782}|InitializeDirect3D\\InitializeDirect3D.vcxproj|solutionrelative:InitializeDirect3D\\GameState.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{83D3C7A0-2C62-4D85-A13C-38689288E782}|InitializeDirect3D\\InitializeDirect3D.vcxproj|C:\\Users\\RaphF\\OneDrive\\Desktop\\Game3015_A1\\Solution\\InitializeDirect3D\\PauseState.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
+      "RelativeMoniker": "D:0:0:{83D3C7A0-2C62-4D85-A13C-38689288E782}|InitializeDirect3D\\InitializeDirect3D.vcxproj|solutionrelative:InitializeDirect3D\\PauseState.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{83D3C7A0-2C62-4D85-A13C-38689288E782}|InitializeDirect3D\\InitializeDirect3D.vcxproj|C:\\Users\\RaphF\\OneDrive\\Desktop\\Game3015_A1\\Solution\\InitializeDirect3D\\GameState.hpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
+      "RelativeMoniker": "D:0:0:{83D3C7A0-2C62-4D85-A13C-38689288E782}|InitializeDirect3D\\InitializeDirect3D.vcxproj|solutionrelative:InitializeDirect3D\\GameState.hpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{83D3C7A0-2C62-4D85-A13C-38689288E782}|InitializeDirect3D\\InitializeDirect3D.vcxproj|C:\\Users\\RaphF\\OneDrive\\Desktop\\Game3015_A1\\Solution\\InitializeDirect3D\\TitleState.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
+      "RelativeMoniker": "D:0:0:{83D3C7A0-2C62-4D85-A13C-38689288E782}|InitializeDirect3D\\InitializeDirect3D.vcxproj|solutionrelative:InitializeDirect3D\\TitleState.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
     }
   ],
   "DocumentGroupContainers": [
@@ -27,15 +47,75 @@
             {
               "$type": "Document",
               "DocumentIndex": 0,
-              "Title": "main.cpp",
-              "DocumentMoniker": "C:\\Users\\RaphF\\OneDrive\\Desktop\\Game3015_A1\\Solution\\InitializeDirect3D\\main.cpp",
-              "RelativeDocumentMoniker": "InitializeDirect3D\\main.cpp",
-              "ToolTip": "C:\\Users\\RaphF\\OneDrive\\Desktop\\Game3015_A1\\Solution\\InitializeDirect3D\\main.cpp",
-              "RelativeToolTip": "InitializeDirect3D\\main.cpp",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAACgAAAAAAAAAAAAAAA==",
+              "Title": "MainMenuState.cpp",
+              "DocumentMoniker": "C:\\Users\\RaphF\\OneDrive\\Desktop\\Game3015_A1\\Solution\\InitializeDirect3D\\MainMenuState.cpp",
+              "RelativeDocumentMoniker": "InitializeDirect3D\\MainMenuState.cpp",
+              "ToolTip": "C:\\Users\\RaphF\\OneDrive\\Desktop\\Game3015_A1\\Solution\\InitializeDirect3D\\MainMenuState.cpp",
+              "RelativeToolTip": "InitializeDirect3D\\MainMenuState.cpp",
+              "ViewState": "AgIAAFsAAAAAAAAAAAAQwH8AAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000677|",
-              "WhenOpened": "2025-02-14T15:38:28.502Z",
+              "WhenOpened": "2025-04-06T15:38:16.132Z",
               "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "InstructionsState.cpp",
+              "DocumentMoniker": "C:\\Users\\RaphF\\OneDrive\\Desktop\\Game3015_A1\\Solution\\InitializeDirect3D\\InstructionsState.cpp",
+              "RelativeDocumentMoniker": "InitializeDirect3D\\InstructionsState.cpp",
+              "ToolTip": "C:\\Users\\RaphF\\OneDrive\\Desktop\\Game3015_A1\\Solution\\InitializeDirect3D\\InstructionsState.cpp",
+              "RelativeToolTip": "InitializeDirect3D\\InstructionsState.cpp",
+              "ViewState": "AgIAAFQAAAAAAAAAAAAAAGwAAAABAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000677|",
+              "WhenOpened": "2025-04-06T15:36:37.32Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "GameState.cpp",
+              "DocumentMoniker": "C:\\Users\\RaphF\\OneDrive\\Desktop\\Game3015_A1\\Solution\\InitializeDirect3D\\GameState.cpp",
+              "RelativeDocumentMoniker": "InitializeDirect3D\\GameState.cpp",
+              "ToolTip": "C:\\Users\\RaphF\\OneDrive\\Desktop\\Game3015_A1\\Solution\\InitializeDirect3D\\GameState.cpp",
+              "RelativeToolTip": "InitializeDirect3D\\GameState.cpp",
+              "ViewState": "AgIAAD0AAAAAAAAAAAAowFwAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000677|",
+              "WhenOpened": "2025-04-06T15:34:50.059Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "PauseState.cpp",
+              "DocumentMoniker": "C:\\Users\\RaphF\\OneDrive\\Desktop\\Game3015_A1\\Solution\\InitializeDirect3D\\PauseState.cpp",
+              "RelativeDocumentMoniker": "InitializeDirect3D\\PauseState.cpp",
+              "ToolTip": "C:\\Users\\RaphF\\OneDrive\\Desktop\\Game3015_A1\\Solution\\InitializeDirect3D\\PauseState.cpp",
+              "RelativeToolTip": "InitializeDirect3D\\PauseState.cpp",
+              "ViewState": "AgIAAFoAAAAAAAAAAAAAAFcAAAADAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000677|",
+              "WhenOpened": "2025-04-06T15:32:43.185Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 4,
+              "Title": "GameState.hpp",
+              "DocumentMoniker": "C:\\Users\\RaphF\\OneDrive\\Desktop\\Game3015_A1\\Solution\\InitializeDirect3D\\GameState.hpp",
+              "RelativeDocumentMoniker": "InitializeDirect3D\\GameState.hpp",
+              "ToolTip": "C:\\Users\\RaphF\\OneDrive\\Desktop\\Game3015_A1\\Solution\\InitializeDirect3D\\GameState.hpp",
+              "RelativeToolTip": "InitializeDirect3D\\GameState.hpp",
+              "ViewState": "AgIAAC0AAAAAAAAAAAAAAEQAAAAHAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000680|",
+              "WhenOpened": "2025-04-06T15:32:16.409Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 5,
+              "Title": "TitleState.cpp",
+              "DocumentMoniker": "C:\\Users\\RaphF\\OneDrive\\Desktop\\Game3015_A1\\Solution\\InitializeDirect3D\\TitleState.cpp",
+              "RelativeDocumentMoniker": "InitializeDirect3D\\TitleState.cpp",
+              "ToolTip": "C:\\Users\\RaphF\\OneDrive\\Desktop\\Game3015_A1\\Solution\\InitializeDirect3D\\TitleState.cpp",
+              "RelativeToolTip": "InitializeDirect3D\\TitleState.cpp",
+              "ViewState": "AgIAAG8AAAAAAAAAAAAAAJQAAAADAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000677|",
+              "WhenOpened": "2025-04-06T15:29:31.805Z"
             }
           ]
         }

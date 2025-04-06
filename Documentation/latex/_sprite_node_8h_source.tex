@@ -1,0 +1,29 @@
+\doxysection{Sprite\+Node.\+h}
+\hypertarget{_sprite_node_8h_source}{}\label{_sprite_node_8h_source}\index{InitializeDirect3D/SpriteNode.h@{InitializeDirect3D/SpriteNode.h}}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\Hypertarget{_sprite_node_8h_source_l00001}00001\ \textcolor{preprocessor}{\#pragma\ once}}
+\DoxyCodeLine{\Hypertarget{_sprite_node_8h_source_l00002}00002\ \textcolor{preprocessor}{\#include\ "{}Entity.hpp"{}}}
+\DoxyCodeLine{\Hypertarget{_sprite_node_8h_source_l00003}00003\ }
+\DoxyCodeLine{\Hypertarget{_sprite_node_8h_source_l00007}\mbox{\hyperlink{class_sprite_node}{00007}}\ \textcolor{keyword}{class\ }\mbox{\hyperlink{class_sprite_node_af5884dfe335abba3c8bda2b26a6dddbb}{SpriteNode}}\ :}
+\DoxyCodeLine{\Hypertarget{_sprite_node_8h_source_l00008}00008\ \ \ \ \ \textcolor{keyword}{public}\ \mbox{\hyperlink{class_entity_ac219200508c18e5db68225c7efb7da5d}{Entity}}}
+\DoxyCodeLine{\Hypertarget{_sprite_node_8h_source_l00009}00009\ \{}
+\DoxyCodeLine{\Hypertarget{_sprite_node_8h_source_l00010}00010\ \textcolor{keyword}{public}:}
+\DoxyCodeLine{\Hypertarget{_sprite_node_8h_source_l00015}00015\ \ \ \ \ \mbox{\hyperlink{class_sprite_node_af5884dfe335abba3c8bda2b26a6dddbb}{SpriteNode}}(\mbox{\hyperlink{class_state}{State}}*\ state);}
+\DoxyCodeLine{\Hypertarget{_sprite_node_8h_source_l00016}00016\ }
+\DoxyCodeLine{\Hypertarget{_sprite_node_8h_source_l00020}\mbox{\hyperlink{class_sprite_node_a578b6103c79f36b95541dab9dc4918f4}{00020}}\ \ \ \ \ \mbox{\hyperlink{struct_render_item}{RenderItem}}*\ \mbox{\hyperlink{class_sprite_node_a578b6103c79f36b95541dab9dc4918f4}{mSpriteNodeRitem}};}
+\DoxyCodeLine{\Hypertarget{_sprite_node_8h_source_l00021}00021\ }
+\DoxyCodeLine{\Hypertarget{_sprite_node_8h_source_l00022}00022\ \ \ \ \ \textcolor{keywordtype}{void}\ SetDrawName(std::string\ Mat,\ std::string\ Geo,\ std::string\ DrawName);}
+\DoxyCodeLine{\Hypertarget{_sprite_node_8h_source_l00023}00023\ \ \ \ \ std::string\ GetDrawName();}
+\DoxyCodeLine{\Hypertarget{_sprite_node_8h_source_l00024}00024\ \ \ \ \ \textcolor{keywordtype}{void}\ SetVisible(\textcolor{keywordtype}{bool}\ visible);}
+\DoxyCodeLine{\Hypertarget{_sprite_node_8h_source_l00025}00025\ \textcolor{keyword}{private}:}
+\DoxyCodeLine{\Hypertarget{_sprite_node_8h_source_l00029}00029\ \ \ \ \ \textcolor{keyword}{virtual}\ \textcolor{keywordtype}{void}\ \ \ \ \ \ \ \ drawCurrent()\ \textcolor{keyword}{const};}
+\DoxyCodeLine{\Hypertarget{_sprite_node_8h_source_l00033}00033\ \ \ \ \ \textcolor{keyword}{virtual}\ \textcolor{keywordtype}{void}\ \ \ \ \ \ \ \ buildCurrent();}
+\DoxyCodeLine{\Hypertarget{_sprite_node_8h_source_l00034}00034\ }
+\DoxyCodeLine{\Hypertarget{_sprite_node_8h_source_l00035}00035\ \ \ \ \ std::string\ mMat;}
+\DoxyCodeLine{\Hypertarget{_sprite_node_8h_source_l00036}00036\ \ \ \ \ std::string\ mGeo;}
+\DoxyCodeLine{\Hypertarget{_sprite_node_8h_source_l00037}00037\ \ \ \ \ std::string\ mDrawName;}
+\DoxyCodeLine{\Hypertarget{_sprite_node_8h_source_l00038}00038\ \ \ \ \ \textcolor{keywordtype}{bool}\ mIsVisible;}
+\DoxyCodeLine{\Hypertarget{_sprite_node_8h_source_l00039}00039\ \};}
+
+\end{DoxyCode}

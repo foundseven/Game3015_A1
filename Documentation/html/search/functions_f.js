@@ -1,5 +1,5 @@
 var searchData=
 [
-  ['_7eframeresource_0',['~FrameResource',['../struct_frame_resource.html#a93d669d1d4db3b4ed5cd6f0f6b921809',1,'FrameResource']]],
-  ['_7egame_1',['~Game',['../class_game.html#ae3d112ca6e0e55150d2fdbc704474530',1,'Game']]]
+  ['text_0',['Text',['../class_text.html#aaef6c7daf739b7fc045c7017c42d8123',1,'Text']]],
+  ['titlestate_1',['TitleState',['../class_title_state.html#aad68d2a0aece65492974d3ee448ff71f',1,'TitleState']]]
 ];

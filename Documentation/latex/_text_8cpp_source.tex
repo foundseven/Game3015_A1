@@ -1,0 +1,70 @@
+\doxysection{Text.\+cpp}
+\hypertarget{_text_8cpp_source}{}\label{_text_8cpp_source}\index{InitializeDirect3D/Text.cpp@{InitializeDirect3D/Text.cpp}}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\Hypertarget{_text_8cpp_source_l00001}00001\ \textcolor{preprocessor}{\#include\ "{}Text.h"{}}}
+\DoxyCodeLine{\Hypertarget{_text_8cpp_source_l00002}00002\ \textcolor{preprocessor}{\#include\ "{}Game.hpp"{}}}
+\DoxyCodeLine{\Hypertarget{_text_8cpp_source_l00003}00003\ }
+\DoxyCodeLine{\Hypertarget{_text_8cpp_source_l00013}\mbox{\hyperlink{class_text_aaef6c7daf739b7fc045c7017c42d8123}{00013}}\ \mbox{\hyperlink{class_text_aaef6c7daf739b7fc045c7017c42d8123}{Text::Text}}(\mbox{\hyperlink{class_text_af5a519d92e5d1da95be75572cae3e184}{Menu}}\ menu,\ \mbox{\hyperlink{class_state}{State}}*\ state)\ :\ \mbox{\hyperlink{class_entity_ac219200508c18e5db68225c7efb7da5d}{Entity}}(state),\ mMenu(menu)}
+\DoxyCodeLine{\Hypertarget{_text_8cpp_source_l00014}00014\ \{}
+\DoxyCodeLine{\Hypertarget{_text_8cpp_source_l00015}00015\ \ \ \ \ \textcolor{keywordflow}{switch}\ (menu)}
+\DoxyCodeLine{\Hypertarget{_text_8cpp_source_l00016}00016\ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{_text_8cpp_source_l00017}00017\ \ \ \ \ \textcolor{comment}{//case\ (SplashText):\ \ //\ Reserved\ for\ future\ expansion}}
+\DoxyCodeLine{\Hypertarget{_text_8cpp_source_l00018}00018\ \ \ \ \ \textcolor{comment}{//\ \ \ \ mSprite\ =\ "{}SplashText"{};}}
+\DoxyCodeLine{\Hypertarget{_text_8cpp_source_l00019}00019\ \ \ \ \ \textcolor{comment}{//\ \ \ \ flash\ =\ true;}}
+\DoxyCodeLine{\Hypertarget{_text_8cpp_source_l00020}00020\ \ \ \ \ \textcolor{comment}{//\ \ \ \ break;}}
+\DoxyCodeLine{\Hypertarget{_text_8cpp_source_l00021}00021\ \ \ \ \ \textcolor{keywordflow}{case}\ (\mbox{\hyperlink{class_text_af5a519d92e5d1da95be75572cae3e184a0fc37c4b6e0ce6874ee211578024fb5d}{MenuText}}):}
+\DoxyCodeLine{\Hypertarget{_text_8cpp_source_l00022}00022\ \ \ \ \ \ \ \ \ mSprite\ =\ \textcolor{stringliteral}{"{}MenuText"{}};\ \textcolor{comment}{//\ Default\ menu\ text\ material}}
+\DoxyCodeLine{\Hypertarget{_text_8cpp_source_l00023}00023\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{break};}
+\DoxyCodeLine{\Hypertarget{_text_8cpp_source_l00024}00024\ }
+\DoxyCodeLine{\Hypertarget{_text_8cpp_source_l00025}00025\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{_text_8cpp_source_l00026}00026\ \}}
+\DoxyCodeLine{\Hypertarget{_text_8cpp_source_l00027}00027\ }
+\DoxyCodeLine{\Hypertarget{_text_8cpp_source_l00036}00036\ \textcolor{keywordtype}{void}\ Text::updateCurrent(\textcolor{keyword}{const}\ GameTimer\&\ gt)}
+\DoxyCodeLine{\Hypertarget{_text_8cpp_source_l00037}00037\ \{}
+\DoxyCodeLine{\Hypertarget{_text_8cpp_source_l00038}00038\ \ \ \ \ Text::check(gt);}
+\DoxyCodeLine{\Hypertarget{_text_8cpp_source_l00039}00039\ \ \ \ \ \mbox{\hyperlink{class_entity_ac2ba9cb8ca54fff11ad7397334edcd94}{Entity::updateCurrent}}(gt);}
+\DoxyCodeLine{\Hypertarget{_text_8cpp_source_l00040}00040\ \}}
+\DoxyCodeLine{\Hypertarget{_text_8cpp_source_l00041}00041\ }
+\DoxyCodeLine{\Hypertarget{_text_8cpp_source_l00049}00049\ \textcolor{keywordtype}{void}\ Text::drawCurrent()\textcolor{keyword}{\ const}}
+\DoxyCodeLine{\Hypertarget{_text_8cpp_source_l00050}00050\ \textcolor{keyword}{}\{}
+\DoxyCodeLine{\Hypertarget{_text_8cpp_source_l00051}00051\ \ \ \ \ \mbox{\hyperlink{class_scene_node_a51b22a4d6789039a96ebab097ed03db0}{renderer}}-\/>World\ =\ \mbox{\hyperlink{class_scene_node_a5e503eeca953d36b652a12ceadb64d28}{getTransform}}();}
+\DoxyCodeLine{\Hypertarget{_text_8cpp_source_l00052}00052\ \ \ \ \ \mbox{\hyperlink{class_scene_node_a51b22a4d6789039a96ebab097ed03db0}{renderer}}-\/>NumFramesDirty++;}
+\DoxyCodeLine{\Hypertarget{_text_8cpp_source_l00053}00053\ \}}
+\DoxyCodeLine{\Hypertarget{_text_8cpp_source_l00054}00054\ }
+\DoxyCodeLine{\Hypertarget{_text_8cpp_source_l00064}00064\ \textcolor{keywordtype}{void}\ Text::buildCurrent()}
+\DoxyCodeLine{\Hypertarget{_text_8cpp_source_l00065}00065\ \{}
+\DoxyCodeLine{\Hypertarget{_text_8cpp_source_l00066}00066\ \ \ \ \ \mbox{\hyperlink{namespace_states_a571a0dc62822f97bb9511eb013d8e1c3a392b686639cb98b586bf0af7dc993633}{Game}}*\ game\ =\ \mbox{\hyperlink{class_scene_node_a2921cf2fe98067b4d0b3558d2dc553bc}{mState}}-\/>GetContext()-\/>game;}
+\DoxyCodeLine{\Hypertarget{_text_8cpp_source_l00067}00067\ }
+\DoxyCodeLine{\Hypertarget{_text_8cpp_source_l00068}00068\ \ \ \ \ \textcolor{keyword}{auto}\ render\ =\ std::make\_unique<RenderItem>();}
+\DoxyCodeLine{\Hypertarget{_text_8cpp_source_l00069}00069\ \ \ \ \ \mbox{\hyperlink{class_scene_node_a51b22a4d6789039a96ebab097ed03db0}{renderer}}\ =\ render.get();}
+\DoxyCodeLine{\Hypertarget{_text_8cpp_source_l00070}00070\ \ \ \ \ \mbox{\hyperlink{class_scene_node_a51b22a4d6789039a96ebab097ed03db0}{renderer}}-\/>World\ =\ \mbox{\hyperlink{class_scene_node_a5e503eeca953d36b652a12ceadb64d28}{getTransform}}();}
+\DoxyCodeLine{\Hypertarget{_text_8cpp_source_l00071}00071\ \ \ \ \ \mbox{\hyperlink{class_scene_node_a51b22a4d6789039a96ebab097ed03db0}{renderer}}-\/>ObjCBIndex\ =\ (UINT)\mbox{\hyperlink{class_scene_node_a2921cf2fe98067b4d0b3558d2dc553bc}{mState}}-\/>getRenderItems().size();}
+\DoxyCodeLine{\Hypertarget{_text_8cpp_source_l00072}00072\ \ \ \ \ \mbox{\hyperlink{class_scene_node_a51b22a4d6789039a96ebab097ed03db0}{renderer}}-\/>Mat\ =\ game-\/>getMaterials()[mSprite].get();}
+\DoxyCodeLine{\Hypertarget{_text_8cpp_source_l00073}00073\ \ \ \ \ \mbox{\hyperlink{class_scene_node_a51b22a4d6789039a96ebab097ed03db0}{renderer}}-\/>Geo\ =\ game-\/>getGeometries()[\textcolor{stringliteral}{"{}boxGeo"{}}].get();}
+\DoxyCodeLine{\Hypertarget{_text_8cpp_source_l00074}00074\ \ \ \ \ \mbox{\hyperlink{class_scene_node_a51b22a4d6789039a96ebab097ed03db0}{renderer}}-\/>PrimitiveType\ =\ D3D\_PRIMITIVE\_TOPOLOGY\_TRIANGLELIST;}
+\DoxyCodeLine{\Hypertarget{_text_8cpp_source_l00075}00075\ \ \ \ \ \mbox{\hyperlink{class_scene_node_a51b22a4d6789039a96ebab097ed03db0}{renderer}}-\/>IndexCount\ =\ \mbox{\hyperlink{class_scene_node_a51b22a4d6789039a96ebab097ed03db0}{renderer}}-\/>Geo-\/>DrawArgs[\textcolor{stringliteral}{"{}box"{}}].IndexCount;}
+\DoxyCodeLine{\Hypertarget{_text_8cpp_source_l00076}00076\ \ \ \ \ \mbox{\hyperlink{class_scene_node_a51b22a4d6789039a96ebab097ed03db0}{renderer}}-\/>StartIndexLocation\ =\ \mbox{\hyperlink{class_scene_node_a51b22a4d6789039a96ebab097ed03db0}{renderer}}-\/>Geo-\/>DrawArgs[\textcolor{stringliteral}{"{}box"{}}].StartIndexLocation;}
+\DoxyCodeLine{\Hypertarget{_text_8cpp_source_l00077}00077\ \ \ \ \ \mbox{\hyperlink{class_scene_node_a51b22a4d6789039a96ebab097ed03db0}{renderer}}-\/>BaseVertexLocation\ =\ \mbox{\hyperlink{class_scene_node_a51b22a4d6789039a96ebab097ed03db0}{renderer}}-\/>Geo-\/>DrawArgs[\textcolor{stringliteral}{"{}box"{}}].BaseVertexLocation;}
+\DoxyCodeLine{\Hypertarget{_text_8cpp_source_l00078}00078\ \ \ \ \ \mbox{\hyperlink{class_scene_node_a2921cf2fe98067b4d0b3558d2dc553bc}{mState}}-\/>getRenderItems().push\_back(std::move(render));}
+\DoxyCodeLine{\Hypertarget{_text_8cpp_source_l00079}00079\ \}}
+\DoxyCodeLine{\Hypertarget{_text_8cpp_source_l00080}00080\ }
+\DoxyCodeLine{\Hypertarget{_text_8cpp_source_l00093}00093\ \textcolor{keywordtype}{void}\ Text::check(\textcolor{keyword}{const}\ GameTimer\&\ gt)}
+\DoxyCodeLine{\Hypertarget{_text_8cpp_source_l00094}00094\ \{}
+\DoxyCodeLine{\Hypertarget{_text_8cpp_source_l00095}00095\ \ \ \ \ \textcolor{comment}{//\ Debug\ position\ reset}}
+\DoxyCodeLine{\Hypertarget{_text_8cpp_source_l00096}00096\ \ \ \ \ \textcolor{keywordflow}{if}\ (GetAsyncKeyState(\textcolor{charliteral}{'Q'}))}
+\DoxyCodeLine{\Hypertarget{_text_8cpp_source_l00097}00097\ \ \ \ \ \ \ \ \ this-\/>\mbox{\hyperlink{class_scene_node_a45f8882749060b059fe26eb02f7f843b}{setPosition}}(0.f,\ -\/1.f,\ 0.f);}
+\DoxyCodeLine{\Hypertarget{_text_8cpp_source_l00098}00098\ }
+\DoxyCodeLine{\Hypertarget{_text_8cpp_source_l00099}00099\ \ \ \ \ \textcolor{comment}{//\ Visibility\ controls}}
+\DoxyCodeLine{\Hypertarget{_text_8cpp_source_l00100}00100\ \ \ \ \ \textcolor{keywordflow}{if}\ (GetAsyncKeyState(VK\_UP))}
+\DoxyCodeLine{\Hypertarget{_text_8cpp_source_l00101}00101\ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{_text_8cpp_source_l00102}00102\ \ \ \ \ \ \ \ \ show\ =\ \textcolor{keyword}{false};}
+\DoxyCodeLine{\Hypertarget{_text_8cpp_source_l00103}00103\ }
+\DoxyCodeLine{\Hypertarget{_text_8cpp_source_l00104}00104\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{_text_8cpp_source_l00105}00105\ \ \ \ \ \textcolor{keywordflow}{if}\ (GetAsyncKeyState(VK\_DOWN)\ \&\ 0x8000)}
+\DoxyCodeLine{\Hypertarget{_text_8cpp_source_l00106}00106\ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{_text_8cpp_source_l00107}00107\ \ \ \ \ \ \ \ \ show\ =\ \textcolor{keyword}{true};}
+\DoxyCodeLine{\Hypertarget{_text_8cpp_source_l00108}00108\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{_text_8cpp_source_l00109}00109\ \}}
+
+\end{DoxyCode}

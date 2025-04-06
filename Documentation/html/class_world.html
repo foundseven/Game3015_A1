@@ -5,7 +5,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=11"/>
 <meta name="generator" content="Doxygen 1.13.2"/>
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
-<title>Game3015_A2: World Class Reference</title>
+<title>Galaxy Invaders: World Class Reference</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
@@ -32,9 +32,9 @@
  <tbody>
  <tr id="projectrow">
   <td id="projectalign">
-   <div id="projectname">Game3015_A2<span id="projectnumber">&#160;2.0</span>
+   <div id="projectname">Galaxy Invaders<span id="projectnumber">&#160;3.0</span>
    </div>
-   <div id="projectbrief">A DirectX 12-based aircraft combat game.</div>
+   <div id="projectbrief">Roam the galaxy in 2D/3D</div>
   </td>
     <td>        <div id="MSearchBox" class="MSearchBoxInactive">
         <span class="left">
@@ -117,9 +117,9 @@ $(function(){initNavTree('class_world.html',''); initResizable(true); });
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pub-methods" name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
-<tr class="memitem:a712eb4a5b0d12588dd61d10c91b83366" id="r_a712eb4a5b0d12588dd61d10c91b83366"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a712eb4a5b0d12588dd61d10c91b83366">World</a> (<a class="el" href="class_game.html">Game</a> *window)</td></tr>
-<tr class="memdesc:a712eb4a5b0d12588dd61d10c91b83366"><td class="mdescLeft">&#160;</td><td class="mdescRight">Constructs the <a class="el" href="class_world.html" title="Constructs the World object.">World</a> object.  <br /></td></tr>
-<tr class="separator:a712eb4a5b0d12588dd61d10c91b83366"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a99c692ab277a66c03ca48e8ea568ecb0" id="r_a99c692ab277a66c03ca48e8ea568ecb0"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a99c692ab277a66c03ca48e8ea568ecb0">World</a> (<a class="el" href="class_state.html">State</a> *state)</td></tr>
+<tr class="memdesc:a99c692ab277a66c03ca48e8ea568ecb0"><td class="mdescLeft">&#160;</td><td class="mdescRight">Constructs the <a class="el" href="class_world.html" title="Constructs the World object.">World</a> object.  <br /></td></tr>
+<tr class="separator:a99c692ab277a66c03ca48e8ea568ecb0"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a36c003f54e14e022a360551af5e7923e" id="r_a36c003f54e14e022a360551af5e7923e"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a36c003f54e14e022a360551af5e7923e">update</a> (const GameTimer &amp;gt)</td></tr>
 <tr class="memdesc:a36c003f54e14e022a360551af5e7923e"><td class="mdescLeft">&#160;</td><td class="mdescRight">Updates the world.  <br /></td></tr>
 <tr class="separator:a36c003f54e14e022a360551af5e7923e"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -137,14 +137,16 @@ Public Member Functions</h2></td></tr>
 <div class="textblock"><p>Constructs the <a class="el" href="class_world.html" title="Constructs the World object.">World</a> object. </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname">game</td><td>Pointer to the <a class="el" href="class_game.html" title="Main game class managing resources, rendering, and game logic.">Game</a> object</td></tr>
+    <tr><td class="paramname">game</td><td>Pointer to the <a class="el" href="class_game.html" title="Core game application class inheriting from Direct3D base.">Game</a> object</td></tr>
   </table>
   </dd>
 </dl>
 <p>Initializes the scene graph, world bounds, and scroll speed. </p>
+
+<p class="definition">Definition at line <a class="el" href="_world_8hpp_source.html#l00017">17</a> of file <a class="el" href="_world_8hpp_source.html">World.hpp</a>.</p>
 </div><h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
-<a id="a712eb4a5b0d12588dd61d10c91b83366" name="a712eb4a5b0d12588dd61d10c91b83366"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a712eb4a5b0d12588dd61d10c91b83366">&#9670;&#160;</a></span>World()</h2>
+<a id="a99c692ab277a66c03ca48e8ea568ecb0" name="a99c692ab277a66c03ca48e8ea568ecb0"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a99c692ab277a66c03ca48e8ea568ecb0">&#9670;&#160;</a></span>World()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -155,7 +157,7 @@ Public Member Functions</h2></td></tr>
         <tr>
           <td class="memname">World::World </td>
           <td>(</td>
-          <td class="paramtype"><a class="el" href="class_game.html">Game</a> *</td>          <td class="paramname"><span class="paramname"><em>game</em></span></td><td>)</td>
+          <td class="paramtype"><a class="el" href="class_state.html">State</a> *</td>          <td class="paramname"><span class="paramname"><em>state</em></span></td><td>)</td>
           <td></td>
         </tr>
       </table>
@@ -170,17 +172,19 @@ Public Member Functions</h2></td></tr>
 <p>Constructor for <a class="el" href="class_world.html" title="Constructs the World object.">World</a>.</p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname">game</td><td>Pointer to the <a class="el" href="class_game.html" title="Main game class managing resources, rendering, and game logic.">Game</a> object</td></tr>
+    <tr><td class="paramname">game</td><td>Pointer to the <a class="el" href="class_game.html" title="Core game application class inheriting from Direct3D base.">Game</a> object</td></tr>
   </table>
   </dd>
 </dl>
 <p>Initializes the scene graph, world bounds, and scroll speed.</p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname">game</td><td>Pointer to the <a class="el" href="class_game.html" title="Main game class managing resources, rendering, and game logic.">Game</a> object. </td></tr>
+    <tr><td class="paramname">game</td><td>Pointer to the <a class="el" href="class_game.html" title="Core game application class inheriting from Direct3D base.">Game</a> object. </td></tr>
   </table>
   </dd>
 </dl>
+
+<p class="definition">Definition at line <a class="el" href="_world_8cpp_source.html#l00008">8</a> of file <a class="el" href="_world_8cpp_source.html">World.cpp</a>.</p>
 
 </div>
 </div>
@@ -203,6 +207,8 @@ Public Member Functions</h2></td></tr>
 <p>Builds the scene graph and initializes game objects. </p>
 <p>This method creates and positions the player aircraft, enemy aircraft, and background sprite. It also sets up the initial velocities and rotations of these objects. </p>
 
+<p class="definition">Definition at line <a class="el" href="_world_8cpp_source.html#l00064">64</a> of file <a class="el" href="_world_8cpp_source.html">World.cpp</a>.</p>
+
 </div>
 </div>
 <a id="ab51a17ccbb108616daacd0c34973dc8d" name="ab51a17ccbb108616daacd0c34973dc8d"></a>
@@ -223,6 +229,8 @@ Public Member Functions</h2></td></tr>
 <p>Draws the game world. </p>
 <p>This method calls the draw method of the scene graph to render all game objects. </p>
 
+<p class="definition">Definition at line <a class="el" href="_world_8cpp_source.html#l00053">53</a> of file <a class="el" href="_world_8cpp_source.html">World.cpp</a>.</p>
+
 </div>
 </div>
 <a id="af224b413f30c86ec99d042d0f4df56ee" name="af224b413f30c86ec99d042d0f4df56ee"></a>
@@ -242,6 +250,8 @@ Public Member Functions</h2></td></tr>
 
 <p>Retrieves the command queue for the world. </p>
 <dl class="section return"><dt>Returns</dt><dd>Reference to the <a class="el" href="class_command_queue.html" title="A FIFO queue for managing game commands.">CommandQueue</a> </dd></dl>
+
+<p class="definition">Definition at line <a class="el" href="_world_8cpp_source.html#l00020">20</a> of file <a class="el" href="_world_8cpp_source.html">World.cpp</a>.</p>
 
 </div>
 </div>
@@ -276,11 +286,13 @@ Public Member Functions</h2></td></tr>
   </dd>
 </dl>
 
+<p class="definition">Definition at line <a class="el" href="_world_8cpp_source.html#l00033">33</a> of file <a class="el" href="_world_8cpp_source.html">World.cpp</a>.</p>
+
 </div>
 </div>
 <hr/>The documentation for this class was generated from the following files:<ul>
 <li>InitializeDirect3D/<a class="el" href="_world_8hpp_source.html">World.hpp</a></li>
-<li>InitializeDirect3D/<b>World.cpp</b></li>
+<li>InitializeDirect3D/<a class="el" href="_world_8cpp_source.html">World.cpp</a></li>
 </ul>
 </div><!-- contents -->
 </div><!-- doc-content -->

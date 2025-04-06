@@ -1,26 +1,26 @@
-D:\School\Game Engine Development 2\Game3015_A1\Common\Camera.cpp;D:\School\Game Engine Development 2\Game3015_A1\Solution\InitializeDirect3D\x64\Debug\Camera.obj
-D:\School\Game Engine Development 2\Game3015_A1\Common\d3dApp.cpp;D:\School\Game Engine Development 2\Game3015_A1\Solution\InitializeDirect3D\x64\Debug\d3dApp.obj
-D:\School\Game Engine Development 2\Game3015_A1\Common\d3dUtil.cpp;D:\School\Game Engine Development 2\Game3015_A1\Solution\InitializeDirect3D\x64\Debug\d3dUtil.obj
-D:\School\Game Engine Development 2\Game3015_A1\Common\DDSTextureLoader.cpp;D:\School\Game Engine Development 2\Game3015_A1\Solution\InitializeDirect3D\x64\Debug\DDSTextureLoader.obj
-D:\School\Game Engine Development 2\Game3015_A1\Common\GameTimer.cpp;D:\School\Game Engine Development 2\Game3015_A1\Solution\InitializeDirect3D\x64\Debug\GameTimer.obj
-D:\School\Game Engine Development 2\Game3015_A1\Common\GeometryGenerator.cpp;D:\School\Game Engine Development 2\Game3015_A1\Solution\InitializeDirect3D\x64\Debug\GeometryGenerator.obj
-D:\School\Game Engine Development 2\Game3015_A1\Common\MathHelper.cpp;D:\School\Game Engine Development 2\Game3015_A1\Solution\InitializeDirect3D\x64\Debug\MathHelper.obj
-D:\School\Game Engine Development 2\Game3015_A1\Solution\InitializeDirect3D\Aircraft.cpp;D:\School\Game Engine Development 2\Game3015_A1\Solution\InitializeDirect3D\x64\Debug\Aircraft.obj
-D:\School\Game Engine Development 2\Game3015_A1\Solution\InitializeDirect3D\Command.cpp;D:\School\Game Engine Development 2\Game3015_A1\Solution\InitializeDirect3D\x64\Debug\Command.obj
-D:\School\Game Engine Development 2\Game3015_A1\Solution\InitializeDirect3D\CommandQueue.cpp;D:\School\Game Engine Development 2\Game3015_A1\Solution\InitializeDirect3D\x64\Debug\CommandQueue.obj
-D:\School\Game Engine Development 2\Game3015_A1\Solution\InitializeDirect3D\Entity.cpp;D:\School\Game Engine Development 2\Game3015_A1\Solution\InitializeDirect3D\x64\Debug\Entity.obj
-D:\School\Game Engine Development 2\Game3015_A1\Solution\InitializeDirect3D\FrameResource.cpp;D:\School\Game Engine Development 2\Game3015_A1\Solution\InitializeDirect3D\x64\Debug\FrameResource.obj
-D:\School\Game Engine Development 2\Game3015_A1\Solution\InitializeDirect3D\Game.cpp;D:\School\Game Engine Development 2\Game3015_A1\Solution\InitializeDirect3D\x64\Debug\Game.obj
-D:\School\Game Engine Development 2\Game3015_A1\Solution\InitializeDirect3D\GameState.cpp;D:\School\Game Engine Development 2\Game3015_A1\Solution\InitializeDirect3D\x64\Debug\GameState.obj
-D:\School\Game Engine Development 2\Game3015_A1\Solution\InitializeDirect3D\InstructionsState.cpp;D:\School\Game Engine Development 2\Game3015_A1\Solution\InitializeDirect3D\x64\Debug\InstructionsState.obj
-D:\School\Game Engine Development 2\Game3015_A1\Solution\InitializeDirect3D\main.cpp;D:\School\Game Engine Development 2\Game3015_A1\Solution\InitializeDirect3D\x64\Debug\main.obj
-D:\School\Game Engine Development 2\Game3015_A1\Solution\InitializeDirect3D\MainMenuState.cpp;D:\School\Game Engine Development 2\Game3015_A1\Solution\InitializeDirect3D\x64\Debug\MainMenuState.obj
-D:\School\Game Engine Development 2\Game3015_A1\Solution\InitializeDirect3D\PauseState.cpp;D:\School\Game Engine Development 2\Game3015_A1\Solution\InitializeDirect3D\x64\Debug\PauseState.obj
-D:\School\Game Engine Development 2\Game3015_A1\Solution\InitializeDirect3D\Player.cpp;D:\School\Game Engine Development 2\Game3015_A1\Solution\InitializeDirect3D\x64\Debug\Player.obj
-D:\School\Game Engine Development 2\Game3015_A1\Solution\InitializeDirect3D\SceneNode.cpp;D:\School\Game Engine Development 2\Game3015_A1\Solution\InitializeDirect3D\x64\Debug\SceneNode.obj
-D:\School\Game Engine Development 2\Game3015_A1\Solution\InitializeDirect3D\SpriteNode.cpp;D:\School\Game Engine Development 2\Game3015_A1\Solution\InitializeDirect3D\x64\Debug\SpriteNode.obj
-D:\School\Game Engine Development 2\Game3015_A1\Solution\InitializeDirect3D\State.cpp;D:\School\Game Engine Development 2\Game3015_A1\Solution\InitializeDirect3D\x64\Debug\State.obj
-D:\School\Game Engine Development 2\Game3015_A1\Solution\InitializeDirect3D\StateStack.cpp;D:\School\Game Engine Development 2\Game3015_A1\Solution\InitializeDirect3D\x64\Debug\StateStack.obj
-D:\School\Game Engine Development 2\Game3015_A1\Solution\InitializeDirect3D\Text.cpp;D:\School\Game Engine Development 2\Game3015_A1\Solution\InitializeDirect3D\x64\Debug\Text.obj
-D:\School\Game Engine Development 2\Game3015_A1\Solution\InitializeDirect3D\TitleState.cpp;D:\School\Game Engine Development 2\Game3015_A1\Solution\InitializeDirect3D\x64\Debug\TitleState.obj
-D:\School\Game Engine Development 2\Game3015_A1\Solution\InitializeDirect3D\World.cpp;D:\School\Game Engine Development 2\Game3015_A1\Solution\InitializeDirect3D\x64\Debug\World.obj
+C:\Users\RaphF\OneDrive\Desktop\Game3015_A1\Common\Camera.cpp;C:\Users\RaphF\OneDrive\Desktop\Game3015_A1\Solution\InitializeDirect3D\x64\Debug\Camera.obj
+C:\Users\RaphF\OneDrive\Desktop\Game3015_A1\Common\d3dApp.cpp;C:\Users\RaphF\OneDrive\Desktop\Game3015_A1\Solution\InitializeDirect3D\x64\Debug\d3dApp.obj
+C:\Users\RaphF\OneDrive\Desktop\Game3015_A1\Common\d3dUtil.cpp;C:\Users\RaphF\OneDrive\Desktop\Game3015_A1\Solution\InitializeDirect3D\x64\Debug\d3dUtil.obj
+C:\Users\RaphF\OneDrive\Desktop\Game3015_A1\Common\DDSTextureLoader.cpp;C:\Users\RaphF\OneDrive\Desktop\Game3015_A1\Solution\InitializeDirect3D\x64\Debug\DDSTextureLoader.obj
+C:\Users\RaphF\OneDrive\Desktop\Game3015_A1\Common\GameTimer.cpp;C:\Users\RaphF\OneDrive\Desktop\Game3015_A1\Solution\InitializeDirect3D\x64\Debug\GameTimer.obj
+C:\Users\RaphF\OneDrive\Desktop\Game3015_A1\Common\GeometryGenerator.cpp;C:\Users\RaphF\OneDrive\Desktop\Game3015_A1\Solution\InitializeDirect3D\x64\Debug\GeometryGenerator.obj
+C:\Users\RaphF\OneDrive\Desktop\Game3015_A1\Common\MathHelper.cpp;C:\Users\RaphF\OneDrive\Desktop\Game3015_A1\Solution\InitializeDirect3D\x64\Debug\MathHelper.obj
+C:\Users\RaphF\OneDrive\Desktop\Game3015_A1\Solution\InitializeDirect3D\Aircraft.cpp;C:\Users\RaphF\OneDrive\Desktop\Game3015_A1\Solution\InitializeDirect3D\x64\Debug\Aircraft.obj
+C:\Users\RaphF\OneDrive\Desktop\Game3015_A1\Solution\InitializeDirect3D\Command.cpp;C:\Users\RaphF\OneDrive\Desktop\Game3015_A1\Solution\InitializeDirect3D\x64\Debug\Command.obj
+C:\Users\RaphF\OneDrive\Desktop\Game3015_A1\Solution\InitializeDirect3D\CommandQueue.cpp;C:\Users\RaphF\OneDrive\Desktop\Game3015_A1\Solution\InitializeDirect3D\x64\Debug\CommandQueue.obj
+C:\Users\RaphF\OneDrive\Desktop\Game3015_A1\Solution\InitializeDirect3D\Entity.cpp;C:\Users\RaphF\OneDrive\Desktop\Game3015_A1\Solution\InitializeDirect3D\x64\Debug\Entity.obj
+C:\Users\RaphF\OneDrive\Desktop\Game3015_A1\Solution\InitializeDirect3D\FrameResource.cpp;C:\Users\RaphF\OneDrive\Desktop\Game3015_A1\Solution\InitializeDirect3D\x64\Debug\FrameResource.obj
+C:\Users\RaphF\OneDrive\Desktop\Game3015_A1\Solution\InitializeDirect3D\Game.cpp;C:\Users\RaphF\OneDrive\Desktop\Game3015_A1\Solution\InitializeDirect3D\x64\Debug\Game.obj
+C:\Users\RaphF\OneDrive\Desktop\Game3015_A1\Solution\InitializeDirect3D\GameState.cpp;C:\Users\RaphF\OneDrive\Desktop\Game3015_A1\Solution\InitializeDirect3D\x64\Debug\GameState.obj
+C:\Users\RaphF\OneDrive\Desktop\Game3015_A1\Solution\InitializeDirect3D\InstructionsState.cpp;C:\Users\RaphF\OneDrive\Desktop\Game3015_A1\Solution\InitializeDirect3D\x64\Debug\InstructionsState.obj
+C:\Users\RaphF\OneDrive\Desktop\Game3015_A1\Solution\InitializeDirect3D\main.cpp;C:\Users\RaphF\OneDrive\Desktop\Game3015_A1\Solution\InitializeDirect3D\x64\Debug\main.obj
+C:\Users\RaphF\OneDrive\Desktop\Game3015_A1\Solution\InitializeDirect3D\MainMenuState.cpp;C:\Users\RaphF\OneDrive\Desktop\Game3015_A1\Solution\InitializeDirect3D\x64\Debug\MainMenuState.obj
+C:\Users\RaphF\OneDrive\Desktop\Game3015_A1\Solution\InitializeDirect3D\PauseState.cpp;C:\Users\RaphF\OneDrive\Desktop\Game3015_A1\Solution\InitializeDirect3D\x64\Debug\PauseState.obj
+C:\Users\RaphF\OneDrive\Desktop\Game3015_A1\Solution\InitializeDirect3D\Player.cpp;C:\Users\RaphF\OneDrive\Desktop\Game3015_A1\Solution\InitializeDirect3D\x64\Debug\Player.obj
+C:\Users\RaphF\OneDrive\Desktop\Game3015_A1\Solution\InitializeDirect3D\SceneNode.cpp;C:\Users\RaphF\OneDrive\Desktop\Game3015_A1\Solution\InitializeDirect3D\x64\Debug\SceneNode.obj
+C:\Users\RaphF\OneDrive\Desktop\Game3015_A1\Solution\InitializeDirect3D\SpriteNode.cpp;C:\Users\RaphF\OneDrive\Desktop\Game3015_A1\Solution\InitializeDirect3D\x64\Debug\SpriteNode.obj
+C:\Users\RaphF\OneDrive\Desktop\Game3015_A1\Solution\InitializeDirect3D\State.cpp;C:\Users\RaphF\OneDrive\Desktop\Game3015_A1\Solution\InitializeDirect3D\x64\Debug\State.obj
+C:\Users\RaphF\OneDrive\Desktop\Game3015_A1\Solution\InitializeDirect3D\StateStack.cpp;C:\Users\RaphF\OneDrive\Desktop\Game3015_A1\Solution\InitializeDirect3D\x64\Debug\StateStack.obj
+C:\Users\RaphF\OneDrive\Desktop\Game3015_A1\Solution\InitializeDirect3D\Text.cpp;C:\Users\RaphF\OneDrive\Desktop\Game3015_A1\Solution\InitializeDirect3D\x64\Debug\Text.obj
+C:\Users\RaphF\OneDrive\Desktop\Game3015_A1\Solution\InitializeDirect3D\TitleState.cpp;C:\Users\RaphF\OneDrive\Desktop\Game3015_A1\Solution\InitializeDirect3D\x64\Debug\TitleState.obj
+C:\Users\RaphF\OneDrive\Desktop\Game3015_A1\Solution\InitializeDirect3D\World.cpp;C:\Users\RaphF\OneDrive\Desktop\Game3015_A1\Solution\InitializeDirect3D\x64\Debug\World.obj

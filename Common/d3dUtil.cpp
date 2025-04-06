@@ -5,6 +5,13 @@
 
 using Microsoft::WRL::ComPtr;
 
+/**
+ * @brief Constructs a DirectX exception with detailed error information
+ * @param hr HRESULT error code
+ * @param functionName Name of the function where error occurred
+ * @param filename Source file where error occurred
+ * @param lineNumber Line number in source file
+ */
 DxException::DxException(HRESULT hr, const std::wstring& functionName, const std::wstring& filename, int lineNumber) :
     ErrorCode(hr),
     FunctionName(functionName),
@@ -13,11 +20,22 @@ DxException::DxException(HRESULT hr, const std::wstring& functionName, const std
 {
 }
 
+/**
+ * @brief Checks if a virtual key is currently pressed
+ * @param vkeyCode The virtual key code to check (e.g., VK_SPACE)
+ * @return True if the key is currently down, false otherwise
+ */
 bool d3dUtil::IsKeyDown(int vkeyCode)
 {
     return (GetAsyncKeyState(vkeyCode) & 0x8000) != 0;
 }
 
+/**
+ * @brief Loads binary data from file into a Direct3D blob
+ * @param filename Path to the binary file
+ * @return ComPtr to ID3DBlob containing loaded data
+ * @throws DxException if file cannot be read or blob creation fails
+ */
 ComPtr<ID3DBlob> d3dUtil::LoadBinary(const std::wstring& filename)
 {
     std::ifstream fin(filename, std::ios::binary);
@@ -35,6 +53,17 @@ ComPtr<ID3DBlob> d3dUtil::LoadBinary(const std::wstring& filename)
     return blob;
 }
 
+/**
+ * @brief Creates a default GPU buffer and initializes it with data
+ * @param device Direct3D device
+ * @param cmdList Command list for upload commands
+ * @param initData Pointer to initialization data
+ * @param byteSize Size of data in bytes
+ * @param[out] uploadBuffer Reference to receive upload buffer resource
+ * @return ComPtr to the created default buffer resource
+ *
+ * @note Upload buffer must remain alive until command list execution completes
+ */
 Microsoft::WRL::ComPtr<ID3D12Resource> d3dUtil::CreateDefaultBuffer(
     ID3D12Device* device,
     ID3D12GraphicsCommandList* cmdList,
@@ -93,6 +122,17 @@ Microsoft::WRL::ComPtr<ID3D12Resource> d3dUtil::CreateDefaultBuffer(
     return defaultBuffer;
 }
 
+/**
+ * @brief Compiles a HLSL shader from file
+ * @param filename Path to shader source file
+ * @param defines Optional preprocessor macros
+ * @param entrypoint Shader entry point function
+ * @param target Shader model target (e.g., "vs_5_0")
+ * @return ComPtr to compiled shader bytecode
+ * @throws DxException if compilation fails
+ *
+ * @note In debug builds, enables debug flags and skips optimizations
+ */
 ComPtr<ID3DBlob> d3dUtil::CompileShader(
 	const std::wstring& filename,
 	const D3D_SHADER_MACRO* defines,
@@ -119,6 +159,11 @@ ComPtr<ID3DBlob> d3dUtil::CompileShader(
 	return byteCode;
 }
 
+/**
+ * @brief Converts exception information to formatted error string
+ * @return Formatted string containing error details:
+ *         Function name, filename, line number, and error message
+ */
 std::wstring DxException::ToString()const
 {
     // Get the string description of the error code.
@@ -127,8 +172,3 @@ std::wstring DxException::ToString()const
 
     return FunctionName + L" failed in " + Filename + L"; line " + std::to_wstring(LineNumber) + L"; error: " + msg;
 }
-
-
-
-
-

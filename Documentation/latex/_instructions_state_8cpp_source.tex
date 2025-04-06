@@ -1,0 +1,93 @@
+\doxysection{Instructions\+State.\+cpp}
+\hypertarget{_instructions_state_8cpp_source}{}\label{_instructions_state_8cpp_source}\index{InitializeDirect3D/InstructionsState.cpp@{InitializeDirect3D/InstructionsState.cpp}}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\Hypertarget{_instructions_state_8cpp_source_l00001}00001\ \textcolor{preprocessor}{\#include\ "{}InstructionsState.hpp"{}}}
+\DoxyCodeLine{\Hypertarget{_instructions_state_8cpp_source_l00002}00002\ \textcolor{preprocessor}{\#include\ "{}SpriteNode.h"{}}}
+\DoxyCodeLine{\Hypertarget{_instructions_state_8cpp_source_l00003}00003\ \textcolor{preprocessor}{\#include\ "{}Game.hpp"{}}}
+\DoxyCodeLine{\Hypertarget{_instructions_state_8cpp_source_l00004}00004\ \textcolor{preprocessor}{\#include\ <windows.h>}}
+\DoxyCodeLine{\Hypertarget{_instructions_state_8cpp_source_l00005}00005\ }
+\DoxyCodeLine{\Hypertarget{_instructions_state_8cpp_source_l00017}\mbox{\hyperlink{class_instructions_state_af10f7cd5bbc757c57a15c8a60cb7a1ad}{00017}}\ \mbox{\hyperlink{class_instructions_state_af10f7cd5bbc757c57a15c8a60cb7a1ad}{InstructionsState::InstructionsState}}(\mbox{\hyperlink{class_state_stack}{StateStack}}*\ stack,\ \mbox{\hyperlink{struct_state_1_1_context}{Context}}*\ context)}
+\DoxyCodeLine{\Hypertarget{_instructions_state_8cpp_source_l00018}00018\ \ \ \ \ :\ \mbox{\hyperlink{class_state_a56e553adc0a9d1ae254c4987d7959e80}{State}}(stack,\ context)}
+\DoxyCodeLine{\Hypertarget{_instructions_state_8cpp_source_l00019}00019\ \{}
+\DoxyCodeLine{\Hypertarget{_instructions_state_8cpp_source_l00020}00020\ \ \ \ \ \textcolor{comment}{//\ Debug\ validation}}
+\DoxyCodeLine{\Hypertarget{_instructions_state_8cpp_source_l00021}00021\ \ \ \ \ \textcolor{keywordflow}{if}\ (!\mbox{\hyperlink{class_state_a41a93dcd04a21a7978db91329d10b6d3}{mSceneGraph}})}
+\DoxyCodeLine{\Hypertarget{_instructions_state_8cpp_source_l00022}00022\ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{_instructions_state_8cpp_source_l00023}00023\ \ \ \ \ \ \ \ \ OutputDebugStringA(\textcolor{stringliteral}{"{}Error:\ mSceneGraph\ is\ nullptr!\(\backslash\)n"{}});}
+\DoxyCodeLine{\Hypertarget{_instructions_state_8cpp_source_l00024}00024\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{_instructions_state_8cpp_source_l00025}00025\ \ \ \ \ \textcolor{keywordflow}{else}}
+\DoxyCodeLine{\Hypertarget{_instructions_state_8cpp_source_l00026}00026\ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{_instructions_state_8cpp_source_l00027}00027\ \ \ \ \ \ \ \ \ OutputDebugStringA(\textcolor{stringliteral}{"{}mSceneGraph\ initialized.\(\backslash\)n"{}});}
+\DoxyCodeLine{\Hypertarget{_instructions_state_8cpp_source_l00028}00028\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{_instructions_state_8cpp_source_l00029}00029\ }
+\DoxyCodeLine{\Hypertarget{_instructions_state_8cpp_source_l00030}00030\ \ \ \ \ \textcolor{comment}{//\ Reset\ rendering\ resources}}
+\DoxyCodeLine{\Hypertarget{_instructions_state_8cpp_source_l00031}00031\ \ \ \ \ \mbox{\hyperlink{class_state_a505581614dd080700cda88bd1b930960}{mAllRitems}}.clear();}
+\DoxyCodeLine{\Hypertarget{_instructions_state_8cpp_source_l00032}00032\ \ \ \ \ \mbox{\hyperlink{class_state_aa800112d4ab036b690e8db72c21d7a4b}{mContext}}-\/>game-\/>ResetFrameResources();}
+\DoxyCodeLine{\Hypertarget{_instructions_state_8cpp_source_l00033}00033\ \ \ \ \ \mbox{\hyperlink{class_state_aa800112d4ab036b690e8db72c21d7a4b}{mContext}}-\/>game-\/>BuildMaterials();}
+\DoxyCodeLine{\Hypertarget{_instructions_state_8cpp_source_l00034}00034\ }
+\DoxyCodeLine{\Hypertarget{_instructions_state_8cpp_source_l00035}00035\ \ \ \ \ \textcolor{comment}{//-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/}}
+\DoxyCodeLine{\Hypertarget{_instructions_state_8cpp_source_l00036}00036\ \ \ \ \ \textcolor{comment}{//\ Scene\ Graph\ Setup}}
+\DoxyCodeLine{\Hypertarget{_instructions_state_8cpp_source_l00037}00037\ \ \ \ \ \textcolor{comment}{//-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/}}
+\DoxyCodeLine{\Hypertarget{_instructions_state_8cpp_source_l00038}00038\ \ \ \ \ }
+\DoxyCodeLine{\Hypertarget{_instructions_state_8cpp_source_l00039}00039\ \ \ \ \ \textcolor{comment}{//\ Background\ Galaxy\ Sprite}}
+\DoxyCodeLine{\Hypertarget{_instructions_state_8cpp_source_l00040}00040\ \ \ \ \ std::unique\_ptr<SpriteNode>\ backgroundSprite\ =\ std::make\_unique<SpriteNode>(\textcolor{keyword}{this});}
+\DoxyCodeLine{\Hypertarget{_instructions_state_8cpp_source_l00041}00041\ \ \ \ \ backgroundSprite-\/>SetDrawName(\textcolor{stringliteral}{"{}Galaxy"{}},\ \textcolor{stringliteral}{"{}boxGeo"{}},\ \textcolor{stringliteral}{"{}box"{}});}
+\DoxyCodeLine{\Hypertarget{_instructions_state_8cpp_source_l00042}00042\ \ \ \ \ backgroundSprite-\/>setScale(10.0,\ 1.0,\ 7.0);}
+\DoxyCodeLine{\Hypertarget{_instructions_state_8cpp_source_l00043}00043\ \ \ \ \ backgroundSprite-\/>setPosition(0,\ 0,\ 0);}
+\DoxyCodeLine{\Hypertarget{_instructions_state_8cpp_source_l00044}00044\ \ \ \ \ \mbox{\hyperlink{class_state_a41a93dcd04a21a7978db91329d10b6d3}{mSceneGraph}}-\/>attachChild(std::move(backgroundSprite));}
+\DoxyCodeLine{\Hypertarget{_instructions_state_8cpp_source_l00045}00045\ }
+\DoxyCodeLine{\Hypertarget{_instructions_state_8cpp_source_l00046}00046\ \ \ \ \ \textcolor{comment}{//\ Control\ Scheme\ Visualization}}
+\DoxyCodeLine{\Hypertarget{_instructions_state_8cpp_source_l00047}00047\ \ \ \ \ std::unique\_ptr<SpriteNode>\ WASDSprite\ =\ std::make\_unique<SpriteNode>(\textcolor{keyword}{this});}
+\DoxyCodeLine{\Hypertarget{_instructions_state_8cpp_source_l00048}00048\ \ \ \ \ WASDSprite-\/>SetDrawName(\textcolor{stringliteral}{"{}WASD"{}},\ \textcolor{stringliteral}{"{}boxGeo"{}},\ \textcolor{stringliteral}{"{}box"{}});}
+\DoxyCodeLine{\Hypertarget{_instructions_state_8cpp_source_l00049}00049\ \ \ \ \ WASDSprite-\/>setScale(3.5,\ 3.0,\ 3.0);}
+\DoxyCodeLine{\Hypertarget{_instructions_state_8cpp_source_l00050}00050\ \ \ \ \ WASDSprite-\/>setPosition(0,\ 1,\ 0);}
+\DoxyCodeLine{\Hypertarget{_instructions_state_8cpp_source_l00051}00051\ \ \ \ \ \mbox{\hyperlink{class_state_a41a93dcd04a21a7978db91329d10b6d3}{mSceneGraph}}-\/>attachChild(std::move(WASDSprite));}
+\DoxyCodeLine{\Hypertarget{_instructions_state_8cpp_source_l00052}00052\ }
+\DoxyCodeLine{\Hypertarget{_instructions_state_8cpp_source_l00053}00053\ \ \ \ \ \textcolor{comment}{//\ Return\ to\ Menu\ Button}}
+\DoxyCodeLine{\Hypertarget{_instructions_state_8cpp_source_l00054}00054\ \ \ \ \ std::unique\_ptr<SpriteNode>\ BackSprite\ =\ std::make\_unique<SpriteNode>(\textcolor{keyword}{this});}
+\DoxyCodeLine{\Hypertarget{_instructions_state_8cpp_source_l00055}00055\ \ \ \ \ BackSprite-\/>SetDrawName(\textcolor{stringliteral}{"{}Back"{}},\ \textcolor{stringliteral}{"{}boxGeo"{}},\ \textcolor{stringliteral}{"{}box"{}});}
+\DoxyCodeLine{\Hypertarget{_instructions_state_8cpp_source_l00056}00056\ \ \ \ \ BackSprite-\/>setScale(3.0,\ 3.0,\ 3.0);}
+\DoxyCodeLine{\Hypertarget{_instructions_state_8cpp_source_l00057}00057\ \ \ \ \ BackSprite-\/>setPosition(2.2,\ 1,\ -\/2.2);}
+\DoxyCodeLine{\Hypertarget{_instructions_state_8cpp_source_l00058}00058\ \ \ \ \ \mbox{\hyperlink{class_state_a41a93dcd04a21a7978db91329d10b6d3}{mSceneGraph}}-\/>attachChild(std::move(BackSprite));}
+\DoxyCodeLine{\Hypertarget{_instructions_state_8cpp_source_l00059}00059\ }
+\DoxyCodeLine{\Hypertarget{_instructions_state_8cpp_source_l00060}00060\ \ \ \ \ \textcolor{comment}{//\ Finalize\ scene\ setup}}
+\DoxyCodeLine{\Hypertarget{_instructions_state_8cpp_source_l00061}00061\ \ \ \ \ \mbox{\hyperlink{class_state_a41a93dcd04a21a7978db91329d10b6d3}{mSceneGraph}}-\/>build();}
+\DoxyCodeLine{\Hypertarget{_instructions_state_8cpp_source_l00062}00062\ \ \ \ \ \mbox{\hyperlink{class_state_aa800112d4ab036b690e8db72c21d7a4b}{mContext}}-\/>game-\/>BuildFrameResources(\mbox{\hyperlink{class_state_a505581614dd080700cda88bd1b930960}{mAllRitems}}.size());}
+\DoxyCodeLine{\Hypertarget{_instructions_state_8cpp_source_l00063}00063\ \}}
+\DoxyCodeLine{\Hypertarget{_instructions_state_8cpp_source_l00064}00064\ }
+\DoxyCodeLine{\Hypertarget{_instructions_state_8cpp_source_l00068}\mbox{\hyperlink{class_instructions_state_aba7c16edb26a1374758f706ea67845dc}{00068}}\ \mbox{\hyperlink{class_instructions_state_aba7c16edb26a1374758f706ea67845dc}{InstructionsState::\string~InstructionsState}}()}
+\DoxyCodeLine{\Hypertarget{_instructions_state_8cpp_source_l00069}00069\ \{}
+\DoxyCodeLine{\Hypertarget{_instructions_state_8cpp_source_l00070}00070\ \}}
+\DoxyCodeLine{\Hypertarget{_instructions_state_8cpp_source_l00071}00071\ }
+\DoxyCodeLine{\Hypertarget{_instructions_state_8cpp_source_l00075}\mbox{\hyperlink{class_instructions_state_a3b91ddac0c72dff5b8467ce857d378b8}{00075}}\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_instructions_state_a3b91ddac0c72dff5b8467ce857d378b8}{InstructionsState::Draw}}()}
+\DoxyCodeLine{\Hypertarget{_instructions_state_8cpp_source_l00076}00076\ \{}
+\DoxyCodeLine{\Hypertarget{_instructions_state_8cpp_source_l00077}00077\ \ \ \ \ OutputDebugStringA(\textcolor{stringliteral}{"{}Drawing\ Instructions...\(\backslash\)n"{}});}
+\DoxyCodeLine{\Hypertarget{_instructions_state_8cpp_source_l00078}00078\ }
+\DoxyCodeLine{\Hypertarget{_instructions_state_8cpp_source_l00079}00079\ \ \ \ \ \mbox{\hyperlink{class_state_a41a93dcd04a21a7978db91329d10b6d3}{mSceneGraph}}-\/>draw();}
+\DoxyCodeLine{\Hypertarget{_instructions_state_8cpp_source_l00080}00080\ \}}
+\DoxyCodeLine{\Hypertarget{_instructions_state_8cpp_source_l00081}00081\ }
+\DoxyCodeLine{\Hypertarget{_instructions_state_8cpp_source_l00087}\mbox{\hyperlink{class_instructions_state_a05dc686960c27fa06f911a2e70dd0ecb}{00087}}\ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{class_instructions_state_a05dc686960c27fa06f911a2e70dd0ecb}{InstructionsState::Update}}(\textcolor{keyword}{const}\ GameTimer\&\ gt)}
+\DoxyCodeLine{\Hypertarget{_instructions_state_8cpp_source_l00088}00088\ \{}
+\DoxyCodeLine{\Hypertarget{_instructions_state_8cpp_source_l00089}00089\ \ \ \ \ \mbox{\hyperlink{class_state_a41a93dcd04a21a7978db91329d10b6d3}{mSceneGraph}}-\/>update(gt);}
+\DoxyCodeLine{\Hypertarget{_instructions_state_8cpp_source_l00090}00090\ }
+\DoxyCodeLine{\Hypertarget{_instructions_state_8cpp_source_l00091}00091\ \ \ \ \ \textcolor{keywordflow}{return}\ \textcolor{keyword}{true};}
+\DoxyCodeLine{\Hypertarget{_instructions_state_8cpp_source_l00092}00092\ \}}
+\DoxyCodeLine{\Hypertarget{_instructions_state_8cpp_source_l00093}00093\ }
+\DoxyCodeLine{\Hypertarget{_instructions_state_8cpp_source_l00099}\mbox{\hyperlink{class_instructions_state_a95934c488609c9011c3a3d0990546709}{00099}}\ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{class_instructions_state_a95934c488609c9011c3a3d0990546709}{InstructionsState::HandleEvent}}(WPARAM\ btnState)}
+\DoxyCodeLine{\Hypertarget{_instructions_state_8cpp_source_l00100}00100\ \{}
+\DoxyCodeLine{\Hypertarget{_instructions_state_8cpp_source_l00101}00101\ \ \ \ \ \textcolor{comment}{//input\ goes\ here}}
+\DoxyCodeLine{\Hypertarget{_instructions_state_8cpp_source_l00102}00102\ \ \ \ \ \textcolor{keywordflow}{if}\ (d3dUtil::IsKeyDown(\textcolor{charliteral}{'Q'}))}
+\DoxyCodeLine{\Hypertarget{_instructions_state_8cpp_source_l00103}00103\ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{_instructions_state_8cpp_source_l00104}00104\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_state_a86e0b195558375f3b09fffe42b56e4b4}{RequestStackPop}}();}
+\DoxyCodeLine{\Hypertarget{_instructions_state_8cpp_source_l00105}00105\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_state_aa6ff837626a9f78e951b968366daca36}{RequestStackPush}}(\mbox{\hyperlink{namespace_states_a571a0dc62822f97bb9511eb013d8e1c3a3d097da841211f87096e55962a1bd73f}{States::Menu}});}
+\DoxyCodeLine{\Hypertarget{_instructions_state_8cpp_source_l00106}00106\ }
+\DoxyCodeLine{\Hypertarget{_instructions_state_8cpp_source_l00107}00107\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{_instructions_state_8cpp_source_l00108}00108\ \ \ \ \ \textcolor{keywordflow}{return}\ \textcolor{keyword}{true};}
+\DoxyCodeLine{\Hypertarget{_instructions_state_8cpp_source_l00109}00109\ \}}
+\DoxyCodeLine{\Hypertarget{_instructions_state_8cpp_source_l00110}00110\ }
+\DoxyCodeLine{\Hypertarget{_instructions_state_8cpp_source_l00115}\mbox{\hyperlink{class_instructions_state_ab31ebc8383d23903259b252a9f106e19}{00115}}\ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{class_instructions_state_ab31ebc8383d23903259b252a9f106e19}{InstructionsState::HandleRealTimeInput}}()}
+\DoxyCodeLine{\Hypertarget{_instructions_state_8cpp_source_l00116}00116\ \{}
+\DoxyCodeLine{\Hypertarget{_instructions_state_8cpp_source_l00117}00117\ \ \ \ \ \textcolor{keywordflow}{return}\ \textcolor{keyword}{true};}
+\DoxyCodeLine{\Hypertarget{_instructions_state_8cpp_source_l00118}00118\ \}}
+
+\end{DoxyCode}

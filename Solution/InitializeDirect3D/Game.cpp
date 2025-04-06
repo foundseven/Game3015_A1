@@ -172,11 +172,6 @@ void Game::Draw(const GameTimer& gt)
 	// Reusing the command list reuses memory.
 	ThrowIfFailed(mCommandList->Reset(cmdListAlloc.Get(), mOpaquePSO.Get()));
 
-	//mScreenViewport.TopLeftX = 0.0f;
-	//mScreenViewport.TopLeftY = 0.0f;
-	//mScreenViewport.Height = 200;
-	//mScreenViewport.Height = 200;
-
 	// Set the viewport and scissor rectangle
 	mCommandList->RSSetViewports(1, &mScreenViewport);
 	mCommandList->RSSetScissorRects(1, &mScissorRect);
@@ -271,187 +266,6 @@ void Game::OnKeyDown(WPARAM btnState)
 	mStateStack.HandleEvent(btnState);
 }
 
-//bool Game::CreateText(const wchar_t* text)
-//{
-//	// Create Direct2D factory
-//	HRESULT hr = D2D1CreateFactory(D2D1_FACTORY_TYPE_SINGLE_THREADED, &pD2DFactory_);
-//	if (FAILED(hr))
-//	{
-//		MessageBox(0, L"Failed to create Direct2D factory", L"Error", MB_OK);
-//		return false;
-//	}
-//
-//	// Create DirectWrite factory
-//	hr = DWriteCreateFactory(DWRITE_FACTORY_TYPE_SHARED, __uuidof(IDWriteFactory), reinterpret_cast<IUnknown**>(&pDWriteFactory_));
-//	if (FAILED(hr))
-//	{
-//		MessageBox(0, L"Failed to create DirectWrite factory", L"Error", MB_OK);
-//		return false;
-//	}
-//
-//	wszText_ = text;
-//	cTextLength_ = (UINT32)wcslen(wszText_);
-//
-//
-//	// Create text format
-//	hr = pDWriteFactory_->CreateTextFormat(
-//		L"Gabriola",                    // Font family
-//		NULL,                         // No custom font collection
-//		DWRITE_FONT_WEIGHT_REGULAR,
-//		DWRITE_FONT_STYLE_NORMAL,
-//		DWRITE_FONT_STRETCH_NORMAL,
-//		72.0f,                           // Font size
-//		L"en-us",                        // Locale
-//		&pTextFormat_);                  // Output text format
-//
-//	if (FAILED(hr))
-//	{
-//		MessageBox(0, L"Failed to create text format", L"Error", MB_OK);
-//		return false;
-//	}
-//	if (SUCCEEDED(hr))
-//	{
-//		hr = pTextFormat_->SetTextAlignment(DWRITE_TEXT_ALIGNMENT_CENTER);
-//	}
-//
-//	if (SUCCEEDED(hr))
-//	{
-//		hr = pTextFormat_->SetParagraphAlignment(DWRITE_PARAGRAPH_ALIGNMENT_CENTER);
-//	}
-//
-//	// Center align text horizontally and vertically
-//	//pTextFormat_->SetTextAlignment(DWRITE_TEXT_ALIGNMENT_CENTER);
-//	//pTextFormat_->SetParagraphAlignment(DWRITE_PARAGRAPH_ALIGNMENT_CENTER);
-//
-//	// Create Direct2D render target
-//	hr = pD2DFactory_->CreateHwndRenderTarget(
-//		D2D1::RenderTargetProperties(),
-//		D2D1::HwndRenderTargetProperties(mhMainWnd, D2D1::SizeU(mClientWidth, mClientHeight)),
-//		&pRT_);
-//
-//	if (FAILED(hr))
-//	{
-//		MessageBox(0, L"Failed to create Direct2D render target", L"Error", MB_OK);
-//		return false;
-//	}
-//
-//	// Create a brush to draw the text (Black brush)
-//	hr = pRT_->CreateSolidColorBrush(D2D1::ColorF(D2D1::ColorF::Black), &pBlackBrush_);
-//	if (FAILED(hr))
-//	{
-//		MessageBox(0, L"Failed to create Direct2D solid color brush", L"Error", MB_OK);
-//		return false;
-//	}
-//
-//	return true;
-//}
-
-//void Game::DrawTheText()
-//{
-//	OutputDebugStringA("Drawing text...\n");
-//	if (!pRT_) return;
-//
-//	// Direct2D and DirectWrite rendering
-//	// Prepare Direct2D rendering context
-//	pRT_->BeginDraw();
-//	D2D1_RECT_F layoutRect = D2D1::RectF(100, 100, 600, 400);
-//
-//	// Clear the render target with the background color.
-//	//pRT_->Clear(D2D1::ColorF(D2D1::ColorF::AliceBlue));
-//
-//	// Draw the text using DirectWrite
-//	pRT_->DrawText(
-//		wszText_,                   // Text to display
-//		cTextLength_,               // Length of text
-//		pTextFormat_,               // Text format (font, size, etc.)
-//		D2D1::RectF(100.0f, 100.0f, 500.0f, 200.0f),  // Position of the text
-//		pBlackBrush_               // Brush to draw with
-//	);
-//
-//	// Finish the drawing
-//	HRESULT hr = pRT_->EndDraw();
-//	if (FAILED(hr))
-//	{
-//		MessageBox(0, L"Direct2D rendering failed", L"Error", MB_OK);
-//	}
-//
-//}
-
-#pragma region Keyboard Input
-
-#pragma region Step 20
- /**
-  * @brief Processes input from the player
-  *
-  * Retrieves the command queue from the world, handles player events, and
-  * handles real-time player input.
-  */
-//void Game::ProcessInput()
-//{
-//	CommandQueue& commands = mWorld.getCommandQueue();
-//	mPlayer.HandleEvent(commands);
-//	mPlayer.HandeRealTimeInput(commands);
-//}
-#pragma endregion
-
-#pragma region Old Keyboard Input
-//void Game::OnKeyboardInput(const GameTimer& gt)
-//{
-//	const float dt = gt.DeltaTime();
-//
-//	mCamera.GetLook();
-//	float tmin = 0;
-//	float buffer = 0.5;
-//	XMFLOAT3  oppositef3(-1, -1, -1);
-//	XMVECTOR opposite = XMLoadFloat3(&oppositef3);
-//
-//	if (GetAsyncKeyState('W') & 0x8000)
-//	{
-//		bool hit = false;
-//
-//		if (!hit)
-//		{
-//			mCamera.Walk(10.0f * dt);
-//
-//		}
-//	}
-//
-//	if (GetAsyncKeyState('S') & 0x8000)
-//	{
-//		bool hit = false;
-//		if (!hit)
-//		{
-//			mCamera.Walk(-10.0f * dt);
-//		}
-//
-//	}
-//	if (GetAsyncKeyState('A') & 0x8000)
-//	{
-//		bool hit = false;
-//		if (!hit)
-//		{
-//			mCamera.Strafe(-10.0f * dt);
-//		}
-//
-//
-//	}
-//	if (GetAsyncKeyState('D') & 0x8000)
-//	{
-//		bool hit = false;
-//		if (!hit)
-//		{
-//			mCamera.Strafe(10.0f * dt);
-//		}
-//	}
-//
-//
-//	mCamera.UpdateViewMatrix();
-//}
-
-#pragma endregion
-
-#pragma endregion
-
 /**
  * @brief Updates the camera.
  *
@@ -460,18 +274,6 @@ void Game::OnKeyDown(WPARAM btnState)
  */
 void Game::UpdateCamera(const GameTimer& gt)
 {
-	// Convert Spherical to Cartesian coordinates.
-	//mEyePos.x = mRadius * sinf(mPhi) * cosf(mTheta);
-	//mEyePos.z = mRadius * sinf(mPhi) * sinf(mTheta);
-	//mEyePos.y = mRadius * cosf(mPhi);
-
-	//// Build the view matrix.
-	//XMVECTOR pos = XMVectorSet(mEyePos.x, mEyePos.y, mEyePos.z, 1.0f);
-	//XMVECTOR target = XMVectorZero();
-	//XMVECTOR up = XMVectorSet(0.0f, 1.0f, 0.0f, 0.0f);
-
-	//XMMATRIX view = XMMatrixLookAtLH(pos, target, up);
-	//XMStoreFloat4x4(&mView, view);
 	mCamera.UpdateViewMatrix();
 }
 
@@ -624,6 +426,12 @@ void Game::CreateTexture(std::string Name, std::wstring FileName)
 		texture->Resource, texture->UploadHeap));
 	mTextures[texture->Name] = std::move(texture);
 }
+
+/**
+ * @brief Loads all textures used in the game.
+ *
+ * This method creates texture resources for various game assets.
+ */
 void Game::LoadTextures()
 {
 	//Eagle
@@ -833,7 +641,11 @@ void Game::BuildDescriptorHeaps()
 	md3dDevice->CreateShaderResourceView(BackTex.Get(), &srvDesc, hDescriptor);
 }
 
-
+/**
+ * @brief Builds the pipeline state objects (PSOs).
+ *
+ * Creates the PSOs for rendering opaque objects.
+ */
 void Game::BuildShadersAndInputLayout()
 {
 	mShaders["standardVS"] = d3dUtil::CompileShader(L"Shaders\\Default.hlsl", nullptr, "VS", "vs_5_1");
@@ -907,6 +719,11 @@ void Game::BuildShapeGeometry()
 
 }
 
+/**
+ * @brief Builds the hill geometry.
+ *
+ * Creates the vertex and index buffers for the hills used in the scene.
+ */
 void Game::BuildHillGeometry()
 {
 	GeometryGenerator geoGen;
@@ -1044,6 +861,16 @@ void Game::BuildMaterials()
 	CreateMaterials("Back", XMFLOAT4(1.0f, 1.0f, 1.0f, 1.0f), XMFLOAT3(0.05f, 0.05f, 0.05f), 0.2f);
 }
 
+/**
+ * @brief Creates a material.
+ *
+ * Creates a material with the specified properties and adds it to the materials map.
+ *
+ * @param Name The name of the material.
+ * @param DiffuseAlbedo The diffuse albedo color of the material.
+ * @param FresnelR0 The Fresnel reflectance at normal incidence.
+ * @param Roughness The roughness of the material.
+ */
 void Game::CreateMaterials(std::string Name, XMFLOAT4 DiffuseAlbedo, XMFLOAT3 FresnelR0, float Roughness)
 {
 	auto material = std::make_unique<Material>();
@@ -1057,6 +884,11 @@ void Game::CreateMaterials(std::string Name, XMFLOAT4 DiffuseAlbedo, XMFLOAT3 Fr
 	mMaterials[Name] = std::move(material);
 }
 
+/**
+ * @brief Registers the game states.
+ *
+ * Registers the game states with the state stack.
+ */
 void Game::RegisterStates()
 {
 	mStateStack.registerState<TitleState>(States::Title);
@@ -1066,6 +898,12 @@ void Game::RegisterStates()
 	mStateStack.registerState<PauseState>(States::Pause);
 }
 
+/**
+ * @brief Waits for the GPU to finish processing.
+ *
+ * This method blocks the CPU until the GPU has completed all commands
+ * up to the specified fence point.
+ */
 void Game::WaitForGPU()
 {
 	// Schedule a Signal command in the queue
@@ -1084,6 +922,11 @@ void Game::WaitForGPU()
 	mCurrentFence++;
 }
 
+/**
+ * @brief Resets the frame resources.
+ *
+ * Clears the frame resources and waits for the GPU to finish processing.
+ */
 void Game::ResetFrameResources()
 {
 	WaitForGPU();
@@ -1091,12 +934,6 @@ void Game::ResetFrameResources()
 	mFrameResources.clear();
 	
 }
-/**
- * @brief Builds the render items.
- *
- * Creates the render items used in the scene and adds them to the appropriate lists.
- */
-
 
 /**
  * @brief Gets the static samplers.
@@ -1105,7 +942,6 @@ void Game::ResetFrameResources()
  *
  * @return An array of const CD3DX12_STATIC_SAMPLER_DESC objects.
  */
-//step21
 std::array<const CD3DX12_STATIC_SAMPLER_DESC, 6> Game::GetStaticSamplers()
 {
 	// Applications usually only need a handful of samplers.  So just define them all up front
@@ -1163,11 +999,29 @@ std::array<const CD3DX12_STATIC_SAMPLER_DESC, 6> Game::GetStaticSamplers()
 		anisotropicWrap, anisotropicClamp };
 }
 
+/**
+ * @brief Gets the height of the hills.
+ *
+ * Calculates the height of the hills at the specified coordinates.
+ *
+ * @param x The x-coordinate.
+ * @param z The z-coordinate.
+ * @return The height of the hills at the specified coordinates.
+ */
 float Game::GetHillsHeight(float x, float z)const
 {
 	return 0.1f * (z * sinf(0.1f * x) + x * cosf(0.1f * z));
 }
 
+/**
+ * @brief Gets the normal vector of the hills.
+ *
+ * Calculates the normal vector of the hills at the specified coordinates.
+ *
+ * @param x The x-coordinate.
+ * @param z The z-coordinate.
+ * @return The normal vector of the hills at the specified coordinates.
+ */
 XMFLOAT3 Game::GetHillsNormal(float x, float z)const
 {
 	// n = (-df/dx, 1, -df/dz)

@@ -1,0 +1,120 @@
+\doxysection{Simple\+Text.\+h}
+\hypertarget{_simple_text_8h_source}{}\label{_simple_text_8h_source}\index{InitializeDirect3D/SimpleText.h@{InitializeDirect3D/SimpleText.h}}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\Hypertarget{_simple_text_8h_source_l00001}00001\ \textcolor{comment}{//}}
+\DoxyCodeLine{\Hypertarget{_simple_text_8h_source_l00003}00003\ \textcolor{comment}{//\ *}}
+\DoxyCodeLine{\Hypertarget{_simple_text_8h_source_l00004}00004\ \textcolor{comment}{//\ *\ File:\ SimpleText.h}}
+\DoxyCodeLine{\Hypertarget{_simple_text_8h_source_l00005}00005\ \textcolor{comment}{//\ *}}
+\DoxyCodeLine{\Hypertarget{_simple_text_8h_source_l00006}00006\ \textcolor{comment}{//\ *\ Description:}}
+\DoxyCodeLine{\Hypertarget{_simple_text_8h_source_l00007}00007\ \textcolor{comment}{//\ *}}
+\DoxyCodeLine{\Hypertarget{_simple_text_8h_source_l00008}00008\ \textcolor{comment}{//\ *}}
+\DoxyCodeLine{\Hypertarget{_simple_text_8h_source_l00009}00009\ \textcolor{comment}{//\ *\ \ This\ file\ is\ part\ of\ the\ Microsoft\ Windows\ SDK\ Code\ Samples.}}
+\DoxyCodeLine{\Hypertarget{_simple_text_8h_source_l00010}00010\ \textcolor{comment}{//\ *}}
+\DoxyCodeLine{\Hypertarget{_simple_text_8h_source_l00011}00011\ \textcolor{comment}{//\ *\ \ Copyright\ (C)\ Microsoft\ Corporation.\ \ All\ rights\ reserved.}}
+\DoxyCodeLine{\Hypertarget{_simple_text_8h_source_l00012}00012\ \textcolor{comment}{//\ *}}
+\DoxyCodeLine{\Hypertarget{_simple_text_8h_source_l00013}00013\ \textcolor{comment}{//\ *\ This\ source\ code\ is\ intended\ only\ as\ a\ supplement\ to\ Microsoft}}
+\DoxyCodeLine{\Hypertarget{_simple_text_8h_source_l00014}00014\ \textcolor{comment}{//\ *\ Development\ Tools\ and/or\ on-\/line\ documentation.\ \ See\ these\ other}}
+\DoxyCodeLine{\Hypertarget{_simple_text_8h_source_l00015}00015\ \textcolor{comment}{//\ *\ materials\ for\ detailed\ information\ regarding\ Microsoft\ code\ samples.}}
+\DoxyCodeLine{\Hypertarget{_simple_text_8h_source_l00016}00016\ \textcolor{comment}{//\ *}}
+\DoxyCodeLine{\Hypertarget{_simple_text_8h_source_l00017}00017\ \textcolor{comment}{//\ *\ THIS\ CODE\ AND\ INFORMATION\ ARE\ PROVIDED\ AS\ IS\ WITHOUT\ WARRANTY\ OF\ ANY}}
+\DoxyCodeLine{\Hypertarget{_simple_text_8h_source_l00018}00018\ \textcolor{comment}{//\ *\ KIND,\ EITHER\ EXPRESSED\ OR\ IMPLIED,\ INCLUDING\ BUT\ NOT\ LIMITED\ TO\ THE}}
+\DoxyCodeLine{\Hypertarget{_simple_text_8h_source_l00019}00019\ \textcolor{comment}{//\ *\ IMPLIED\ WARRANTIES\ OF\ MERCHANTABILITY\ AND/OR\ FITNESS\ FOR\ A}}
+\DoxyCodeLine{\Hypertarget{_simple_text_8h_source_l00020}00020\ \textcolor{comment}{//\ *\ PARTICULAR\ PURPOSE.}}
+\DoxyCodeLine{\Hypertarget{_simple_text_8h_source_l00021}00021\ \textcolor{comment}{//\ *}}
+\DoxyCodeLine{\Hypertarget{_simple_text_8h_source_l00022}00022\ \textcolor{comment}{//\ ************************************************************************/}}
+\DoxyCodeLine{\Hypertarget{_simple_text_8h_source_l00023}00023\ \textcolor{comment}{//}}
+\DoxyCodeLine{\Hypertarget{_simple_text_8h_source_l00024}00024\ \textcolor{comment}{//\#pragma\ once}}
+\DoxyCodeLine{\Hypertarget{_simple_text_8h_source_l00025}00025\ \textcolor{comment}{//\#include\ <d2d1.h>}}
+\DoxyCodeLine{\Hypertarget{_simple_text_8h_source_l00026}00026\ \textcolor{comment}{//\#include\ <dwrite.h>}}
+\DoxyCodeLine{\Hypertarget{_simple_text_8h_source_l00027}00027\ \textcolor{comment}{//}}
+\DoxyCodeLine{\Hypertarget{_simple_text_8h_source_l00028}00028\ \textcolor{comment}{//\#ifndef\ HINST\_THISCOMPONENT}}
+\DoxyCodeLine{\Hypertarget{_simple_text_8h_source_l00029}00029\ \textcolor{comment}{//EXTERN\_C\ IMAGE\_DOS\_HEADER\ \_\_ImageBase;}}
+\DoxyCodeLine{\Hypertarget{_simple_text_8h_source_l00030}00030\ \textcolor{comment}{//\#define\ HINST\_THISCOMPONENT\ ((HINSTANCE)\&\_\_ImageBase)}}
+\DoxyCodeLine{\Hypertarget{_simple_text_8h_source_l00031}00031\ \textcolor{comment}{//\#endif}}
+\DoxyCodeLine{\Hypertarget{_simple_text_8h_source_l00032}00032\ \textcolor{comment}{//}}
+\DoxyCodeLine{\Hypertarget{_simple_text_8h_source_l00033}00033\ \textcolor{comment}{//}}
+\DoxyCodeLine{\Hypertarget{_simple_text_8h_source_l00034}00034\ \textcolor{comment}{//\ /******************************************************************}}
+\DoxyCodeLine{\Hypertarget{_simple_text_8h_source_l00035}00035\ \textcolor{comment}{//\ *\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ *}}
+\DoxyCodeLine{\Hypertarget{_simple_text_8h_source_l00036}00036\ \textcolor{comment}{//\ *\ \ SimpleText\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ *}}
+\DoxyCodeLine{\Hypertarget{_simple_text_8h_source_l00037}00037\ \textcolor{comment}{//\ *\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ *}}
+\DoxyCodeLine{\Hypertarget{_simple_text_8h_source_l00038}00038\ \textcolor{comment}{//\ ******************************************************************/}}
+\DoxyCodeLine{\Hypertarget{_simple_text_8h_source_l00039}00039\ \textcolor{comment}{//}}
+\DoxyCodeLine{\Hypertarget{_simple_text_8h_source_l00040}00040\ \textcolor{comment}{//class\ SimpleText}}
+\DoxyCodeLine{\Hypertarget{_simple_text_8h_source_l00041}00041\ \textcolor{comment}{//\{}}
+\DoxyCodeLine{\Hypertarget{_simple_text_8h_source_l00042}00042\ \textcolor{comment}{//public:}}
+\DoxyCodeLine{\Hypertarget{_simple_text_8h_source_l00043}00043\ \textcolor{comment}{//\ \ \ \ SimpleText();}}
+\DoxyCodeLine{\Hypertarget{_simple_text_8h_source_l00044}00044\ \textcolor{comment}{//\ \ \ \ \string~SimpleText();}}
+\DoxyCodeLine{\Hypertarget{_simple_text_8h_source_l00045}00045\ \textcolor{comment}{//}}
+\DoxyCodeLine{\Hypertarget{_simple_text_8h_source_l00046}00046\ \textcolor{comment}{//\ \ \ \ HRESULT\ Initialize(HWND\ hwndParent);}}
+\DoxyCodeLine{\Hypertarget{_simple_text_8h_source_l00047}00047\ \textcolor{comment}{//}}
+\DoxyCodeLine{\Hypertarget{_simple_text_8h_source_l00048}00048\ \textcolor{comment}{//\ \ \ \ HWND\ GetHwnd()\ \{\ return\ hwnd\_;\ \}}}
+\DoxyCodeLine{\Hypertarget{_simple_text_8h_source_l00049}00049\ \textcolor{comment}{//}}
+\DoxyCodeLine{\Hypertarget{_simple_text_8h_source_l00050}00050\ \textcolor{comment}{//private:}}
+\DoxyCodeLine{\Hypertarget{_simple_text_8h_source_l00051}00051\ \textcolor{comment}{//\ \ \ \ HRESULT\ CreateDeviceIndependentResources(}}
+\DoxyCodeLine{\Hypertarget{_simple_text_8h_source_l00052}00052\ \textcolor{comment}{//\ \ \ \ );}}
+\DoxyCodeLine{\Hypertarget{_simple_text_8h_source_l00053}00053\ \textcolor{comment}{//}}
+\DoxyCodeLine{\Hypertarget{_simple_text_8h_source_l00054}00054\ \textcolor{comment}{//\ \ \ \ void\ DiscardDeviceIndependentResources(}}
+\DoxyCodeLine{\Hypertarget{_simple_text_8h_source_l00055}00055\ \textcolor{comment}{//\ \ \ \ );}}
+\DoxyCodeLine{\Hypertarget{_simple_text_8h_source_l00056}00056\ \textcolor{comment}{//}}
+\DoxyCodeLine{\Hypertarget{_simple_text_8h_source_l00057}00057\ \textcolor{comment}{//\ \ \ \ HRESULT\ CreateDeviceResources(}}
+\DoxyCodeLine{\Hypertarget{_simple_text_8h_source_l00058}00058\ \textcolor{comment}{//\ \ \ \ );}}
+\DoxyCodeLine{\Hypertarget{_simple_text_8h_source_l00059}00059\ \textcolor{comment}{//}}
+\DoxyCodeLine{\Hypertarget{_simple_text_8h_source_l00060}00060\ \textcolor{comment}{//\ \ \ \ void\ DiscardDeviceResources(}}
+\DoxyCodeLine{\Hypertarget{_simple_text_8h_source_l00061}00061\ \textcolor{comment}{//\ \ \ \ );}}
+\DoxyCodeLine{\Hypertarget{_simple_text_8h_source_l00062}00062\ \textcolor{comment}{//}}
+\DoxyCodeLine{\Hypertarget{_simple_text_8h_source_l00063}00063\ \textcolor{comment}{//\ \ \ \ HRESULT\ DrawD2DContent(}}
+\DoxyCodeLine{\Hypertarget{_simple_text_8h_source_l00064}00064\ \textcolor{comment}{//\ \ \ \ );}}
+\DoxyCodeLine{\Hypertarget{_simple_text_8h_source_l00065}00065\ \textcolor{comment}{//}}
+\DoxyCodeLine{\Hypertarget{_simple_text_8h_source_l00066}00066\ \textcolor{comment}{//\ \ \ \ HRESULT\ DrawText(}}
+\DoxyCodeLine{\Hypertarget{_simple_text_8h_source_l00067}00067\ \textcolor{comment}{//\ \ \ \ );}}
+\DoxyCodeLine{\Hypertarget{_simple_text_8h_source_l00068}00068\ \textcolor{comment}{//}}
+\DoxyCodeLine{\Hypertarget{_simple_text_8h_source_l00069}00069\ \textcolor{comment}{//\ \ \ \ void\ OnResize(}}
+\DoxyCodeLine{\Hypertarget{_simple_text_8h_source_l00070}00070\ \textcolor{comment}{//\ \ \ \ \ \ \ \ UINT\ width,}}
+\DoxyCodeLine{\Hypertarget{_simple_text_8h_source_l00071}00071\ \textcolor{comment}{//\ \ \ \ \ \ \ \ UINT\ height}}
+\DoxyCodeLine{\Hypertarget{_simple_text_8h_source_l00072}00072\ \textcolor{comment}{//\ \ \ \ );}}
+\DoxyCodeLine{\Hypertarget{_simple_text_8h_source_l00073}00073\ \textcolor{comment}{//}}
+\DoxyCodeLine{\Hypertarget{_simple_text_8h_source_l00074}00074\ \textcolor{comment}{//\ \ \ \ static\ LRESULT\ CALLBACK\ WndProc(}}
+\DoxyCodeLine{\Hypertarget{_simple_text_8h_source_l00075}00075\ \textcolor{comment}{//\ \ \ \ \ \ \ \ HWND\ hWnd,}}
+\DoxyCodeLine{\Hypertarget{_simple_text_8h_source_l00076}00076\ \textcolor{comment}{//\ \ \ \ \ \ \ \ UINT\ message,}}
+\DoxyCodeLine{\Hypertarget{_simple_text_8h_source_l00077}00077\ \textcolor{comment}{//\ \ \ \ \ \ \ \ WPARAM\ wParam,}}
+\DoxyCodeLine{\Hypertarget{_simple_text_8h_source_l00078}00078\ \textcolor{comment}{//\ \ \ \ \ \ \ \ LPARAM\ lParam}}
+\DoxyCodeLine{\Hypertarget{_simple_text_8h_source_l00079}00079\ \textcolor{comment}{//\ \ \ \ );}}
+\DoxyCodeLine{\Hypertarget{_simple_text_8h_source_l00080}00080\ \textcolor{comment}{//}}
+\DoxyCodeLine{\Hypertarget{_simple_text_8h_source_l00081}00081\ \textcolor{comment}{//private:}}
+\DoxyCodeLine{\Hypertarget{_simple_text_8h_source_l00082}00082\ \textcolor{comment}{//\ \ \ \ HWND\ hwnd\_;}}
+\DoxyCodeLine{\Hypertarget{_simple_text_8h_source_l00083}00083\ \textcolor{comment}{//}}
+\DoxyCodeLine{\Hypertarget{_simple_text_8h_source_l00084}00084\ \textcolor{comment}{//\ \ \ \ //\ how\ much\ to\ scale\ a\ design\ that\ assumes\ 96-\/DPI\ pixels}}
+\DoxyCodeLine{\Hypertarget{_simple_text_8h_source_l00085}00085\ \textcolor{comment}{//\ \ \ \ float\ dpiScaleX\_;}}
+\DoxyCodeLine{\Hypertarget{_simple_text_8h_source_l00086}00086\ \textcolor{comment}{//\ \ \ \ float\ dpiScaleY\_;}}
+\DoxyCodeLine{\Hypertarget{_simple_text_8h_source_l00087}00087\ \textcolor{comment}{//}}
+\DoxyCodeLine{\Hypertarget{_simple_text_8h_source_l00088}00088\ \textcolor{comment}{//\ \ \ \ //\ Direct2D}}
+\DoxyCodeLine{\Hypertarget{_simple_text_8h_source_l00089}00089\ \textcolor{comment}{//}}
+\DoxyCodeLine{\Hypertarget{_simple_text_8h_source_l00090}00090\ \textcolor{comment}{//\ \ \ \ ID2D1Factory*\ pD2DFactory\_;}}
+\DoxyCodeLine{\Hypertarget{_simple_text_8h_source_l00091}00091\ \textcolor{comment}{//\ \ \ \ ID2D1HwndRenderTarget*\ pRT\_;}}
+\DoxyCodeLine{\Hypertarget{_simple_text_8h_source_l00092}00092\ \textcolor{comment}{//\ \ \ \ ID2D1SolidColorBrush*\ pBlackBrush\_;}}
+\DoxyCodeLine{\Hypertarget{_simple_text_8h_source_l00093}00093\ \textcolor{comment}{//}}
+\DoxyCodeLine{\Hypertarget{_simple_text_8h_source_l00094}00094\ \textcolor{comment}{//}}
+\DoxyCodeLine{\Hypertarget{_simple_text_8h_source_l00095}00095\ \textcolor{comment}{//\ \ \ \ //\ DirectWrite}}
+\DoxyCodeLine{\Hypertarget{_simple_text_8h_source_l00096}00096\ \textcolor{comment}{//}}
+\DoxyCodeLine{\Hypertarget{_simple_text_8h_source_l00097}00097\ \textcolor{comment}{//\ \ \ \ IDWriteFactory*\ pDWriteFactory\_;}}
+\DoxyCodeLine{\Hypertarget{_simple_text_8h_source_l00098}00098\ \textcolor{comment}{//\ \ \ \ IDWriteTextFormat*\ pTextFormat\_;}}
+\DoxyCodeLine{\Hypertarget{_simple_text_8h_source_l00099}00099\ \textcolor{comment}{//}}
+\DoxyCodeLine{\Hypertarget{_simple_text_8h_source_l00100}00100\ \textcolor{comment}{//}}
+\DoxyCodeLine{\Hypertarget{_simple_text_8h_source_l00101}00101\ \textcolor{comment}{//}}
+\DoxyCodeLine{\Hypertarget{_simple_text_8h_source_l00102}00102\ \textcolor{comment}{//\ \ \ \ const\ wchar\_t*\ wszText\_;}}
+\DoxyCodeLine{\Hypertarget{_simple_text_8h_source_l00103}00103\ \textcolor{comment}{//\ \ \ \ UINT32\ cTextLength\_;}}
+\DoxyCodeLine{\Hypertarget{_simple_text_8h_source_l00104}00104\ \textcolor{comment}{//}}
+\DoxyCodeLine{\Hypertarget{_simple_text_8h_source_l00105}00105\ \textcolor{comment}{//}}
+\DoxyCodeLine{\Hypertarget{_simple_text_8h_source_l00106}00106\ \textcolor{comment}{//\};}}
+\DoxyCodeLine{\Hypertarget{_simple_text_8h_source_l00107}00107\ \textcolor{comment}{//}}
+\DoxyCodeLine{\Hypertarget{_simple_text_8h_source_l00109}00109\ \textcolor{comment}{//template\ <class\ T>\ inline\ void\ SafeRelease(T**\ ppT)}}
+\DoxyCodeLine{\Hypertarget{_simple_text_8h_source_l00110}00110\ \textcolor{comment}{//\{}}
+\DoxyCodeLine{\Hypertarget{_simple_text_8h_source_l00111}00111\ \textcolor{comment}{//\ \ \ \ if\ (*ppT)}}
+\DoxyCodeLine{\Hypertarget{_simple_text_8h_source_l00112}00112\ \textcolor{comment}{//\ \ \ \ \{}}
+\DoxyCodeLine{\Hypertarget{_simple_text_8h_source_l00113}00113\ \textcolor{comment}{//\ \ \ \ \ \ \ \ (*ppT)-\/>Release();}}
+\DoxyCodeLine{\Hypertarget{_simple_text_8h_source_l00114}00114\ \textcolor{comment}{//\ \ \ \ \ \ \ \ *ppT\ =\ NULL;}}
+\DoxyCodeLine{\Hypertarget{_simple_text_8h_source_l00115}00115\ \textcolor{comment}{//\ \ \ \ \}}}
+\DoxyCodeLine{\Hypertarget{_simple_text_8h_source_l00116}00116\ \textcolor{comment}{//\}}}
+
+\end{DoxyCode}

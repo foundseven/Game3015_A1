@@ -5,7 +5,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=11"/>
 <meta name="generator" content="Doxygen 1.13.2"/>
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
-<title>Game3015_A2: CommandQueue Class Reference</title>
+<title>Galaxy Invaders: CommandQueue Class Reference</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
@@ -32,9 +32,9 @@
  <tbody>
  <tr id="projectrow">
   <td id="projectalign">
-   <div id="projectname">Game3015_A2<span id="projectnumber">&#160;2.0</span>
+   <div id="projectname">Galaxy Invaders<span id="projectnumber">&#160;3.0</span>
    </div>
-   <div id="projectbrief">A DirectX 12-based aircraft combat game.</div>
+   <div id="projectbrief">Roam the galaxy in 2D/3D</div>
   </td>
     <td>        <div id="MSearchBox" class="MSearchBoxInactive">
         <span class="left">
@@ -142,6 +142,8 @@ Public Member Functions</h2></td></tr>
 <li>Capacity limits </li>
 </ul>
 </dd></dl>
+
+<p class="definition">Definition at line <a class="el" href="_command_queue_8hpp_source.html#l00021">21</a> of file <a class="el" href="_command_queue_8hpp_source.html">CommandQueue.hpp</a>.</p>
 </div><h2 class="groupheader">Member Function Documentation</h2>
 <a id="a3a6eb6a7c83d9b20ad7a6cac63795ec1" name="a3a6eb6a7c83d9b20ad7a6cac63795ec1"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a3a6eb6a7c83d9b20ad7a6cac63795ec1">&#9670;&#160;</a></span>isEmpty()</h2>
@@ -164,6 +166,8 @@ Public Member Functions</h2></td></tr>
 <dl class="section note"><dt>Note</dt><dd>Safe to call from any thread (const operation)</dd></dl>
 <dl class="section return"><dt>Returns</dt><dd>true if the queue is empty, false otherwise</dd></dl>
 <p>This method allows you to safely check whether there are any commands left in the queue before attempting to pop a command. </p>
+
+<p class="definition">Definition at line <a class="el" href="_command_queue_8cpp_source.html#l00049">49</a> of file <a class="el" href="_command_queue_8cpp_source.html">CommandQueue.cpp</a>.</p>
 
 </div>
 </div>
@@ -196,6 +200,8 @@ Public Member Functions</h2></td></tr>
 <p>Removes the front command from the queue and returns it. This method assumes that the queue is not empty. Use <code><a class="el" href="#a3a6eb6a7c83d9b20ad7a6cac63795ec1" title="Checks if queue contains any commands.">isEmpty()</a></code> to check before calling this method.</p>
 <dl class="section pre"><dt>Precondition</dt><dd>The queue must not be empty. </dd></dl>
 <dl class="section post"><dt>Postcondition</dt><dd>The command at the front of the queue is removed. </dd></dl>
+
+<p class="definition">Definition at line <a class="el" href="_command_queue_8cpp_source.html#l00035">35</a> of file <a class="el" href="_command_queue_8cpp_source.html">CommandQueue.cpp</a>.</p>
 
 </div>
 </div>
@@ -231,11 +237,13 @@ Public Member Functions</h2></td></tr>
 </dl>
 <p>Adds a new command to the back of the queue for later processing. </p>
 
+<p class="definition">Definition at line <a class="el" href="_command_queue_8cpp_source.html#l00020">20</a> of file <a class="el" href="_command_queue_8cpp_source.html">CommandQueue.cpp</a>.</p>
+
 </div>
 </div>
 <hr/>The documentation for this class was generated from the following files:<ul>
 <li>InitializeDirect3D/<a class="el" href="_command_queue_8hpp_source.html">CommandQueue.hpp</a></li>
-<li>InitializeDirect3D/<b>CommandQueue.cpp</b></li>
+<li>InitializeDirect3D/<a class="el" href="_command_queue_8cpp_source.html">CommandQueue.cpp</a></li>
 </ul>
 </div><!-- contents -->
 </div><!-- doc-content -->

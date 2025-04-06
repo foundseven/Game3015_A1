@@ -5,7 +5,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=11"/>
 <meta name="generator" content="Doxygen 1.13.2"/>
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
-<title>Game3015_A2: SceneNode Class Reference</title>
+<title>Galaxy Invaders: SceneNode Class Reference</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
@@ -32,9 +32,9 @@
  <tbody>
  <tr id="projectrow">
   <td id="projectalign">
-   <div id="projectname">Game3015_A2<span id="projectnumber">&#160;2.0</span>
+   <div id="projectname">Galaxy Invaders<span id="projectnumber">&#160;3.0</span>
    </div>
-   <div id="projectbrief">A DirectX 12-based aircraft combat game.</div>
+   <div id="projectbrief">Roam the galaxy in 2D/3D</div>
   </td>
     <td>        <div id="MSearchBox" class="MSearchBoxInactive">
         <span class="left">
@@ -122,42 +122,43 @@ Inheritance diagram for SceneNode:</div>
  <div class="center">
   <img src="class_scene_node.png" usemap="#SceneNode_map" alt=""/>
   <map id="SceneNode_map" name="SceneNode_map">
-<area href="class_entity.html" title="Represents a movable object in the game world." alt="Entity" shape="rect" coords="44,56,122,80"/>
-<area href="class_entity.html" title="Represents a movable object in the game world." alt="Entity" shape="rect" coords="220,56,298,80"/>
+<area href="class_entity.html" title="Represents a movable object in the game world." alt="Entity" shape="rect" coords="88,56,166,80"/>
+<area href="class_entity.html" title="Represents a movable object in the game world." alt="Entity" shape="rect" coords="352,56,430,80"/>
 <area href="class_aircraft.html" title="Aircraft entity representing both player-controlled and AI-controlled planes." alt="Aircraft" shape="rect" coords="0,112,78,136"/>
 <area href="class_sprite_node.html" title="Represents a sprite node in the game, inheriting from Entity." alt="SpriteNode" shape="rect" coords="88,112,166,136"/>
-<area href="class_aircraft.html" title="Aircraft entity representing both player-controlled and AI-controlled planes." alt="Aircraft" shape="rect" coords="176,112,254,136"/>
-<area href="class_sprite_node.html" title="Represents a sprite node in the game, inheriting from Entity." alt="SpriteNode" shape="rect" coords="264,112,342,136"/>
+<area href="class_text.html" title="Text rendering entity for UI/menu systems." alt="Text" shape="rect" coords="176,112,254,136"/>
+<area href="class_aircraft.html" title="Aircraft entity representing both player-controlled and AI-controlled planes." alt="Aircraft" shape="rect" coords="264,112,342,136"/>
+<area href="class_sprite_node.html" title="Represents a sprite node in the game, inheriting from Entity." alt="SpriteNode" shape="rect" coords="352,112,430,136"/>
+<area href="class_text.html" title="Text rendering entity for UI/menu systems." alt="Text" shape="rect" coords="440,112,518,136"/>
   </map>
 </div></div>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pub-types" name="pub-types"></a>
 Public Types</h2></td></tr>
-<tr class="memitem:aaf5c9ad8475874b51b70e400822f2e9a" id="r_aaf5c9ad8475874b51b70e400822f2e9a"><td class="memItemLeft" align="right" valign="top"><a id="aaf5c9ad8475874b51b70e400822f2e9a" name="aaf5c9ad8475874b51b70e400822f2e9a"></a>
-typedef std::unique_ptr&lt; <a class="el" href="class_scene_node.html">SceneNode</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><b>Ptr</b></td></tr>
+<tr class="memitem:aaf5c9ad8475874b51b70e400822f2e9a" id="r_aaf5c9ad8475874b51b70e400822f2e9a"><td class="memItemLeft" align="right" valign="top">typedef std::unique_ptr&lt; <a class="el" href="class_scene_node.html">SceneNode</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#aaf5c9ad8475874b51b70e400822f2e9a">Ptr</a></td></tr>
 <tr class="separator:aaf5c9ad8475874b51b70e400822f2e9a"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pub-methods" name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
-<tr class="memitem:af1f3bf5e98c8b2c90b36057df2577d1a" id="r_af1f3bf5e98c8b2c90b36057df2577d1a"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#af1f3bf5e98c8b2c90b36057df2577d1a">SceneNode</a> (<a class="el" href="class_game.html">Game</a> *<a class="el" href="#a06d1261ef839789469f228e7a7f2bfb9">game</a>)</td></tr>
-<tr class="memdesc:af1f3bf5e98c8b2c90b36057df2577d1a"><td class="mdescLeft">&#160;</td><td class="mdescRight">Constructor for <a class="el" href="class_scene_node.html" title="Represents a node in the scene graph.">SceneNode</a>.  <br /></td></tr>
-<tr class="separator:af1f3bf5e98c8b2c90b36057df2577d1a"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a6482e34381f108470f48b59f8ce90ac4" id="r_a6482e34381f108470f48b59f8ce90ac4"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a6482e34381f108470f48b59f8ce90ac4">SceneNode</a> (<a class="el" href="class_state.html">State</a> *state)</td></tr>
+<tr class="memdesc:a6482e34381f108470f48b59f8ce90ac4"><td class="mdescLeft">&#160;</td><td class="mdescRight">Constructor for <a class="el" href="class_scene_node.html" title="Represents a node in the scene graph.">SceneNode</a>.  <br /></td></tr>
+<tr class="separator:a6482e34381f108470f48b59f8ce90ac4"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:acdfa2c2ba28bce076c886eaba2d9e650" id="r_acdfa2c2ba28bce076c886eaba2d9e650"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#acdfa2c2ba28bce076c886eaba2d9e650">attachChild</a> (Ptr child)</td></tr>
 <tr class="memdesc:acdfa2c2ba28bce076c886eaba2d9e650"><td class="mdescLeft">&#160;</td><td class="mdescRight">Attaches a child node to this node.  <br /></td></tr>
 <tr class="separator:acdfa2c2ba28bce076c886eaba2d9e650"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a3b9681eb3db7d9e575945b57e275e040" id="r_a3b9681eb3db7d9e575945b57e275e040"><td class="memItemLeft" align="right" valign="top">Ptr&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a3b9681eb3db7d9e575945b57e275e040">detachChild</a> (const <a class="el" href="class_scene_node.html">SceneNode</a> &amp;node)</td></tr>
 <tr class="memdesc:a3b9681eb3db7d9e575945b57e275e040"><td class="mdescLeft">&#160;</td><td class="mdescRight">Detaches a child node from this node.  <br /></td></tr>
 <tr class="separator:a3b9681eb3db7d9e575945b57e275e040"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ace4102e26e6017668859aaff2ce3bcaf" id="r_ace4102e26e6017668859aaff2ce3bcaf"><td class="memItemLeft" align="right" valign="top">const std::vector&lt; Ptr &gt; &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ace4102e26e6017668859aaff2ce3bcaf">getChildren</a> () const</td></tr>
+<tr class="separator:ace4102e26e6017668859aaff2ce3bcaf"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a858b7a088c0a2d01aaa90baf05d58d08" id="r_a858b7a088c0a2d01aaa90baf05d58d08"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a858b7a088c0a2d01aaa90baf05d58d08">update</a> (const GameTimer &amp;gt)</td></tr>
 <tr class="memdesc:a858b7a088c0a2d01aaa90baf05d58d08"><td class="mdescLeft">&#160;</td><td class="mdescRight">Updates this node and its children.  <br /></td></tr>
 <tr class="separator:a858b7a088c0a2d01aaa90baf05d58d08"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a41b1a847182e49103bc145bd4604e056" id="r_a41b1a847182e49103bc145bd4604e056"><td class="memItemLeft" align="right" valign="top"><a id="a41b1a847182e49103bc145bd4604e056" name="a41b1a847182e49103bc145bd4604e056"></a>
-void&#160;</td><td class="memItemRight" valign="bottom"><b>draw</b> () const</td></tr>
-<tr class="memdesc:a41b1a847182e49103bc145bd4604e056"><td class="mdescLeft">&#160;</td><td class="mdescRight">Draws this node and its children. <br /></td></tr>
+<tr class="memitem:a41b1a847182e49103bc145bd4604e056" id="r_a41b1a847182e49103bc145bd4604e056"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a41b1a847182e49103bc145bd4604e056">draw</a> () const</td></tr>
+<tr class="memdesc:a41b1a847182e49103bc145bd4604e056"><td class="mdescLeft">&#160;</td><td class="mdescRight">Draws this node and its children.  <br /></td></tr>
 <tr class="separator:a41b1a847182e49103bc145bd4604e056"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a67ca883a91d8c45004a0786330548d8f" id="r_a67ca883a91d8c45004a0786330548d8f"><td class="memItemLeft" align="right" valign="top"><a id="a67ca883a91d8c45004a0786330548d8f" name="a67ca883a91d8c45004a0786330548d8f"></a>
-void&#160;</td><td class="memItemRight" valign="bottom"><b>build</b> ()</td></tr>
-<tr class="memdesc:a67ca883a91d8c45004a0786330548d8f"><td class="mdescLeft">&#160;</td><td class="mdescRight">Builds this node and its children. <br /></td></tr>
+<tr class="memitem:a67ca883a91d8c45004a0786330548d8f" id="r_a67ca883a91d8c45004a0786330548d8f"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a67ca883a91d8c45004a0786330548d8f">build</a> ()</td></tr>
+<tr class="memdesc:a67ca883a91d8c45004a0786330548d8f"><td class="mdescLeft">&#160;</td><td class="mdescRight">Builds this node and its children.  <br /></td></tr>
 <tr class="separator:a67ca883a91d8c45004a0786330548d8f"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a6ba2f5754854829e7e49f135bb4fce45" id="r_a6ba2f5754854829e7e49f135bb4fce45"><td class="memItemLeft" align="right" valign="top">XMFLOAT3&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a6ba2f5754854829e7e49f135bb4fce45">getWorldPosition</a> () const</td></tr>
 <tr class="memdesc:a6ba2f5754854829e7e49f135bb4fce45"><td class="mdescLeft">&#160;</td><td class="mdescRight">Gets the world position of this node.  <br /></td></tr>
@@ -195,20 +196,37 @@ void&#160;</td><td class="memItemRight" valign="bottom"><b>build</b> ()</td></tr
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pro-attribs" name="pro-attribs"></a>
 Protected Attributes</h2></td></tr>
-<tr class="memitem:a06d1261ef839789469f228e7a7f2bfb9" id="r_a06d1261ef839789469f228e7a7f2bfb9"><td class="memItemLeft" align="right" valign="top"><a id="a06d1261ef839789469f228e7a7f2bfb9" name="a06d1261ef839789469f228e7a7f2bfb9"></a>
-<a class="el" href="class_game.html">Game</a> *&#160;</td><td class="memItemRight" valign="bottom"><b>game</b></td></tr>
-<tr class="memdesc:a06d1261ef839789469f228e7a7f2bfb9"><td class="mdescLeft">&#160;</td><td class="mdescRight">Pointer to the <a class="el" href="class_game.html" title="Main game class managing resources, rendering, and game logic.">Game</a> object. <br /></td></tr>
-<tr class="separator:a06d1261ef839789469f228e7a7f2bfb9"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a51b22a4d6789039a96ebab097ed03db0" id="r_a51b22a4d6789039a96ebab097ed03db0"><td class="memItemLeft" align="right" valign="top"><a id="a51b22a4d6789039a96ebab097ed03db0" name="a51b22a4d6789039a96ebab097ed03db0"></a>
-<a class="el" href="struct_render_item.html">RenderItem</a> *&#160;</td><td class="memItemRight" valign="bottom"><b>renderer</b></td></tr>
-<tr class="memdesc:a51b22a4d6789039a96ebab097ed03db0"><td class="mdescLeft">&#160;</td><td class="mdescRight">Pointer to the <a class="el" href="struct_render_item.html" title="Lightweight structure to store parameters for drawing a shape.">RenderItem</a> for this node. <br /></td></tr>
+<tr class="memitem:a2921cf2fe98067b4d0b3558d2dc553bc" id="r_a2921cf2fe98067b4d0b3558d2dc553bc"><td class="memItemLeft" align="right" valign="top"><a class="el" href="class_state.html">State</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a2921cf2fe98067b4d0b3558d2dc553bc">mState</a></td></tr>
+<tr class="memdesc:a2921cf2fe98067b4d0b3558d2dc553bc"><td class="mdescLeft">&#160;</td><td class="mdescRight">Pointer to the <a class="el" href="class_game.html" title="Core game application class inheriting from Direct3D base.">Game</a> object.  <br /></td></tr>
+<tr class="separator:a2921cf2fe98067b4d0b3558d2dc553bc"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a51b22a4d6789039a96ebab097ed03db0" id="r_a51b22a4d6789039a96ebab097ed03db0"><td class="memItemLeft" align="right" valign="top"><a class="el" href="struct_render_item.html">RenderItem</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a51b22a4d6789039a96ebab097ed03db0">renderer</a></td></tr>
+<tr class="memdesc:a51b22a4d6789039a96ebab097ed03db0"><td class="mdescLeft">&#160;</td><td class="mdescRight">Pointer to the <a class="el" href="struct_render_item.html" title="Lightweight structure to store parameters for drawing a shape.">RenderItem</a> for this node.  <br /></td></tr>
 <tr class="separator:a51b22a4d6789039a96ebab097ed03db0"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><p>Represents a node in the scene graph. </p>
-</div><h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
-<a id="af1f3bf5e98c8b2c90b36057df2577d1a" name="af1f3bf5e98c8b2c90b36057df2577d1a"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#af1f3bf5e98c8b2c90b36057df2577d1a">&#9670;&#160;</a></span>SceneNode()</h2>
+
+<p class="definition">Definition at line <a class="el" href="_scene_node_8hpp_source.html#l00062">62</a> of file <a class="el" href="_scene_node_8hpp_source.html">SceneNode.hpp</a>.</p>
+</div><h2 class="groupheader">Member Typedef Documentation</h2>
+<a id="aaf5c9ad8475874b51b70e400822f2e9a" name="aaf5c9ad8475874b51b70e400822f2e9a"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aaf5c9ad8475874b51b70e400822f2e9a">&#9670;&#160;</a></span>Ptr</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">typedef std::unique_ptr&lt;<a class="el" href="class_scene_node.html">SceneNode</a>&gt; SceneNode::Ptr</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p class="definition">Definition at line <a class="el" href="_scene_node_8hpp_source.html#l00065">65</a> of file <a class="el" href="_scene_node_8hpp_source.html">SceneNode.hpp</a>.</p>
+
+</div>
+</div>
+<h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
+<a id="a6482e34381f108470f48b59f8ce90ac4" name="a6482e34381f108470f48b59f8ce90ac4"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a6482e34381f108470f48b59f8ce90ac4">&#9670;&#160;</a></span>SceneNode()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -216,7 +234,7 @@ Protected Attributes</h2></td></tr>
         <tr>
           <td class="memname">SceneNode::SceneNode </td>
           <td>(</td>
-          <td class="paramtype"><a class="el" href="class_game.html">Game</a> *</td>          <td class="paramname"><span class="paramname"><em>game</em></span></td><td>)</td>
+          <td class="paramtype"><a class="el" href="class_state.html">State</a> *</td>          <td class="paramname"><span class="paramname"><em>state</em></span></td><td>)</td>
           <td></td>
         </tr>
       </table>
@@ -225,10 +243,12 @@ Protected Attributes</h2></td></tr>
 <p>Constructor for <a class="el" href="class_scene_node.html" title="Represents a node in the scene graph.">SceneNode</a>. </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname">game</td><td>Pointer to the <a class="el" href="class_game.html" title="Main game class managing resources, rendering, and game logic.">Game</a> object. </td></tr>
+    <tr><td class="paramname">game</td><td>Pointer to the <a class="el" href="class_game.html" title="Core game application class inheriting from Direct3D base.">Game</a> object. </td></tr>
   </table>
   </dd>
 </dl>
+
+<p class="definition">Definition at line <a class="el" href="_scene_node_8cpp_source.html#l00008">8</a> of file <a class="el" href="_scene_node_8cpp_source.html">SceneNode.cpp</a>.</p>
 
 </div>
 </div>
@@ -256,6 +276,29 @@ Protected Attributes</h2></td></tr>
   </dd>
 </dl>
 
+<p class="definition">Definition at line <a class="el" href="_scene_node_8cpp_source.html#l00022">22</a> of file <a class="el" href="_scene_node_8cpp_source.html">SceneNode.cpp</a>.</p>
+
+</div>
+</div>
+<a id="a67ca883a91d8c45004a0786330548d8f" name="a67ca883a91d8c45004a0786330548d8f"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a67ca883a91d8c45004a0786330548d8f">&#9670;&#160;</a></span>build()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void SceneNode::build </td>
+          <td>(</td>
+          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Builds this node and its children. </p>
+
+<p class="definition">Definition at line <a class="el" href="_scene_node_8cpp_source.html#l00111">111</a> of file <a class="el" href="_scene_node_8cpp_source.html">SceneNode.cpp</a>.</p>
+
 </div>
 </div>
 <a id="a3b9681eb3db7d9e575945b57e275e040" name="a3b9681eb3db7d9e575945b57e275e040"></a>
@@ -281,6 +324,29 @@ Protected Attributes</h2></td></tr>
   </dd>
 </dl>
 <dl class="section return"><dt>Returns</dt><dd>Unique pointer to the detached node. </dd></dl>
+
+<p class="definition">Definition at line <a class="el" href="_scene_node_8cpp_source.html#l00033">33</a> of file <a class="el" href="_scene_node_8cpp_source.html">SceneNode.cpp</a>.</p>
+
+</div>
+</div>
+<a id="a41b1a847182e49103bc145bd4604e056" name="a41b1a847182e49103bc145bd4604e056"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a41b1a847182e49103bc145bd4604e056">&#9670;&#160;</a></span>draw()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void SceneNode::draw </td>
+          <td>(</td>
+          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Draws this node and its children. </p>
+
+<p class="definition">Definition at line <a class="el" href="_scene_node_8cpp_source.html#l00083">83</a> of file <a class="el" href="_scene_node_8cpp_source.html">SceneNode.cpp</a>.</p>
 
 </div>
 </div>
@@ -313,6 +379,27 @@ Protected Attributes</h2></td></tr>
 
 <p>Reimplemented in <a class="el" href="class_aircraft.html#a01f9042934c08ef18b62351e6bca320d">Aircraft</a>.</p>
 
+<p class="definition">Definition at line <a class="el" href="_scene_node_8cpp_source.html#l00274">274</a> of file <a class="el" href="_scene_node_8cpp_source.html">SceneNode.cpp</a>.</p>
+
+</div>
+</div>
+<a id="ace4102e26e6017668859aaff2ce3bcaf" name="ace4102e26e6017668859aaff2ce3bcaf"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ace4102e26e6017668859aaff2ce3bcaf">&#9670;&#160;</a></span>getChildren()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">const std::vector&lt; SceneNode::Ptr &gt; &amp; SceneNode::getChildren </td>
+          <td>(</td>
+          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p class="definition">Definition at line <a class="el" href="_scene_node_8cpp_source.html#l00044">44</a> of file <a class="el" href="_scene_node_8cpp_source.html">SceneNode.cpp</a>.</p>
+
 </div>
 </div>
 <a id="a5e503eeca953d36b652a12ceadb64d28" name="a5e503eeca953d36b652a12ceadb64d28"></a>
@@ -332,6 +419,8 @@ Protected Attributes</h2></td></tr>
 
 <p>Gets the local transform of this node. </p>
 <dl class="section return"><dt>Returns</dt><dd>XMFLOAT4X4 representing the local transform. </dd></dl>
+
+<p class="definition">Definition at line <a class="el" href="_scene_node_8cpp_source.html#l00222">222</a> of file <a class="el" href="_scene_node_8cpp_source.html">SceneNode.cpp</a>.</p>
 
 </div>
 </div>
@@ -353,6 +442,8 @@ Protected Attributes</h2></td></tr>
 <p>Gets the world position of this node. </p>
 <dl class="section return"><dt>Returns</dt><dd>XMFLOAT3 representing the world position. </dd></dl>
 
+<p class="definition">Definition at line <a class="el" href="_scene_node_8cpp_source.html#l00142">142</a> of file <a class="el" href="_scene_node_8cpp_source.html">SceneNode.cpp</a>.</p>
+
 </div>
 </div>
 <a id="a1a5ce797162b569b79494b7c2a696713" name="a1a5ce797162b569b79494b7c2a696713"></a>
@@ -372,6 +463,8 @@ Protected Attributes</h2></td></tr>
 
 <p>Gets the world rotation of this node. </p>
 <dl class="section return"><dt>Returns</dt><dd>XMFLOAT3 representing the world rotation. </dd></dl>
+
+<p class="definition">Definition at line <a class="el" href="_scene_node_8cpp_source.html#l00162">162</a> of file <a class="el" href="_scene_node_8cpp_source.html">SceneNode.cpp</a>.</p>
 
 </div>
 </div>
@@ -393,6 +486,8 @@ Protected Attributes</h2></td></tr>
 <p>Gets the world scale of this node. </p>
 <dl class="section return"><dt>Returns</dt><dd>XMFLOAT3 representing the world scale. </dd></dl>
 
+<p class="definition">Definition at line <a class="el" href="_scene_node_8cpp_source.html#l00182">182</a> of file <a class="el" href="_scene_node_8cpp_source.html">SceneNode.cpp</a>.</p>
+
 </div>
 </div>
 <a id="a58fbaea11dad15681acbe6abdbff03a7" name="a58fbaea11dad15681acbe6abdbff03a7"></a>
@@ -412,6 +507,8 @@ Protected Attributes</h2></td></tr>
 
 <p>Gets the world transform of this node. </p>
 <dl class="section return"><dt>Returns</dt><dd>XMFLOAT4X4 representing the world transform. </dd></dl>
+
+<p class="definition">Definition at line <a class="el" href="_scene_node_8cpp_source.html#l00202">202</a> of file <a class="el" href="_scene_node_8cpp_source.html">SceneNode.cpp</a>.</p>
 
 </div>
 </div>
@@ -449,6 +546,8 @@ Protected Attributes</h2></td></tr>
   </dd>
 </dl>
 
+<p class="definition">Definition at line <a class="el" href="_scene_node_8cpp_source.html#l00239">239</a> of file <a class="el" href="_scene_node_8cpp_source.html">SceneNode.cpp</a>.</p>
+
 </div>
 </div>
 <a id="a378e78ad679c28301c0db51afa389cb6" name="a378e78ad679c28301c0db51afa389cb6"></a>
@@ -479,6 +578,8 @@ Protected Attributes</h2></td></tr>
   </dd>
 </dl>
 <p>This method implements the <a class="el" href="struct_command.html" title="Encapsulates an action to be executed on scene nodes.">Command</a> pattern, allowing for flexible execution of actions on the scene graph. </p>
+
+<p class="definition">Definition at line <a class="el" href="_scene_node_8cpp_source.html#l00255">255</a> of file <a class="el" href="_scene_node_8cpp_source.html">SceneNode.cpp</a>.</p>
 
 </div>
 </div>
@@ -515,6 +616,8 @@ Protected Attributes</h2></td></tr>
   </table>
   </dd>
 </dl>
+
+<p class="definition">Definition at line <a class="el" href="_scene_node_8cpp_source.html#l00153">153</a> of file <a class="el" href="_scene_node_8cpp_source.html">SceneNode.cpp</a>.</p>
 
 </div>
 </div>
@@ -554,6 +657,8 @@ Protected Attributes</h2></td></tr>
   </table>
   </dd>
 </dl>
+
+<p class="definition">Definition at line <a class="el" href="_scene_node_8cpp_source.html#l00193">193</a> of file <a class="el" href="_scene_node_8cpp_source.html">SceneNode.cpp</a>.</p>
 
 </div>
 </div>
@@ -595,6 +700,8 @@ Protected Attributes</h2></td></tr>
   </dd>
 </dl>
 
+<p class="definition">Definition at line <a class="el" href="_scene_node_8cpp_source.html#l00173">173</a> of file <a class="el" href="_scene_node_8cpp_source.html">SceneNode.cpp</a>.</p>
+
 </div>
 </div>
 <a id="a858b7a088c0a2d01aaa90baf05d58d08" name="a858b7a088c0a2d01aaa90baf05d58d08"></a>
@@ -620,11 +727,66 @@ Protected Attributes</h2></td></tr>
   </dd>
 </dl>
 
+<p class="definition">Definition at line <a class="el" href="_scene_node_8cpp_source.html#l00053">53</a> of file <a class="el" href="_scene_node_8cpp_source.html">SceneNode.cpp</a>.</p>
+
+</div>
+</div>
+<h2 class="groupheader">Member Data Documentation</h2>
+<a id="a2921cf2fe98067b4d0b3558d2dc553bc" name="a2921cf2fe98067b4d0b3558d2dc553bc"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a2921cf2fe98067b4d0b3558d2dc553bc">&#9670;&#160;</a></span>mState</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="class_state.html">State</a>* SceneNode::mState</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel protected">protected</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Pointer to the <a class="el" href="class_game.html" title="Core game application class inheriting from Direct3D base.">Game</a> object. </p>
+
+<p class="definition">Definition at line <a class="el" href="_scene_node_8hpp_source.html#l00196">196</a> of file <a class="el" href="_scene_node_8hpp_source.html">SceneNode.hpp</a>.</p>
+
+</div>
+</div>
+<a id="a51b22a4d6789039a96ebab097ed03db0" name="a51b22a4d6789039a96ebab097ed03db0"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a51b22a4d6789039a96ebab097ed03db0">&#9670;&#160;</a></span>renderer</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="struct_render_item.html">RenderItem</a>* SceneNode::renderer</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel protected">protected</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Pointer to the <a class="el" href="struct_render_item.html" title="Lightweight structure to store parameters for drawing a shape.">RenderItem</a> for this node. </p>
+
+<p class="definition">Definition at line <a class="el" href="_scene_node_8hpp_source.html#l00197">197</a> of file <a class="el" href="_scene_node_8hpp_source.html">SceneNode.hpp</a>.</p>
+
 </div>
 </div>
 <hr/>The documentation for this class was generated from the following files:<ul>
 <li>InitializeDirect3D/<a class="el" href="_scene_node_8hpp_source.html">SceneNode.hpp</a></li>
-<li>InitializeDirect3D/<b>SceneNode.cpp</b></li>
+<li>InitializeDirect3D/<a class="el" href="_scene_node_8cpp_source.html">SceneNode.cpp</a></li>
 </ul>
 </div><!-- contents -->
 </div><!-- doc-content -->

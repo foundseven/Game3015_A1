@@ -1,0 +1,38 @@
+\doxysection{Main\+Menu\+State.\+hpp}
+\hypertarget{_main_menu_state_8hpp_source}{}\label{_main_menu_state_8hpp_source}\index{InitializeDirect3D/MainMenuState.hpp@{InitializeDirect3D/MainMenuState.hpp}}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\Hypertarget{_main_menu_state_8hpp_source_l00001}00001\ \textcolor{preprocessor}{\#pragma\ once}}
+\DoxyCodeLine{\Hypertarget{_main_menu_state_8hpp_source_l00002}00002\ \textcolor{preprocessor}{\#include\ "{}State.hpp"{}}}
+\DoxyCodeLine{\Hypertarget{_main_menu_state_8hpp_source_l00003}00003\ \textcolor{preprocessor}{\#include\ "{}SpriteNode.h"{}}}
+\DoxyCodeLine{\Hypertarget{_main_menu_state_8hpp_source_l00004}00004\ }
+\DoxyCodeLine{\Hypertarget{_main_menu_state_8hpp_source_l00014}\mbox{\hyperlink{class_main_menu_state}{00014}}\ \textcolor{keyword}{class\ }\mbox{\hyperlink{class_main_menu_state_ae6ffcbe49761b0cbe8ad29317ab608a6}{MainMenuState}}\ :\ \textcolor{keyword}{public}\ \mbox{\hyperlink{class_state_a56e553adc0a9d1ae254c4987d7959e80}{State}}}
+\DoxyCodeLine{\Hypertarget{_main_menu_state_8hpp_source_l00015}00015\ \{}
+\DoxyCodeLine{\Hypertarget{_main_menu_state_8hpp_source_l00016}00016\ \textcolor{keyword}{public}:}
+\DoxyCodeLine{\Hypertarget{_main_menu_state_8hpp_source_l00022}00022\ \ \ \ \ \mbox{\hyperlink{class_main_menu_state_ae6ffcbe49761b0cbe8ad29317ab608a6}{MainMenuState}}(\mbox{\hyperlink{class_state_stack}{StateStack}}*\ stack,\ \mbox{\hyperlink{struct_state_1_1_context}{Context}}*\ context);}
+\DoxyCodeLine{\Hypertarget{_main_menu_state_8hpp_source_l00023}00023\ }
+\DoxyCodeLine{\Hypertarget{_main_menu_state_8hpp_source_l00027}00027\ \ \ \ \ \textcolor{keyword}{virtual}\ \mbox{\hyperlink{class_main_menu_state_a8af4d586b93c315a1a15b5fe83ec0760}{\string~MainMenuState}}();}
+\DoxyCodeLine{\Hypertarget{_main_menu_state_8hpp_source_l00028}00028\ }
+\DoxyCodeLine{\Hypertarget{_main_menu_state_8hpp_source_l00029}00029\ \ \ \ \ \textcolor{comment}{//-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/}}
+\DoxyCodeLine{\Hypertarget{_main_menu_state_8hpp_source_l00030}00030\ \ \ \ \ \textcolor{comment}{//\ State\ Interface\ Implementation}}
+\DoxyCodeLine{\Hypertarget{_main_menu_state_8hpp_source_l00031}00031\ \ \ \ \ \textcolor{comment}{//-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/}}
+\DoxyCodeLine{\Hypertarget{_main_menu_state_8hpp_source_l00032}00032\ }
+\DoxyCodeLine{\Hypertarget{_main_menu_state_8hpp_source_l00037}00037\ \ \ \ \ \textcolor{keyword}{virtual}\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_main_menu_state_ae8447a77dc805b1384a4dfe33dcc5cfe}{Draw}}()\ \textcolor{keyword}{override};}
+\DoxyCodeLine{\Hypertarget{_main_menu_state_8hpp_source_l00038}00038\ }
+\DoxyCodeLine{\Hypertarget{_main_menu_state_8hpp_source_l00045}00045\ \ \ \ \ \textcolor{keyword}{virtual}\ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{class_main_menu_state_a16c085d93c3f8d8543d1a201e0d6f660}{Update}}(\textcolor{keyword}{const}\ GameTimer\&\ gt)\ \textcolor{keyword}{override};}
+\DoxyCodeLine{\Hypertarget{_main_menu_state_8hpp_source_l00046}00046\ }
+\DoxyCodeLine{\Hypertarget{_main_menu_state_8hpp_source_l00053}00053\ \ \ \ \ \textcolor{keyword}{virtual}\ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{class_main_menu_state_acdca9962e2aa7e40213cbd4ad6269d12}{HandleEvent}}(WPARAM\ btnState)\ \textcolor{keyword}{override};}
+\DoxyCodeLine{\Hypertarget{_main_menu_state_8hpp_source_l00054}00054\ }
+\DoxyCodeLine{\Hypertarget{_main_menu_state_8hpp_source_l00060}00060\ \ \ \ \ \textcolor{keyword}{virtual}\ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{class_main_menu_state_a81a8347f018538d73f997b7c8a671ce5}{HandleRealTimeInput}}()\ \textcolor{keyword}{override};}
+\DoxyCodeLine{\Hypertarget{_main_menu_state_8hpp_source_l00061}00061\ }
+\DoxyCodeLine{\Hypertarget{_main_menu_state_8hpp_source_l00062}00062\ \ \ \ \ \textcolor{comment}{//-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/}}
+\DoxyCodeLine{\Hypertarget{_main_menu_state_8hpp_source_l00063}00063\ \ \ \ \ \textcolor{comment}{//\ Menu\ Animation\ Properties}}
+\DoxyCodeLine{\Hypertarget{_main_menu_state_8hpp_source_l00064}00064\ \ \ \ \ \textcolor{comment}{//-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/}}
+\DoxyCodeLine{\Hypertarget{_main_menu_state_8hpp_source_l00065}00065\ }
+\DoxyCodeLine{\Hypertarget{_main_menu_state_8hpp_source_l00066}\mbox{\hyperlink{class_main_menu_state_afaa9f9fb5802dca8ba5c003c63c935e2}{00066}}\ \ \ \ \ \mbox{\hyperlink{class_sprite_node}{SpriteNode}}*\ \mbox{\hyperlink{class_main_menu_state_afaa9f9fb5802dca8ba5c003c63c935e2}{mShipMMSprite}}\ =\ \textcolor{keyword}{nullptr};\ \ }
+\DoxyCodeLine{\Hypertarget{_main_menu_state_8hpp_source_l00067}\mbox{\hyperlink{class_main_menu_state_a20994e04bbad208a2ea5fd3acf11ec85}{00067}}\ \ \ \ \ \textcolor{keywordtype}{float}\ \mbox{\hyperlink{class_main_menu_state_a20994e04bbad208a2ea5fd3acf11ec85}{mWiggleAngle}}\ =\ 0.0f;\ \ \ \ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{\Hypertarget{_main_menu_state_8hpp_source_l00068}\mbox{\hyperlink{class_main_menu_state_ad47309c63cbc1ce64e1c6a231bad6205}{00068}}\ \ \ \ \ \textcolor{keywordtype}{float}\ \mbox{\hyperlink{class_main_menu_state_ad47309c63cbc1ce64e1c6a231bad6205}{mWiggleSpeed}}\ =\ 2.0f;\ \ \ \ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{\Hypertarget{_main_menu_state_8hpp_source_l00069}\mbox{\hyperlink{class_main_menu_state_a0f6d379fff6fe07445a5666485a31890}{00069}}\ \ \ \ \ \textcolor{keywordtype}{float}\ \mbox{\hyperlink{class_main_menu_state_a0f6d379fff6fe07445a5666485a31890}{mWiggleAmplitude}}\ =\ 10.0f;\ \ \ \ \ \ \ }
+\DoxyCodeLine{\Hypertarget{_main_menu_state_8hpp_source_l00070}00070\ \};}
+
+\end{DoxyCode}

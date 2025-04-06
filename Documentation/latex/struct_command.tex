@@ -1,0 +1,116 @@
+\doxysection{Command Struct Reference}
+\hypertarget{struct_command}{}\label{struct_command}\index{Command@{Command}}
+
+
+Encapsulates an action to be executed on scene nodes.  
+
+
+
+
+{\ttfamily \#include $<$Command.\+hpp$>$}
+
+\doxysubsubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{struct_command_a18df2d81039392daeb0b78c346a70537}{Command}} ()
+\begin{DoxyCompactList}\small\item\em Constructs a default command with empty action and no category. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsection*{Public Attributes}
+\begin{DoxyCompactItemize}
+\item 
+std\+::function$<$ void(\mbox{\hyperlink{class_scene_node}{Scene\+Node}} \&, const Game\+Timer \&)$>$ \mbox{\hyperlink{struct_command_adb4b67355dc411fac72c2a704ae92c74}{action}}
+\begin{DoxyCompactList}\small\item\em The action to execute, bound to a specific Game\+Object type. \end{DoxyCompactList}\item 
+unsigned int \mbox{\hyperlink{struct_command_a1529e898c9e6dd47b1826b5b1eac09fb}{category}}
+\begin{DoxyCompactList}\small\item\em Bitmask of \doxylink{namespace_category_a2ff936dbd42aeae91fdfb6f8456a8ab0}{Category\+::\+Type} flags specifying valid targets. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Encapsulates an action to be executed on scene nodes. 
+
+Encapsulates an executable action with category filtering.
+
+The \doxylink{struct_command}{Command} class is part of the command pattern implementation, allowing for flexible and decoupled execution of actions on scene nodes.
+
+Implements the \doxylink{struct_command}{Command} pattern for game actions. Commands are executed on Scene\+Nodes that match the specified category mask. 
+
+Definition at line \mbox{\hyperlink{_command_8hpp_source_l00017}{17}} of file \mbox{\hyperlink{_command_8hpp_source}{Command.\+hpp}}.
+
+
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\Hypertarget{struct_command_a18df2d81039392daeb0b78c346a70537}\index{Command@{Command}!Command@{Command}}
+\index{Command@{Command}!Command@{Command}}
+\doxysubsubsection{\texorpdfstring{Command()}{Command()}}
+{\footnotesize\ttfamily \label{struct_command_a18df2d81039392daeb0b78c346a70537} 
+Command\+::\+Command (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})}
+
+
+
+Constructs a default command with empty action and no category. 
+
+Default constructor for \doxylink{struct_command}{Command}.
+
+Initializes a \doxylink{struct_command}{Command} object with no action and the None category. This allows for later assignment of specific actions and categories. 
+
+Definition at line \mbox{\hyperlink{_command_8cpp_source_l00018}{18}} of file \mbox{\hyperlink{_command_8cpp_source}{Command.\+cpp}}.
+
+
+
+\doxysubsection{Member Data Documentation}
+\Hypertarget{struct_command_adb4b67355dc411fac72c2a704ae92c74}\index{Command@{Command}!action@{action}}
+\index{action@{action}!Command@{Command}}
+\doxysubsubsection{\texorpdfstring{action}{action}}
+{\footnotesize\ttfamily \label{struct_command_adb4b67355dc411fac72c2a704ae92c74} 
+std\+::function$<$void(\mbox{\hyperlink{class_scene_node}{Scene\+Node}}\&, const Game\+Timer\&)$>$ Command\+::action}
+
+
+
+The action to execute, bound to a specific Game\+Object type. 
+
+Function object representing the action to be performed.
+
+
+\begin{DoxyParams}{Parameters}
+{\em Scene\+Node\&} & Target node to execute on \\
+\hline
+{\em Game\+Timer\&} & Reference to game timing information\\
+\hline
+\end{DoxyParams}
+\begin{DoxyNote}{Note}
+The function should be created using derived\+Action() to ensure type safety and proper downcasting.
+\end{DoxyNote}
+This std\+::function takes a \doxylink{class_scene_node}{Scene\+Node} reference and a const Game\+Timer reference as parameters, allowing for time-\/based actions on scene nodes. 
+
+Definition at line \mbox{\hyperlink{_command_8hpp_source_l00032}{32}} of file \mbox{\hyperlink{_command_8hpp_source}{Command.\+hpp}}.
+
+\Hypertarget{struct_command_a1529e898c9e6dd47b1826b5b1eac09fb}\index{Command@{Command}!category@{category}}
+\index{category@{category}!Command@{Command}}
+\doxysubsubsection{\texorpdfstring{category}{category}}
+{\footnotesize\ttfamily \label{struct_command_a1529e898c9e6dd47b1826b5b1eac09fb} 
+unsigned int Command\+::category}
+
+
+
+Bitmask of \doxylink{namespace_category_a2ff936dbd42aeae91fdfb6f8456a8ab0}{Category\+::\+Type} flags specifying valid targets. 
+
+\doxylink{namespace_category}{Category} flags determining which scene nodes the command applies to.
+
+\begin{DoxySeeAlso}{See also}
+\doxylink{namespace_category_a2ff936dbd42aeae91fdfb6f8456a8ab0}{Category\+::\+Type}
+\end{DoxySeeAlso}
+The command will only execute on nodes matching any of these categories. Use bitwise OR to combine categories\+: 
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\mbox{\hyperlink{namespace_category_a2ff936dbd42aeae91fdfb6f8456a8ab0ac17fded322e70d4086e2f5dfcc706679}{Category::PlayerAircraft}}\ |\ \mbox{\hyperlink{namespace_category_a2ff936dbd42aeae91fdfb6f8456a8ab0a05584389175665f09038745d7486f798}{Category::AlliedAircraft}}}
+
+\end{DoxyCode}
+
+
+Uses bit flags from the \doxylink{namespace_category}{Category} enum to specify target nodes. Default value is \doxylink{namespace_category_a2ff936dbd42aeae91fdfb6f8456a8ab0af5e99963224a9d7e0d16e4a782446ebf}{Category\+::\+None}. 
+
+Definition at line \mbox{\hyperlink{_command_8hpp_source_l00044}{44}} of file \mbox{\hyperlink{_command_8hpp_source}{Command.\+hpp}}.
+
+
+
+The documentation for this struct was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+Initialize\+Direct3\+D/Command.\+hpp\item 
+Initialize\+Direct3\+D/Command.\+cpp\end{DoxyCompactItemize}

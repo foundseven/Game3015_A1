@@ -1,0 +1,75 @@
+\doxysection{Category Namespace Reference}
+\hypertarget{namespace_category}{}\label{namespace_category}\index{Category@{Category}}
+
+
+Bitmask categories for scene object classification and collision filtering.  
+
+
+\doxysubsubsection*{Enumerations}
+\begin{DoxyCompactItemize}
+\item 
+enum \mbox{\hyperlink{namespace_category_a2ff936dbd42aeae91fdfb6f8456a8ab0}{Type}} \{ \newline
+\mbox{\hyperlink{namespace_category_a2ff936dbd42aeae91fdfb6f8456a8ab0af5e99963224a9d7e0d16e4a782446ebf}{None}} = 0
+, \mbox{\hyperlink{namespace_category_a2ff936dbd42aeae91fdfb6f8456a8ab0ae45daecedd1b5f037e9e6e915a44f3b0}{Scene}} = 1 \texorpdfstring{$<$}{<}\texorpdfstring{$<$}{<} 0
+, \mbox{\hyperlink{namespace_category_a2ff936dbd42aeae91fdfb6f8456a8ab0ac17fded322e70d4086e2f5dfcc706679}{Player\+Aircraft}} = 1 \texorpdfstring{$<$}{<}\texorpdfstring{$<$}{<} 1
+, \mbox{\hyperlink{namespace_category_a2ff936dbd42aeae91fdfb6f8456a8ab0a05584389175665f09038745d7486f798}{Allied\+Aircraft}} = 1 \texorpdfstring{$<$}{<}\texorpdfstring{$<$}{<} 2
+, \newline
+\mbox{\hyperlink{namespace_category_a2ff936dbd42aeae91fdfb6f8456a8ab0a200d37e43bb2556f6e93fcc933124034}{Enemy\+Aircraft}} = 1 \texorpdfstring{$<$}{<}\texorpdfstring{$<$}{<} 3
+ \}
+\begin{DoxyCompactList}\small\item\em Bitmask flags representing object categories in the game world. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Bitmask categories for scene object classification and collision filtering. 
+
+These categories are used to\+:
+\begin{DoxyItemize}
+\item Manage object interactions (collision detection)
+\item Filter rendering operations
+\item Organize scene graph queries
+\end{DoxyItemize}
+
+@usage Combine using bitwise OR\+: 
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\mbox{\hyperlink{namespace_category_a2ff936dbd42aeae91fdfb6f8456a8ab0}{Category::Type}}\ teamAircraft\ =\ \mbox{\hyperlink{namespace_category_a2ff936dbd42aeae91fdfb6f8456a8ab0ac17fded322e70d4086e2f5dfcc706679}{Category::PlayerAircraft}}\ |\ \mbox{\hyperlink{namespace_category_a2ff936dbd42aeae91fdfb6f8456a8ab0a05584389175665f09038745d7486f798}{Category::AlliedAircraft}};}
+
+\end{DoxyCode}
+ 
+
+\doxysubsection{Enumeration Type Documentation}
+\Hypertarget{namespace_category_a2ff936dbd42aeae91fdfb6f8456a8ab0}\index{Category@{Category}!Type@{Type}}
+\index{Type@{Type}!Category@{Category}}
+\doxysubsubsection{\texorpdfstring{Type}{Type}}
+{\footnotesize\ttfamily \label{namespace_category_a2ff936dbd42aeae91fdfb6f8456a8ab0} 
+enum \mbox{\hyperlink{namespace_category_a2ff936dbd42aeae91fdfb6f8456a8ab0}{Category\+::\+Type}}}
+
+
+
+Bitmask flags representing object categories in the game world. 
+
+Values represent distinct bit positions for efficient category combination and testing using bitwise operations. \begin{DoxyEnumFields}[2]{Enumerator}
+\raisebox{\heightof{T}}[0pt][0pt]{\index{None@{None}!Category@{Category}}\index{Category@{Category}!None@{None}}}\Hypertarget{namespace_category_a2ff936dbd42aeae91fdfb6f8456a8ab0af5e99963224a9d7e0d16e4a782446ebf}\label{namespace_category_a2ff936dbd42aeae91fdfb6f8456a8ab0af5e99963224a9d7e0d16e4a782446ebf} 
+None&Default/no category (inactive objects) \\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{Scene@{Scene}!Category@{Category}}\index{Category@{Category}!Scene@{Scene}}}\Hypertarget{namespace_category_a2ff936dbd42aeae91fdfb6f8456a8ab0ae45daecedd1b5f037e9e6e915a44f3b0}\label{namespace_category_a2ff936dbd42aeae91fdfb6f8456a8ab0ae45daecedd1b5f037e9e6e915a44f3b0} 
+Scene&Static environment/level geometry. \\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{PlayerAircraft@{PlayerAircraft}!Category@{Category}}\index{Category@{Category}!PlayerAircraft@{PlayerAircraft}}}\Hypertarget{namespace_category_a2ff936dbd42aeae91fdfb6f8456a8ab0ac17fded322e70d4086e2f5dfcc706679}\label{namespace_category_a2ff936dbd42aeae91fdfb6f8456a8ab0ac17fded322e70d4086e2f5dfcc706679} 
+Player\+Aircraft&User-\/controlled aircraft (see \doxylink{class_aircraft_a7dae28542933e088032b753600046acdaed1ed20dae2d2d8eaa1d2186c6ee9315}{Aircraft\+::\+Eagle}) \\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{AlliedAircraft@{AlliedAircraft}!Category@{Category}}\index{Category@{Category}!AlliedAircraft@{AlliedAircraft}}}\Hypertarget{namespace_category_a2ff936dbd42aeae91fdfb6f8456a8ab0a05584389175665f09038745d7486f798}\label{namespace_category_a2ff936dbd42aeae91fdfb6f8456a8ab0a05584389175665f09038745d7486f798} 
+Allied\+Aircraft&Friendly NPC aircraft (non-\/player combatants) \\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{EnemyAircraft@{EnemyAircraft}!Category@{Category}}\index{Category@{Category}!EnemyAircraft@{EnemyAircraft}}}\Hypertarget{namespace_category_a2ff936dbd42aeae91fdfb6f8456a8ab0a200d37e43bb2556f6e93fcc933124034}\label{namespace_category_a2ff936dbd42aeae91fdfb6f8456a8ab0a200d37e43bb2556f6e93fcc933124034} 
+Enemy\+Aircraft&Hostile aircraft (see \doxylink{class_aircraft_a7dae28542933e088032b753600046acdaf080b57c0c515dea65f056395cc6d59b}{Aircraft\+::\+Raptor}) \\
+\hline
+
+\end{DoxyEnumFields}
+
+
+Definition at line \mbox{\hyperlink{_category_8hpp_source_l00027}{27}} of file \mbox{\hyperlink{_category_8hpp_source}{Category.\+hpp}}.
+

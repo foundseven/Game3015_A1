@@ -1,11 +1,12 @@
 var searchData=
 [
-  ['scene_0',['Scene',['../namespace_category.html#a2ff936dbd42aeae91fdfb6f8456a8ab0ae45daecedd1b5f037e9e6e915a44f3b0',1,'Category']]],
-  ['scenenode_1',['SceneNode',['../class_scene_node.html',1,'SceneNode'],['../class_scene_node.html#af1f3bf5e98c8b2c90b36057df2577d1a',1,'SceneNode::SceneNode(Game *game)']]],
-  ['setposition_2',['setPosition',['../class_scene_node.html#a45f8882749060b059fe26eb02f7f843b',1,'SceneNode']]],
-  ['setscale_3',['setScale',['../class_scene_node.html#a753cea60b8a939a82a47258f4a51df82',1,'SceneNode']]],
-  ['setvelocity_4',['setVelocity',['../class_entity.html#a472e1690df5fb48c6c7f052e4cb39c78',1,'Entity::setVelocity(XMFLOAT3 velocity)'],['../class_entity.html#abb3c22fe7e78968131560642e360e12b',1,'Entity::setVelocity(float vx, float vy, float vz)']]],
-  ['setworldrotation_5',['setWorldRotation',['../class_scene_node.html#a66fa14e7553900ae540f13e4dc5f749b',1,'SceneNode']]],
-  ['spritenode_6',['SpriteNode',['../class_sprite_node.html',1,'SpriteNode'],['../class_sprite_node.html#af9a13269b4f3d7a194e1826c704155dc',1,'SpriteNode::SpriteNode()']]],
-  ['startindexlocation_7',['StartIndexLocation',['../struct_render_item.html#a979179c6dd354cd329563e3599245463',1,'RenderItem']]]
+  ['raptor_0',['Raptor',['../class_aircraft.html#a7dae28542933e088032b753600046acdaf080b57c0c515dea65f056395cc6d59b',1,'Aircraft']]],
+  ['registerstate_1',['registerState',['../class_state_stack.html#a9d64daa479c2cccad6f2ede77741a352',1,'StateStack']]],
+  ['registerstates_2',['RegisterStates',['../class_game.html#aebce4ccb64400e1a932f7ac96da4233b',1,'Game']]],
+  ['renderer_3',['renderer',['../class_scene_node.html#a51b22a4d6789039a96ebab097ed03db0',1,'SceneNode']]],
+  ['renderitem_4',['RenderItem',['../struct_render_item.html',1,'']]],
+  ['requeststackpop_5',['RequestStackPop',['../class_state.html#a86e0b195558375f3b09fffe42b56e4b4',1,'State']]],
+  ['requeststackpush_6',['RequestStackPush',['../class_state.html#aa6ff837626a9f78e951b968366daca36',1,'State']]],
+  ['requeststateclear_7',['RequestStateClear',['../class_state.html#adb49547f6caf41a15f4934530cbe75ee',1,'State']]],
+  ['resetframeresources_8',['ResetFrameResources',['../class_game.html#aa95aef9aabba3278be080bfc8437e735',1,'Game']]]
 ];

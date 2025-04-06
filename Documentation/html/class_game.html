@@ -5,7 +5,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=11"/>
 <meta name="generator" content="Doxygen 1.13.2"/>
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
-<title>Game3015_A2: Game Class Reference</title>
+<title>Galaxy Invaders: Game Class Reference</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
@@ -32,9 +32,9 @@
  <tbody>
  <tr id="projectrow">
   <td id="projectalign">
-   <div id="projectname">Game3015_A2<span id="projectnumber">&#160;2.0</span>
+   <div id="projectname">Galaxy Invaders<span id="projectnumber">&#160;3.0</span>
    </div>
-   <div id="projectbrief">A DirectX 12-based aircraft combat game.</div>
+   <div id="projectbrief">Roam the galaxy in 2D/3D</div>
   </td>
     <td>        <div id="MSearchBox" class="MSearchBoxInactive">
         <span class="left">
@@ -111,7 +111,7 @@ $(function(){initNavTree('class_game.html',''); initResizable(true); });
 </div><!--header-->
 <div class="contents">
 
-<p>Main game class managing resources, rendering, and game logic.  
+<p>Core game application class inheriting from Direct3D base.  
  <a href="#details">More...</a></p>
 
 <p><code>#include &lt;<a class="el" href="_game_8hpp_source.html">Game.hpp</a>&gt;</code></p>
@@ -125,114 +125,177 @@ Inheritance diagram for Game:</div>
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pub-methods" name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
 <tr class="memitem:a3f68a62a1fe1ca8dcd1deb054b384cef" id="r_a3f68a62a1fe1ca8dcd1deb054b384cef"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a3f68a62a1fe1ca8dcd1deb054b384cef">Game</a> (HINSTANCE hInstance)</td></tr>
-<tr class="memdesc:a3f68a62a1fe1ca8dcd1deb054b384cef"><td class="mdescLeft">&#160;</td><td class="mdescRight">Constructor for the <a class="el" href="class_game.html" title="Main game class managing resources, rendering, and game logic.">Game</a> class.  <br /></td></tr>
+<tr class="memdesc:a3f68a62a1fe1ca8dcd1deb054b384cef"><td class="mdescLeft">&#160;</td><td class="mdescRight">Constructs the game application.  <br /></td></tr>
 <tr class="separator:a3f68a62a1fe1ca8dcd1deb054b384cef"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a293c79673d4c15f55f1ab7f3d1809ddb" id="r_a293c79673d4c15f55f1ab7f3d1809ddb"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a293c79673d4c15f55f1ab7f3d1809ddb">Game</a> (const <a class="el" href="class_game.html">Game</a> &amp;rhs)=delete</td></tr>
-<tr class="memdesc:a293c79673d4c15f55f1ab7f3d1809ddb"><td class="mdescLeft">&#160;</td><td class="mdescRight">Deleted copy constructor. Objects of this class cannot be copied.  <br /></td></tr>
+<tr class="memitem:a293c79673d4c15f55f1ab7f3d1809ddb" id="r_a293c79673d4c15f55f1ab7f3d1809ddb"><td class="memItemLeft" align="right" valign="top"><a id="a293c79673d4c15f55f1ab7f3d1809ddb" name="a293c79673d4c15f55f1ab7f3d1809ddb"></a>
+&#160;</td><td class="memItemRight" valign="bottom"><b>Game</b> (const <a class="el" href="class_game.html">Game</a> &amp;rhs)=delete</td></tr>
 <tr class="separator:a293c79673d4c15f55f1ab7f3d1809ddb"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a9bda5763ea460634fef947be2530c8f5" id="r_a9bda5763ea460634fef947be2530c8f5"><td class="memItemLeft" align="right" valign="top"><a id="a9bda5763ea460634fef947be2530c8f5" name="a9bda5763ea460634fef947be2530c8f5"></a>
 <a class="el" href="class_game.html">Game</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><b>operator=</b> (const <a class="el" href="class_game.html">Game</a> &amp;rhs)=delete</td></tr>
 <tr class="separator:a9bda5763ea460634fef947be2530c8f5"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ae3d112ca6e0e55150d2fdbc704474530" id="r_ae3d112ca6e0e55150d2fdbc704474530"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ae3d112ca6e0e55150d2fdbc704474530">~Game</a> ()</td></tr>
-<tr class="memdesc:ae3d112ca6e0e55150d2fdbc704474530"><td class="mdescLeft">&#160;</td><td class="mdescRight">Destructor for the <a class="el" href="class_game.html" title="Main game class managing resources, rendering, and game logic.">Game</a> class.  <br /></td></tr>
+<tr class="memdesc:ae3d112ca6e0e55150d2fdbc704474530"><td class="mdescLeft">&#160;</td><td class="mdescRight">Destructor for resource cleanup.  <br /></td></tr>
 <tr class="separator:ae3d112ca6e0e55150d2fdbc704474530"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a16354d232327f6c21319713bf6983674" id="r_a16354d232327f6c21319713bf6983674"><td class="memItemLeft" align="right" valign="top">virtual bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a16354d232327f6c21319713bf6983674">Initialize</a> () override</td></tr>
-<tr class="memdesc:a16354d232327f6c21319713bf6983674"><td class="mdescLeft">&#160;</td><td class="mdescRight">Initializes the game. This includes D3D, Resource creation, etc.  <br /></td></tr>
+<tr class="memdesc:a16354d232327f6c21319713bf6983674"><td class="mdescLeft">&#160;</td><td class="mdescRight">Initializes game systems.  <br /></td></tr>
 <tr class="separator:a16354d232327f6c21319713bf6983674"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a7bd6d8d7aa09aa1196b4fa463d2ac41b" id="r_a7bd6d8d7aa09aa1196b4fa463d2ac41b"><td class="memItemLeft" align="right" valign="top">virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a7bd6d8d7aa09aa1196b4fa463d2ac41b">OnResize</a> () override</td></tr>
+<tr class="memdesc:a7bd6d8d7aa09aa1196b4fa463d2ac41b"><td class="mdescLeft">&#160;</td><td class="mdescRight">Handles window resize events @override D3DApp override.  <br /></td></tr>
+<tr class="separator:a7bd6d8d7aa09aa1196b4fa463d2ac41b"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ab9244991993b5a1cbde3f1f2d73f2745" id="r_ab9244991993b5a1cbde3f1f2d73f2745"><td class="memItemLeft" align="right" valign="top">virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ab9244991993b5a1cbde3f1f2d73f2745">Update</a> (const GameTimer &amp;gt) override</td></tr>
+<tr class="memdesc:ab9244991993b5a1cbde3f1f2d73f2745"><td class="mdescLeft">&#160;</td><td class="mdescRight">Main update loop.  <br /></td></tr>
+<tr class="separator:ab9244991993b5a1cbde3f1f2d73f2745"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:afc62dae28f3cd775d8110ff5386c1fe1" id="r_afc62dae28f3cd775d8110ff5386c1fe1"><td class="memItemLeft" align="right" valign="top">virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#afc62dae28f3cd775d8110ff5386c1fe1">Draw</a> (const GameTimer &amp;gt) override</td></tr>
+<tr class="memdesc:afc62dae28f3cd775d8110ff5386c1fe1"><td class="mdescLeft">&#160;</td><td class="mdescRight">Main rendering loop.  <br /></td></tr>
+<tr class="separator:afc62dae28f3cd775d8110ff5386c1fe1"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a605e728835f29b7b320f6c9c8de05d00" id="r_a605e728835f29b7b320f6c9c8de05d00"><td class="memItemLeft" align="right" valign="top">virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a605e728835f29b7b320f6c9c8de05d00">OnMouseDown</a> (WPARAM btnState, int x, int y) override</td></tr>
+<tr class="separator:a605e728835f29b7b320f6c9c8de05d00"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a020e0c5f01a724bfef357bfe29f800c3" id="r_a020e0c5f01a724bfef357bfe29f800c3"><td class="memItemLeft" align="right" valign="top">virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a020e0c5f01a724bfef357bfe29f800c3">OnMouseUp</a> (WPARAM btnState, int x, int y) override</td></tr>
+<tr class="separator:a020e0c5f01a724bfef357bfe29f800c3"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ada0f3fffa1b4560465128b1eff7d1ef5" id="r_ada0f3fffa1b4560465128b1eff7d1ef5"><td class="memItemLeft" align="right" valign="top">virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ada0f3fffa1b4560465128b1eff7d1ef5">OnMouseMove</a> (WPARAM btnState, int x, int y) override</td></tr>
+<tr class="separator:ada0f3fffa1b4560465128b1eff7d1ef5"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a35759ff84d520ea106a53dc5d2d28b1a" id="r_a35759ff84d520ea106a53dc5d2d28b1a"><td class="memItemLeft" align="right" valign="top">virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a35759ff84d520ea106a53dc5d2d28b1a">OnKeyDown</a> (WPARAM btnState) override</td></tr>
+<tr class="separator:a35759ff84d520ea106a53dc5d2d28b1a"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aebce4ccb64400e1a932f7ac96da4233b" id="r_aebce4ccb64400e1a932f7ac96da4233b"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#aebce4ccb64400e1a932f7ac96da4233b">RegisterStates</a> ()</td></tr>
+<tr class="memdesc:aebce4ccb64400e1a932f7ac96da4233b"><td class="mdescLeft">&#160;</td><td class="mdescRight">Registers game states with the state stack.  <br /></td></tr>
+<tr class="separator:aebce4ccb64400e1a932f7ac96da4233b"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a066779a1c2030d790625f7db848b8a41" id="r_a066779a1c2030d790625f7db848b8a41"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a066779a1c2030d790625f7db848b8a41">CreateTexture</a> (std::string Name, std::wstring FileName)</td></tr>
+<tr class="memdesc:a066779a1c2030d790625f7db848b8a41"><td class="mdescLeft">&#160;</td><td class="mdescRight">Creates a texture resource.  <br /></td></tr>
+<tr class="separator:a066779a1c2030d790625f7db848b8a41"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:af2dbd2efb85c1009e555a1c7f203b533" id="r_af2dbd2efb85c1009e555a1c7f203b533"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#af2dbd2efb85c1009e555a1c7f203b533">CreateMaterials</a> (std::string Name, XMFLOAT4 DiffuseAlbedo, XMFLOAT3 FresnelR0, float Roughness)</td></tr>
+<tr class="memdesc:af2dbd2efb85c1009e555a1c7f203b533"><td class="mdescLeft">&#160;</td><td class="mdescRight">Creates a material definition.  <br /></td></tr>
+<tr class="separator:af2dbd2efb85c1009e555a1c7f203b533"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ad23eba18656a646756a98bcda25a98a4" id="r_ad23eba18656a646756a98bcda25a98a4"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ad23eba18656a646756a98bcda25a98a4">LoadTextures</a> ()</td></tr>
+<tr class="memdesc:ad23eba18656a646756a98bcda25a98a4"><td class="mdescLeft">&#160;</td><td class="mdescRight">Loads all texture resources.  <br /></td></tr>
+<tr class="separator:ad23eba18656a646756a98bcda25a98a4"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aa02e07384ccea21f7421ca60967c1fa5" id="r_aa02e07384ccea21f7421ca60967c1fa5"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#aa02e07384ccea21f7421ca60967c1fa5">BuildRootSignature</a> ()</td></tr>
+<tr class="memdesc:aa02e07384ccea21f7421ca60967c1fa5"><td class="mdescLeft">&#160;</td><td class="mdescRight">Creates root signature.  <br /></td></tr>
+<tr class="separator:aa02e07384ccea21f7421ca60967c1fa5"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a62c79f98ef99a7ee0c54e3ae23ab0173" id="r_a62c79f98ef99a7ee0c54e3ae23ab0173"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a62c79f98ef99a7ee0c54e3ae23ab0173">BuildDescriptorHeaps</a> ()</td></tr>
+<tr class="memdesc:a62c79f98ef99a7ee0c54e3ae23ab0173"><td class="mdescLeft">&#160;</td><td class="mdescRight">Builds descriptor heaps.  <br /></td></tr>
+<tr class="separator:a62c79f98ef99a7ee0c54e3ae23ab0173"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:adc0692c304c05a5a281d88622b39c498" id="r_adc0692c304c05a5a281d88622b39c498"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#adc0692c304c05a5a281d88622b39c498">BuildShadersAndInputLayout</a> ()</td></tr>
+<tr class="memdesc:adc0692c304c05a5a281d88622b39c498"><td class="mdescLeft">&#160;</td><td class="mdescRight">Compiles shaders and defines input layout.  <br /></td></tr>
+<tr class="separator:adc0692c304c05a5a281d88622b39c498"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a6ee7b6d7f54345be7f6b406166dccb45" id="r_a6ee7b6d7f54345be7f6b406166dccb45"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a6ee7b6d7f54345be7f6b406166dccb45">BuildShapeGeometry</a> ()</td></tr>
+<tr class="memdesc:a6ee7b6d7f54345be7f6b406166dccb45"><td class="mdescLeft">&#160;</td><td class="mdescRight">Creates primitive geometries.  <br /></td></tr>
+<tr class="separator:a6ee7b6d7f54345be7f6b406166dccb45"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:abfbaa697f65f1b0061670d2d89400f94" id="r_abfbaa697f65f1b0061670d2d89400f94"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#abfbaa697f65f1b0061670d2d89400f94">BuildHillGeometry</a> ()</td></tr>
+<tr class="memdesc:abfbaa697f65f1b0061670d2d89400f94"><td class="mdescLeft">&#160;</td><td class="mdescRight">Creates terrain geometry.  <br /></td></tr>
+<tr class="separator:abfbaa697f65f1b0061670d2d89400f94"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aa0934b45052f43934eb93fd013ca23a8" id="r_aa0934b45052f43934eb93fd013ca23a8"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#aa0934b45052f43934eb93fd013ca23a8">BuildPSOs</a> ()</td></tr>
+<tr class="memdesc:aa0934b45052f43934eb93fd013ca23a8"><td class="mdescLeft">&#160;</td><td class="mdescRight">Creates pipeline state objects.  <br /></td></tr>
+<tr class="separator:aa0934b45052f43934eb93fd013ca23a8"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a4545c2912bedea81f43783b24df89b34" id="r_a4545c2912bedea81f43783b24df89b34"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a4545c2912bedea81f43783b24df89b34">BuildFrameResources</a> (int renderItemCount)</td></tr>
+<tr class="memdesc:a4545c2912bedea81f43783b24df89b34"><td class="mdescLeft">&#160;</td><td class="mdescRight">Creates frame resources.  <br /></td></tr>
+<tr class="separator:a4545c2912bedea81f43783b24df89b34"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a8150ddca90b1ce3c38becca970246d99" id="r_a8150ddca90b1ce3c38becca970246d99"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a8150ddca90b1ce3c38becca970246d99">BuildMaterials</a> ()</td></tr>
+<tr class="memdesc:a8150ddca90b1ce3c38becca970246d99"><td class="mdescLeft">&#160;</td><td class="mdescRight">Initializes default materials.  <br /></td></tr>
+<tr class="separator:a8150ddca90b1ce3c38becca970246d99"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aa95aef9aabba3278be080bfc8437e735" id="r_aa95aef9aabba3278be080bfc8437e735"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#aa95aef9aabba3278be080bfc8437e735">ResetFrameResources</a> ()</td></tr>
+<tr class="memdesc:aa95aef9aabba3278be080bfc8437e735"><td class="mdescLeft">&#160;</td><td class="mdescRight">Resets frame resource allocation.  <br /></td></tr>
+<tr class="separator:aa95aef9aabba3278be080bfc8437e735"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a077400cce3bd3e41333b8228b386e450" id="r_a077400cce3bd3e41333b8228b386e450"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a077400cce3bd3e41333b8228b386e450">UpdateCamera</a> (const GameTimer &amp;gt)</td></tr>
+<tr class="memdesc:a077400cce3bd3e41333b8228b386e450"><td class="mdescLeft">&#160;</td><td class="mdescRight">Updates camera transforms.  <br /></td></tr>
+<tr class="separator:a077400cce3bd3e41333b8228b386e450"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ae34ee318abbb639ba5ddee0901e8daeb" id="r_ae34ee318abbb639ba5ddee0901e8daeb"><td class="memItemLeft" align="right" valign="top">float&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ae34ee318abbb639ba5ddee0901e8daeb">GetHillsHeight</a> (float x, float z) const</td></tr>
+<tr class="memdesc:ae34ee318abbb639ba5ddee0901e8daeb"><td class="mdescLeft">&#160;</td><td class="mdescRight">Gets terrain height at position.  <br /></td></tr>
+<tr class="separator:ae34ee318abbb639ba5ddee0901e8daeb"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a1e7d5c561b35c51d38be2cbff83c4313" id="r_a1e7d5c561b35c51d38be2cbff83c4313"><td class="memItemLeft" align="right" valign="top">XMFLOAT3&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a1e7d5c561b35c51d38be2cbff83c4313">GetHillsNormal</a> (float x, float z) const</td></tr>
+<tr class="memdesc:a1e7d5c561b35c51d38be2cbff83c4313"><td class="mdescLeft">&#160;</td><td class="mdescRight">Gets terrain normal at position.  <br /></td></tr>
+<tr class="separator:a1e7d5c561b35c51d38be2cbff83c4313"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a1bdfe76a8bfdff007837cb2d2c3c59d6" id="r_a1bdfe76a8bfdff007837cb2d2c3c59d6"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a1bdfe76a8bfdff007837cb2d2c3c59d6">UpdateObjectCBs</a> (const GameTimer &amp;gt)</td></tr>
+<tr class="memdesc:a1bdfe76a8bfdff007837cb2d2c3c59d6"><td class="mdescLeft">&#160;</td><td class="mdescRight">Updates object constant buffers.  <br /></td></tr>
+<tr class="separator:a1bdfe76a8bfdff007837cb2d2c3c59d6"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a4b7fd5dda779a7dd834dd7d26566b657" id="r_a4b7fd5dda779a7dd834dd7d26566b657"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a4b7fd5dda779a7dd834dd7d26566b657">UpdateMaterialCBs</a> (const GameTimer &amp;gt)</td></tr>
+<tr class="memdesc:a4b7fd5dda779a7dd834dd7d26566b657"><td class="mdescLeft">&#160;</td><td class="mdescRight">Updates material constant buffers.  <br /></td></tr>
+<tr class="separator:a4b7fd5dda779a7dd834dd7d26566b657"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aa3bb0452e306c88eadfb2d4eedf5ad25" id="r_aa3bb0452e306c88eadfb2d4eedf5ad25"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#aa3bb0452e306c88eadfb2d4eedf5ad25">UpdateMainPassCB</a> (const GameTimer &amp;gt)</td></tr>
+<tr class="memdesc:aa3bb0452e306c88eadfb2d4eedf5ad25"><td class="mdescLeft">&#160;</td><td class="mdescRight">Updates pass constants.  <br /></td></tr>
+<tr class="separator:aa3bb0452e306c88eadfb2d4eedf5ad25"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a7e0c6faa5f2386c3ad80fe5d5a9e11e4" id="r_a7e0c6faa5f2386c3ad80fe5d5a9e11e4"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a7e0c6faa5f2386c3ad80fe5d5a9e11e4">AnimateMaterials</a> (const GameTimer &amp;gt)</td></tr>
+<tr class="memdesc:a7e0c6faa5f2386c3ad80fe5d5a9e11e4"><td class="mdescLeft">&#160;</td><td class="mdescRight">Handles material animations.  <br /></td></tr>
+<tr class="separator:a7e0c6faa5f2386c3ad80fe5d5a9e11e4"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a6e8f674ef01b7480d39fe90374301c2d" id="r_a6e8f674ef01b7480d39fe90374301c2d"><td class="memItemLeft" align="right" valign="top">std::array&lt; const CD3DX12_STATIC_SAMPLER_DESC, 6 &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a6e8f674ef01b7480d39fe90374301c2d">GetStaticSamplers</a> ()</td></tr>
+<tr class="memdesc:a6e8f674ef01b7480d39fe90374301c2d"><td class="mdescLeft">&#160;</td><td class="mdescRight">Gets default static samplers.  <br /></td></tr>
+<tr class="separator:a6e8f674ef01b7480d39fe90374301c2d"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a6732bc31d3b397a4cb6211ff1c5c4b9d" id="r_a6732bc31d3b397a4cb6211ff1c5c4b9d"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a6732bc31d3b397a4cb6211ff1c5c4b9d">WaitForGPU</a> ()</td></tr>
+<tr class="memdesc:a6732bc31d3b397a4cb6211ff1c5c4b9d"><td class="mdescLeft">&#160;</td><td class="mdescRight">Synchronizes CPU/GPU execution.  <br /></td></tr>
+<tr class="separator:a6732bc31d3b397a4cb6211ff1c5c4b9d"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a9283a2ccc7cad9fdd4b25f7979d3c5c1" id="r_a9283a2ccc7cad9fdd4b25f7979d3c5c1"><td class="memItemLeft" align="right" valign="top">ID3D12GraphicsCommandList *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a9283a2ccc7cad9fdd4b25f7979d3c5c1">getCmdList</a> ()</td></tr>
-<tr class="memdesc:a9283a2ccc7cad9fdd4b25f7979d3c5c1"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns the command list.  <br /></td></tr>
 <tr class="separator:a9283a2ccc7cad9fdd4b25f7979d3c5c1"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:aab13f3fdd19f7fec4d64922e36cf3088" id="r_aab13f3fdd19f7fec4d64922e36cf3088"><td class="memItemLeft" align="right" valign="top">std::vector&lt; std::unique_ptr&lt; <a class="el" href="struct_render_item.html">RenderItem</a> &gt; &gt; &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#aab13f3fdd19f7fec4d64922e36cf3088">getRenderItems</a> ()</td></tr>
-<tr class="memdesc:aab13f3fdd19f7fec4d64922e36cf3088"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns the list of render items.  <br /></td></tr>
-<tr class="separator:aab13f3fdd19f7fec4d64922e36cf3088"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a2ab854095110829c9fb607b8bf3b50e1" id="r_a2ab854095110829c9fb607b8bf3b50e1"><td class="memItemLeft" align="right" valign="top">std::unordered_map&lt; std::string, std::unique_ptr&lt; Material &gt; &gt; &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a2ab854095110829c9fb607b8bf3b50e1">getMaterials</a> ()</td></tr>
-<tr class="memdesc:a2ab854095110829c9fb607b8bf3b50e1"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns the list of materials.  <br /></td></tr>
 <tr class="separator:a2ab854095110829c9fb607b8bf3b50e1"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a8fecc6dedc120a94d9940ad5d7518242" id="r_a8fecc6dedc120a94d9940ad5d7518242"><td class="memItemLeft" align="right" valign="top">std::unordered_map&lt; std::string, std::unique_ptr&lt; MeshGeometry &gt; &gt; &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a8fecc6dedc120a94d9940ad5d7518242">getGeometries</a> ()</td></tr>
-<tr class="memdesc:a8fecc6dedc120a94d9940ad5d7518242"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns the list of geometries.  <br /></td></tr>
 <tr class="separator:a8fecc6dedc120a94d9940ad5d7518242"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pub-attribs" name="pub-attribs"></a>
 Public Attributes</h2></td></tr>
-<tr class="memitem:a2a9401ba48c48468ceef6771309ddff7" id="r_a2a9401ba48c48468ceef6771309ddff7"><td class="memItemLeft" align="right" valign="top"><a id="a2a9401ba48c48468ceef6771309ddff7" name="a2a9401ba48c48468ceef6771309ddff7"></a>
-std::vector&lt; std::unique_ptr&lt; <a class="el" href="struct_frame_resource.html">FrameResource</a> &gt; &gt;&#160;</td><td class="memItemRight" valign="bottom"><b>mFrameResources</b></td></tr>
-<tr class="memdesc:a2a9401ba48c48468ceef6771309ddff7"><td class="mdescLeft">&#160;</td><td class="mdescRight">A vector of unique pointers to <a class="el" href="struct_frame_resource.html" title="Class representing resources needed for the CPU to build command lists for a frame.">FrameResource</a> objects. <br /></td></tr>
+<tr class="memitem:a2a9401ba48c48468ceef6771309ddff7" id="r_a2a9401ba48c48468ceef6771309ddff7"><td class="memItemLeft" align="right" valign="top">std::vector&lt; std::unique_ptr&lt; <a class="el" href="struct_frame_resource.html">FrameResource</a> &gt; &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a2a9401ba48c48468ceef6771309ddff7">mFrameResources</a></td></tr>
+<tr class="memdesc:a2a9401ba48c48468ceef6771309ddff7"><td class="mdescLeft">&#160;</td><td class="mdescRight">Frame resource ring buffer.  <br /></td></tr>
 <tr class="separator:a2a9401ba48c48468ceef6771309ddff7"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a6119ac12b9dafae4e105ac9b4e80c1b2" id="r_a6119ac12b9dafae4e105ac9b4e80c1b2"><td class="memItemLeft" align="right" valign="top"><a id="a6119ac12b9dafae4e105ac9b4e80c1b2" name="a6119ac12b9dafae4e105ac9b4e80c1b2"></a>
-<a class="el" href="struct_frame_resource.html">FrameResource</a> *&#160;</td><td class="memItemRight" valign="bottom"><b>mCurrFrameResource</b> = nullptr</td></tr>
-<tr class="memdesc:a6119ac12b9dafae4e105ac9b4e80c1b2"><td class="mdescLeft">&#160;</td><td class="mdescRight">A raw pointer to the current <a class="el" href="struct_frame_resource.html" title="Class representing resources needed for the CPU to build command lists for a frame.">FrameResource</a>. <br /></td></tr>
+<tr class="memitem:a6119ac12b9dafae4e105ac9b4e80c1b2" id="r_a6119ac12b9dafae4e105ac9b4e80c1b2"><td class="memItemLeft" align="right" valign="top"><a class="el" href="struct_frame_resource.html">FrameResource</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a6119ac12b9dafae4e105ac9b4e80c1b2">mCurrFrameResource</a> = nullptr</td></tr>
+<tr class="memdesc:a6119ac12b9dafae4e105ac9b4e80c1b2"><td class="mdescLeft">&#160;</td><td class="mdescRight">Current frame resource.  <br /></td></tr>
 <tr class="separator:a6119ac12b9dafae4e105ac9b4e80c1b2"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a1f687875ba94b87162a7dc90b80b0092" id="r_a1f687875ba94b87162a7dc90b80b0092"><td class="memItemLeft" align="right" valign="top"><a id="a1f687875ba94b87162a7dc90b80b0092" name="a1f687875ba94b87162a7dc90b80b0092"></a>
-int&#160;</td><td class="memItemRight" valign="bottom"><b>mCurrFrameResourceIndex</b> = 0</td></tr>
-<tr class="memdesc:a1f687875ba94b87162a7dc90b80b0092"><td class="mdescLeft">&#160;</td><td class="mdescRight">The index of the current <a class="el" href="struct_frame_resource.html" title="Class representing resources needed for the CPU to build command lists for a frame.">FrameResource</a>. <br /></td></tr>
+<tr class="memitem:a1f687875ba94b87162a7dc90b80b0092" id="r_a1f687875ba94b87162a7dc90b80b0092"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a1f687875ba94b87162a7dc90b80b0092">mCurrFrameResourceIndex</a> = 0</td></tr>
+<tr class="memdesc:a1f687875ba94b87162a7dc90b80b0092"><td class="mdescLeft">&#160;</td><td class="mdescRight">Current frame resource index.  <br /></td></tr>
 <tr class="separator:a1f687875ba94b87162a7dc90b80b0092"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ad7a064571877d4b8becd1f53c98cafa9" id="r_ad7a064571877d4b8becd1f53c98cafa9"><td class="memItemLeft" align="right" valign="top"><a id="ad7a064571877d4b8becd1f53c98cafa9" name="ad7a064571877d4b8becd1f53c98cafa9"></a>
-UINT&#160;</td><td class="memItemRight" valign="bottom"><b>mCbvSrvDescriptorSize</b> = 0</td></tr>
-<tr class="memdesc:ad7a064571877d4b8becd1f53c98cafa9"><td class="mdescLeft">&#160;</td><td class="mdescRight">The size of a CBV/SRV descriptor on the GPU. <br /></td></tr>
-<tr class="separator:ad7a064571877d4b8becd1f53c98cafa9"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a987fac1aded1b4f4b9495eb0f1464c12" id="r_a987fac1aded1b4f4b9495eb0f1464c12"><td class="memItemLeft" align="right" valign="top"><a id="a987fac1aded1b4f4b9495eb0f1464c12" name="a987fac1aded1b4f4b9495eb0f1464c12"></a>
-ComPtr&lt; ID3D12RootSignature &gt;&#160;</td><td class="memItemRight" valign="bottom"><b>mRootSignature</b> = nullptr</td></tr>
-<tr class="memdesc:a987fac1aded1b4f4b9495eb0f1464c12"><td class="mdescLeft">&#160;</td><td class="mdescRight">The root signature used in the game. <br /></td></tr>
-<tr class="separator:a987fac1aded1b4f4b9495eb0f1464c12"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a85befdbe03bbcdd30ad94cd64e0a1bd1" id="r_a85befdbe03bbcdd30ad94cd64e0a1bd1"><td class="memItemLeft" align="right" valign="top"><a id="a85befdbe03bbcdd30ad94cd64e0a1bd1" name="a85befdbe03bbcdd30ad94cd64e0a1bd1"></a>
-ComPtr&lt; ID3D12DescriptorHeap &gt;&#160;</td><td class="memItemRight" valign="bottom"><b>mSrvDescriptorHeap</b> = nullptr</td></tr>
-<tr class="memdesc:a85befdbe03bbcdd30ad94cd64e0a1bd1"><td class="mdescLeft">&#160;</td><td class="mdescRight">The descriptor heap for SRVs. <br /></td></tr>
-<tr class="separator:a85befdbe03bbcdd30ad94cd64e0a1bd1"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a0e53612a0a54bdd46ea1d8b071260b77" id="r_a0e53612a0a54bdd46ea1d8b071260b77"><td class="memItemLeft" align="right" valign="top"><a id="a0e53612a0a54bdd46ea1d8b071260b77" name="a0e53612a0a54bdd46ea1d8b071260b77"></a>
-std::unordered_map&lt; std::string, std::unique_ptr&lt; MeshGeometry &gt; &gt;&#160;</td><td class="memItemRight" valign="bottom"><b>mGeometries</b></td></tr>
-<tr class="memdesc:a0e53612a0a54bdd46ea1d8b071260b77"><td class="mdescLeft">&#160;</td><td class="mdescRight">A map of mesh geometries, indexed by name. <br /></td></tr>
+<tr class="memitem:a0e53612a0a54bdd46ea1d8b071260b77" id="r_a0e53612a0a54bdd46ea1d8b071260b77"><td class="memItemLeft" align="right" valign="top">std::unordered_map&lt; std::string, std::unique_ptr&lt; MeshGeometry &gt; &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a0e53612a0a54bdd46ea1d8b071260b77">mGeometries</a></td></tr>
+<tr class="memdesc:a0e53612a0a54bdd46ea1d8b071260b77"><td class="mdescLeft">&#160;</td><td class="mdescRight">Geometry resources.  <br /></td></tr>
 <tr class="separator:a0e53612a0a54bdd46ea1d8b071260b77"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a871400f233e46cc637f383106e89dd71" id="r_a871400f233e46cc637f383106e89dd71"><td class="memItemLeft" align="right" valign="top"><a id="a871400f233e46cc637f383106e89dd71" name="a871400f233e46cc637f383106e89dd71"></a>
-std::unordered_map&lt; std::string, std::unique_ptr&lt; Material &gt; &gt;&#160;</td><td class="memItemRight" valign="bottom"><b>mMaterials</b></td></tr>
-<tr class="memdesc:a871400f233e46cc637f383106e89dd71"><td class="mdescLeft">&#160;</td><td class="mdescRight">A map of materials, indexed by name. <br /></td></tr>
+<tr class="memitem:a871400f233e46cc637f383106e89dd71" id="r_a871400f233e46cc637f383106e89dd71"><td class="memItemLeft" align="right" valign="top">std::unordered_map&lt; std::string, std::unique_ptr&lt; Material &gt; &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a871400f233e46cc637f383106e89dd71">mMaterials</a></td></tr>
+<tr class="memdesc:a871400f233e46cc637f383106e89dd71"><td class="mdescLeft">&#160;</td><td class="mdescRight">Material definitions.  <br /></td></tr>
 <tr class="separator:a871400f233e46cc637f383106e89dd71"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a914940e399d2418018640ef3da130371" id="r_a914940e399d2418018640ef3da130371"><td class="memItemLeft" align="right" valign="top"><a id="a914940e399d2418018640ef3da130371" name="a914940e399d2418018640ef3da130371"></a>
-std::unordered_map&lt; std::string, std::unique_ptr&lt; Texture &gt; &gt;&#160;</td><td class="memItemRight" valign="bottom"><b>mTextures</b></td></tr>
-<tr class="memdesc:a914940e399d2418018640ef3da130371"><td class="mdescLeft">&#160;</td><td class="mdescRight">A map of textures, indexed by name. <br /></td></tr>
+<tr class="memitem:a914940e399d2418018640ef3da130371" id="r_a914940e399d2418018640ef3da130371"><td class="memItemLeft" align="right" valign="top">std::unordered_map&lt; std::string, std::unique_ptr&lt; Texture &gt; &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a914940e399d2418018640ef3da130371">mTextures</a></td></tr>
+<tr class="memdesc:a914940e399d2418018640ef3da130371"><td class="mdescLeft">&#160;</td><td class="mdescRight">Texture resources.  <br /></td></tr>
 <tr class="separator:a914940e399d2418018640ef3da130371"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a5d821a872c24ff21b97300d24e37ac23" id="r_a5d821a872c24ff21b97300d24e37ac23"><td class="memItemLeft" align="right" valign="top"><a id="a5d821a872c24ff21b97300d24e37ac23" name="a5d821a872c24ff21b97300d24e37ac23"></a>
-std::unordered_map&lt; std::string, ComPtr&lt; ID3DBlob &gt; &gt;&#160;</td><td class="memItemRight" valign="bottom"><b>mShaders</b></td></tr>
-<tr class="memdesc:a5d821a872c24ff21b97300d24e37ac23"><td class="mdescLeft">&#160;</td><td class="mdescRight">A map of shaders, indexed by name. <br /></td></tr>
+<tr class="memitem:a37526fb9e3451bf02dfdd41f3c97ccef" id="r_a37526fb9e3451bf02dfdd41f3c97ccef"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a37526fb9e3451bf02dfdd41f3c97ccef">mCurrentMaterialCBIndex</a> = 0</td></tr>
+<tr class="separator:a37526fb9e3451bf02dfdd41f3c97ccef"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aa95625268320c7275f716145cee5a741" id="r_aa95625268320c7275f716145cee5a741"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#aa95625268320c7275f716145cee5a741">mCurrentDiffuseSrvHeapIndex</a> = 0</td></tr>
+<tr class="separator:aa95625268320c7275f716145cee5a741"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ad7a064571877d4b8becd1f53c98cafa9" id="r_ad7a064571877d4b8becd1f53c98cafa9"><td class="memItemLeft" align="right" valign="top">UINT&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ad7a064571877d4b8becd1f53c98cafa9">mCbvSrvDescriptorSize</a> = 0</td></tr>
+<tr class="separator:ad7a064571877d4b8becd1f53c98cafa9"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a987fac1aded1b4f4b9495eb0f1464c12" id="r_a987fac1aded1b4f4b9495eb0f1464c12"><td class="memItemLeft" align="right" valign="top">ComPtr&lt; ID3D12RootSignature &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a987fac1aded1b4f4b9495eb0f1464c12">mRootSignature</a> = nullptr</td></tr>
+<tr class="separator:a987fac1aded1b4f4b9495eb0f1464c12"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a85befdbe03bbcdd30ad94cd64e0a1bd1" id="r_a85befdbe03bbcdd30ad94cd64e0a1bd1"><td class="memItemLeft" align="right" valign="top">ComPtr&lt; ID3D12DescriptorHeap &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a85befdbe03bbcdd30ad94cd64e0a1bd1">mSrvDescriptorHeap</a> = nullptr</td></tr>
+<tr class="separator:a85befdbe03bbcdd30ad94cd64e0a1bd1"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a5d821a872c24ff21b97300d24e37ac23" id="r_a5d821a872c24ff21b97300d24e37ac23"><td class="memItemLeft" align="right" valign="top">std::unordered_map&lt; std::string, ComPtr&lt; ID3DBlob &gt; &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a5d821a872c24ff21b97300d24e37ac23">mShaders</a></td></tr>
 <tr class="separator:a5d821a872c24ff21b97300d24e37ac23"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a4f5868aab9c96810369a9ab91dec1d2b" id="r_a4f5868aab9c96810369a9ab91dec1d2b"><td class="memItemLeft" align="right" valign="top"><a id="a4f5868aab9c96810369a9ab91dec1d2b" name="a4f5868aab9c96810369a9ab91dec1d2b"></a>
-std::vector&lt; D3D12_INPUT_ELEMENT_DESC &gt;&#160;</td><td class="memItemRight" valign="bottom"><b>mInputLayout</b></td></tr>
-<tr class="memdesc:a4f5868aab9c96810369a9ab91dec1d2b"><td class="mdescLeft">&#160;</td><td class="mdescRight">The input layout for the vertex shader. <br /></td></tr>
+<tr class="memitem:a4f5868aab9c96810369a9ab91dec1d2b" id="r_a4f5868aab9c96810369a9ab91dec1d2b"><td class="memItemLeft" align="right" valign="top">std::vector&lt; D3D12_INPUT_ELEMENT_DESC &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a4f5868aab9c96810369a9ab91dec1d2b">mInputLayout</a></td></tr>
 <tr class="separator:a4f5868aab9c96810369a9ab91dec1d2b"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:acb640d01b04bbb82f3f2b02ac09554b2" id="r_acb640d01b04bbb82f3f2b02ac09554b2"><td class="memItemLeft" align="right" valign="top"><a id="acb640d01b04bbb82f3f2b02ac09554b2" name="acb640d01b04bbb82f3f2b02ac09554b2"></a>
-ComPtr&lt; ID3D12PipelineState &gt;&#160;</td><td class="memItemRight" valign="bottom"><b>mOpaquePSO</b> = nullptr</td></tr>
-<tr class="memdesc:acb640d01b04bbb82f3f2b02ac09554b2"><td class="mdescLeft">&#160;</td><td class="mdescRight">The pipeline state object for opaque rendering. <br /></td></tr>
+<tr class="memitem:acb640d01b04bbb82f3f2b02ac09554b2" id="r_acb640d01b04bbb82f3f2b02ac09554b2"><td class="memItemLeft" align="right" valign="top">ComPtr&lt; ID3D12PipelineState &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#acb640d01b04bbb82f3f2b02ac09554b2">mOpaquePSO</a> = nullptr</td></tr>
 <tr class="separator:acb640d01b04bbb82f3f2b02ac09554b2"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:aa8184a727f9071c3db7e5efa3a6dce49" id="r_aa8184a727f9071c3db7e5efa3a6dce49"><td class="memItemLeft" align="right" valign="top"><a id="aa8184a727f9071c3db7e5efa3a6dce49" name="aa8184a727f9071c3db7e5efa3a6dce49"></a>
-std::vector&lt; std::unique_ptr&lt; <a class="el" href="struct_render_item.html">RenderItem</a> &gt; &gt;&#160;</td><td class="memItemRight" valign="bottom"><b>mAllRitems</b></td></tr>
-<tr class="memdesc:aa8184a727f9071c3db7e5efa3a6dce49"><td class="mdescLeft">&#160;</td><td class="mdescRight">A list of all render items in the scene. <br /></td></tr>
+<tr class="memitem:aa8184a727f9071c3db7e5efa3a6dce49" id="r_aa8184a727f9071c3db7e5efa3a6dce49"><td class="memItemLeft" align="right" valign="top">std::vector&lt; std::unique_ptr&lt; <a class="el" href="struct_render_item.html">RenderItem</a> &gt; &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#aa8184a727f9071c3db7e5efa3a6dce49">mAllRitems</a></td></tr>
 <tr class="separator:aa8184a727f9071c3db7e5efa3a6dce49"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a626d5d97ee0e536b99703094828f5f79" id="r_a626d5d97ee0e536b99703094828f5f79"><td class="memItemLeft" align="right" valign="top"><a id="a626d5d97ee0e536b99703094828f5f79" name="a626d5d97ee0e536b99703094828f5f79"></a>
-std::vector&lt; <a class="el" href="struct_render_item.html">RenderItem</a> * &gt;&#160;</td><td class="memItemRight" valign="bottom"><b>mOpaqueRitems</b></td></tr>
-<tr class="memdesc:a626d5d97ee0e536b99703094828f5f79"><td class="mdescLeft">&#160;</td><td class="mdescRight">A vector of render items to be rendered with the opaque PSO. <br /></td></tr>
+<tr class="memitem:a626d5d97ee0e536b99703094828f5f79" id="r_a626d5d97ee0e536b99703094828f5f79"><td class="memItemLeft" align="right" valign="top">std::vector&lt; <a class="el" href="struct_render_item.html">RenderItem</a> * &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a626d5d97ee0e536b99703094828f5f79">mOpaqueRitems</a></td></tr>
 <tr class="separator:a626d5d97ee0e536b99703094828f5f79"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ad2759008a4629646703b6e34e0501f6c" id="r_ad2759008a4629646703b6e34e0501f6c"><td class="memItemLeft" align="right" valign="top"><a id="ad2759008a4629646703b6e34e0501f6c" name="ad2759008a4629646703b6e34e0501f6c"></a>
-<a class="el" href="struct_pass_constants.html">PassConstants</a>&#160;</td><td class="memItemRight" valign="bottom"><b>mMainPassCB</b></td></tr>
-<tr class="memdesc:ad2759008a4629646703b6e34e0501f6c"><td class="mdescLeft">&#160;</td><td class="mdescRight">The constant buffer for pass-specific data. <br /></td></tr>
+<tr class="memitem:ad2759008a4629646703b6e34e0501f6c" id="r_ad2759008a4629646703b6e34e0501f6c"><td class="memItemLeft" align="right" valign="top"><a class="el" href="struct_pass_constants.html">PassConstants</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ad2759008a4629646703b6e34e0501f6c">mMainPassCB</a></td></tr>
 <tr class="separator:ad2759008a4629646703b6e34e0501f6c"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ab5cce9551fdd8b346b36747d6f4d3a38" id="r_ab5cce9551fdd8b346b36747d6f4d3a38"><td class="memItemLeft" align="right" valign="top"><a id="ab5cce9551fdd8b346b36747d6f4d3a38" name="ab5cce9551fdd8b346b36747d6f4d3a38"></a>
-POINT&#160;</td><td class="memItemRight" valign="bottom"><b>mLastMousePos</b></td></tr>
+<tr class="memitem:ab5cce9551fdd8b346b36747d6f4d3a38" id="r_ab5cce9551fdd8b346b36747d6f4d3a38"><td class="memItemLeft" align="right" valign="top">POINT&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ab5cce9551fdd8b346b36747d6f4d3a38">mLastMousePos</a></td></tr>
 <tr class="separator:ab5cce9551fdd8b346b36747d6f4d3a38"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a042dbbcf404fad865bdf72e534c675d5" id="r_a042dbbcf404fad865bdf72e534c675d5"><td class="memItemLeft" align="right" valign="top">Camera&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a042dbbcf404fad865bdf72e534c675d5">mCamera</a></td></tr>
-<tr class="memdesc:a042dbbcf404fad865bdf72e534c675d5"><td class="mdescLeft">&#160;</td><td class="mdescRight">The camera used for rendering the game world.  <br /></td></tr>
 <tr class="separator:a042dbbcf404fad865bdf72e534c675d5"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:adbc6dc1be92656b79625575a5d84e110" id="r_adbc6dc1be92656b79625575a5d84e110"><td class="memItemLeft" align="right" valign="top"><a class="el" href="class_world.html">World</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#adbc6dc1be92656b79625575a5d84e110">mWorld</a></td></tr>
-<tr class="memdesc:adbc6dc1be92656b79625575a5d84e110"><td class="mdescLeft">&#160;</td><td class="mdescRight">The game world object.  <br /></td></tr>
-<tr class="separator:adbc6dc1be92656b79625575a5d84e110"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a1633a90f20203779bc1a1171c2d7ad77" id="r_a1633a90f20203779bc1a1171c2d7ad77"><td class="memItemLeft" align="right" valign="top"><a class="el" href="class_player.html">Player</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a1633a90f20203779bc1a1171c2d7ad77">mPlayer</a></td></tr>
-<tr class="memdesc:a1633a90f20203779bc1a1171c2d7ad77"><td class="mdescLeft">&#160;</td><td class="mdescRight">The player object.  <br /></td></tr>
+<tr class="memdesc:a1633a90f20203779bc1a1171c2d7ad77"><td class="mdescLeft">&#160;</td><td class="mdescRight"><a class="el" href="class_player.html" title="Manages player input and actions.">Player</a> entity.  <br /></td></tr>
 <tr class="separator:a1633a90f20203779bc1a1171c2d7ad77"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a0baead77f3725081b986fb9d569c17dd" id="r_a0baead77f3725081b986fb9d569c17dd"><td class="memItemLeft" align="right" valign="top"><a class="el" href="class_state_stack.html">StateStack</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a0baead77f3725081b986fb9d569c17dd">mStateStack</a></td></tr>
+<tr class="memdesc:a0baead77f3725081b986fb9d569c17dd"><td class="mdescLeft">&#160;</td><td class="mdescRight"><a class="el" href="class_game.html" title="Core game application class inheriting from Direct3D base.">Game</a> state manager.  <br /></td></tr>
+<tr class="separator:a0baead77f3725081b986fb9d569c17dd"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
-<div class="textblock"><p>Main game class managing resources, rendering, and game logic. </p>
-<p>This class inherits from D3DApp and is responsible for initializing the game, managing game resources, handling input, updating game state, and rendering the game world. It serves as the central hub for all game-related operations. </p>
+<div class="textblock"><p>Core game application class inheriting from Direct3D base. </p>
+<p>Manages:</p><ul>
+<li>Direct3D/2D rendering systems</li>
+<li><a class="el" href="class_game.html" title="Core game application class inheriting from Direct3D base.">Game</a> state stack</li>
+<li>Resource management (materials, geometries, textures)</li>
+<li>Camera and player systems</li>
+<li>Frame resource management </li>
+</ul>
+
+<p class="definition">Definition at line <a class="el" href="_game_8hpp_source.html#l00017">17</a> of file <a class="el" href="_game_8hpp_source.html">Game.hpp</a>.</p>
 </div><h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
 <a id="a3f68a62a1fe1ca8dcd1deb054b384cef" name="a3f68a62a1fe1ca8dcd1deb054b384cef"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a3f68a62a1fe1ca8dcd1deb054b384cef">&#9670;&#160;</a></span>Game() <span class="overload">[1/2]</span></h2>
+<h2 class="memtitle"><span class="permalink"><a href="#a3f68a62a1fe1ca8dcd1deb054b384cef">&#9670;&#160;</a></span>Game()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -246,46 +309,17 @@ POINT&#160;</td><td class="memItemRight" valign="bottom"><b>mLastMousePos</b></t
       </table>
 </div><div class="memdoc">
 
-<p>Constructor for the <a class="el" href="class_game.html" title="Main game class managing resources, rendering, and game logic.">Game</a> class. </p>
+<p>Constructs the game application. </p>
+<p>Constructor for the <a class="el" href="class_game.html" title="Core game application class inheriting from Direct3D base.">Game</a> class.</p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
+    <tr><td class="paramname">hInstance</td><td>Application instance handle</td></tr>
     <tr><td class="paramname">hInstance</td><td>The HINSTANCE of the application. </td></tr>
   </table>
   </dd>
 </dl>
 
-</div>
-</div>
-<a id="a293c79673d4c15f55f1ab7f3d1809ddb" name="a293c79673d4c15f55f1ab7f3d1809ddb"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a293c79673d4c15f55f1ab7f3d1809ddb">&#9670;&#160;</a></span>Game() <span class="overload">[2/2]</span></h2>
-
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">Game::Game </td>
-          <td>(</td>
-          <td class="paramtype">const <a class="el" href="class_game.html">Game</a> &amp;</td>          <td class="paramname"><span class="paramname"><em>rhs</em></span></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel delete">delete</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-<p>Deleted copy constructor. Objects of this class cannot be copied. </p>
-<dl class="params"><dt>Parameters</dt><dd>
-  <table class="params">
-    <tr><td class="paramname">rhs</td><td>Unused. </td></tr>
-  </table>
-  </dd>
-</dl>
+<p class="definition">Definition at line <a class="el" href="_game_8cpp_source.html#l00017">17</a> of file <a class="el" href="_game_8cpp_source.html">Game.cpp</a>.</p>
 
 </div>
 </div>
@@ -304,12 +338,360 @@ POINT&#160;</td><td class="memItemRight" valign="bottom"><b>mLastMousePos</b></t
       </table>
 </div><div class="memdoc">
 
-<p>Destructor for the <a class="el" href="class_game.html" title="Main game class managing resources, rendering, and game logic.">Game</a> class. </p>
+<p>Destructor for resource cleanup. </p>
+<p>Destructor for the <a class="el" href="class_game.html" title="Core game application class inheriting from Direct3D base.">Game</a> class.</p>
 <p>Flushes the command queue to ensure all GPU commands are completed before releasing resources. </p>
+
+<p class="definition">Definition at line <a class="el" href="_game_8cpp_source.html#l00031">31</a> of file <a class="el" href="_game_8cpp_source.html">Game.cpp</a>.</p>
 
 </div>
 </div>
 <h2 class="groupheader">Member Function Documentation</h2>
+<a id="a7e0c6faa5f2386c3ad80fe5d5a9e11e4" name="a7e0c6faa5f2386c3ad80fe5d5a9e11e4"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a7e0c6faa5f2386c3ad80fe5d5a9e11e4">&#9670;&#160;</a></span>AnimateMaterials()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void Game::AnimateMaterials </td>
+          <td>(</td>
+          <td class="paramtype">const GameTimer &amp;</td>          <td class="paramname"><span class="paramname"><em>gt</em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Handles material animations. </p>
+<p>Animates the materials.</p>
+<p>Currently, this method is empty.</p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">gt</td><td>A const reference to a GameTimer object. </td></tr>
+  </table>
+  </dd>
+</dl>
+
+<p class="definition">Definition at line <a class="el" href="_game_8cpp_source.html#l00287">287</a> of file <a class="el" href="_game_8cpp_source.html">Game.cpp</a>.</p>
+
+</div>
+</div>
+<a id="a62c79f98ef99a7ee0c54e3ae23ab0173" name="a62c79f98ef99a7ee0c54e3ae23ab0173"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a62c79f98ef99a7ee0c54e3ae23ab0173">&#9670;&#160;</a></span>BuildDescriptorHeaps()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void Game::BuildDescriptorHeaps </td>
+          <td>(</td>
+          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Builds descriptor heaps. </p>
+<p>Builds the descriptor heaps.</p>
+<p>Creates and fills the descriptor heaps used for shader resource views (SRVs). </p>
+
+<p class="definition">Definition at line <a class="el" href="_game_8cpp_source.html#l00523">523</a> of file <a class="el" href="_game_8cpp_source.html">Game.cpp</a>.</p>
+
+</div>
+</div>
+<a id="a4545c2912bedea81f43783b24df89b34" name="a4545c2912bedea81f43783b24df89b34"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a4545c2912bedea81f43783b24df89b34">&#9670;&#160;</a></span>BuildFrameResources()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void Game::BuildFrameResources </td>
+          <td>(</td>
+          <td class="paramtype">int</td>          <td class="paramname"><span class="paramname"><em>renderItemCount</em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Creates frame resources. </p>
+<p>Builds the frame resources.</p>
+<p>Creates the frame resources used for double buffering. </p>
+
+<p class="definition">Definition at line <a class="el" href="_game_8cpp_source.html#l00827">827</a> of file <a class="el" href="_game_8cpp_source.html">Game.cpp</a>.</p>
+
+</div>
+</div>
+<a id="abfbaa697f65f1b0061670d2d89400f94" name="abfbaa697f65f1b0061670d2d89400f94"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#abfbaa697f65f1b0061670d2d89400f94">&#9670;&#160;</a></span>BuildHillGeometry()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void Game::BuildHillGeometry </td>
+          <td>(</td>
+          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Creates terrain geometry. </p>
+<p>Builds the hill geometry.</p>
+<p>Creates the vertex and index buffers for the hills used in the scene. </p>
+
+<p class="definition">Definition at line <a class="el" href="_game_8cpp_source.html#l00727">727</a> of file <a class="el" href="_game_8cpp_source.html">Game.cpp</a>.</p>
+
+</div>
+</div>
+<a id="a8150ddca90b1ce3c38becca970246d99" name="a8150ddca90b1ce3c38becca970246d99"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a8150ddca90b1ce3c38becca970246d99">&#9670;&#160;</a></span>BuildMaterials()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void Game::BuildMaterials </td>
+          <td>(</td>
+          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Initializes default materials. </p>
+<p>Builds the materials.</p>
+<p>Creates the materials used in the scene. </p>
+
+<p class="definition">Definition at line <a class="el" href="_game_8cpp_source.html#l00842">842</a> of file <a class="el" href="_game_8cpp_source.html">Game.cpp</a>.</p>
+
+</div>
+</div>
+<a id="aa0934b45052f43934eb93fd013ca23a8" name="aa0934b45052f43934eb93fd013ca23a8"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aa0934b45052f43934eb93fd013ca23a8">&#9670;&#160;</a></span>BuildPSOs()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void Game::BuildPSOs </td>
+          <td>(</td>
+          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Creates pipeline state objects. </p>
+<p>Builds the pipeline state objects (PSOs).</p>
+<p>Creates the PSOs for different rendering techniques. </p>
+
+<p class="definition">Definition at line <a class="el" href="_game_8cpp_source.html#l00789">789</a> of file <a class="el" href="_game_8cpp_source.html">Game.cpp</a>.</p>
+
+</div>
+</div>
+<a id="aa02e07384ccea21f7421ca60967c1fa5" name="aa02e07384ccea21f7421ca60967c1fa5"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aa02e07384ccea21f7421ca60967c1fa5">&#9670;&#160;</a></span>BuildRootSignature()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void Game::BuildRootSignature </td>
+          <td>(</td>
+          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Creates root signature. </p>
+<p>Builds the root signature.</p>
+<p>Defines the root signature used in the shaders. </p>
+
+<p class="definition">Definition at line <a class="el" href="_game_8cpp_source.html#l00473">473</a> of file <a class="el" href="_game_8cpp_source.html">Game.cpp</a>.</p>
+
+</div>
+</div>
+<a id="adc0692c304c05a5a281d88622b39c498" name="adc0692c304c05a5a281d88622b39c498"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#adc0692c304c05a5a281d88622b39c498">&#9670;&#160;</a></span>BuildShadersAndInputLayout()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void Game::BuildShadersAndInputLayout </td>
+          <td>(</td>
+          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Compiles shaders and defines input layout. </p>
+<p>Builds the pipeline state objects (PSOs).</p>
+<p>Creates the PSOs for rendering opaque objects. </p>
+
+<p class="definition">Definition at line <a class="el" href="_game_8cpp_source.html#l00649">649</a> of file <a class="el" href="_game_8cpp_source.html">Game.cpp</a>.</p>
+
+</div>
+</div>
+<a id="a6ee7b6d7f54345be7f6b406166dccb45" name="a6ee7b6d7f54345be7f6b406166dccb45"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a6ee7b6d7f54345be7f6b406166dccb45">&#9670;&#160;</a></span>BuildShapeGeometry()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void Game::BuildShapeGeometry </td>
+          <td>(</td>
+          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Creates primitive geometries. </p>
+<p>Builds the shape geometry.</p>
+<p>Creates the vertex and index buffers for the shapes used in the scene. </p>
+
+<p class="definition">Definition at line <a class="el" href="_game_8cpp_source.html#l00669">669</a> of file <a class="el" href="_game_8cpp_source.html">Game.cpp</a>.</p>
+
+</div>
+</div>
+<a id="af2dbd2efb85c1009e555a1c7f203b533" name="af2dbd2efb85c1009e555a1c7f203b533"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#af2dbd2efb85c1009e555a1c7f203b533">&#9670;&#160;</a></span>CreateMaterials()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void Game::CreateMaterials </td>
+          <td>(</td>
+          <td class="paramtype">std::string</td>          <td class="paramname"><span class="paramname"><em>Name</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">XMFLOAT4</td>          <td class="paramname"><span class="paramname"><em>DiffuseAlbedo</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">XMFLOAT3</td>          <td class="paramname"><span class="paramname"><em>FresnelR0</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">float</td>          <td class="paramname"><span class="paramname"><em>Roughness</em></span>&#160;)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Creates a material definition. </p>
+<p>Creates a material.</p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">Name</td><td>Unique identifier for the material </td></tr>
+    <tr><td class="paramname">DiffuseAlbedo</td><td>Base color properties </td></tr>
+    <tr><td class="paramname">FresnelR0</td><td>Reflectance properties </td></tr>
+    <tr><td class="paramname">Roughness</td><td>Surface roughness value</td></tr>
+  </table>
+  </dd>
+</dl>
+<p>Creates a material with the specified properties and adds it to the materials map.</p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">Name</td><td>The name of the material. </td></tr>
+    <tr><td class="paramname">DiffuseAlbedo</td><td>The diffuse albedo color of the material. </td></tr>
+    <tr><td class="paramname">FresnelR0</td><td>The Fresnel reflectance at normal incidence. </td></tr>
+    <tr><td class="paramname">Roughness</td><td>The roughness of the material. </td></tr>
+  </table>
+  </dd>
+</dl>
+
+<p class="definition">Definition at line <a class="el" href="_game_8cpp_source.html#l00874">874</a> of file <a class="el" href="_game_8cpp_source.html">Game.cpp</a>.</p>
+
+</div>
+</div>
+<a id="a066779a1c2030d790625f7db848b8a41" name="a066779a1c2030d790625f7db848b8a41"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a066779a1c2030d790625f7db848b8a41">&#9670;&#160;</a></span>CreateTexture()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void Game::CreateTexture </td>
+          <td>(</td>
+          <td class="paramtype">std::string</td>          <td class="paramname"><span class="paramname"><em>Name</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">std::wstring</td>          <td class="paramname"><span class="paramname"><em>FileName</em></span>&#160;)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Creates a texture resource. </p>
+<p>Loads the textures.</p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">Name</td><td>Unique identifier for the texture </td></tr>
+    <tr><td class="paramname">FileName</td><td>Path to texture file</td></tr>
+  </table>
+  </dd>
+</dl>
+<p>Loads texture resources from files and stores them in the texture map. </p>
+
+<p class="definition">Definition at line <a class="el" href="_game_8cpp_source.html#l00419">419</a> of file <a class="el" href="_game_8cpp_source.html">Game.cpp</a>.</p>
+
+</div>
+</div>
+<a id="afc62dae28f3cd775d8110ff5386c1fe1" name="afc62dae28f3cd775d8110ff5386c1fe1"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#afc62dae28f3cd775d8110ff5386c1fe1">&#9670;&#160;</a></span>Draw()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void Game::Draw </td>
+          <td>(</td>
+          <td class="paramtype">const GameTimer &amp;</td>          <td class="paramname"><span class="paramname"><em>gt</em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel override">override</span><span class="mlabel virtual">virtual</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Main rendering loop. </p>
+<p>Draws the game scene.</p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">gt</td><td><a class="el" href="class_game.html" title="Core game application class inheriting from Direct3D base.">Game</a> timer with frame timing @override D3DApp override</td></tr>
+  </table>
+  </dd>
+</dl>
+<p>This method draws the game scene by resetting the command list, setting the viewport and scissor rectangles, transitioning the back buffer to the render target state, clearing the back buffer and depth buffer, setting render targets, setting descriptor heaps, setting the root signature, setting the pass constant buffer, drawing the game world, drawing render items, transitioning the back buffer to the present state, executing the command list, presenting the back buffer, and advancing the fence value.</p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">gt</td><td>A const reference to a GameTimer object. </td></tr>
+  </table>
+  </dd>
+</dl>
+
+<p class="definition">Definition at line <a class="el" href="_game_8cpp_source.html#l00162">162</a> of file <a class="el" href="_game_8cpp_source.html">Game.cpp</a>.</p>
+
+</div>
+</div>
 <a id="a9283a2ccc7cad9fdd4b25f7979d3c5c1" name="a9283a2ccc7cad9fdd4b25f7979d3c5c1"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a9283a2ccc7cad9fdd4b25f7979d3c5c1">&#9670;&#160;</a></span>getCmdList()</h2>
 
@@ -333,8 +715,7 @@ POINT&#160;</td><td class="memItemRight" valign="bottom"><b>mLastMousePos</b></t
 </table>
 </div><div class="memdoc">
 
-<p>Returns the command list. </p>
-<dl class="section return"><dt>Returns</dt><dd>A pointer to the ID3D12GraphicsCommandList. </dd></dl>
+<p class="definition">Definition at line <a class="el" href="_game_8hpp_source.html#l00185">185</a> of file <a class="el" href="_game_8hpp_source.html">Game.hpp</a>.</p>
 
 </div>
 </div>
@@ -361,8 +742,77 @@ POINT&#160;</td><td class="memItemRight" valign="bottom"><b>mLastMousePos</b></t
 </table>
 </div><div class="memdoc">
 
-<p>Returns the list of geometries. </p>
-<dl class="section return"><dt>Returns</dt><dd>A reference to the unordered map of mesh geometries. </dd></dl>
+<p class="definition">Definition at line <a class="el" href="_game_8hpp_source.html#l00187">187</a> of file <a class="el" href="_game_8hpp_source.html">Game.hpp</a>.</p>
+
+</div>
+</div>
+<a id="ae34ee318abbb639ba5ddee0901e8daeb" name="ae34ee318abbb639ba5ddee0901e8daeb"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ae34ee318abbb639ba5ddee0901e8daeb">&#9670;&#160;</a></span>GetHillsHeight()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">float Game::GetHillsHeight </td>
+          <td>(</td>
+          <td class="paramtype">float</td>          <td class="paramname"><span class="paramname"><em>x</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">float</td>          <td class="paramname"><span class="paramname"><em>z</em></span>&#160;) const</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Gets terrain height at position. </p>
+<p>Gets the height of the hills.</p>
+<p>Calculates the height of the hills at the specified coordinates.</p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">x</td><td>The x-coordinate. </td></tr>
+    <tr><td class="paramname">z</td><td>The z-coordinate. </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>The height of the hills at the specified coordinates. </dd></dl>
+
+<p class="definition">Definition at line <a class="el" href="_game_8cpp_source.html#l01011">1011</a> of file <a class="el" href="_game_8cpp_source.html">Game.cpp</a>.</p>
+
+</div>
+</div>
+<a id="a1e7d5c561b35c51d38be2cbff83c4313" name="a1e7d5c561b35c51d38be2cbff83c4313"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a1e7d5c561b35c51d38be2cbff83c4313">&#9670;&#160;</a></span>GetHillsNormal()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">XMFLOAT3 Game::GetHillsNormal </td>
+          <td>(</td>
+          <td class="paramtype">float</td>          <td class="paramname"><span class="paramname"><em>x</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">float</td>          <td class="paramname"><span class="paramname"><em>z</em></span>&#160;) const</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Gets terrain normal at position. </p>
+<p>Gets the normal vector of the hills.</p>
+<p>Calculates the normal vector of the hills at the specified coordinates.</p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">x</td><td>The x-coordinate. </td></tr>
+    <tr><td class="paramname">z</td><td>The z-coordinate. </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>The normal vector of the hills at the specified coordinates. </dd></dl>
+
+<p class="definition">Definition at line <a class="el" href="_game_8cpp_source.html#l01025">1025</a> of file <a class="el" href="_game_8cpp_source.html">Game.cpp</a>.</p>
 
 </div>
 </div>
@@ -389,36 +839,31 @@ POINT&#160;</td><td class="memItemRight" valign="bottom"><b>mLastMousePos</b></t
 </table>
 </div><div class="memdoc">
 
-<p>Returns the list of materials. </p>
-<dl class="section return"><dt>Returns</dt><dd>A reference to the map of unique pointers to Material objects. </dd></dl>
+<p class="definition">Definition at line <a class="el" href="_game_8hpp_source.html#l00186">186</a> of file <a class="el" href="_game_8hpp_source.html">Game.hpp</a>.</p>
 
 </div>
 </div>
-<a id="aab13f3fdd19f7fec4d64922e36cf3088" name="aab13f3fdd19f7fec4d64922e36cf3088"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#aab13f3fdd19f7fec4d64922e36cf3088">&#9670;&#160;</a></span>getRenderItems()</h2>
+<a id="a6e8f674ef01b7480d39fe90374301c2d" name="a6e8f674ef01b7480d39fe90374301c2d"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a6e8f674ef01b7480d39fe90374301c2d">&#9670;&#160;</a></span>GetStaticSamplers()</h2>
 
 <div class="memitem">
 <div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">std::vector&lt; std::unique_ptr&lt; <a class="el" href="struct_render_item.html">RenderItem</a> &gt; &gt; &amp; Game::getRenderItems </td>
+          <td class="memname">std::array&lt; const CD3DX12_STATIC_SAMPLER_DESC, 6 &gt; Game::GetStaticSamplers </td>
           <td>(</td>
           <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
           <td></td>
         </tr>
       </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel inline">inline</span></span>  </td>
-  </tr>
-</table>
 </div><div class="memdoc">
 
-<p>Returns the list of render items. </p>
-<dl class="section return"><dt>Returns</dt><dd>A reference to the vector of unique pointers to <a class="el" href="struct_render_item.html" title="Lightweight structure to store parameters for drawing a shape.">RenderItem</a> objects. </dd></dl>
+<p>Gets default static samplers. </p>
+<p>Gets the static samplers.</p>
+<p>Returns an array of static sampler descriptions.</p>
+<dl class="section return"><dt>Returns</dt><dd>An array of const CD3DX12_STATIC_SAMPLER_DESC objects. </dd></dl>
+
+<p class="definition">Definition at line <a class="el" href="_game_8cpp_source.html#l00945">945</a> of file <a class="el" href="_game_8cpp_source.html">Game.cpp</a>.</p>
 
 </div>
 </div>
@@ -445,15 +890,444 @@ POINT&#160;</td><td class="memItemRight" valign="bottom"><b>mLastMousePos</b></t
 </table>
 </div><div class="memdoc">
 
-<p>Initializes the game. This includes D3D, Resource creation, etc. </p>
+<p>Initializes game systems. </p>
 <p>Initializes the game.</p>
-<dl class="section return"><dt>Returns</dt><dd>true if initialization was successful, false otherwise.</dd></dl>
+<dl class="section return"><dt>Returns</dt><dd>True if successful, false otherwise @override D3DApp override</dd></dl>
 <p>This method initializes D3D, creates resources, loads textures, builds the root signature, descriptor heaps, shaders, geometry, materials, render items, frame resources, and pipeline state objects.</p>
 <dl class="section return"><dt>Returns</dt><dd>true if initialization was successful, false otherwise. </dd></dl>
+
+<p class="definition">Definition at line <a class="el" href="_game_8cpp_source.html#l00046">46</a> of file <a class="el" href="_game_8cpp_source.html">Game.cpp</a>.</p>
+
+</div>
+</div>
+<a id="ad23eba18656a646756a98bcda25a98a4" name="ad23eba18656a646756a98bcda25a98a4"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ad23eba18656a646756a98bcda25a98a4">&#9670;&#160;</a></span>LoadTextures()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void Game::LoadTextures </td>
+          <td>(</td>
+          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Loads all texture resources. </p>
+<p>Loads all textures used in the game.</p>
+<p>This method creates texture resources for various game assets. </p>
+
+<p class="definition">Definition at line <a class="el" href="_game_8cpp_source.html#l00435">435</a> of file <a class="el" href="_game_8cpp_source.html">Game.cpp</a>.</p>
+
+</div>
+</div>
+<a id="a35759ff84d520ea106a53dc5d2d28b1a" name="a35759ff84d520ea106a53dc5d2d28b1a"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a35759ff84d520ea106a53dc5d2d28b1a">&#9670;&#160;</a></span>OnKeyDown()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void Game::OnKeyDown </td>
+          <td>(</td>
+          <td class="paramtype">WPARAM</td>          <td class="paramname"><span class="paramname"><em>btnState</em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel override">override</span><span class="mlabel virtual">virtual</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p class="definition">Definition at line <a class="el" href="_game_8cpp_source.html#l00264">264</a> of file <a class="el" href="_game_8cpp_source.html">Game.cpp</a>.</p>
+
+</div>
+</div>
+<a id="a605e728835f29b7b320f6c9c8de05d00" name="a605e728835f29b7b320f6c9c8de05d00"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a605e728835f29b7b320f6c9c8de05d00">&#9670;&#160;</a></span>OnMouseDown()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void Game::OnMouseDown </td>
+          <td>(</td>
+          <td class="paramtype">WPARAM</td>          <td class="paramname"><span class="paramname"><em>btnState</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int</td>          <td class="paramname"><span class="paramname"><em>x</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int</td>          <td class="paramname"><span class="paramname"><em>y</em></span>&#160;)</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel override">override</span><span class="mlabel virtual">virtual</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p class="definition">Definition at line <a class="el" href="_game_8cpp_source.html#l00234">234</a> of file <a class="el" href="_game_8cpp_source.html">Game.cpp</a>.</p>
+
+</div>
+</div>
+<a id="ada0f3fffa1b4560465128b1eff7d1ef5" name="ada0f3fffa1b4560465128b1eff7d1ef5"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ada0f3fffa1b4560465128b1eff7d1ef5">&#9670;&#160;</a></span>OnMouseMove()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void Game::OnMouseMove </td>
+          <td>(</td>
+          <td class="paramtype">WPARAM</td>          <td class="paramname"><span class="paramname"><em>btnState</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int</td>          <td class="paramname"><span class="paramname"><em>x</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int</td>          <td class="paramname"><span class="paramname"><em>y</em></span>&#160;)</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel override">override</span><span class="mlabel virtual">virtual</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p class="definition">Definition at line <a class="el" href="_game_8cpp_source.html#l00247">247</a> of file <a class="el" href="_game_8cpp_source.html">Game.cpp</a>.</p>
+
+</div>
+</div>
+<a id="a020e0c5f01a724bfef357bfe29f800c3" name="a020e0c5f01a724bfef357bfe29f800c3"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a020e0c5f01a724bfef357bfe29f800c3">&#9670;&#160;</a></span>OnMouseUp()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void Game::OnMouseUp </td>
+          <td>(</td>
+          <td class="paramtype">WPARAM</td>          <td class="paramname"><span class="paramname"><em>btnState</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int</td>          <td class="paramname"><span class="paramname"><em>x</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int</td>          <td class="paramname"><span class="paramname"><em>y</em></span>&#160;)</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel override">override</span><span class="mlabel virtual">virtual</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p class="definition">Definition at line <a class="el" href="_game_8cpp_source.html#l00242">242</a> of file <a class="el" href="_game_8cpp_source.html">Game.cpp</a>.</p>
+
+</div>
+</div>
+<a id="a7bd6d8d7aa09aa1196b4fa463d2ac41b" name="a7bd6d8d7aa09aa1196b4fa463d2ac41b"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a7bd6d8d7aa09aa1196b4fa463d2ac41b">&#9670;&#160;</a></span>OnResize()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void Game::OnResize </td>
+          <td>(</td>
+          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel override">override</span><span class="mlabel virtual">virtual</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Handles window resize events @override D3DApp override. </p>
+<p>Handles window resizing.</p>
+<p>Updates the aspect ratio and recomputes the projection matrix based on the new window dimensions. </p>
+
+<p class="definition">Definition at line <a class="el" href="_game_8cpp_source.html#l00091">91</a> of file <a class="el" href="_game_8cpp_source.html">Game.cpp</a>.</p>
+
+</div>
+</div>
+<a id="aebce4ccb64400e1a932f7ac96da4233b" name="aebce4ccb64400e1a932f7ac96da4233b"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aebce4ccb64400e1a932f7ac96da4233b">&#9670;&#160;</a></span>RegisterStates()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void Game::RegisterStates </td>
+          <td>(</td>
+          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Registers game states with the state stack. </p>
+<p>Registers the game states.</p>
+<p>Registers the game states with the state stack. </p>
+
+<p class="definition">Definition at line <a class="el" href="_game_8cpp_source.html#l00892">892</a> of file <a class="el" href="_game_8cpp_source.html">Game.cpp</a>.</p>
+
+</div>
+</div>
+<a id="aa95aef9aabba3278be080bfc8437e735" name="aa95aef9aabba3278be080bfc8437e735"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aa95aef9aabba3278be080bfc8437e735">&#9670;&#160;</a></span>ResetFrameResources()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void Game::ResetFrameResources </td>
+          <td>(</td>
+          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Resets frame resource allocation. </p>
+<p>Resets the frame resources.</p>
+<p>Clears the frame resources and waits for the GPU to finish processing. </p>
+
+<p class="definition">Definition at line <a class="el" href="_game_8cpp_source.html#l00930">930</a> of file <a class="el" href="_game_8cpp_source.html">Game.cpp</a>.</p>
+
+</div>
+</div>
+<a id="ab9244991993b5a1cbde3f1f2d73f2745" name="ab9244991993b5a1cbde3f1f2d73f2745"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ab9244991993b5a1cbde3f1f2d73f2745">&#9670;&#160;</a></span>Update()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void Game::Update </td>
+          <td>(</td>
+          <td class="paramtype">const GameTimer &amp;</td>          <td class="paramname"><span class="paramname"><em>gt</em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel override">override</span><span class="mlabel virtual">virtual</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Main update loop. </p>
+<p>Updates the game state.</p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">gt</td><td><a class="el" href="class_game.html" title="Core game application class inheriting from Direct3D base.">Game</a> timer with frame timing @override D3DApp override</td></tr>
+  </table>
+  </dd>
+</dl>
+<p>This method processes input, updates the game world, updates the camera, cycles through frame resources, waits for the GPU to complete previous commands, animates materials, and updates constant buffers.</p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">gt</td><td>A const reference to a GameTimer object. </td></tr>
+  </table>
+  </dd>
+</dl>
+
+<p class="definition">Definition at line <a class="el" href="_game_8cpp_source.html#l00112">112</a> of file <a class="el" href="_game_8cpp_source.html">Game.cpp</a>.</p>
+
+</div>
+</div>
+<a id="a077400cce3bd3e41333b8228b386e450" name="a077400cce3bd3e41333b8228b386e450"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a077400cce3bd3e41333b8228b386e450">&#9670;&#160;</a></span>UpdateCamera()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void Game::UpdateCamera </td>
+          <td>(</td>
+          <td class="paramtype">const GameTimer &amp;</td>          <td class="paramname"><span class="paramname"><em>gt</em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Updates camera transforms. </p>
+<p>Updates the camera.</p>
+<p>Updates the view matrix of the camera. </p>
+
+<p class="definition">Definition at line <a class="el" href="_game_8cpp_source.html#l00275">275</a> of file <a class="el" href="_game_8cpp_source.html">Game.cpp</a>.</p>
+
+</div>
+</div>
+<a id="aa3bb0452e306c88eadfb2d4eedf5ad25" name="aa3bb0452e306c88eadfb2d4eedf5ad25"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aa3bb0452e306c88eadfb2d4eedf5ad25">&#9670;&#160;</a></span>UpdateMainPassCB()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void Game::UpdateMainPassCB </td>
+          <td>(</td>
+          <td class="paramtype">const GameTimer &amp;</td>          <td class="paramname"><span class="paramname"><em>gt</em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Updates pass constants. </p>
+<p>Updates the main pass constant buffer.</p>
+<p>Updates the main pass constant buffer with view, projection, and lighting information.</p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">gt</td><td>A const reference to a GameTimer object. </td></tr>
+  </table>
+  </dd>
+</dl>
+
+<p class="definition">Definition at line <a class="el" href="_game_8cpp_source.html#l00367">367</a> of file <a class="el" href="_game_8cpp_source.html">Game.cpp</a>.</p>
+
+</div>
+</div>
+<a id="a4b7fd5dda779a7dd834dd7d26566b657" name="a4b7fd5dda779a7dd834dd7d26566b657"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a4b7fd5dda779a7dd834dd7d26566b657">&#9670;&#160;</a></span>UpdateMaterialCBs()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void Game::UpdateMaterialCBs </td>
+          <td>(</td>
+          <td class="paramtype">const GameTimer &amp;</td>          <td class="paramname"><span class="paramname"><em>gt</em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Updates material constant buffers. </p>
+<p>Updates the material constant buffers.</p>
+<p>Updates the material constant buffers for each material if the constants have changed.</p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">gt</td><td>A const reference to a GameTimer object. </td></tr>
+  </table>
+  </dd>
+</dl>
+
+<p class="definition">Definition at line <a class="el" href="_game_8cpp_source.html#l00333">333</a> of file <a class="el" href="_game_8cpp_source.html">Game.cpp</a>.</p>
+
+</div>
+</div>
+<a id="a1bdfe76a8bfdff007837cb2d2c3c59d6" name="a1bdfe76a8bfdff007837cb2d2c3c59d6"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a1bdfe76a8bfdff007837cb2d2c3c59d6">&#9670;&#160;</a></span>UpdateObjectCBs()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void Game::UpdateObjectCBs </td>
+          <td>(</td>
+          <td class="paramtype">const GameTimer &amp;</td>          <td class="paramname"><span class="paramname"><em>gt</em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Updates object constant buffers. </p>
+<p>Updates the object constant buffers.</p>
+<p>Updates the object constant buffers for each render item if the constants have changed.</p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">gt</td><td>A const reference to a GameTimer object. </td></tr>
+  </table>
+  </dd>
+</dl>
+
+<p class="definition">Definition at line <a class="el" href="_game_8cpp_source.html#l00300">300</a> of file <a class="el" href="_game_8cpp_source.html">Game.cpp</a>.</p>
+
+</div>
+</div>
+<a id="a6732bc31d3b397a4cb6211ff1c5c4b9d" name="a6732bc31d3b397a4cb6211ff1c5c4b9d"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a6732bc31d3b397a4cb6211ff1c5c4b9d">&#9670;&#160;</a></span>WaitForGPU()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void Game::WaitForGPU </td>
+          <td>(</td>
+          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Synchronizes CPU/GPU execution. </p>
+<p>Waits for the GPU to finish processing.</p>
+<p>This method blocks the CPU until the GPU has completed all commands up to the specified fence point. </p>
+
+<p class="definition">Definition at line <a class="el" href="_game_8cpp_source.html#l00907">907</a> of file <a class="el" href="_game_8cpp_source.html">Game.cpp</a>.</p>
 
 </div>
 </div>
 <h2 class="groupheader">Member Data Documentation</h2>
+<a id="aa8184a727f9071c3db7e5efa3a6dce49" name="aa8184a727f9071c3db7e5efa3a6dce49"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aa8184a727f9071c3db7e5efa3a6dce49">&#9670;&#160;</a></span>mAllRitems</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">std::vector&lt;std::unique_ptr&lt;<a class="el" href="struct_render_item.html">RenderItem</a>&gt; &gt; Game::mAllRitems</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p class="definition">Definition at line <a class="el" href="_game_8hpp_source.html#l00168">168</a> of file <a class="el" href="_game_8hpp_source.html">Game.hpp</a>.</p>
+
+</div>
+</div>
 <a id="a042dbbcf404fad865bdf72e534c675d5" name="a042dbbcf404fad865bdf72e534c675d5"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a042dbbcf404fad865bdf72e534c675d5">&#9670;&#160;</a></span>mCamera</h2>
 
@@ -466,8 +1340,225 @@ POINT&#160;</td><td class="memItemRight" valign="bottom"><b>mLastMousePos</b></t
       </table>
 </div><div class="memdoc">
 
-<p>The camera used for rendering the game world. </p>
-<p>This camera object manages the view and projection matrices, as well as camera movement and orientation. </p>
+<p class="definition">Definition at line <a class="el" href="_game_8hpp_source.html#l00176">176</a> of file <a class="el" href="_game_8hpp_source.html">Game.hpp</a>.</p>
+
+</div>
+</div>
+<a id="ad7a064571877d4b8becd1f53c98cafa9" name="ad7a064571877d4b8becd1f53c98cafa9"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ad7a064571877d4b8becd1f53c98cafa9">&#9670;&#160;</a></span>mCbvSrvDescriptorSize</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">UINT Game::mCbvSrvDescriptorSize = 0</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p class="definition">Definition at line <a class="el" href="_game_8hpp_source.html#l00156">156</a> of file <a class="el" href="_game_8hpp_source.html">Game.hpp</a>.</p>
+
+</div>
+</div>
+<a id="aa95625268320c7275f716145cee5a741" name="aa95625268320c7275f716145cee5a741"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aa95625268320c7275f716145cee5a741">&#9670;&#160;</a></span>mCurrentDiffuseSrvHeapIndex</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">int Game::mCurrentDiffuseSrvHeapIndex = 0</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p class="definition">Definition at line <a class="el" href="_game_8hpp_source.html#l00154">154</a> of file <a class="el" href="_game_8hpp_source.html">Game.hpp</a>.</p>
+
+</div>
+</div>
+<a id="a37526fb9e3451bf02dfdd41f3c97ccef" name="a37526fb9e3451bf02dfdd41f3c97ccef"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a37526fb9e3451bf02dfdd41f3c97ccef">&#9670;&#160;</a></span>mCurrentMaterialCBIndex</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">int Game::mCurrentMaterialCBIndex = 0</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p class="definition">Definition at line <a class="el" href="_game_8hpp_source.html#l00152">152</a> of file <a class="el" href="_game_8hpp_source.html">Game.hpp</a>.</p>
+
+</div>
+</div>
+<a id="a6119ac12b9dafae4e105ac9b4e80c1b2" name="a6119ac12b9dafae4e105ac9b4e80c1b2"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a6119ac12b9dafae4e105ac9b4e80c1b2">&#9670;&#160;</a></span>mCurrFrameResource</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="struct_frame_resource.html">FrameResource</a>* Game::mCurrFrameResource = nullptr</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Current frame resource. </p>
+
+<p class="definition">Definition at line <a class="el" href="_game_8hpp_source.html#l00145">145</a> of file <a class="el" href="_game_8hpp_source.html">Game.hpp</a>.</p>
+
+</div>
+</div>
+<a id="a1f687875ba94b87162a7dc90b80b0092" name="a1f687875ba94b87162a7dc90b80b0092"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a1f687875ba94b87162a7dc90b80b0092">&#9670;&#160;</a></span>mCurrFrameResourceIndex</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">int Game::mCurrFrameResourceIndex = 0</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Current frame resource index. </p>
+
+<p class="definition">Definition at line <a class="el" href="_game_8hpp_source.html#l00146">146</a> of file <a class="el" href="_game_8hpp_source.html">Game.hpp</a>.</p>
+
+</div>
+</div>
+<a id="a2a9401ba48c48468ceef6771309ddff7" name="a2a9401ba48c48468ceef6771309ddff7"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a2a9401ba48c48468ceef6771309ddff7">&#9670;&#160;</a></span>mFrameResources</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">std::vector&lt;std::unique_ptr&lt;<a class="el" href="struct_frame_resource.html">FrameResource</a>&gt; &gt; Game::mFrameResources</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Frame resource ring buffer. </p>
+
+<p class="definition">Definition at line <a class="el" href="_game_8hpp_source.html#l00144">144</a> of file <a class="el" href="_game_8hpp_source.html">Game.hpp</a>.</p>
+
+</div>
+</div>
+<a id="a0e53612a0a54bdd46ea1d8b071260b77" name="a0e53612a0a54bdd46ea1d8b071260b77"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a0e53612a0a54bdd46ea1d8b071260b77">&#9670;&#160;</a></span>mGeometries</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">std::unordered_map&lt;std::string, std::unique_ptr&lt;MeshGeometry&gt; &gt; Game::mGeometries</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Geometry resources. </p>
+
+<p class="definition">Definition at line <a class="el" href="_game_8hpp_source.html#l00148">148</a> of file <a class="el" href="_game_8hpp_source.html">Game.hpp</a>.</p>
+
+</div>
+</div>
+<a id="a4f5868aab9c96810369a9ab91dec1d2b" name="a4f5868aab9c96810369a9ab91dec1d2b"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a4f5868aab9c96810369a9ab91dec1d2b">&#9670;&#160;</a></span>mInputLayout</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">std::vector&lt;D3D12_INPUT_ELEMENT_DESC&gt; Game::mInputLayout</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p class="definition">Definition at line <a class="el" href="_game_8hpp_source.html#l00164">164</a> of file <a class="el" href="_game_8hpp_source.html">Game.hpp</a>.</p>
+
+</div>
+</div>
+<a id="ab5cce9551fdd8b346b36747d6f4d3a38" name="ab5cce9551fdd8b346b36747d6f4d3a38"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ab5cce9551fdd8b346b36747d6f4d3a38">&#9670;&#160;</a></span>mLastMousePos</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">POINT Game::mLastMousePos</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p class="definition">Definition at line <a class="el" href="_game_8hpp_source.html#l00174">174</a> of file <a class="el" href="_game_8hpp_source.html">Game.hpp</a>.</p>
+
+</div>
+</div>
+<a id="ad2759008a4629646703b6e34e0501f6c" name="ad2759008a4629646703b6e34e0501f6c"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ad2759008a4629646703b6e34e0501f6c">&#9670;&#160;</a></span>mMainPassCB</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="struct_pass_constants.html">PassConstants</a> Game::mMainPassCB</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p class="definition">Definition at line <a class="el" href="_game_8hpp_source.html#l00172">172</a> of file <a class="el" href="_game_8hpp_source.html">Game.hpp</a>.</p>
+
+</div>
+</div>
+<a id="a871400f233e46cc637f383106e89dd71" name="a871400f233e46cc637f383106e89dd71"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a871400f233e46cc637f383106e89dd71">&#9670;&#160;</a></span>mMaterials</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">std::unordered_map&lt;std::string, std::unique_ptr&lt;Material&gt; &gt; Game::mMaterials</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Material definitions. </p>
+
+<p class="definition">Definition at line <a class="el" href="_game_8hpp_source.html#l00149">149</a> of file <a class="el" href="_game_8hpp_source.html">Game.hpp</a>.</p>
+
+</div>
+</div>
+<a id="acb640d01b04bbb82f3f2b02ac09554b2" name="acb640d01b04bbb82f3f2b02ac09554b2"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#acb640d01b04bbb82f3f2b02ac09554b2">&#9670;&#160;</a></span>mOpaquePSO</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">ComPtr&lt;ID3D12PipelineState&gt; Game::mOpaquePSO = nullptr</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p class="definition">Definition at line <a class="el" href="_game_8hpp_source.html#l00166">166</a> of file <a class="el" href="_game_8hpp_source.html">Game.hpp</a>.</p>
+
+</div>
+</div>
+<a id="a626d5d97ee0e536b99703094828f5f79" name="a626d5d97ee0e536b99703094828f5f79"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a626d5d97ee0e536b99703094828f5f79">&#9670;&#160;</a></span>mOpaqueRitems</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">std::vector&lt;<a class="el" href="struct_render_item.html">RenderItem</a>*&gt; Game::mOpaqueRitems</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p class="definition">Definition at line <a class="el" href="_game_8hpp_source.html#l00170">170</a> of file <a class="el" href="_game_8hpp_source.html">Game.hpp</a>.</p>
 
 </div>
 </div>
@@ -483,31 +1574,99 @@ POINT&#160;</td><td class="memItemRight" valign="bottom"><b>mLastMousePos</b></t
       </table>
 </div><div class="memdoc">
 
-<p>The player object. </p>
-<p>Handles player-specific logic, including input mapping and player state management. </p>
+<p><a class="el" href="class_player.html" title="Manages player input and actions.">Player</a> entity. </p>
+
+<p class="definition">Definition at line <a class="el" href="_game_8hpp_source.html#l00178">178</a> of file <a class="el" href="_game_8hpp_source.html">Game.hpp</a>.</p>
 
 </div>
 </div>
-<a id="adbc6dc1be92656b79625575a5d84e110" name="adbc6dc1be92656b79625575a5d84e110"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#adbc6dc1be92656b79625575a5d84e110">&#9670;&#160;</a></span>mWorld</h2>
+<a id="a987fac1aded1b4f4b9495eb0f1464c12" name="a987fac1aded1b4f4b9495eb0f1464c12"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a987fac1aded1b4f4b9495eb0f1464c12">&#9670;&#160;</a></span>mRootSignature</h2>
 
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname"><a class="el" href="class_world.html">World</a> Game::mWorld</td>
+          <td class="memname">ComPtr&lt;ID3D12RootSignature&gt; Game::mRootSignature = nullptr</td>
         </tr>
       </table>
 </div><div class="memdoc">
 
-<p>The game world object. </p>
-<p>Manages all entities, scene graph, and game-specific logic that isn't directly related to rendering or input handling. </p>
+<p class="definition">Definition at line <a class="el" href="_game_8hpp_source.html#l00158">158</a> of file <a class="el" href="_game_8hpp_source.html">Game.hpp</a>.</p>
+
+</div>
+</div>
+<a id="a5d821a872c24ff21b97300d24e37ac23" name="a5d821a872c24ff21b97300d24e37ac23"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a5d821a872c24ff21b97300d24e37ac23">&#9670;&#160;</a></span>mShaders</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">std::unordered_map&lt;std::string, ComPtr&lt;ID3DBlob&gt; &gt; Game::mShaders</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p class="definition">Definition at line <a class="el" href="_game_8hpp_source.html#l00162">162</a> of file <a class="el" href="_game_8hpp_source.html">Game.hpp</a>.</p>
+
+</div>
+</div>
+<a id="a85befdbe03bbcdd30ad94cd64e0a1bd1" name="a85befdbe03bbcdd30ad94cd64e0a1bd1"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a85befdbe03bbcdd30ad94cd64e0a1bd1">&#9670;&#160;</a></span>mSrvDescriptorHeap</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">ComPtr&lt;ID3D12DescriptorHeap&gt; Game::mSrvDescriptorHeap = nullptr</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p class="definition">Definition at line <a class="el" href="_game_8hpp_source.html#l00160">160</a> of file <a class="el" href="_game_8hpp_source.html">Game.hpp</a>.</p>
+
+</div>
+</div>
+<a id="a0baead77f3725081b986fb9d569c17dd" name="a0baead77f3725081b986fb9d569c17dd"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a0baead77f3725081b986fb9d569c17dd">&#9670;&#160;</a></span>mStateStack</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="class_state_stack.html">StateStack</a> Game::mStateStack</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p><a class="el" href="class_game.html" title="Core game application class inheriting from Direct3D base.">Game</a> state manager. </p>
+
+<p class="definition">Definition at line <a class="el" href="_game_8hpp_source.html#l00179">179</a> of file <a class="el" href="_game_8hpp_source.html">Game.hpp</a>.</p>
+
+</div>
+</div>
+<a id="a914940e399d2418018640ef3da130371" name="a914940e399d2418018640ef3da130371"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a914940e399d2418018640ef3da130371">&#9670;&#160;</a></span>mTextures</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">std::unordered_map&lt;std::string, std::unique_ptr&lt;Texture&gt; &gt; Game::mTextures</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Texture resources. </p>
+
+<p class="definition">Definition at line <a class="el" href="_game_8hpp_source.html#l00150">150</a> of file <a class="el" href="_game_8hpp_source.html">Game.hpp</a>.</p>
 
 </div>
 </div>
 <hr/>The documentation for this class was generated from the following files:<ul>
 <li>InitializeDirect3D/<a class="el" href="_game_8hpp_source.html">Game.hpp</a></li>
-<li>InitializeDirect3D/<b>Game.cpp</b></li>
+<li>InitializeDirect3D/<a class="el" href="_game_8cpp_source.html">Game.cpp</a></li>
 </ul>
 </div><!-- contents -->
 </div><!-- doc-content -->

@@ -1,0 +1,330 @@
+\doxysection{Main\+Menu\+State Class Reference}
+\hypertarget{class_main_menu_state}{}\label{class_main_menu_state}\index{MainMenuState@{MainMenuState}}
+
+
+Main menu state handling title screen presentation and navigation.  
+
+
+
+
+{\ttfamily \#include $<$Main\+Menu\+State.\+hpp$>$}
+
+Inheritance diagram for Main\+Menu\+State\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=2.000000cm]{class_main_menu_state}
+\end{center}
+\end{figure}
+\doxysubsubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{class_main_menu_state_ae6ffcbe49761b0cbe8ad29317ab608a6}{Main\+Menu\+State}} (\mbox{\hyperlink{class_state_stack}{State\+Stack}} \texorpdfstring{$\ast$}{*}stack, \mbox{\hyperlink{struct_state_1_1_context}{Context}} \texorpdfstring{$\ast$}{*}context)
+\begin{DoxyCompactList}\small\item\em Constructs a \doxylink{class_main_menu_state}{Main\+Menu\+State} with stack and context. \end{DoxyCompactList}\item 
+virtual \mbox{\hyperlink{class_main_menu_state_a8af4d586b93c315a1a15b5fe83ec0760}{\texorpdfstring{$\sim$}{\string~}\+Main\+Menu\+State}} ()
+\begin{DoxyCompactList}\small\item\em Destructor for resource cleanup. \end{DoxyCompactList}\item 
+virtual void \mbox{\hyperlink{class_main_menu_state_ae8447a77dc805b1384a4dfe33dcc5cfe}{Draw}} () override
+\begin{DoxyCompactList}\small\item\em Renders menu UI elements and animations @override Required \doxylink{class_state}{State} override. \end{DoxyCompactList}\item 
+virtual bool \mbox{\hyperlink{class_main_menu_state_a16c085d93c3f8d8543d1a201e0d6f660}{Update}} (const Game\+Timer \&gt) override
+\begin{DoxyCompactList}\small\item\em Updates menu animations and logic. \end{DoxyCompactList}\item 
+virtual bool \mbox{\hyperlink{class_main_menu_state_acdca9962e2aa7e40213cbd4ad6269d12}{Handle\+Event}} (WPARAM btn\+State) override
+\begin{DoxyCompactList}\small\item\em Handles discrete input events (button presses) \end{DoxyCompactList}\item 
+virtual bool \mbox{\hyperlink{class_main_menu_state_a81a8347f018538d73f997b7c8a671ce5}{Handle\+Real\+Time\+Input}} () override
+\begin{DoxyCompactList}\small\item\em Handles continuous input (keyboard/controller state) \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Public Member Functions inherited from \mbox{\hyperlink{class_state}{State}}}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{class_state_a56e553adc0a9d1ae254c4987d7959e80}{State}} (\mbox{\hyperlink{class_state_stack}{State\+Stack}} \texorpdfstring{$\ast$}{*}stack, \mbox{\hyperlink{struct_state_1_1_context}{Context}} \texorpdfstring{$\ast$}{*}context)
+\begin{DoxyCompactList}\small\item\em Constructs a \doxylink{class_state}{State} with stack and context. \end{DoxyCompactList}\item 
+virtual \mbox{\hyperlink{class_state_afab438d92b90dc18d194dbd9c9c8bab3}{\texorpdfstring{$\sim$}{\string~}\+State}} ()
+\begin{DoxyCompactList}\small\item\em Destructor for state cleanup. \end{DoxyCompactList}\item 
+virtual bool \mbox{\hyperlink{class_state_a10883ba27a2ab2325030196d37049c7b}{Is\+Transparent}} () const
+\begin{DoxyCompactList}\small\item\em Checks if state allows lower states to render. \end{DoxyCompactList}\item 
+std\+::vector$<$ std\+::unique\+\_\+ptr$<$ \mbox{\hyperlink{struct_render_item}{Render\+Item}} $>$ $>$ \& \mbox{\hyperlink{class_state_a2ad4d797a56e5ac8b2984a0c1ee306df}{get\+Render\+Items}} ()
+\begin{DoxyCompactList}\small\item\em Gets render items for drawing. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{struct_state_1_1_context}{Context}} \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{class_state_a012280737b795337fdc0110c96e8a628}{Get\+Context}} () const
+\begin{DoxyCompactList}\small\item\em Gets shared context object. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsection*{Public Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{class_sprite_node}{Sprite\+Node}} \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{class_main_menu_state_afaa9f9fb5802dca8ba5c003c63c935e2}{m\+Ship\+MMSprite}} = nullptr
+\begin{DoxyCompactList}\small\item\em Pointer to animated ship sprite. \end{DoxyCompactList}\item 
+float \mbox{\hyperlink{class_main_menu_state_a20994e04bbad208a2ea5fd3acf11ec85}{m\+Wiggle\+Angle}} = 0.\+0f
+\begin{DoxyCompactList}\small\item\em Current angle for wiggle animation. \end{DoxyCompactList}\item 
+float \mbox{\hyperlink{class_main_menu_state_ad47309c63cbc1ce64e1c6a231bad6205}{m\+Wiggle\+Speed}} = 2.\+0f
+\begin{DoxyCompactList}\small\item\em Wiggle animation speed (radians/sec) \end{DoxyCompactList}\item 
+float \mbox{\hyperlink{class_main_menu_state_a0f6d379fff6fe07445a5666485a31890}{m\+Wiggle\+Amplitude}} = 10.\+0f
+\begin{DoxyCompactList}\small\item\em Maximum wiggle displacement (pixels) \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsection*{Additional Inherited Members}
+\doxysubsection*{Public Types inherited from \mbox{\hyperlink{class_state}{State}}}
+\begin{DoxyCompactItemize}
+\item 
+typedef std\+::unique\+\_\+ptr$<$ \mbox{\hyperlink{class_state}{State}} $>$ \mbox{\hyperlink{class_state_a2d93174b87266daa690f8f0f3b62e5a3}{State\+Ptr}}
+\begin{DoxyCompactList}\small\item\em Unique pointer type for automatic state management. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Protected Member Functions inherited from \mbox{\hyperlink{class_state}{State}}}
+\begin{DoxyCompactItemize}
+\item 
+void \mbox{\hyperlink{class_state_aa6ff837626a9f78e951b968366daca36}{Request\+Stack\+Push}} (\mbox{\hyperlink{namespace_states_a571a0dc62822f97bb9511eb013d8e1c3}{States\+::\+ID}} state\+ID)
+\begin{DoxyCompactList}\small\item\em Requests a new state to be pushed onto the stack. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_state_a86e0b195558375f3b09fffe42b56e4b4}{Request\+Stack\+Pop}} ()
+\begin{DoxyCompactList}\small\item\em Requests current state to be popped from stack. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_state_adb49547f6caf41a15f4934530cbe75ee}{Request\+State\+Clear}} ()
+\begin{DoxyCompactList}\small\item\em Requests all states to be cleared from stack. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Protected Attributes inherited from \mbox{\hyperlink{class_state}{State}}}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{class_state_stack}{State\+Stack}} \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{class_state_af0424dd012cc1ceb6e0f416982aa9228}{m\+Stack}}
+\begin{DoxyCompactList}\small\item\em \doxylink{class_state}{State} stack manager. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{struct_state_1_1_context}{Context}} \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{class_state_aa800112d4ab036b690e8db72c21d7a4b}{m\+Context}}
+\begin{DoxyCompactList}\small\item\em Shared context reference. \end{DoxyCompactList}\item 
+std\+::unique\+\_\+ptr$<$ \mbox{\hyperlink{class_scene_node}{Scene\+Node}} $>$ \mbox{\hyperlink{class_state_a41a93dcd04a21a7978db91329d10b6d3}{m\+Scene\+Graph}}
+\begin{DoxyCompactList}\small\item\em Root scene node for state. \end{DoxyCompactList}\item 
+std\+::vector$<$ std\+::unique\+\_\+ptr$<$ \mbox{\hyperlink{struct_render_item}{Render\+Item}} $>$ $>$ \mbox{\hyperlink{class_state_a505581614dd080700cda88bd1b930960}{m\+All\+Ritems}}
+\begin{DoxyCompactList}\small\item\em Renderable items. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Main menu state handling title screen presentation and navigation. 
+
+Manages core menu functionality including\+:
+\begin{DoxyItemize}
+\item Animated menu elements
+\item Menu option selection
+\item Transition to gameplay states
+\item Visual effects (e.\+g., ship sprite animation) 
+\end{DoxyItemize}
+
+Definition at line \mbox{\hyperlink{_main_menu_state_8hpp_source_l00014}{14}} of file \mbox{\hyperlink{_main_menu_state_8hpp_source}{Main\+Menu\+State.\+hpp}}.
+
+
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\Hypertarget{class_main_menu_state_ae6ffcbe49761b0cbe8ad29317ab608a6}\index{MainMenuState@{MainMenuState}!MainMenuState@{MainMenuState}}
+\index{MainMenuState@{MainMenuState}!MainMenuState@{MainMenuState}}
+\doxysubsubsection{\texorpdfstring{MainMenuState()}{MainMenuState()}}
+{\footnotesize\ttfamily \label{class_main_menu_state_ae6ffcbe49761b0cbe8ad29317ab608a6} 
+Main\+Menu\+State\+::\+Main\+Menu\+State (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{class_state_stack}{State\+Stack}} \texorpdfstring{$\ast$}{*}}]{stack}{, }\item[{\mbox{\hyperlink{struct_state_1_1_context}{Context}} \texorpdfstring{$\ast$}{*}}]{context}{}\end{DoxyParamCaption})}
+
+
+
+Constructs a \doxylink{class_main_menu_state}{Main\+Menu\+State} with stack and context. 
+
+Constructs the Main Menu \doxylink{class_state}{State} with interactive elements.
+
+
+\begin{DoxyParams}{Parameters}
+{\em stack} & \doxylink{class_state}{State} stack for state management \\
+\hline
+{\em context} & Shared game context (resources, input, etc.)\\
+\hline
+{\em stack} & \doxylink{class_state}{State} stack manager \\
+\hline
+{\em context} & Shared game context\\
+\hline
+\end{DoxyParams}
+Initializes\+:
+\begin{DoxyItemize}
+\item Background galaxy texture
+\item Menu title text
+\item Animated ship decoration
+\item Frame rendering resources 
+\end{DoxyItemize}
+
+Definition at line \mbox{\hyperlink{_main_menu_state_8cpp_source_l00017}{17}} of file \mbox{\hyperlink{_main_menu_state_8cpp_source}{Main\+Menu\+State.\+cpp}}.
+
+\Hypertarget{class_main_menu_state_a8af4d586b93c315a1a15b5fe83ec0760}\index{MainMenuState@{MainMenuState}!````~MainMenuState@{\texorpdfstring{$\sim$}{\string~}MainMenuState}}
+\index{````~MainMenuState@{\texorpdfstring{$\sim$}{\string~}MainMenuState}!MainMenuState@{MainMenuState}}
+\doxysubsubsection{\texorpdfstring{\texorpdfstring{$\sim$}{\string~}MainMenuState()}{\string~MainMenuState()}}
+{\footnotesize\ttfamily \label{class_main_menu_state_a8af4d586b93c315a1a15b5fe83ec0760} 
+Main\+Menu\+State\+::\texorpdfstring{$\sim$}{\string~}\+Main\+Menu\+State (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [virtual]}}
+
+
+
+Destructor for resource cleanup. 
+
+
+
+Definition at line \mbox{\hyperlink{_main_menu_state_8cpp_source_l00069}{69}} of file \mbox{\hyperlink{_main_menu_state_8cpp_source}{Main\+Menu\+State.\+cpp}}.
+
+
+
+\doxysubsection{Member Function Documentation}
+\Hypertarget{class_main_menu_state_ae8447a77dc805b1384a4dfe33dcc5cfe}\index{MainMenuState@{MainMenuState}!Draw@{Draw}}
+\index{Draw@{Draw}!MainMenuState@{MainMenuState}}
+\doxysubsubsection{\texorpdfstring{Draw()}{Draw()}}
+{\footnotesize\ttfamily \label{class_main_menu_state_ae8447a77dc805b1384a4dfe33dcc5cfe} 
+void Main\+Menu\+State\+::\+Draw (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+
+
+Renders menu UI elements and animations @override Required \doxylink{class_state}{State} override. 
+
+Renders menu elements. 
+
+Implements \mbox{\hyperlink{class_state_a8b0cdb0e7450a9bb3580a33dfbe4d981}{State}}.
+
+
+
+Definition at line \mbox{\hyperlink{_main_menu_state_8cpp_source_l00076}{76}} of file \mbox{\hyperlink{_main_menu_state_8cpp_source}{Main\+Menu\+State.\+cpp}}.
+
+\Hypertarget{class_main_menu_state_acdca9962e2aa7e40213cbd4ad6269d12}\index{MainMenuState@{MainMenuState}!HandleEvent@{HandleEvent}}
+\index{HandleEvent@{HandleEvent}!MainMenuState@{MainMenuState}}
+\doxysubsubsection{\texorpdfstring{HandleEvent()}{HandleEvent()}}
+{\footnotesize\ttfamily \label{class_main_menu_state_acdca9962e2aa7e40213cbd4ad6269d12} 
+bool Main\+Menu\+State\+::\+Handle\+Event (\begin{DoxyParamCaption}\item[{WPARAM}]{btn\+State}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+
+
+Handles discrete input events (button presses) 
+
+Handles menu navigation input.
+
+
+\begin{DoxyParams}{Parameters}
+{\em btn\+State} & Bitmask of button states \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+True if event was consumed, false to propagate @override Required \doxylink{class_state}{State} override
+\end{DoxyReturn}
+
+\begin{DoxyParams}{Parameters}
+{\em btn\+State} & Bitmask of button states \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+True to consume event, false to propagate 
+\end{DoxyReturn}
+
+
+Implements \mbox{\hyperlink{class_state_a60ec54e00e893e60d137c4278be8a7f6}{State}}.
+
+
+
+Definition at line \mbox{\hyperlink{_main_menu_state_8cpp_source_l00107}{107}} of file \mbox{\hyperlink{_main_menu_state_8cpp_source}{Main\+Menu\+State.\+cpp}}.
+
+\Hypertarget{class_main_menu_state_a81a8347f018538d73f997b7c8a671ce5}\index{MainMenuState@{MainMenuState}!HandleRealTimeInput@{HandleRealTimeInput}}
+\index{HandleRealTimeInput@{HandleRealTimeInput}!MainMenuState@{MainMenuState}}
+\doxysubsubsection{\texorpdfstring{HandleRealTimeInput()}{HandleRealTimeInput()}}
+{\footnotesize\ttfamily \label{class_main_menu_state_a81a8347f018538d73f997b7c8a671ce5} 
+bool Main\+Menu\+State\+::\+Handle\+Real\+Time\+Input (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+
+
+Handles continuous input (keyboard/controller state) 
+
+Handles real-\/time input processing.
+
+\begin{DoxyReturn}{Returns}
+True if input was processed, false to propagate @override Required \doxylink{class_state}{State} override
+
+True to consume input, false to propagate 
+\end{DoxyReturn}
+
+
+Implements \mbox{\hyperlink{class_state_a69e1835a95f6a70a0cad6ab78bcae73e}{State}}.
+
+
+
+Definition at line \mbox{\hyperlink{_main_menu_state_8cpp_source_l00133}{133}} of file \mbox{\hyperlink{_main_menu_state_8cpp_source}{Main\+Menu\+State.\+cpp}}.
+
+\Hypertarget{class_main_menu_state_a16c085d93c3f8d8543d1a201e0d6f660}\index{MainMenuState@{MainMenuState}!Update@{Update}}
+\index{Update@{Update}!MainMenuState@{MainMenuState}}
+\doxysubsubsection{\texorpdfstring{Update()}{Update()}}
+{\footnotesize\ttfamily \label{class_main_menu_state_a16c085d93c3f8d8543d1a201e0d6f660} 
+bool Main\+Menu\+State\+::\+Update (\begin{DoxyParamCaption}\item[{const Game\+Timer \&}]{gt}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+
+
+Updates menu animations and logic. 
+
+Updates menu state logic and animations.
+
+
+\begin{DoxyParams}{Parameters}
+{\em gt} & Game\+Timer with frame timing information \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+True to continue updates, false to block lower states @override Required \doxylink{class_state}{State} override
+\end{DoxyReturn}
+
+\begin{DoxyParams}{Parameters}
+{\em gt} & \doxylink{class_game}{Game} timer with frame timing \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+True to continue updates in lower states 
+\end{DoxyReturn}
+
+
+Implements \mbox{\hyperlink{class_state_aac563804ae22878944783a7f25b15b51}{State}}.
+
+
+
+Definition at line \mbox{\hyperlink{_main_menu_state_8cpp_source_l00088}{88}} of file \mbox{\hyperlink{_main_menu_state_8cpp_source}{Main\+Menu\+State.\+cpp}}.
+
+
+
+\doxysubsection{Member Data Documentation}
+\Hypertarget{class_main_menu_state_afaa9f9fb5802dca8ba5c003c63c935e2}\index{MainMenuState@{MainMenuState}!mShipMMSprite@{mShipMMSprite}}
+\index{mShipMMSprite@{mShipMMSprite}!MainMenuState@{MainMenuState}}
+\doxysubsubsection{\texorpdfstring{mShipMMSprite}{mShipMMSprite}}
+{\footnotesize\ttfamily \label{class_main_menu_state_afaa9f9fb5802dca8ba5c003c63c935e2} 
+\mbox{\hyperlink{class_sprite_node}{Sprite\+Node}}\texorpdfstring{$\ast$}{*} Main\+Menu\+State\+::m\+Ship\+MMSprite = nullptr}
+
+
+
+Pointer to animated ship sprite. 
+
+
+
+Definition at line \mbox{\hyperlink{_main_menu_state_8hpp_source_l00066}{66}} of file \mbox{\hyperlink{_main_menu_state_8hpp_source}{Main\+Menu\+State.\+hpp}}.
+
+\Hypertarget{class_main_menu_state_a0f6d379fff6fe07445a5666485a31890}\index{MainMenuState@{MainMenuState}!mWiggleAmplitude@{mWiggleAmplitude}}
+\index{mWiggleAmplitude@{mWiggleAmplitude}!MainMenuState@{MainMenuState}}
+\doxysubsubsection{\texorpdfstring{mWiggleAmplitude}{mWiggleAmplitude}}
+{\footnotesize\ttfamily \label{class_main_menu_state_a0f6d379fff6fe07445a5666485a31890} 
+float Main\+Menu\+State\+::m\+Wiggle\+Amplitude = 10.\+0f}
+
+
+
+Maximum wiggle displacement (pixels) 
+
+
+
+Definition at line \mbox{\hyperlink{_main_menu_state_8hpp_source_l00069}{69}} of file \mbox{\hyperlink{_main_menu_state_8hpp_source}{Main\+Menu\+State.\+hpp}}.
+
+\Hypertarget{class_main_menu_state_a20994e04bbad208a2ea5fd3acf11ec85}\index{MainMenuState@{MainMenuState}!mWiggleAngle@{mWiggleAngle}}
+\index{mWiggleAngle@{mWiggleAngle}!MainMenuState@{MainMenuState}}
+\doxysubsubsection{\texorpdfstring{mWiggleAngle}{mWiggleAngle}}
+{\footnotesize\ttfamily \label{class_main_menu_state_a20994e04bbad208a2ea5fd3acf11ec85} 
+float Main\+Menu\+State\+::m\+Wiggle\+Angle = 0.\+0f}
+
+
+
+Current angle for wiggle animation. 
+
+
+
+Definition at line \mbox{\hyperlink{_main_menu_state_8hpp_source_l00067}{67}} of file \mbox{\hyperlink{_main_menu_state_8hpp_source}{Main\+Menu\+State.\+hpp}}.
+
+\Hypertarget{class_main_menu_state_ad47309c63cbc1ce64e1c6a231bad6205}\index{MainMenuState@{MainMenuState}!mWiggleSpeed@{mWiggleSpeed}}
+\index{mWiggleSpeed@{mWiggleSpeed}!MainMenuState@{MainMenuState}}
+\doxysubsubsection{\texorpdfstring{mWiggleSpeed}{mWiggleSpeed}}
+{\footnotesize\ttfamily \label{class_main_menu_state_ad47309c63cbc1ce64e1c6a231bad6205} 
+float Main\+Menu\+State\+::m\+Wiggle\+Speed = 2.\+0f}
+
+
+
+Wiggle animation speed (radians/sec) 
+
+
+
+Definition at line \mbox{\hyperlink{_main_menu_state_8hpp_source_l00068}{68}} of file \mbox{\hyperlink{_main_menu_state_8hpp_source}{Main\+Menu\+State.\+hpp}}.
+
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+Initialize\+Direct3\+D/Main\+Menu\+State.\+hpp\item 
+Initialize\+Direct3\+D/Main\+Menu\+State.\+cpp\end{DoxyCompactItemize}

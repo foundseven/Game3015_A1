@@ -5,7 +5,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=11"/>
 <meta name="generator" content="Doxygen 1.13.2"/>
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
-<title>Game3015_A2: InitializeDirect3D/World.hpp Source File</title>
+<title>Galaxy Invaders: InitializeDirect3D/World.hpp Source File</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
@@ -32,9 +32,9 @@
  <tbody>
  <tr id="projectrow">
   <td id="projectalign">
-   <div id="projectname">Game3015_A2<span id="projectnumber">&#160;2.0</span>
+   <div id="projectname">Galaxy Invaders<span id="projectnumber">&#160;3.0</span>
    </div>
-   <div id="projectbrief">A DirectX 12-based aircraft combat game.</div>
+   <div id="projectbrief">Roam the galaxy in 2D/3D</div>
   </td>
     <td>        <div id="MSearchBox" class="MSearchBoxInactive">
         <span class="left">
@@ -117,10 +117,10 @@ $(function(){initNavTree('_world_8hpp_source.html',''); initResizable(true); });
 <div class="line"><a id="l00009" name="l00009"></a><span class="lineno">    9</span><span class="preprocessor">#pragma endregion</span></div>
 <div class="line"><a id="l00010" name="l00010"></a><span class="lineno">   10</span></div>
 <div class="foldopen" id="foldopen00017" data-start="{" data-end="};">
-<div class="line"><a id="l00017" name="l00017"></a><span class="lineno"><a class="line" href="class_world.html">   17</a></span><span class="keyword">class </span><a class="code hl_function" href="class_world.html#a712eb4a5b0d12588dd61d10c91b83366">World</a> </div>
+<div class="line"><a id="l00017" name="l00017"></a><span class="lineno"><a class="line" href="class_world.html">   17</a></span><span class="keyword">class </span><a class="code hl_function" href="class_world.html#a99c692ab277a66c03ca48e8ea568ecb0">World</a> </div>
 <div class="line"><a id="l00018" name="l00018"></a><span class="lineno">   18</span>{</div>
 <div class="line"><a id="l00019" name="l00019"></a><span class="lineno">   19</span><span class="keyword">public</span>:</div>
-<div class="line"><a id="l00026" name="l00026"></a><span class="lineno">   26</span>    <span class="keyword">explicit</span>                            <a class="code hl_function" href="class_world.html#a712eb4a5b0d12588dd61d10c91b83366">World</a>(<a class="code hl_class" href="class_game.html">Game</a>* window);</div>
+<div class="line"><a id="l00026" name="l00026"></a><span class="lineno">   26</span>    <span class="keyword">explicit</span>                            <a class="code hl_function" href="class_world.html#a99c692ab277a66c03ca48e8ea568ecb0">World</a>(<a class="code hl_class" href="class_state.html">State</a>* state);</div>
 <div class="line"><a id="l00031" name="l00031"></a><span class="lineno">   31</span>    <span class="keywordtype">void</span>                                <a class="code hl_function" href="class_world.html#a36c003f54e14e022a360551af5e7923e">update</a>(<span class="keyword">const</span> GameTimer&amp; gt);</div>
 <div class="line"><a id="l00035" name="l00035"></a><span class="lineno">   35</span>    <span class="keywordtype">void</span>                                <a class="code hl_function" href="class_world.html#ab51a17ccbb108616daacd0c34973dc8d">draw</a>();</div>
 <div class="line"><a id="l00036" name="l00036"></a><span class="lineno">   36</span> </div>
@@ -148,7 +148,7 @@ $(function(){initNavTree('_world_8hpp_source.html',''); initResizable(true); });
 <div class="line"><a id="l00074" name="l00074"></a><span class="lineno">   74</span> </div>
 <div class="line"><a id="l00075" name="l00075"></a><span class="lineno">   75</span> </div>
 <div class="line"><a id="l00076" name="l00076"></a><span class="lineno">   76</span><span class="keyword">private</span>:</div>
-<div class="line"><a id="l00077" name="l00077"></a><span class="lineno">   77</span>    <a class="code hl_class" href="class_game.html">Game</a>*                               mGame; </div>
+<div class="line"><a id="l00077" name="l00077"></a><span class="lineno">   77</span>    <a class="code hl_class" href="class_state.html">State</a>*                             mState; </div>
 <div class="line"><a id="l00078" name="l00078"></a><span class="lineno">   78</span> </div>
 <div class="line"><a id="l00079" name="l00079"></a><span class="lineno">   79</span>    <a class="code hl_class" href="class_scene_node.html">SceneNode</a>*                         mSceneGraph; </div>
 <div class="line"><a id="l00080" name="l00080"></a><span class="lineno">   80</span>    std::array&lt;SceneNode*, LayerCount&gt;  mSceneLayers; </div>
@@ -161,16 +161,16 @@ $(function(){initNavTree('_world_8hpp_source.html',''); initResizable(true); });
 <div class="line"><a id="l00087" name="l00087"></a><span class="lineno">   87</span>    <a class="code hl_class" href="class_aircraft.html">Aircraft</a>*                           mEnemy; </div>
 <div class="line"><a id="l00088" name="l00088"></a><span class="lineno">   88</span>};</div>
 </div>
-<div class="ttc" id="aclass_aircraft_html"><div class="ttname"><a href="class_aircraft.html">Aircraft</a></div><div class="ttdoc">Aircraft entity representing both player-controlled and AI-controlled planes.</div><div class="ttdef"><b>Definition</b> Aircraft.hpp:14</div></div>
-<div class="ttc" id="aclass_command_queue_html"><div class="ttname"><a href="class_command_queue.html">CommandQueue</a></div><div class="ttdoc">A FIFO queue for managing game commands.</div><div class="ttdef"><b>Definition</b> CommandQueue.hpp:22</div></div>
-<div class="ttc" id="aclass_game_html"><div class="ttname"><a href="class_game.html">Game</a></div><div class="ttdoc">Main game class managing resources, rendering, and game logic.</div><div class="ttdef"><b>Definition</b> Game.hpp:12</div></div>
-<div class="ttc" id="aclass_scene_node_html"><div class="ttname"><a href="class_scene_node.html">SceneNode</a></div><div class="ttdoc">Represents a node in the scene graph.</div><div class="ttdef"><b>Definition</b> SceneNode.hpp:63</div></div>
-<div class="ttc" id="aclass_sprite_node_html"><div class="ttname"><a href="class_sprite_node.html">SpriteNode</a></div><div class="ttdoc">Represents a sprite node in the game, inheriting from Entity.</div><div class="ttdef"><b>Definition</b> SpriteNode.h:9</div></div>
-<div class="ttc" id="aclass_world_html_a36c003f54e14e022a360551af5e7923e"><div class="ttname"><a href="class_world.html#a36c003f54e14e022a360551af5e7923e">World::update</a></div><div class="ttdeci">void update(const GameTimer &amp;gt)</div><div class="ttdoc">Updates the world.</div><div class="ttdef"><b>Definition</b> World.cpp:33</div></div>
-<div class="ttc" id="aclass_world_html_a712eb4a5b0d12588dd61d10c91b83366"><div class="ttname"><a href="class_world.html#a712eb4a5b0d12588dd61d10c91b83366">World::World</a></div><div class="ttdeci">World(Game *window)</div><div class="ttdoc">Constructs the World object.</div><div class="ttdef"><b>Definition</b> World.cpp:8</div></div>
-<div class="ttc" id="aclass_world_html_ab51a17ccbb108616daacd0c34973dc8d"><div class="ttname"><a href="class_world.html#ab51a17ccbb108616daacd0c34973dc8d">World::draw</a></div><div class="ttdeci">void draw()</div><div class="ttdoc">Draws the game world.</div><div class="ttdef"><b>Definition</b> World.cpp:60</div></div>
-<div class="ttc" id="aclass_world_html_ae7df49f5d488e5cd1254bf360966f410"><div class="ttname"><a href="class_world.html#ae7df49f5d488e5cd1254bf360966f410">World::buildScene</a></div><div class="ttdeci">void buildScene()</div><div class="ttdoc">Builds the scene graph and initializes game objects.</div><div class="ttdef"><b>Definition</b> World.cpp:71</div></div>
-<div class="ttc" id="aclass_world_html_af224b413f30c86ec99d042d0f4df56ee"><div class="ttname"><a href="class_world.html#af224b413f30c86ec99d042d0f4df56ee">World::getCommandQueue</a></div><div class="ttdeci">CommandQueue &amp; getCommandQueue()</div><div class="ttdoc">Retrieves the command queue for the world.</div><div class="ttdef"><b>Definition</b> World.cpp:20</div></div>
+<div class="ttc" id="aclass_aircraft_html"><div class="ttname"><a href="class_aircraft.html">Aircraft</a></div><div class="ttdoc">Aircraft entity representing both player-controlled and AI-controlled planes.</div><div class="ttdef"><b>Definition</b> <a href="_aircraft_8hpp_source.html#l00012">Aircraft.hpp:14</a></div></div>
+<div class="ttc" id="aclass_command_queue_html"><div class="ttname"><a href="class_command_queue.html">CommandQueue</a></div><div class="ttdoc">A FIFO queue for managing game commands.</div><div class="ttdef"><b>Definition</b> <a href="_command_queue_8hpp_source.html#l00021">CommandQueue.hpp:22</a></div></div>
+<div class="ttc" id="aclass_scene_node_html"><div class="ttname"><a href="class_scene_node.html">SceneNode</a></div><div class="ttdoc">Represents a node in the scene graph.</div><div class="ttdef"><b>Definition</b> <a href="_scene_node_8hpp_source.html#l00062">SceneNode.hpp:63</a></div></div>
+<div class="ttc" id="aclass_sprite_node_html"><div class="ttname"><a href="class_sprite_node.html">SpriteNode</a></div><div class="ttdoc">Represents a sprite node in the game, inheriting from Entity.</div><div class="ttdef"><b>Definition</b> <a href="_sprite_node_8h_source.html#l00007">SpriteNode.h:9</a></div></div>
+<div class="ttc" id="aclass_state_html"><div class="ttname"><a href="class_state.html">State</a></div><div class="ttdoc">Base class for all game states.</div><div class="ttdef"><b>Definition</b> <a href="_state_8hpp_source.html#l00046">State.hpp:47</a></div></div>
+<div class="ttc" id="aclass_world_html_a36c003f54e14e022a360551af5e7923e"><div class="ttname"><a href="class_world.html#a36c003f54e14e022a360551af5e7923e">World::update</a></div><div class="ttdeci">void update(const GameTimer &amp;gt)</div><div class="ttdoc">Updates the world.</div><div class="ttdef"><b>Definition</b> <a href="_world_8cpp_source.html#l00033">World.cpp:33</a></div></div>
+<div class="ttc" id="aclass_world_html_a99c692ab277a66c03ca48e8ea568ecb0"><div class="ttname"><a href="class_world.html#a99c692ab277a66c03ca48e8ea568ecb0">World::World</a></div><div class="ttdeci">World(State *state)</div><div class="ttdoc">Constructs the World object.</div><div class="ttdef"><b>Definition</b> <a href="_world_8cpp_source.html#l00008">World.cpp:8</a></div></div>
+<div class="ttc" id="aclass_world_html_ab51a17ccbb108616daacd0c34973dc8d"><div class="ttname"><a href="class_world.html#ab51a17ccbb108616daacd0c34973dc8d">World::draw</a></div><div class="ttdeci">void draw()</div><div class="ttdoc">Draws the game world.</div><div class="ttdef"><b>Definition</b> <a href="_world_8cpp_source.html#l00053">World.cpp:53</a></div></div>
+<div class="ttc" id="aclass_world_html_ae7df49f5d488e5cd1254bf360966f410"><div class="ttname"><a href="class_world.html#ae7df49f5d488e5cd1254bf360966f410">World::buildScene</a></div><div class="ttdeci">void buildScene()</div><div class="ttdoc">Builds the scene graph and initializes game objects.</div><div class="ttdef"><b>Definition</b> <a href="_world_8cpp_source.html#l00064">World.cpp:64</a></div></div>
+<div class="ttc" id="aclass_world_html_af224b413f30c86ec99d042d0f4df56ee"><div class="ttname"><a href="class_world.html#af224b413f30c86ec99d042d0f4df56ee">World::getCommandQueue</a></div><div class="ttdeci">CommandQueue &amp; getCommandQueue()</div><div class="ttdoc">Retrieves the command queue for the world.</div><div class="ttdef"><b>Definition</b> <a href="_world_8cpp_source.html#l00020">World.cpp:20</a></div></div>
 </div><!-- fragment --></div><!-- contents -->
 </div><!-- doc-content -->
 <!-- start footer part -->

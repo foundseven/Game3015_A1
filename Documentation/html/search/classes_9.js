@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['vertex_0',['Vertex',['../struct_vertex.html',1,'']]]
+  ['renderitem_0',['RenderItem',['../struct_render_item.html',1,'']]]
 ];

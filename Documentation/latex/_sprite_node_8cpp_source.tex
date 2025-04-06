@@ -1,0 +1,83 @@
+\doxysection{Sprite\+Node.\+cpp}
+\hypertarget{_sprite_node_8cpp_source}{}\label{_sprite_node_8cpp_source}\index{InitializeDirect3D/SpriteNode.cpp@{InitializeDirect3D/SpriteNode.cpp}}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\Hypertarget{_sprite_node_8cpp_source_l00001}00001\ \textcolor{preprocessor}{\#include\ "{}SpriteNode.h"{}}}
+\DoxyCodeLine{\Hypertarget{_sprite_node_8cpp_source_l00002}00002\ \textcolor{preprocessor}{\#include\ "{}Game.hpp"{}}}
+\DoxyCodeLine{\Hypertarget{_sprite_node_8cpp_source_l00003}00003\ }
+\DoxyCodeLine{\Hypertarget{_sprite_node_8cpp_source_l00008}\mbox{\hyperlink{class_sprite_node_af5884dfe335abba3c8bda2b26a6dddbb}{00008}}\ \mbox{\hyperlink{class_sprite_node_af5884dfe335abba3c8bda2b26a6dddbb}{SpriteNode::SpriteNode}}(\mbox{\hyperlink{class_state}{State}}*\ state)\ :\ \mbox{\hyperlink{class_entity_ac219200508c18e5db68225c7efb7da5d}{Entity}}(state),\ mIsVisible(true)}
+\DoxyCodeLine{\Hypertarget{_sprite_node_8cpp_source_l00009}00009\ \{}
+\DoxyCodeLine{\Hypertarget{_sprite_node_8cpp_source_l00010}00010\ \}}
+\DoxyCodeLine{\Hypertarget{_sprite_node_8cpp_source_l00011}00011\ }
+\DoxyCodeLine{\Hypertarget{_sprite_node_8cpp_source_l00018}00018\ \textcolor{keywordtype}{void}\ SpriteNode::drawCurrent()\textcolor{keyword}{\ const}}
+\DoxyCodeLine{\Hypertarget{_sprite_node_8cpp_source_l00019}00019\ \textcolor{keyword}{}\{}
+\DoxyCodeLine{\Hypertarget{_sprite_node_8cpp_source_l00020}00020\ \ \ \ \ \textcolor{keywordflow}{if}\ (!mIsVisible)\ \textcolor{keywordflow}{return};}
+\DoxyCodeLine{\Hypertarget{_sprite_node_8cpp_source_l00021}00021\ }
+\DoxyCodeLine{\Hypertarget{_sprite_node_8cpp_source_l00022}00022\ \ \ \ \ UINT\ objCBByteSize\ =\ d3dUtil::CalcConstantBufferByteSize(\textcolor{keyword}{sizeof}(\mbox{\hyperlink{struct_object_constants}{ObjectConstants}}));}
+\DoxyCodeLine{\Hypertarget{_sprite_node_8cpp_source_l00023}00023\ \ \ \ \ UINT\ matCBByteSize\ =\ d3dUtil::CalcConstantBufferByteSize(\textcolor{keyword}{sizeof}(MaterialConstants));}
+\DoxyCodeLine{\Hypertarget{_sprite_node_8cpp_source_l00024}00024\ }
+\DoxyCodeLine{\Hypertarget{_sprite_node_8cpp_source_l00025}00025\ \ \ \ \ \mbox{\hyperlink{class_game}{Game}}*\ game\ =\ \mbox{\hyperlink{class_scene_node_a2921cf2fe98067b4d0b3558d2dc553bc}{mState}}-\/>\mbox{\hyperlink{class_state_a012280737b795337fdc0110c96e8a628}{GetContext}}()-\/>\mbox{\hyperlink{struct_state_1_1_context_a3fd6b76972ddb3303602df2eaa98a8e9}{game}};}
+\DoxyCodeLine{\Hypertarget{_sprite_node_8cpp_source_l00026}00026\ }
+\DoxyCodeLine{\Hypertarget{_sprite_node_8cpp_source_l00027}00027\ \ \ \ \ \textcolor{keyword}{auto}\ objectCB\ =\ game-\/>\mbox{\hyperlink{class_game_a6119ac12b9dafae4e105ac9b4e80c1b2}{mCurrFrameResource}}-\/>ObjectCB-\/>Resource();}
+\DoxyCodeLine{\Hypertarget{_sprite_node_8cpp_source_l00028}00028\ \ \ \ \ \textcolor{keyword}{auto}\ matCB\ =\ game-\/>\mbox{\hyperlink{class_game_a6119ac12b9dafae4e105ac9b4e80c1b2}{mCurrFrameResource}}-\/>MaterialCB-\/>Resource();}
+\DoxyCodeLine{\Hypertarget{_sprite_node_8cpp_source_l00029}00029\ }
+\DoxyCodeLine{\Hypertarget{_sprite_node_8cpp_source_l00030}00030\ \ \ \ \ \textcolor{keywordflow}{if}\ (\mbox{\hyperlink{class_sprite_node_a578b6103c79f36b95541dab9dc4918f4}{mSpriteNodeRitem}}\ !=\ \textcolor{keyword}{nullptr})}
+\DoxyCodeLine{\Hypertarget{_sprite_node_8cpp_source_l00031}00031\ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{_sprite_node_8cpp_source_l00032}00032\ \ \ \ \ \ \ \ \ \textcolor{keyword}{auto}\ vertexBufferView\ =\ \mbox{\hyperlink{class_sprite_node_a578b6103c79f36b95541dab9dc4918f4}{mSpriteNodeRitem}}-\/>\mbox{\hyperlink{struct_render_item_a7e4ddbefdc41b7efcad3c3a4b0ceccd9}{Geo}}-\/>VertexBufferView();}
+\DoxyCodeLine{\Hypertarget{_sprite_node_8cpp_source_l00033}00033\ \ \ \ \ \ \ \ \ \textcolor{keyword}{auto}\ indexBufferView\ =\ \mbox{\hyperlink{class_sprite_node_a578b6103c79f36b95541dab9dc4918f4}{mSpriteNodeRitem}}-\/>\mbox{\hyperlink{struct_render_item_a7e4ddbefdc41b7efcad3c3a4b0ceccd9}{Geo}}-\/>IndexBufferView();}
+\DoxyCodeLine{\Hypertarget{_sprite_node_8cpp_source_l00034}00034\ }
+\DoxyCodeLine{\Hypertarget{_sprite_node_8cpp_source_l00035}00035\ \ \ \ \ \ \ \ \ game-\/>getCmdList()-\/>IASetVertexBuffers(0,\ 1,\ \&vertexBufferView);}
+\DoxyCodeLine{\Hypertarget{_sprite_node_8cpp_source_l00036}00036\ \ \ \ \ \ \ \ \ game-\/>getCmdList()-\/>IASetIndexBuffer(\&indexBufferView);}
+\DoxyCodeLine{\Hypertarget{_sprite_node_8cpp_source_l00037}00037\ \ \ \ \ \ \ \ \ game-\/>getCmdList()-\/>IASetPrimitiveTopology(\mbox{\hyperlink{class_sprite_node_a578b6103c79f36b95541dab9dc4918f4}{mSpriteNodeRitem}}-\/>\mbox{\hyperlink{struct_render_item_ab3aad9050526250c4877956789e50b3a}{PrimitiveType}});}
+\DoxyCodeLine{\Hypertarget{_sprite_node_8cpp_source_l00038}00038\ }
+\DoxyCodeLine{\Hypertarget{_sprite_node_8cpp_source_l00039}00039\ \ \ \ \ \ \ \ \ CD3DX12\_GPU\_DESCRIPTOR\_HANDLE\ tex(game-\/>mSrvDescriptorHeap-\/>GetGPUDescriptorHandleForHeapStart());}
+\DoxyCodeLine{\Hypertarget{_sprite_node_8cpp_source_l00040}00040\ \ \ \ \ \ \ \ \ tex.Offset(\mbox{\hyperlink{class_sprite_node_a578b6103c79f36b95541dab9dc4918f4}{mSpriteNodeRitem}}-\/>\mbox{\hyperlink{struct_render_item_a356068fffd78f172c796d44fe02d08d2}{Mat}}-\/>DiffuseSrvHeapIndex,\ game-\/>mCbvSrvDescriptorSize);}
+\DoxyCodeLine{\Hypertarget{_sprite_node_8cpp_source_l00041}00041\ }
+\DoxyCodeLine{\Hypertarget{_sprite_node_8cpp_source_l00042}00042\ \ \ \ \ \ \ \ \ D3D12\_GPU\_VIRTUAL\_ADDRESS\ objCBAddress\ =\ objectCB-\/>GetGPUVirtualAddress()\ +\ \mbox{\hyperlink{class_sprite_node_a578b6103c79f36b95541dab9dc4918f4}{mSpriteNodeRitem}}-\/>\mbox{\hyperlink{struct_render_item_a4a4015284acd79469b70c358b6c1c2a1}{ObjCBIndex}}\ *\ objCBByteSize;}
+\DoxyCodeLine{\Hypertarget{_sprite_node_8cpp_source_l00043}00043\ \ \ \ \ \ \ \ \ D3D12\_GPU\_VIRTUAL\_ADDRESS\ matCBAddress\ =\ matCB-\/>GetGPUVirtualAddress()\ +\ \mbox{\hyperlink{class_sprite_node_a578b6103c79f36b95541dab9dc4918f4}{mSpriteNodeRitem}}-\/>\mbox{\hyperlink{struct_render_item_a356068fffd78f172c796d44fe02d08d2}{Mat}}-\/>MatCBIndex\ *\ matCBByteSize;}
+\DoxyCodeLine{\Hypertarget{_sprite_node_8cpp_source_l00044}00044\ }
+\DoxyCodeLine{\Hypertarget{_sprite_node_8cpp_source_l00045}00045\ \ \ \ \ \ \ \ \ game-\/>getCmdList()-\/>SetGraphicsRootDescriptorTable(0,\ tex);}
+\DoxyCodeLine{\Hypertarget{_sprite_node_8cpp_source_l00046}00046\ \ \ \ \ \ \ \ \ game-\/>getCmdList()-\/>SetGraphicsRootConstantBufferView(1,\ objCBAddress);}
+\DoxyCodeLine{\Hypertarget{_sprite_node_8cpp_source_l00047}00047\ \ \ \ \ \ \ \ \ game-\/>getCmdList()-\/>SetGraphicsRootConstantBufferView(3,\ matCBAddress);}
+\DoxyCodeLine{\Hypertarget{_sprite_node_8cpp_source_l00048}00048\ }
+\DoxyCodeLine{\Hypertarget{_sprite_node_8cpp_source_l00049}00049\ \ \ \ \ \ \ \ \ game-\/>getCmdList()-\/>DrawIndexedInstanced(\mbox{\hyperlink{class_sprite_node_a578b6103c79f36b95541dab9dc4918f4}{mSpriteNodeRitem}}-\/>\mbox{\hyperlink{struct_render_item_ad95fafa012c0d99c216b998f11207e38}{IndexCount}},\ 1,\ \mbox{\hyperlink{class_sprite_node_a578b6103c79f36b95541dab9dc4918f4}{mSpriteNodeRitem}}-\/>\mbox{\hyperlink{struct_render_item_a979179c6dd354cd329563e3599245463}{StartIndexLocation}},\ \mbox{\hyperlink{class_sprite_node_a578b6103c79f36b95541dab9dc4918f4}{mSpriteNodeRitem}}-\/>\mbox{\hyperlink{struct_render_item_a3750ef7b2791ea922df46e222649f3dc}{BaseVertexLocation}},\ 0);}
+\DoxyCodeLine{\Hypertarget{_sprite_node_8cpp_source_l00050}00050\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{_sprite_node_8cpp_source_l00051}00051\ \}}
+\DoxyCodeLine{\Hypertarget{_sprite_node_8cpp_source_l00052}00052\ }
+\DoxyCodeLine{\Hypertarget{_sprite_node_8cpp_source_l00059}00059\ \textcolor{keywordtype}{void}\ SpriteNode::buildCurrent()}
+\DoxyCodeLine{\Hypertarget{_sprite_node_8cpp_source_l00060}00060\ \{}
+\DoxyCodeLine{\Hypertarget{_sprite_node_8cpp_source_l00061}00061\ \ \ \ \ \mbox{\hyperlink{namespace_states_a571a0dc62822f97bb9511eb013d8e1c3a392b686639cb98b586bf0af7dc993633}{Game}}*\ game\ =\ \mbox{\hyperlink{class_scene_node_a2921cf2fe98067b4d0b3558d2dc553bc}{mState}}-\/>GetContext()-\/>game;}
+\DoxyCodeLine{\Hypertarget{_sprite_node_8cpp_source_l00062}00062\ }
+\DoxyCodeLine{\Hypertarget{_sprite_node_8cpp_source_l00063}00063\ \ \ \ \ \textcolor{keyword}{auto}\ render\ =\ std::make\_unique<RenderItem>();}
+\DoxyCodeLine{\Hypertarget{_sprite_node_8cpp_source_l00064}00064\ \ \ \ \ \mbox{\hyperlink{class_scene_node_a51b22a4d6789039a96ebab097ed03db0}{renderer}}\ =\ render.get();}
+\DoxyCodeLine{\Hypertarget{_sprite_node_8cpp_source_l00065}00065\ \ \ \ \ \mbox{\hyperlink{class_scene_node_a51b22a4d6789039a96ebab097ed03db0}{renderer}}-\/>World\ =\ \mbox{\hyperlink{class_scene_node_a5e503eeca953d36b652a12ceadb64d28}{getTransform}}();}
+\DoxyCodeLine{\Hypertarget{_sprite_node_8cpp_source_l00066}00066\ \ \ \ \ XMStoreFloat4x4(\&\mbox{\hyperlink{class_scene_node_a51b22a4d6789039a96ebab097ed03db0}{renderer}}-\/>TexTransform,\ XMMatrixScaling(1.0f,\ 1.0f,\ 1.0f));}
+\DoxyCodeLine{\Hypertarget{_sprite_node_8cpp_source_l00067}00067\ \ \ \ \ \mbox{\hyperlink{class_scene_node_a51b22a4d6789039a96ebab097ed03db0}{renderer}}-\/>ObjCBIndex\ =\ (UINT)\mbox{\hyperlink{class_scene_node_a2921cf2fe98067b4d0b3558d2dc553bc}{mState}}-\/>getRenderItems().size();}
+\DoxyCodeLine{\Hypertarget{_sprite_node_8cpp_source_l00068}00068\ \ \ \ \ \mbox{\hyperlink{class_scene_node_a51b22a4d6789039a96ebab097ed03db0}{renderer}}-\/>Mat\ =\ game-\/>getMaterials()[mMat].get();}
+\DoxyCodeLine{\Hypertarget{_sprite_node_8cpp_source_l00069}00069\ \ \ \ \ \mbox{\hyperlink{class_scene_node_a51b22a4d6789039a96ebab097ed03db0}{renderer}}-\/>Geo\ =\ game-\/>getGeometries()[mGeo].get();\ }
+\DoxyCodeLine{\Hypertarget{_sprite_node_8cpp_source_l00070}00070\ \ \ \ \ \mbox{\hyperlink{class_scene_node_a51b22a4d6789039a96ebab097ed03db0}{renderer}}-\/>PrimitiveType\ =\ D3D\_PRIMITIVE\_TOPOLOGY\_TRIANGLELIST;}
+\DoxyCodeLine{\Hypertarget{_sprite_node_8cpp_source_l00071}00071\ \ \ \ \ \mbox{\hyperlink{class_scene_node_a51b22a4d6789039a96ebab097ed03db0}{renderer}}-\/>IndexCount\ =\ \mbox{\hyperlink{class_scene_node_a51b22a4d6789039a96ebab097ed03db0}{renderer}}-\/>Geo-\/>DrawArgs[mDrawName].IndexCount;}
+\DoxyCodeLine{\Hypertarget{_sprite_node_8cpp_source_l00072}00072\ \ \ \ \ \mbox{\hyperlink{class_scene_node_a51b22a4d6789039a96ebab097ed03db0}{renderer}}-\/>StartIndexLocation\ =\ \mbox{\hyperlink{class_scene_node_a51b22a4d6789039a96ebab097ed03db0}{renderer}}-\/>Geo-\/>DrawArgs[mDrawName].StartIndexLocation;}
+\DoxyCodeLine{\Hypertarget{_sprite_node_8cpp_source_l00073}00073\ \ \ \ \ \mbox{\hyperlink{class_scene_node_a51b22a4d6789039a96ebab097ed03db0}{renderer}}-\/>BaseVertexLocation\ =\ \mbox{\hyperlink{class_scene_node_a51b22a4d6789039a96ebab097ed03db0}{renderer}}-\/>Geo-\/>DrawArgs[mDrawName].BaseVertexLocation;}
+\DoxyCodeLine{\Hypertarget{_sprite_node_8cpp_source_l00074}00074\ \ \ \ \ \mbox{\hyperlink{class_sprite_node_a578b6103c79f36b95541dab9dc4918f4}{mSpriteNodeRitem}}\ =\ render.get();}
+\DoxyCodeLine{\Hypertarget{_sprite_node_8cpp_source_l00075}00075\ \ \ \ \ \mbox{\hyperlink{class_scene_node_a2921cf2fe98067b4d0b3558d2dc553bc}{mState}}-\/>getRenderItems().push\_back(std::move(render));}
+\DoxyCodeLine{\Hypertarget{_sprite_node_8cpp_source_l00076}00076\ \}}
+\DoxyCodeLine{\Hypertarget{_sprite_node_8cpp_source_l00077}00077\ }
+\DoxyCodeLine{\Hypertarget{_sprite_node_8cpp_source_l00078}00078\ \textcolor{keywordtype}{void}\ SpriteNode::SetDrawName(std::string\ Mat,\ std::string\ Geo,\ std::string\ DrawName)}
+\DoxyCodeLine{\Hypertarget{_sprite_node_8cpp_source_l00079}00079\ \{}
+\DoxyCodeLine{\Hypertarget{_sprite_node_8cpp_source_l00080}00080\ \ \ \ \ mMat\ =\ Mat;}
+\DoxyCodeLine{\Hypertarget{_sprite_node_8cpp_source_l00081}00081\ \ \ \ \ mGeo\ =\ Geo;}
+\DoxyCodeLine{\Hypertarget{_sprite_node_8cpp_source_l00082}00082\ \ \ \ \ mDrawName\ =\ DrawName;}
+\DoxyCodeLine{\Hypertarget{_sprite_node_8cpp_source_l00083}00083\ \}}
+\DoxyCodeLine{\Hypertarget{_sprite_node_8cpp_source_l00084}00084\ }
+\DoxyCodeLine{\Hypertarget{_sprite_node_8cpp_source_l00085}00085\ std::string\ SpriteNode::GetDrawName()}
+\DoxyCodeLine{\Hypertarget{_sprite_node_8cpp_source_l00086}00086\ \{}
+\DoxyCodeLine{\Hypertarget{_sprite_node_8cpp_source_l00087}00087\ \ \ \ \ \textcolor{keywordflow}{return}\ mMat;}
+\DoxyCodeLine{\Hypertarget{_sprite_node_8cpp_source_l00088}00088\ \}}
+\DoxyCodeLine{\Hypertarget{_sprite_node_8cpp_source_l00089}00089\ }
+\DoxyCodeLine{\Hypertarget{_sprite_node_8cpp_source_l00090}00090\ \textcolor{keywordtype}{void}\ SpriteNode::SetVisible(\textcolor{keywordtype}{bool}\ visible)}
+\DoxyCodeLine{\Hypertarget{_sprite_node_8cpp_source_l00091}00091\ \{}
+\DoxyCodeLine{\Hypertarget{_sprite_node_8cpp_source_l00092}00092\ \ \ \ \ mIsVisible\ =\ visible;\ \ \textcolor{comment}{//\ Set\ the\ visibility\ flag}}
+\DoxyCodeLine{\Hypertarget{_sprite_node_8cpp_source_l00093}00093\ \}}
+
+\end{DoxyCode}

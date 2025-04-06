@@ -1,0 +1,103 @@
+\doxysection{State\+Stack.\+hpp}
+\hypertarget{_state_stack_8hpp_source}{}\label{_state_stack_8hpp_source}\index{InitializeDirect3D/StateStack.hpp@{InitializeDirect3D/StateStack.hpp}}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\Hypertarget{_state_stack_8hpp_source_l00001}00001\ \textcolor{preprocessor}{\#pragma\ once}}
+\DoxyCodeLine{\Hypertarget{_state_stack_8hpp_source_l00002}00002\ \textcolor{preprocessor}{\#include\ "{}State.hpp"{}}}
+\DoxyCodeLine{\Hypertarget{_state_stack_8hpp_source_l00003}00003\ \textcolor{preprocessor}{\#include\ <vector>}}
+\DoxyCodeLine{\Hypertarget{_state_stack_8hpp_source_l00004}00004\ \textcolor{preprocessor}{\#include\ <utility>}}
+\DoxyCodeLine{\Hypertarget{_state_stack_8hpp_source_l00005}00005\ \textcolor{preprocessor}{\#include\ <functional>}}
+\DoxyCodeLine{\Hypertarget{_state_stack_8hpp_source_l00006}00006\ \textcolor{preprocessor}{\#include\ <map>}}
+\DoxyCodeLine{\Hypertarget{_state_stack_8hpp_source_l00007}00007\ }
+\DoxyCodeLine{\Hypertarget{_state_stack_8hpp_source_l00008}00008\ \textcolor{keyword}{class\ }\mbox{\hyperlink{class_game}{Game}};}
+\DoxyCodeLine{\Hypertarget{_state_stack_8hpp_source_l00009}00009\ }
+\DoxyCodeLine{\Hypertarget{_state_stack_8hpp_source_l00019}\mbox{\hyperlink{class_state_stack}{00019}}\ \textcolor{keyword}{class\ }\mbox{\hyperlink{class_state_stack_a365f29afd04a9370f6638cbe3b4ff92a}{StateStack}}}
+\DoxyCodeLine{\Hypertarget{_state_stack_8hpp_source_l00020}00020\ \{}
+\DoxyCodeLine{\Hypertarget{_state_stack_8hpp_source_l00021}00021\ \textcolor{keyword}{public}:}
+\DoxyCodeLine{\Hypertarget{_state_stack_8hpp_source_l00025}\mbox{\hyperlink{class_state_stack_af804142a55cd477767353e0abbcc218c}{00025}}\ \ \ \ \ \textcolor{keyword}{enum}\ \mbox{\hyperlink{class_state_stack_af804142a55cd477767353e0abbcc218c}{Action}}}
+\DoxyCodeLine{\Hypertarget{_state_stack_8hpp_source_l00026}00026\ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{_state_stack_8hpp_source_l00027}\mbox{\hyperlink{class_state_stack_af804142a55cd477767353e0abbcc218ca5145d891d6770f76760d0b17cdfec0ab}{00027}}\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_state_stack_af804142a55cd477767353e0abbcc218ca5145d891d6770f76760d0b17cdfec0ab}{Push}},\ \ }
+\DoxyCodeLine{\Hypertarget{_state_stack_8hpp_source_l00028}\mbox{\hyperlink{class_state_stack_af804142a55cd477767353e0abbcc218cada9c92031672d7627190e17bf881889a}{00028}}\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_state_stack_af804142a55cd477767353e0abbcc218cada9c92031672d7627190e17bf881889a}{Pop}},\ \ \ }
+\DoxyCodeLine{\Hypertarget{_state_stack_8hpp_source_l00029}\mbox{\hyperlink{class_state_stack_af804142a55cd477767353e0abbcc218cad2ef458a00c740b8bf761d90da84bc89}{00029}}\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_state_stack_af804142a55cd477767353e0abbcc218cad2ef458a00c740b8bf761d90da84bc89}{Clear}}\ \ }
+\DoxyCodeLine{\Hypertarget{_state_stack_8hpp_source_l00030}00030\ \ \ \ \ \};}
+\DoxyCodeLine{\Hypertarget{_state_stack_8hpp_source_l00031}00031\ }
+\DoxyCodeLine{\Hypertarget{_state_stack_8hpp_source_l00032}00032\ \textcolor{keyword}{public}:}
+\DoxyCodeLine{\Hypertarget{_state_stack_8hpp_source_l00037}00037\ \ \ \ \ \textcolor{keyword}{explicit}\ \mbox{\hyperlink{class_state_stack_a365f29afd04a9370f6638cbe3b4ff92a}{StateStack}}(\mbox{\hyperlink{struct_state_1_1_context}{State::Context}}\ context);}
+\DoxyCodeLine{\Hypertarget{_state_stack_8hpp_source_l00038}00038\ }
+\DoxyCodeLine{\Hypertarget{_state_stack_8hpp_source_l00044}00044\ \ \ \ \ \textcolor{keyword}{template}\ <\textcolor{keyword}{typename}\ T>}
+\DoxyCodeLine{\Hypertarget{_state_stack_8hpp_source_l00045}00045\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_state_stack_a9d64daa479c2cccad6f2ede77741a352}{registerState}}(\mbox{\hyperlink{namespace_states_a571a0dc62822f97bb9511eb013d8e1c3}{States::ID}}\ stateID);}
+\DoxyCodeLine{\Hypertarget{_state_stack_8hpp_source_l00046}00046\ }
+\DoxyCodeLine{\Hypertarget{_state_stack_8hpp_source_l00047}00047\ \ \ \ \ \textcolor{comment}{//-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/}}
+\DoxyCodeLine{\Hypertarget{_state_stack_8hpp_source_l00048}00048\ \ \ \ \ \textcolor{comment}{//\ State\ Stack\ Operations}}
+\DoxyCodeLine{\Hypertarget{_state_stack_8hpp_source_l00049}00049\ \ \ \ \ \textcolor{comment}{//-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/}}
+\DoxyCodeLine{\Hypertarget{_state_stack_8hpp_source_l00050}00050\ }
+\DoxyCodeLine{\Hypertarget{_state_stack_8hpp_source_l00055}00055\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_state_stack_afbe4df84c4d9c578a89e22f513d3f426}{Update}}(\textcolor{keyword}{const}\ GameTimer\&\ timer);}
+\DoxyCodeLine{\Hypertarget{_state_stack_8hpp_source_l00056}00056\ }
+\DoxyCodeLine{\Hypertarget{_state_stack_8hpp_source_l00060}00060\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_state_stack_ad2496762f7c1095f81b7a0beaed8c484}{Draw}}();}
+\DoxyCodeLine{\Hypertarget{_state_stack_8hpp_source_l00061}00061\ }
+\DoxyCodeLine{\Hypertarget{_state_stack_8hpp_source_l00066}00066\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_state_stack_af104ef548c6750fb0df227d84a4b6d0c}{HandleEvent}}(WPARAM\ btnState);}
+\DoxyCodeLine{\Hypertarget{_state_stack_8hpp_source_l00067}00067\ }
+\DoxyCodeLine{\Hypertarget{_state_stack_8hpp_source_l00071}00071\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_state_stack_a0147b687dbb39950ee74007a4de5612a}{handleRealTimeInput}}();}
+\DoxyCodeLine{\Hypertarget{_state_stack_8hpp_source_l00072}00072\ }
+\DoxyCodeLine{\Hypertarget{_state_stack_8hpp_source_l00073}00073\ \ \ \ \ \textcolor{comment}{//-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/}}
+\DoxyCodeLine{\Hypertarget{_state_stack_8hpp_source_l00074}00074\ \ \ \ \ \textcolor{comment}{//\ State\ Management}}
+\DoxyCodeLine{\Hypertarget{_state_stack_8hpp_source_l00075}00075\ \ \ \ \ \textcolor{comment}{//-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/}}
+\DoxyCodeLine{\Hypertarget{_state_stack_8hpp_source_l00076}00076\ }
+\DoxyCodeLine{\Hypertarget{_state_stack_8hpp_source_l00081}00081\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_state_stack_a80ed85f0fc13039e6f4c7dfef19e608f}{pushState}}(\mbox{\hyperlink{namespace_states_a571a0dc62822f97bb9511eb013d8e1c3}{States::ID}}\ stateID);}
+\DoxyCodeLine{\Hypertarget{_state_stack_8hpp_source_l00082}00082\ }
+\DoxyCodeLine{\Hypertarget{_state_stack_8hpp_source_l00086}00086\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_state_stack_a7e050a57b798295c2344f1318765b5ee}{popState}}();}
+\DoxyCodeLine{\Hypertarget{_state_stack_8hpp_source_l00087}00087\ }
+\DoxyCodeLine{\Hypertarget{_state_stack_8hpp_source_l00091}00091\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_state_stack_a49f0703d4037c3bf63494e64cb09898d}{clearStates}}();}
+\DoxyCodeLine{\Hypertarget{_state_stack_8hpp_source_l00092}00092\ }
+\DoxyCodeLine{\Hypertarget{_state_stack_8hpp_source_l00093}00093\ \ \ \ \ \textcolor{comment}{//-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/}}
+\DoxyCodeLine{\Hypertarget{_state_stack_8hpp_source_l00094}00094\ \ \ \ \ \textcolor{comment}{//\ State\ Queries}}
+\DoxyCodeLine{\Hypertarget{_state_stack_8hpp_source_l00095}00095\ \ \ \ \ \textcolor{comment}{//-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/}}
+\DoxyCodeLine{\Hypertarget{_state_stack_8hpp_source_l00096}00096\ }
+\DoxyCodeLine{\Hypertarget{_state_stack_8hpp_source_l00101}00101\ \ \ \ \ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{class_state_stack_a4d9dc16e1a69640b6a85c224fe1c3f33}{isEmpty}}()\ \textcolor{keyword}{const};}
+\DoxyCodeLine{\Hypertarget{_state_stack_8hpp_source_l00102}00102\ }
+\DoxyCodeLine{\Hypertarget{_state_stack_8hpp_source_l00107}00107\ \ \ \ \ \mbox{\hyperlink{class_state}{State}}*\ \mbox{\hyperlink{class_state_stack_a27da1c8169dbfd932ce328644bdcd7ff}{GetCurrentState}}();}
+\DoxyCodeLine{\Hypertarget{_state_stack_8hpp_source_l00108}00108\ }
+\DoxyCodeLine{\Hypertarget{_state_stack_8hpp_source_l00113}00113\ \ \ \ \ \mbox{\hyperlink{class_state}{State}}*\ \mbox{\hyperlink{class_state_stack_addb917a76603343814f6f45f8b43ec39}{GetPreviousState}}();}
+\DoxyCodeLine{\Hypertarget{_state_stack_8hpp_source_l00114}00114\ }
+\DoxyCodeLine{\Hypertarget{_state_stack_8hpp_source_l00115}00115\ \textcolor{keyword}{private}:}
+\DoxyCodeLine{\Hypertarget{_state_stack_8hpp_source_l00116}00116\ \ \ \ \ \textcolor{comment}{//-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/}}
+\DoxyCodeLine{\Hypertarget{_state_stack_8hpp_source_l00117}00117\ \ \ \ \ \textcolor{comment}{//\ Internal\ Operations}}
+\DoxyCodeLine{\Hypertarget{_state_stack_8hpp_source_l00118}00118\ \ \ \ \ \textcolor{comment}{//-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/}}
+\DoxyCodeLine{\Hypertarget{_state_stack_8hpp_source_l00119}00119\ }
+\DoxyCodeLine{\Hypertarget{_state_stack_8hpp_source_l00125}00125\ \ \ \ \ \mbox{\hyperlink{class_state_a2d93174b87266daa690f8f0f3b62e5a3}{State::StatePtr}}\ createState(\mbox{\hyperlink{namespace_states_a571a0dc62822f97bb9511eb013d8e1c3}{States::ID}}\ stateID);}
+\DoxyCodeLine{\Hypertarget{_state_stack_8hpp_source_l00126}00126\ }
+\DoxyCodeLine{\Hypertarget{_state_stack_8hpp_source_l00131}00131\ \ \ \ \ \textcolor{keywordtype}{void}\ applyPendingChanges();}
+\DoxyCodeLine{\Hypertarget{_state_stack_8hpp_source_l00132}00132\ }
+\DoxyCodeLine{\Hypertarget{_state_stack_8hpp_source_l00133}00133\ \textcolor{keyword}{private}:}
+\DoxyCodeLine{\Hypertarget{_state_stack_8hpp_source_l00137}00137\ \ \ \ \ \textcolor{keyword}{struct\ }PendingChange}
+\DoxyCodeLine{\Hypertarget{_state_stack_8hpp_source_l00138}00138\ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{_state_stack_8hpp_source_l00144}00144\ \ \ \ \ \ \ \ \ \textcolor{keyword}{explicit}\ PendingChange(\mbox{\hyperlink{class_state_stack_af804142a55cd477767353e0abbcc218c}{Action}}\ action,\ \mbox{\hyperlink{namespace_states_a571a0dc62822f97bb9511eb013d8e1c3}{States::ID}}\ stateID\ =\ \mbox{\hyperlink{namespace_states_a571a0dc62822f97bb9511eb013d8e1c3ae18ebe696f4559ff77e50030089b4787}{States::None}});}
+\DoxyCodeLine{\Hypertarget{_state_stack_8hpp_source_l00145}00145\ }
+\DoxyCodeLine{\Hypertarget{_state_stack_8hpp_source_l00146}00146\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_state_stack_af804142a55cd477767353e0abbcc218c}{Action}}\ action;\ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{\Hypertarget{_state_stack_8hpp_source_l00147}00147\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{namespace_states_a571a0dc62822f97bb9511eb013d8e1c3}{States::ID}}\ stateID;\ \ \ \ }
+\DoxyCodeLine{\Hypertarget{_state_stack_8hpp_source_l00148}00148\ \ \ \ \ \};}
+\DoxyCodeLine{\Hypertarget{_state_stack_8hpp_source_l00149}00149\ }
+\DoxyCodeLine{\Hypertarget{_state_stack_8hpp_source_l00150}00150\ \textcolor{keyword}{private}:}
+\DoxyCodeLine{\Hypertarget{_state_stack_8hpp_source_l00151}00151\ \ \ \ \ \textcolor{comment}{//-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/}}
+\DoxyCodeLine{\Hypertarget{_state_stack_8hpp_source_l00152}00152\ \ \ \ \ \textcolor{comment}{//\ Data\ Members}}
+\DoxyCodeLine{\Hypertarget{_state_stack_8hpp_source_l00153}00153\ \ \ \ \ \textcolor{comment}{//-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/}}
+\DoxyCodeLine{\Hypertarget{_state_stack_8hpp_source_l00154}00154\ }
+\DoxyCodeLine{\Hypertarget{_state_stack_8hpp_source_l00155}00155\ \ \ \ \ std::vector<State::StatePtr>\ mStack;\ \ \ \ \ \ \ }
+\DoxyCodeLine{\Hypertarget{_state_stack_8hpp_source_l00156}00156\ \ \ \ \ std::vector<PendingChange>\ mPendingList;\ \ \ }
+\DoxyCodeLine{\Hypertarget{_state_stack_8hpp_source_l00157}00157\ \ \ \ \ State::Context\ mContext;\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{\Hypertarget{_state_stack_8hpp_source_l00158}00158\ }
+\DoxyCodeLine{\Hypertarget{_state_stack_8hpp_source_l00162}00162\ \ \ \ \ std::map<\mbox{\hyperlink{namespace_states_a571a0dc62822f97bb9511eb013d8e1c3}{States::ID}},\ std::function<\mbox{\hyperlink{class_state_a2d93174b87266daa690f8f0f3b62e5a3}{State::StatePtr}}()>>\ mFactories;}
+\DoxyCodeLine{\Hypertarget{_state_stack_8hpp_source_l00163}00163\ \};}
+\DoxyCodeLine{\Hypertarget{_state_stack_8hpp_source_l00164}00164\ }
+\DoxyCodeLine{\Hypertarget{_state_stack_8hpp_source_l00165}00165\ \textcolor{comment}{//\ Template\ Implementation}}
+\DoxyCodeLine{\Hypertarget{_state_stack_8hpp_source_l00166}00166\ }
+\DoxyCodeLine{\Hypertarget{_state_stack_8hpp_source_l00177}00177\ \textcolor{keyword}{template}\ <\textcolor{keyword}{typename}\ T>}
+\DoxyCodeLine{\Hypertarget{_state_stack_8hpp_source_l00178}\mbox{\hyperlink{class_state_stack_a9d64daa479c2cccad6f2ede77741a352}{00178}}\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_state_stack_a9d64daa479c2cccad6f2ede77741a352}{StateStack::registerState}}(\mbox{\hyperlink{namespace_states_a571a0dc62822f97bb9511eb013d8e1c3}{States::ID}}\ stateID)}
+\DoxyCodeLine{\Hypertarget{_state_stack_8hpp_source_l00179}00179\ \{}
+\DoxyCodeLine{\Hypertarget{_state_stack_8hpp_source_l00180}00180\ \ \ \ \ mFactories[stateID]\ =\ [\textcolor{keyword}{this}]()}
+\DoxyCodeLine{\Hypertarget{_state_stack_8hpp_source_l00181}00181\ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{_state_stack_8hpp_source_l00182}00182\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \mbox{\hyperlink{class_state_a2d93174b87266daa690f8f0f3b62e5a3}{State::StatePtr}}(\textcolor{keyword}{new}\ T(\textcolor{keyword}{this},\ \&mContext));}
+\DoxyCodeLine{\Hypertarget{_state_stack_8hpp_source_l00183}00183\ \ \ \ \ \ \ \ \ \};}
+\DoxyCodeLine{\Hypertarget{_state_stack_8hpp_source_l00184}00184\ \}}
+
+\end{DoxyCode}

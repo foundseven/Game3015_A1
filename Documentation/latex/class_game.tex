@@ -1,0 +1,1059 @@
+\doxysection{Game Class Reference}
+\hypertarget{class_game}{}\label{class_game}\index{Game@{Game}}
+
+
+Core game application class inheriting from Direct3D base.  
+
+
+
+
+{\ttfamily \#include $<$Game.\+hpp$>$}
+
+Inheritance diagram for Game\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=2.000000cm]{class_game}
+\end{center}
+\end{figure}
+\doxysubsubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{class_game_a3f68a62a1fe1ca8dcd1deb054b384cef}{Game}} (HINSTANCE h\+Instance)
+\begin{DoxyCompactList}\small\item\em Constructs the game application. \end{DoxyCompactList}\item 
+\Hypertarget{class_game_a293c79673d4c15f55f1ab7f3d1809ddb}\label{class_game_a293c79673d4c15f55f1ab7f3d1809ddb} 
+{\bfseries Game} (const \mbox{\hyperlink{class_game}{Game}} \&rhs)=delete
+\item 
+\Hypertarget{class_game_a9bda5763ea460634fef947be2530c8f5}\label{class_game_a9bda5763ea460634fef947be2530c8f5} 
+\mbox{\hyperlink{class_game}{Game}} \& {\bfseries operator=} (const \mbox{\hyperlink{class_game}{Game}} \&rhs)=delete
+\item 
+\mbox{\hyperlink{class_game_ae3d112ca6e0e55150d2fdbc704474530}{\texorpdfstring{$\sim$}{\string~}\+Game}} ()
+\begin{DoxyCompactList}\small\item\em Destructor for resource cleanup. \end{DoxyCompactList}\item 
+virtual bool \mbox{\hyperlink{class_game_a16354d232327f6c21319713bf6983674}{Initialize}} () override
+\begin{DoxyCompactList}\small\item\em Initializes game systems. \end{DoxyCompactList}\item 
+virtual void \mbox{\hyperlink{class_game_a7bd6d8d7aa09aa1196b4fa463d2ac41b}{On\+Resize}} () override
+\begin{DoxyCompactList}\small\item\em Handles window resize events @override D3\+DApp override. \end{DoxyCompactList}\item 
+virtual void \mbox{\hyperlink{class_game_ab9244991993b5a1cbde3f1f2d73f2745}{Update}} (const Game\+Timer \&gt) override
+\begin{DoxyCompactList}\small\item\em Main update loop. \end{DoxyCompactList}\item 
+virtual void \mbox{\hyperlink{class_game_afc62dae28f3cd775d8110ff5386c1fe1}{Draw}} (const Game\+Timer \&gt) override
+\begin{DoxyCompactList}\small\item\em Main rendering loop. \end{DoxyCompactList}\item 
+virtual void \mbox{\hyperlink{class_game_a605e728835f29b7b320f6c9c8de05d00}{On\+Mouse\+Down}} (WPARAM btn\+State, int x, int y) override
+\item 
+virtual void \mbox{\hyperlink{class_game_a020e0c5f01a724bfef357bfe29f800c3}{On\+Mouse\+Up}} (WPARAM btn\+State, int x, int y) override
+\item 
+virtual void \mbox{\hyperlink{class_game_ada0f3fffa1b4560465128b1eff7d1ef5}{On\+Mouse\+Move}} (WPARAM btn\+State, int x, int y) override
+\item 
+virtual void \mbox{\hyperlink{class_game_a35759ff84d520ea106a53dc5d2d28b1a}{On\+Key\+Down}} (WPARAM btn\+State) override
+\item 
+void \mbox{\hyperlink{class_game_aebce4ccb64400e1a932f7ac96da4233b}{Register\+States}} ()
+\begin{DoxyCompactList}\small\item\em Registers game states with the state stack. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_game_a066779a1c2030d790625f7db848b8a41}{Create\+Texture}} (std\+::string Name, std\+::wstring File\+Name)
+\begin{DoxyCompactList}\small\item\em Creates a texture resource. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_game_af2dbd2efb85c1009e555a1c7f203b533}{Create\+Materials}} (std\+::string Name, XMFLOAT4 Diffuse\+Albedo, XMFLOAT3 Fresnel\+R0, float Roughness)
+\begin{DoxyCompactList}\small\item\em Creates a material definition. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_game_ad23eba18656a646756a98bcda25a98a4}{Load\+Textures}} ()
+\begin{DoxyCompactList}\small\item\em Loads all texture resources. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_game_aa02e07384ccea21f7421ca60967c1fa5}{Build\+Root\+Signature}} ()
+\begin{DoxyCompactList}\small\item\em Creates root signature. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_game_a62c79f98ef99a7ee0c54e3ae23ab0173}{Build\+Descriptor\+Heaps}} ()
+\begin{DoxyCompactList}\small\item\em Builds descriptor heaps. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_game_adc0692c304c05a5a281d88622b39c498}{Build\+Shaders\+And\+Input\+Layout}} ()
+\begin{DoxyCompactList}\small\item\em Compiles shaders and defines input layout. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_game_a6ee7b6d7f54345be7f6b406166dccb45}{Build\+Shape\+Geometry}} ()
+\begin{DoxyCompactList}\small\item\em Creates primitive geometries. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_game_abfbaa697f65f1b0061670d2d89400f94}{Build\+Hill\+Geometry}} ()
+\begin{DoxyCompactList}\small\item\em Creates terrain geometry. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_game_aa0934b45052f43934eb93fd013ca23a8}{Build\+PSOs}} ()
+\begin{DoxyCompactList}\small\item\em Creates pipeline state objects. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_game_a4545c2912bedea81f43783b24df89b34}{Build\+Frame\+Resources}} (int render\+Item\+Count)
+\begin{DoxyCompactList}\small\item\em Creates frame resources. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_game_a8150ddca90b1ce3c38becca970246d99}{Build\+Materials}} ()
+\begin{DoxyCompactList}\small\item\em Initializes default materials. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_game_aa95aef9aabba3278be080bfc8437e735}{Reset\+Frame\+Resources}} ()
+\begin{DoxyCompactList}\small\item\em Resets frame resource allocation. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_game_a077400cce3bd3e41333b8228b386e450}{Update\+Camera}} (const Game\+Timer \&gt)
+\begin{DoxyCompactList}\small\item\em Updates camera transforms. \end{DoxyCompactList}\item 
+float \mbox{\hyperlink{class_game_ae34ee318abbb639ba5ddee0901e8daeb}{Get\+Hills\+Height}} (float x, float z) const
+\begin{DoxyCompactList}\small\item\em Gets terrain height at position. \end{DoxyCompactList}\item 
+XMFLOAT3 \mbox{\hyperlink{class_game_a1e7d5c561b35c51d38be2cbff83c4313}{Get\+Hills\+Normal}} (float x, float z) const
+\begin{DoxyCompactList}\small\item\em Gets terrain normal at position. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_game_a1bdfe76a8bfdff007837cb2d2c3c59d6}{Update\+Object\+CBs}} (const Game\+Timer \&gt)
+\begin{DoxyCompactList}\small\item\em Updates object constant buffers. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_game_a4b7fd5dda779a7dd834dd7d26566b657}{Update\+Material\+CBs}} (const Game\+Timer \&gt)
+\begin{DoxyCompactList}\small\item\em Updates material constant buffers. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_game_aa3bb0452e306c88eadfb2d4eedf5ad25}{Update\+Main\+Pass\+CB}} (const Game\+Timer \&gt)
+\begin{DoxyCompactList}\small\item\em Updates pass constants. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_game_a7e0c6faa5f2386c3ad80fe5d5a9e11e4}{Animate\+Materials}} (const Game\+Timer \&gt)
+\begin{DoxyCompactList}\small\item\em Handles material animations. \end{DoxyCompactList}\item 
+std\+::array$<$ const CD3\+DX12\+\_\+\+STATIC\+\_\+\+SAMPLER\+\_\+\+DESC, 6 $>$ \mbox{\hyperlink{class_game_a6e8f674ef01b7480d39fe90374301c2d}{Get\+Static\+Samplers}} ()
+\begin{DoxyCompactList}\small\item\em Gets default static samplers. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_game_a6732bc31d3b397a4cb6211ff1c5c4b9d}{Wait\+For\+GPU}} ()
+\begin{DoxyCompactList}\small\item\em Synchronizes CPU/\+GPU execution. \end{DoxyCompactList}\item 
+ID3\+D12\+Graphics\+Command\+List \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{class_game_a9283a2ccc7cad9fdd4b25f7979d3c5c1}{get\+Cmd\+List}} ()
+\item 
+std\+::unordered\+\_\+map$<$ std\+::string, std\+::unique\+\_\+ptr$<$ Material $>$ $>$ \& \mbox{\hyperlink{class_game_a2ab854095110829c9fb607b8bf3b50e1}{get\+Materials}} ()
+\item 
+std\+::unordered\+\_\+map$<$ std\+::string, std\+::unique\+\_\+ptr$<$ Mesh\+Geometry $>$ $>$ \& \mbox{\hyperlink{class_game_a8fecc6dedc120a94d9940ad5d7518242}{get\+Geometries}} ()
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Public Attributes}
+\begin{DoxyCompactItemize}
+\item 
+std\+::vector$<$ std\+::unique\+\_\+ptr$<$ \mbox{\hyperlink{struct_frame_resource}{Frame\+Resource}} $>$ $>$ \mbox{\hyperlink{class_game_a2a9401ba48c48468ceef6771309ddff7}{m\+Frame\+Resources}}
+\begin{DoxyCompactList}\small\item\em Frame resource ring buffer. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{struct_frame_resource}{Frame\+Resource}} \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{class_game_a6119ac12b9dafae4e105ac9b4e80c1b2}{m\+Curr\+Frame\+Resource}} = nullptr
+\begin{DoxyCompactList}\small\item\em Current frame resource. \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{class_game_a1f687875ba94b87162a7dc90b80b0092}{m\+Curr\+Frame\+Resource\+Index}} = 0
+\begin{DoxyCompactList}\small\item\em Current frame resource index. \end{DoxyCompactList}\item 
+std\+::unordered\+\_\+map$<$ std\+::string, std\+::unique\+\_\+ptr$<$ Mesh\+Geometry $>$ $>$ \mbox{\hyperlink{class_game_a0e53612a0a54bdd46ea1d8b071260b77}{m\+Geometries}}
+\begin{DoxyCompactList}\small\item\em Geometry resources. \end{DoxyCompactList}\item 
+std\+::unordered\+\_\+map$<$ std\+::string, std\+::unique\+\_\+ptr$<$ Material $>$ $>$ \mbox{\hyperlink{class_game_a871400f233e46cc637f383106e89dd71}{m\+Materials}}
+\begin{DoxyCompactList}\small\item\em Material definitions. \end{DoxyCompactList}\item 
+std\+::unordered\+\_\+map$<$ std\+::string, std\+::unique\+\_\+ptr$<$ Texture $>$ $>$ \mbox{\hyperlink{class_game_a914940e399d2418018640ef3da130371}{m\+Textures}}
+\begin{DoxyCompactList}\small\item\em Texture resources. \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{class_game_a37526fb9e3451bf02dfdd41f3c97ccef}{m\+Current\+Material\+CBIndex}} = 0
+\item 
+int \mbox{\hyperlink{class_game_aa95625268320c7275f716145cee5a741}{m\+Current\+Diffuse\+Srv\+Heap\+Index}} = 0
+\item 
+UINT \mbox{\hyperlink{class_game_ad7a064571877d4b8becd1f53c98cafa9}{m\+Cbv\+Srv\+Descriptor\+Size}} = 0
+\item 
+Com\+Ptr$<$ ID3\+D12\+Root\+Signature $>$ \mbox{\hyperlink{class_game_a987fac1aded1b4f4b9495eb0f1464c12}{m\+Root\+Signature}} = nullptr
+\item 
+Com\+Ptr$<$ ID3\+D12\+Descriptor\+Heap $>$ \mbox{\hyperlink{class_game_a85befdbe03bbcdd30ad94cd64e0a1bd1}{m\+Srv\+Descriptor\+Heap}} = nullptr
+\item 
+std\+::unordered\+\_\+map$<$ std\+::string, Com\+Ptr$<$ ID3\+DBlob $>$ $>$ \mbox{\hyperlink{class_game_a5d821a872c24ff21b97300d24e37ac23}{m\+Shaders}}
+\item 
+std\+::vector$<$ D3\+D12\+\_\+\+INPUT\+\_\+\+ELEMENT\+\_\+\+DESC $>$ \mbox{\hyperlink{class_game_a4f5868aab9c96810369a9ab91dec1d2b}{m\+Input\+Layout}}
+\item 
+Com\+Ptr$<$ ID3\+D12\+Pipeline\+State $>$ \mbox{\hyperlink{class_game_acb640d01b04bbb82f3f2b02ac09554b2}{m\+Opaque\+PSO}} = nullptr
+\item 
+std\+::vector$<$ std\+::unique\+\_\+ptr$<$ \mbox{\hyperlink{struct_render_item}{Render\+Item}} $>$ $>$ \mbox{\hyperlink{class_game_aa8184a727f9071c3db7e5efa3a6dce49}{m\+All\+Ritems}}
+\item 
+std\+::vector$<$ \mbox{\hyperlink{struct_render_item}{Render\+Item}} \texorpdfstring{$\ast$}{*} $>$ \mbox{\hyperlink{class_game_a626d5d97ee0e536b99703094828f5f79}{m\+Opaque\+Ritems}}
+\item 
+\mbox{\hyperlink{struct_pass_constants}{Pass\+Constants}} \mbox{\hyperlink{class_game_ad2759008a4629646703b6e34e0501f6c}{m\+Main\+Pass\+CB}}
+\item 
+POINT \mbox{\hyperlink{class_game_ab5cce9551fdd8b346b36747d6f4d3a38}{m\+Last\+Mouse\+Pos}}
+\item 
+Camera \mbox{\hyperlink{class_game_a042dbbcf404fad865bdf72e534c675d5}{m\+Camera}}
+\item 
+\mbox{\hyperlink{class_player}{Player}} \mbox{\hyperlink{class_game_a1633a90f20203779bc1a1171c2d7ad77}{m\+Player}}
+\begin{DoxyCompactList}\small\item\em \doxylink{class_player}{Player} entity. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{class_state_stack}{State\+Stack}} \mbox{\hyperlink{class_game_a0baead77f3725081b986fb9d569c17dd}{m\+State\+Stack}}
+\begin{DoxyCompactList}\small\item\em \doxylink{class_game}{Game} state manager. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Core game application class inheriting from Direct3D base. 
+
+Manages\+:
+\begin{DoxyItemize}
+\item Direct3\+D/2D rendering systems
+\item \doxylink{class_game}{Game} state stack
+\item Resource management (materials, geometries, textures)
+\item Camera and player systems
+\item Frame resource management 
+\end{DoxyItemize}
+
+Definition at line \mbox{\hyperlink{_game_8hpp_source_l00017}{17}} of file \mbox{\hyperlink{_game_8hpp_source}{Game.\+hpp}}.
+
+
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\Hypertarget{class_game_a3f68a62a1fe1ca8dcd1deb054b384cef}\index{Game@{Game}!Game@{Game}}
+\index{Game@{Game}!Game@{Game}}
+\doxysubsubsection{\texorpdfstring{Game()}{Game()}}
+{\footnotesize\ttfamily \label{class_game_a3f68a62a1fe1ca8dcd1deb054b384cef} 
+Game\+::\+Game (\begin{DoxyParamCaption}\item[{HINSTANCE}]{h\+Instance}{}\end{DoxyParamCaption})}
+
+
+
+Constructs the game application. 
+
+Constructor for the \doxylink{class_game}{Game} class.
+
+
+\begin{DoxyParams}{Parameters}
+{\em h\+Instance} & Application instance handle\\
+\hline
+{\em h\+Instance} & The HINSTANCE of the application. \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line \mbox{\hyperlink{_game_8cpp_source_l00017}{17}} of file \mbox{\hyperlink{_game_8cpp_source}{Game.\+cpp}}.
+
+\Hypertarget{class_game_ae3d112ca6e0e55150d2fdbc704474530}\index{Game@{Game}!````~Game@{\texorpdfstring{$\sim$}{\string~}Game}}
+\index{````~Game@{\texorpdfstring{$\sim$}{\string~}Game}!Game@{Game}}
+\doxysubsubsection{\texorpdfstring{\texorpdfstring{$\sim$}{\string~}Game()}{\string~Game()}}
+{\footnotesize\ttfamily \label{class_game_ae3d112ca6e0e55150d2fdbc704474530} 
+Game\+::\texorpdfstring{$\sim$}{\string~}\+Game (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})}
+
+
+
+Destructor for resource cleanup. 
+
+Destructor for the \doxylink{class_game}{Game} class.
+
+Flushes the command queue to ensure all GPU commands are completed before releasing resources. 
+
+Definition at line \mbox{\hyperlink{_game_8cpp_source_l00031}{31}} of file \mbox{\hyperlink{_game_8cpp_source}{Game.\+cpp}}.
+
+
+
+\doxysubsection{Member Function Documentation}
+\Hypertarget{class_game_a7e0c6faa5f2386c3ad80fe5d5a9e11e4}\index{Game@{Game}!AnimateMaterials@{AnimateMaterials}}
+\index{AnimateMaterials@{AnimateMaterials}!Game@{Game}}
+\doxysubsubsection{\texorpdfstring{AnimateMaterials()}{AnimateMaterials()}}
+{\footnotesize\ttfamily \label{class_game_a7e0c6faa5f2386c3ad80fe5d5a9e11e4} 
+void Game\+::\+Animate\+Materials (\begin{DoxyParamCaption}\item[{const Game\+Timer \&}]{gt}{}\end{DoxyParamCaption})}
+
+
+
+Handles material animations. 
+
+Animates the materials.
+
+Currently, this method is empty.
+
+
+\begin{DoxyParams}{Parameters}
+{\em gt} & A const reference to a Game\+Timer object. \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line \mbox{\hyperlink{_game_8cpp_source_l00287}{287}} of file \mbox{\hyperlink{_game_8cpp_source}{Game.\+cpp}}.
+
+\Hypertarget{class_game_a62c79f98ef99a7ee0c54e3ae23ab0173}\index{Game@{Game}!BuildDescriptorHeaps@{BuildDescriptorHeaps}}
+\index{BuildDescriptorHeaps@{BuildDescriptorHeaps}!Game@{Game}}
+\doxysubsubsection{\texorpdfstring{BuildDescriptorHeaps()}{BuildDescriptorHeaps()}}
+{\footnotesize\ttfamily \label{class_game_a62c79f98ef99a7ee0c54e3ae23ab0173} 
+void Game\+::\+Build\+Descriptor\+Heaps (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})}
+
+
+
+Builds descriptor heaps. 
+
+Builds the descriptor heaps.
+
+Creates and fills the descriptor heaps used for shader resource views (SRVs). 
+
+Definition at line \mbox{\hyperlink{_game_8cpp_source_l00523}{523}} of file \mbox{\hyperlink{_game_8cpp_source}{Game.\+cpp}}.
+
+\Hypertarget{class_game_a4545c2912bedea81f43783b24df89b34}\index{Game@{Game}!BuildFrameResources@{BuildFrameResources}}
+\index{BuildFrameResources@{BuildFrameResources}!Game@{Game}}
+\doxysubsubsection{\texorpdfstring{BuildFrameResources()}{BuildFrameResources()}}
+{\footnotesize\ttfamily \label{class_game_a4545c2912bedea81f43783b24df89b34} 
+void Game\+::\+Build\+Frame\+Resources (\begin{DoxyParamCaption}\item[{int}]{render\+Item\+Count}{}\end{DoxyParamCaption})}
+
+
+
+Creates frame resources. 
+
+Builds the frame resources.
+
+Creates the frame resources used for double buffering. 
+
+Definition at line \mbox{\hyperlink{_game_8cpp_source_l00827}{827}} of file \mbox{\hyperlink{_game_8cpp_source}{Game.\+cpp}}.
+
+\Hypertarget{class_game_abfbaa697f65f1b0061670d2d89400f94}\index{Game@{Game}!BuildHillGeometry@{BuildHillGeometry}}
+\index{BuildHillGeometry@{BuildHillGeometry}!Game@{Game}}
+\doxysubsubsection{\texorpdfstring{BuildHillGeometry()}{BuildHillGeometry()}}
+{\footnotesize\ttfamily \label{class_game_abfbaa697f65f1b0061670d2d89400f94} 
+void Game\+::\+Build\+Hill\+Geometry (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})}
+
+
+
+Creates terrain geometry. 
+
+Builds the hill geometry.
+
+Creates the vertex and index buffers for the hills used in the scene. 
+
+Definition at line \mbox{\hyperlink{_game_8cpp_source_l00727}{727}} of file \mbox{\hyperlink{_game_8cpp_source}{Game.\+cpp}}.
+
+\Hypertarget{class_game_a8150ddca90b1ce3c38becca970246d99}\index{Game@{Game}!BuildMaterials@{BuildMaterials}}
+\index{BuildMaterials@{BuildMaterials}!Game@{Game}}
+\doxysubsubsection{\texorpdfstring{BuildMaterials()}{BuildMaterials()}}
+{\footnotesize\ttfamily \label{class_game_a8150ddca90b1ce3c38becca970246d99} 
+void Game\+::\+Build\+Materials (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})}
+
+
+
+Initializes default materials. 
+
+Builds the materials.
+
+Creates the materials used in the scene. 
+
+Definition at line \mbox{\hyperlink{_game_8cpp_source_l00842}{842}} of file \mbox{\hyperlink{_game_8cpp_source}{Game.\+cpp}}.
+
+\Hypertarget{class_game_aa0934b45052f43934eb93fd013ca23a8}\index{Game@{Game}!BuildPSOs@{BuildPSOs}}
+\index{BuildPSOs@{BuildPSOs}!Game@{Game}}
+\doxysubsubsection{\texorpdfstring{BuildPSOs()}{BuildPSOs()}}
+{\footnotesize\ttfamily \label{class_game_aa0934b45052f43934eb93fd013ca23a8} 
+void Game\+::\+Build\+PSOs (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})}
+
+
+
+Creates pipeline state objects. 
+
+Builds the pipeline state objects (PSOs).
+
+Creates the PSOs for different rendering techniques. 
+
+Definition at line \mbox{\hyperlink{_game_8cpp_source_l00789}{789}} of file \mbox{\hyperlink{_game_8cpp_source}{Game.\+cpp}}.
+
+\Hypertarget{class_game_aa02e07384ccea21f7421ca60967c1fa5}\index{Game@{Game}!BuildRootSignature@{BuildRootSignature}}
+\index{BuildRootSignature@{BuildRootSignature}!Game@{Game}}
+\doxysubsubsection{\texorpdfstring{BuildRootSignature()}{BuildRootSignature()}}
+{\footnotesize\ttfamily \label{class_game_aa02e07384ccea21f7421ca60967c1fa5} 
+void Game\+::\+Build\+Root\+Signature (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})}
+
+
+
+Creates root signature. 
+
+Builds the root signature.
+
+Defines the root signature used in the shaders. 
+
+Definition at line \mbox{\hyperlink{_game_8cpp_source_l00473}{473}} of file \mbox{\hyperlink{_game_8cpp_source}{Game.\+cpp}}.
+
+\Hypertarget{class_game_adc0692c304c05a5a281d88622b39c498}\index{Game@{Game}!BuildShadersAndInputLayout@{BuildShadersAndInputLayout}}
+\index{BuildShadersAndInputLayout@{BuildShadersAndInputLayout}!Game@{Game}}
+\doxysubsubsection{\texorpdfstring{BuildShadersAndInputLayout()}{BuildShadersAndInputLayout()}}
+{\footnotesize\ttfamily \label{class_game_adc0692c304c05a5a281d88622b39c498} 
+void Game\+::\+Build\+Shaders\+And\+Input\+Layout (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})}
+
+
+
+Compiles shaders and defines input layout. 
+
+Builds the pipeline state objects (PSOs).
+
+Creates the PSOs for rendering opaque objects. 
+
+Definition at line \mbox{\hyperlink{_game_8cpp_source_l00649}{649}} of file \mbox{\hyperlink{_game_8cpp_source}{Game.\+cpp}}.
+
+\Hypertarget{class_game_a6ee7b6d7f54345be7f6b406166dccb45}\index{Game@{Game}!BuildShapeGeometry@{BuildShapeGeometry}}
+\index{BuildShapeGeometry@{BuildShapeGeometry}!Game@{Game}}
+\doxysubsubsection{\texorpdfstring{BuildShapeGeometry()}{BuildShapeGeometry()}}
+{\footnotesize\ttfamily \label{class_game_a6ee7b6d7f54345be7f6b406166dccb45} 
+void Game\+::\+Build\+Shape\+Geometry (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})}
+
+
+
+Creates primitive geometries. 
+
+Builds the shape geometry.
+
+Creates the vertex and index buffers for the shapes used in the scene. 
+
+Definition at line \mbox{\hyperlink{_game_8cpp_source_l00669}{669}} of file \mbox{\hyperlink{_game_8cpp_source}{Game.\+cpp}}.
+
+\Hypertarget{class_game_af2dbd2efb85c1009e555a1c7f203b533}\index{Game@{Game}!CreateMaterials@{CreateMaterials}}
+\index{CreateMaterials@{CreateMaterials}!Game@{Game}}
+\doxysubsubsection{\texorpdfstring{CreateMaterials()}{CreateMaterials()}}
+{\footnotesize\ttfamily \label{class_game_af2dbd2efb85c1009e555a1c7f203b533} 
+void Game\+::\+Create\+Materials (\begin{DoxyParamCaption}\item[{std\+::string}]{Name}{, }\item[{XMFLOAT4}]{Diffuse\+Albedo}{, }\item[{XMFLOAT3}]{Fresnel\+R0}{, }\item[{float}]{Roughness}{}\end{DoxyParamCaption})}
+
+
+
+Creates a material definition. 
+
+Creates a material.
+
+
+\begin{DoxyParams}{Parameters}
+{\em Name} & Unique identifier for the material \\
+\hline
+{\em Diffuse\+Albedo} & Base color properties \\
+\hline
+{\em Fresnel\+R0} & Reflectance properties \\
+\hline
+{\em Roughness} & Surface roughness value\\
+\hline
+\end{DoxyParams}
+Creates a material with the specified properties and adds it to the materials map.
+
+
+\begin{DoxyParams}{Parameters}
+{\em Name} & The name of the material. \\
+\hline
+{\em Diffuse\+Albedo} & The diffuse albedo color of the material. \\
+\hline
+{\em Fresnel\+R0} & The Fresnel reflectance at normal incidence. \\
+\hline
+{\em Roughness} & The roughness of the material. \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line \mbox{\hyperlink{_game_8cpp_source_l00874}{874}} of file \mbox{\hyperlink{_game_8cpp_source}{Game.\+cpp}}.
+
+\Hypertarget{class_game_a066779a1c2030d790625f7db848b8a41}\index{Game@{Game}!CreateTexture@{CreateTexture}}
+\index{CreateTexture@{CreateTexture}!Game@{Game}}
+\doxysubsubsection{\texorpdfstring{CreateTexture()}{CreateTexture()}}
+{\footnotesize\ttfamily \label{class_game_a066779a1c2030d790625f7db848b8a41} 
+void Game\+::\+Create\+Texture (\begin{DoxyParamCaption}\item[{std\+::string}]{Name}{, }\item[{std\+::wstring}]{File\+Name}{}\end{DoxyParamCaption})}
+
+
+
+Creates a texture resource. 
+
+Loads the textures.
+
+
+\begin{DoxyParams}{Parameters}
+{\em Name} & Unique identifier for the texture \\
+\hline
+{\em File\+Name} & Path to texture file\\
+\hline
+\end{DoxyParams}
+Loads texture resources from files and stores them in the texture map. 
+
+Definition at line \mbox{\hyperlink{_game_8cpp_source_l00419}{419}} of file \mbox{\hyperlink{_game_8cpp_source}{Game.\+cpp}}.
+
+\Hypertarget{class_game_afc62dae28f3cd775d8110ff5386c1fe1}\index{Game@{Game}!Draw@{Draw}}
+\index{Draw@{Draw}!Game@{Game}}
+\doxysubsubsection{\texorpdfstring{Draw()}{Draw()}}
+{\footnotesize\ttfamily \label{class_game_afc62dae28f3cd775d8110ff5386c1fe1} 
+void Game\+::\+Draw (\begin{DoxyParamCaption}\item[{const Game\+Timer \&}]{gt}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+
+
+Main rendering loop. 
+
+Draws the game scene.
+
+
+\begin{DoxyParams}{Parameters}
+{\em gt} & \doxylink{class_game}{Game} timer with frame timing @override D3\+DApp override\\
+\hline
+\end{DoxyParams}
+This method draws the game scene by resetting the command list, setting the viewport and scissor rectangles, transitioning the back buffer to the render target state, clearing the back buffer and depth buffer, setting render targets, setting descriptor heaps, setting the root signature, setting the pass constant buffer, drawing the game world, drawing render items, transitioning the back buffer to the present state, executing the command list, presenting the back buffer, and advancing the fence value.
+
+
+\begin{DoxyParams}{Parameters}
+{\em gt} & A const reference to a Game\+Timer object. \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line \mbox{\hyperlink{_game_8cpp_source_l00162}{162}} of file \mbox{\hyperlink{_game_8cpp_source}{Game.\+cpp}}.
+
+\Hypertarget{class_game_a9283a2ccc7cad9fdd4b25f7979d3c5c1}\index{Game@{Game}!getCmdList@{getCmdList}}
+\index{getCmdList@{getCmdList}!Game@{Game}}
+\doxysubsubsection{\texorpdfstring{getCmdList()}{getCmdList()}}
+{\footnotesize\ttfamily \label{class_game_a9283a2ccc7cad9fdd4b25f7979d3c5c1} 
+ID3\+D12\+Graphics\+Command\+List \texorpdfstring{$\ast$}{*} Game\+::get\+Cmd\+List (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Definition at line \mbox{\hyperlink{_game_8hpp_source_l00185}{185}} of file \mbox{\hyperlink{_game_8hpp_source}{Game.\+hpp}}.
+
+\Hypertarget{class_game_a8fecc6dedc120a94d9940ad5d7518242}\index{Game@{Game}!getGeometries@{getGeometries}}
+\index{getGeometries@{getGeometries}!Game@{Game}}
+\doxysubsubsection{\texorpdfstring{getGeometries()}{getGeometries()}}
+{\footnotesize\ttfamily \label{class_game_a8fecc6dedc120a94d9940ad5d7518242} 
+std\+::unordered\+\_\+map$<$ std\+::string, std\+::unique\+\_\+ptr$<$ Mesh\+Geometry $>$ $>$ \& Game\+::get\+Geometries (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Definition at line \mbox{\hyperlink{_game_8hpp_source_l00187}{187}} of file \mbox{\hyperlink{_game_8hpp_source}{Game.\+hpp}}.
+
+\Hypertarget{class_game_ae34ee318abbb639ba5ddee0901e8daeb}\index{Game@{Game}!GetHillsHeight@{GetHillsHeight}}
+\index{GetHillsHeight@{GetHillsHeight}!Game@{Game}}
+\doxysubsubsection{\texorpdfstring{GetHillsHeight()}{GetHillsHeight()}}
+{\footnotesize\ttfamily \label{class_game_ae34ee318abbb639ba5ddee0901e8daeb} 
+float Game\+::\+Get\+Hills\+Height (\begin{DoxyParamCaption}\item[{float}]{x}{, }\item[{float}]{z}{}\end{DoxyParamCaption}) const}
+
+
+
+Gets terrain height at position. 
+
+Gets the height of the hills.
+
+Calculates the height of the hills at the specified coordinates.
+
+
+\begin{DoxyParams}{Parameters}
+{\em x} & The x-\/coordinate. \\
+\hline
+{\em z} & The z-\/coordinate. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+The height of the hills at the specified coordinates. 
+\end{DoxyReturn}
+
+
+Definition at line \mbox{\hyperlink{_game_8cpp_source_l01011}{1011}} of file \mbox{\hyperlink{_game_8cpp_source}{Game.\+cpp}}.
+
+\Hypertarget{class_game_a1e7d5c561b35c51d38be2cbff83c4313}\index{Game@{Game}!GetHillsNormal@{GetHillsNormal}}
+\index{GetHillsNormal@{GetHillsNormal}!Game@{Game}}
+\doxysubsubsection{\texorpdfstring{GetHillsNormal()}{GetHillsNormal()}}
+{\footnotesize\ttfamily \label{class_game_a1e7d5c561b35c51d38be2cbff83c4313} 
+XMFLOAT3 Game\+::\+Get\+Hills\+Normal (\begin{DoxyParamCaption}\item[{float}]{x}{, }\item[{float}]{z}{}\end{DoxyParamCaption}) const}
+
+
+
+Gets terrain normal at position. 
+
+Gets the normal vector of the hills.
+
+Calculates the normal vector of the hills at the specified coordinates.
+
+
+\begin{DoxyParams}{Parameters}
+{\em x} & The x-\/coordinate. \\
+\hline
+{\em z} & The z-\/coordinate. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+The normal vector of the hills at the specified coordinates. 
+\end{DoxyReturn}
+
+
+Definition at line \mbox{\hyperlink{_game_8cpp_source_l01025}{1025}} of file \mbox{\hyperlink{_game_8cpp_source}{Game.\+cpp}}.
+
+\Hypertarget{class_game_a2ab854095110829c9fb607b8bf3b50e1}\index{Game@{Game}!getMaterials@{getMaterials}}
+\index{getMaterials@{getMaterials}!Game@{Game}}
+\doxysubsubsection{\texorpdfstring{getMaterials()}{getMaterials()}}
+{\footnotesize\ttfamily \label{class_game_a2ab854095110829c9fb607b8bf3b50e1} 
+std\+::unordered\+\_\+map$<$ std\+::string, std\+::unique\+\_\+ptr$<$ Material $>$ $>$ \& Game\+::get\+Materials (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Definition at line \mbox{\hyperlink{_game_8hpp_source_l00186}{186}} of file \mbox{\hyperlink{_game_8hpp_source}{Game.\+hpp}}.
+
+\Hypertarget{class_game_a6e8f674ef01b7480d39fe90374301c2d}\index{Game@{Game}!GetStaticSamplers@{GetStaticSamplers}}
+\index{GetStaticSamplers@{GetStaticSamplers}!Game@{Game}}
+\doxysubsubsection{\texorpdfstring{GetStaticSamplers()}{GetStaticSamplers()}}
+{\footnotesize\ttfamily \label{class_game_a6e8f674ef01b7480d39fe90374301c2d} 
+std\+::array$<$ const CD3\+DX12\+\_\+\+STATIC\+\_\+\+SAMPLER\+\_\+\+DESC, 6 $>$ Game\+::\+Get\+Static\+Samplers (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})}
+
+
+
+Gets default static samplers. 
+
+Gets the static samplers.
+
+Returns an array of static sampler descriptions.
+
+\begin{DoxyReturn}{Returns}
+An array of const CD3\+DX12\+\_\+\+STATIC\+\_\+\+SAMPLER\+\_\+\+DESC objects. 
+\end{DoxyReturn}
+
+
+Definition at line \mbox{\hyperlink{_game_8cpp_source_l00945}{945}} of file \mbox{\hyperlink{_game_8cpp_source}{Game.\+cpp}}.
+
+\Hypertarget{class_game_a16354d232327f6c21319713bf6983674}\index{Game@{Game}!Initialize@{Initialize}}
+\index{Initialize@{Initialize}!Game@{Game}}
+\doxysubsubsection{\texorpdfstring{Initialize()}{Initialize()}}
+{\footnotesize\ttfamily \label{class_game_a16354d232327f6c21319713bf6983674} 
+bool Game\+::\+Initialize (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+
+
+Initializes game systems. 
+
+Initializes the game.
+
+\begin{DoxyReturn}{Returns}
+True if successful, false otherwise @override D3\+DApp override
+\end{DoxyReturn}
+This method initializes D3D, creates resources, loads textures, builds the root signature, descriptor heaps, shaders, geometry, materials, render items, frame resources, and pipeline state objects.
+
+\begin{DoxyReturn}{Returns}
+true if initialization was successful, false otherwise. 
+\end{DoxyReturn}
+
+
+Definition at line \mbox{\hyperlink{_game_8cpp_source_l00046}{46}} of file \mbox{\hyperlink{_game_8cpp_source}{Game.\+cpp}}.
+
+\Hypertarget{class_game_ad23eba18656a646756a98bcda25a98a4}\index{Game@{Game}!LoadTextures@{LoadTextures}}
+\index{LoadTextures@{LoadTextures}!Game@{Game}}
+\doxysubsubsection{\texorpdfstring{LoadTextures()}{LoadTextures()}}
+{\footnotesize\ttfamily \label{class_game_ad23eba18656a646756a98bcda25a98a4} 
+void Game\+::\+Load\+Textures (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})}
+
+
+
+Loads all texture resources. 
+
+Loads all textures used in the game.
+
+This method creates texture resources for various game assets. 
+
+Definition at line \mbox{\hyperlink{_game_8cpp_source_l00435}{435}} of file \mbox{\hyperlink{_game_8cpp_source}{Game.\+cpp}}.
+
+\Hypertarget{class_game_a35759ff84d520ea106a53dc5d2d28b1a}\index{Game@{Game}!OnKeyDown@{OnKeyDown}}
+\index{OnKeyDown@{OnKeyDown}!Game@{Game}}
+\doxysubsubsection{\texorpdfstring{OnKeyDown()}{OnKeyDown()}}
+{\footnotesize\ttfamily \label{class_game_a35759ff84d520ea106a53dc5d2d28b1a} 
+void Game\+::\+On\+Key\+Down (\begin{DoxyParamCaption}\item[{WPARAM}]{btn\+State}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+
+
+Definition at line \mbox{\hyperlink{_game_8cpp_source_l00264}{264}} of file \mbox{\hyperlink{_game_8cpp_source}{Game.\+cpp}}.
+
+\Hypertarget{class_game_a605e728835f29b7b320f6c9c8de05d00}\index{Game@{Game}!OnMouseDown@{OnMouseDown}}
+\index{OnMouseDown@{OnMouseDown}!Game@{Game}}
+\doxysubsubsection{\texorpdfstring{OnMouseDown()}{OnMouseDown()}}
+{\footnotesize\ttfamily \label{class_game_a605e728835f29b7b320f6c9c8de05d00} 
+void Game\+::\+On\+Mouse\+Down (\begin{DoxyParamCaption}\item[{WPARAM}]{btn\+State}{, }\item[{int}]{x}{, }\item[{int}]{y}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+
+
+Definition at line \mbox{\hyperlink{_game_8cpp_source_l00234}{234}} of file \mbox{\hyperlink{_game_8cpp_source}{Game.\+cpp}}.
+
+\Hypertarget{class_game_ada0f3fffa1b4560465128b1eff7d1ef5}\index{Game@{Game}!OnMouseMove@{OnMouseMove}}
+\index{OnMouseMove@{OnMouseMove}!Game@{Game}}
+\doxysubsubsection{\texorpdfstring{OnMouseMove()}{OnMouseMove()}}
+{\footnotesize\ttfamily \label{class_game_ada0f3fffa1b4560465128b1eff7d1ef5} 
+void Game\+::\+On\+Mouse\+Move (\begin{DoxyParamCaption}\item[{WPARAM}]{btn\+State}{, }\item[{int}]{x}{, }\item[{int}]{y}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+
+
+Definition at line \mbox{\hyperlink{_game_8cpp_source_l00247}{247}} of file \mbox{\hyperlink{_game_8cpp_source}{Game.\+cpp}}.
+
+\Hypertarget{class_game_a020e0c5f01a724bfef357bfe29f800c3}\index{Game@{Game}!OnMouseUp@{OnMouseUp}}
+\index{OnMouseUp@{OnMouseUp}!Game@{Game}}
+\doxysubsubsection{\texorpdfstring{OnMouseUp()}{OnMouseUp()}}
+{\footnotesize\ttfamily \label{class_game_a020e0c5f01a724bfef357bfe29f800c3} 
+void Game\+::\+On\+Mouse\+Up (\begin{DoxyParamCaption}\item[{WPARAM}]{btn\+State}{, }\item[{int}]{x}{, }\item[{int}]{y}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+
+
+Definition at line \mbox{\hyperlink{_game_8cpp_source_l00242}{242}} of file \mbox{\hyperlink{_game_8cpp_source}{Game.\+cpp}}.
+
+\Hypertarget{class_game_a7bd6d8d7aa09aa1196b4fa463d2ac41b}\index{Game@{Game}!OnResize@{OnResize}}
+\index{OnResize@{OnResize}!Game@{Game}}
+\doxysubsubsection{\texorpdfstring{OnResize()}{OnResize()}}
+{\footnotesize\ttfamily \label{class_game_a7bd6d8d7aa09aa1196b4fa463d2ac41b} 
+void Game\+::\+On\+Resize (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+
+
+Handles window resize events @override D3\+DApp override. 
+
+Handles window resizing.
+
+Updates the aspect ratio and recomputes the projection matrix based on the new window dimensions. 
+
+Definition at line \mbox{\hyperlink{_game_8cpp_source_l00091}{91}} of file \mbox{\hyperlink{_game_8cpp_source}{Game.\+cpp}}.
+
+\Hypertarget{class_game_aebce4ccb64400e1a932f7ac96da4233b}\index{Game@{Game}!RegisterStates@{RegisterStates}}
+\index{RegisterStates@{RegisterStates}!Game@{Game}}
+\doxysubsubsection{\texorpdfstring{RegisterStates()}{RegisterStates()}}
+{\footnotesize\ttfamily \label{class_game_aebce4ccb64400e1a932f7ac96da4233b} 
+void Game\+::\+Register\+States (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})}
+
+
+
+Registers game states with the state stack. 
+
+Registers the game states.
+
+Registers the game states with the state stack. 
+
+Definition at line \mbox{\hyperlink{_game_8cpp_source_l00892}{892}} of file \mbox{\hyperlink{_game_8cpp_source}{Game.\+cpp}}.
+
+\Hypertarget{class_game_aa95aef9aabba3278be080bfc8437e735}\index{Game@{Game}!ResetFrameResources@{ResetFrameResources}}
+\index{ResetFrameResources@{ResetFrameResources}!Game@{Game}}
+\doxysubsubsection{\texorpdfstring{ResetFrameResources()}{ResetFrameResources()}}
+{\footnotesize\ttfamily \label{class_game_aa95aef9aabba3278be080bfc8437e735} 
+void Game\+::\+Reset\+Frame\+Resources (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})}
+
+
+
+Resets frame resource allocation. 
+
+Resets the frame resources.
+
+Clears the frame resources and waits for the GPU to finish processing. 
+
+Definition at line \mbox{\hyperlink{_game_8cpp_source_l00930}{930}} of file \mbox{\hyperlink{_game_8cpp_source}{Game.\+cpp}}.
+
+\Hypertarget{class_game_ab9244991993b5a1cbde3f1f2d73f2745}\index{Game@{Game}!Update@{Update}}
+\index{Update@{Update}!Game@{Game}}
+\doxysubsubsection{\texorpdfstring{Update()}{Update()}}
+{\footnotesize\ttfamily \label{class_game_ab9244991993b5a1cbde3f1f2d73f2745} 
+void Game\+::\+Update (\begin{DoxyParamCaption}\item[{const Game\+Timer \&}]{gt}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+
+
+Main update loop. 
+
+Updates the game state.
+
+
+\begin{DoxyParams}{Parameters}
+{\em gt} & \doxylink{class_game}{Game} timer with frame timing @override D3\+DApp override\\
+\hline
+\end{DoxyParams}
+This method processes input, updates the game world, updates the camera, cycles through frame resources, waits for the GPU to complete previous commands, animates materials, and updates constant buffers.
+
+
+\begin{DoxyParams}{Parameters}
+{\em gt} & A const reference to a Game\+Timer object. \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line \mbox{\hyperlink{_game_8cpp_source_l00112}{112}} of file \mbox{\hyperlink{_game_8cpp_source}{Game.\+cpp}}.
+
+\Hypertarget{class_game_a077400cce3bd3e41333b8228b386e450}\index{Game@{Game}!UpdateCamera@{UpdateCamera}}
+\index{UpdateCamera@{UpdateCamera}!Game@{Game}}
+\doxysubsubsection{\texorpdfstring{UpdateCamera()}{UpdateCamera()}}
+{\footnotesize\ttfamily \label{class_game_a077400cce3bd3e41333b8228b386e450} 
+void Game\+::\+Update\+Camera (\begin{DoxyParamCaption}\item[{const Game\+Timer \&}]{gt}{}\end{DoxyParamCaption})}
+
+
+
+Updates camera transforms. 
+
+Updates the camera.
+
+Updates the view matrix of the camera. 
+
+Definition at line \mbox{\hyperlink{_game_8cpp_source_l00275}{275}} of file \mbox{\hyperlink{_game_8cpp_source}{Game.\+cpp}}.
+
+\Hypertarget{class_game_aa3bb0452e306c88eadfb2d4eedf5ad25}\index{Game@{Game}!UpdateMainPassCB@{UpdateMainPassCB}}
+\index{UpdateMainPassCB@{UpdateMainPassCB}!Game@{Game}}
+\doxysubsubsection{\texorpdfstring{UpdateMainPassCB()}{UpdateMainPassCB()}}
+{\footnotesize\ttfamily \label{class_game_aa3bb0452e306c88eadfb2d4eedf5ad25} 
+void Game\+::\+Update\+Main\+Pass\+CB (\begin{DoxyParamCaption}\item[{const Game\+Timer \&}]{gt}{}\end{DoxyParamCaption})}
+
+
+
+Updates pass constants. 
+
+Updates the main pass constant buffer.
+
+Updates the main pass constant buffer with view, projection, and lighting information.
+
+
+\begin{DoxyParams}{Parameters}
+{\em gt} & A const reference to a Game\+Timer object. \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line \mbox{\hyperlink{_game_8cpp_source_l00367}{367}} of file \mbox{\hyperlink{_game_8cpp_source}{Game.\+cpp}}.
+
+\Hypertarget{class_game_a4b7fd5dda779a7dd834dd7d26566b657}\index{Game@{Game}!UpdateMaterialCBs@{UpdateMaterialCBs}}
+\index{UpdateMaterialCBs@{UpdateMaterialCBs}!Game@{Game}}
+\doxysubsubsection{\texorpdfstring{UpdateMaterialCBs()}{UpdateMaterialCBs()}}
+{\footnotesize\ttfamily \label{class_game_a4b7fd5dda779a7dd834dd7d26566b657} 
+void Game\+::\+Update\+Material\+CBs (\begin{DoxyParamCaption}\item[{const Game\+Timer \&}]{gt}{}\end{DoxyParamCaption})}
+
+
+
+Updates material constant buffers. 
+
+Updates the material constant buffers.
+
+Updates the material constant buffers for each material if the constants have changed.
+
+
+\begin{DoxyParams}{Parameters}
+{\em gt} & A const reference to a Game\+Timer object. \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line \mbox{\hyperlink{_game_8cpp_source_l00333}{333}} of file \mbox{\hyperlink{_game_8cpp_source}{Game.\+cpp}}.
+
+\Hypertarget{class_game_a1bdfe76a8bfdff007837cb2d2c3c59d6}\index{Game@{Game}!UpdateObjectCBs@{UpdateObjectCBs}}
+\index{UpdateObjectCBs@{UpdateObjectCBs}!Game@{Game}}
+\doxysubsubsection{\texorpdfstring{UpdateObjectCBs()}{UpdateObjectCBs()}}
+{\footnotesize\ttfamily \label{class_game_a1bdfe76a8bfdff007837cb2d2c3c59d6} 
+void Game\+::\+Update\+Object\+CBs (\begin{DoxyParamCaption}\item[{const Game\+Timer \&}]{gt}{}\end{DoxyParamCaption})}
+
+
+
+Updates object constant buffers. 
+
+Updates the object constant buffers.
+
+Updates the object constant buffers for each render item if the constants have changed.
+
+
+\begin{DoxyParams}{Parameters}
+{\em gt} & A const reference to a Game\+Timer object. \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line \mbox{\hyperlink{_game_8cpp_source_l00300}{300}} of file \mbox{\hyperlink{_game_8cpp_source}{Game.\+cpp}}.
+
+\Hypertarget{class_game_a6732bc31d3b397a4cb6211ff1c5c4b9d}\index{Game@{Game}!WaitForGPU@{WaitForGPU}}
+\index{WaitForGPU@{WaitForGPU}!Game@{Game}}
+\doxysubsubsection{\texorpdfstring{WaitForGPU()}{WaitForGPU()}}
+{\footnotesize\ttfamily \label{class_game_a6732bc31d3b397a4cb6211ff1c5c4b9d} 
+void Game\+::\+Wait\+For\+GPU (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})}
+
+
+
+Synchronizes CPU/\+GPU execution. 
+
+Waits for the GPU to finish processing.
+
+This method blocks the CPU until the GPU has completed all commands up to the specified fence point. 
+
+Definition at line \mbox{\hyperlink{_game_8cpp_source_l00907}{907}} of file \mbox{\hyperlink{_game_8cpp_source}{Game.\+cpp}}.
+
+
+
+\doxysubsection{Member Data Documentation}
+\Hypertarget{class_game_aa8184a727f9071c3db7e5efa3a6dce49}\index{Game@{Game}!mAllRitems@{mAllRitems}}
+\index{mAllRitems@{mAllRitems}!Game@{Game}}
+\doxysubsubsection{\texorpdfstring{mAllRitems}{mAllRitems}}
+{\footnotesize\ttfamily \label{class_game_aa8184a727f9071c3db7e5efa3a6dce49} 
+std\+::vector$<$std\+::unique\+\_\+ptr$<$\mbox{\hyperlink{struct_render_item}{Render\+Item}}$>$ $>$ Game\+::m\+All\+Ritems}
+
+
+
+Definition at line \mbox{\hyperlink{_game_8hpp_source_l00168}{168}} of file \mbox{\hyperlink{_game_8hpp_source}{Game.\+hpp}}.
+
+\Hypertarget{class_game_a042dbbcf404fad865bdf72e534c675d5}\index{Game@{Game}!mCamera@{mCamera}}
+\index{mCamera@{mCamera}!Game@{Game}}
+\doxysubsubsection{\texorpdfstring{mCamera}{mCamera}}
+{\footnotesize\ttfamily \label{class_game_a042dbbcf404fad865bdf72e534c675d5} 
+Camera Game\+::m\+Camera}
+
+
+
+Definition at line \mbox{\hyperlink{_game_8hpp_source_l00176}{176}} of file \mbox{\hyperlink{_game_8hpp_source}{Game.\+hpp}}.
+
+\Hypertarget{class_game_ad7a064571877d4b8becd1f53c98cafa9}\index{Game@{Game}!mCbvSrvDescriptorSize@{mCbvSrvDescriptorSize}}
+\index{mCbvSrvDescriptorSize@{mCbvSrvDescriptorSize}!Game@{Game}}
+\doxysubsubsection{\texorpdfstring{mCbvSrvDescriptorSize}{mCbvSrvDescriptorSize}}
+{\footnotesize\ttfamily \label{class_game_ad7a064571877d4b8becd1f53c98cafa9} 
+UINT Game\+::m\+Cbv\+Srv\+Descriptor\+Size = 0}
+
+
+
+Definition at line \mbox{\hyperlink{_game_8hpp_source_l00156}{156}} of file \mbox{\hyperlink{_game_8hpp_source}{Game.\+hpp}}.
+
+\Hypertarget{class_game_aa95625268320c7275f716145cee5a741}\index{Game@{Game}!mCurrentDiffuseSrvHeapIndex@{mCurrentDiffuseSrvHeapIndex}}
+\index{mCurrentDiffuseSrvHeapIndex@{mCurrentDiffuseSrvHeapIndex}!Game@{Game}}
+\doxysubsubsection{\texorpdfstring{mCurrentDiffuseSrvHeapIndex}{mCurrentDiffuseSrvHeapIndex}}
+{\footnotesize\ttfamily \label{class_game_aa95625268320c7275f716145cee5a741} 
+int Game\+::m\+Current\+Diffuse\+Srv\+Heap\+Index = 0}
+
+
+
+Definition at line \mbox{\hyperlink{_game_8hpp_source_l00154}{154}} of file \mbox{\hyperlink{_game_8hpp_source}{Game.\+hpp}}.
+
+\Hypertarget{class_game_a37526fb9e3451bf02dfdd41f3c97ccef}\index{Game@{Game}!mCurrentMaterialCBIndex@{mCurrentMaterialCBIndex}}
+\index{mCurrentMaterialCBIndex@{mCurrentMaterialCBIndex}!Game@{Game}}
+\doxysubsubsection{\texorpdfstring{mCurrentMaterialCBIndex}{mCurrentMaterialCBIndex}}
+{\footnotesize\ttfamily \label{class_game_a37526fb9e3451bf02dfdd41f3c97ccef} 
+int Game\+::m\+Current\+Material\+CBIndex = 0}
+
+
+
+Definition at line \mbox{\hyperlink{_game_8hpp_source_l00152}{152}} of file \mbox{\hyperlink{_game_8hpp_source}{Game.\+hpp}}.
+
+\Hypertarget{class_game_a6119ac12b9dafae4e105ac9b4e80c1b2}\index{Game@{Game}!mCurrFrameResource@{mCurrFrameResource}}
+\index{mCurrFrameResource@{mCurrFrameResource}!Game@{Game}}
+\doxysubsubsection{\texorpdfstring{mCurrFrameResource}{mCurrFrameResource}}
+{\footnotesize\ttfamily \label{class_game_a6119ac12b9dafae4e105ac9b4e80c1b2} 
+\mbox{\hyperlink{struct_frame_resource}{Frame\+Resource}}\texorpdfstring{$\ast$}{*} Game\+::m\+Curr\+Frame\+Resource = nullptr}
+
+
+
+Current frame resource. 
+
+
+
+Definition at line \mbox{\hyperlink{_game_8hpp_source_l00145}{145}} of file \mbox{\hyperlink{_game_8hpp_source}{Game.\+hpp}}.
+
+\Hypertarget{class_game_a1f687875ba94b87162a7dc90b80b0092}\index{Game@{Game}!mCurrFrameResourceIndex@{mCurrFrameResourceIndex}}
+\index{mCurrFrameResourceIndex@{mCurrFrameResourceIndex}!Game@{Game}}
+\doxysubsubsection{\texorpdfstring{mCurrFrameResourceIndex}{mCurrFrameResourceIndex}}
+{\footnotesize\ttfamily \label{class_game_a1f687875ba94b87162a7dc90b80b0092} 
+int Game\+::m\+Curr\+Frame\+Resource\+Index = 0}
+
+
+
+Current frame resource index. 
+
+
+
+Definition at line \mbox{\hyperlink{_game_8hpp_source_l00146}{146}} of file \mbox{\hyperlink{_game_8hpp_source}{Game.\+hpp}}.
+
+\Hypertarget{class_game_a2a9401ba48c48468ceef6771309ddff7}\index{Game@{Game}!mFrameResources@{mFrameResources}}
+\index{mFrameResources@{mFrameResources}!Game@{Game}}
+\doxysubsubsection{\texorpdfstring{mFrameResources}{mFrameResources}}
+{\footnotesize\ttfamily \label{class_game_a2a9401ba48c48468ceef6771309ddff7} 
+std\+::vector$<$std\+::unique\+\_\+ptr$<$\mbox{\hyperlink{struct_frame_resource}{Frame\+Resource}}$>$ $>$ Game\+::m\+Frame\+Resources}
+
+
+
+Frame resource ring buffer. 
+
+
+
+Definition at line \mbox{\hyperlink{_game_8hpp_source_l00144}{144}} of file \mbox{\hyperlink{_game_8hpp_source}{Game.\+hpp}}.
+
+\Hypertarget{class_game_a0e53612a0a54bdd46ea1d8b071260b77}\index{Game@{Game}!mGeometries@{mGeometries}}
+\index{mGeometries@{mGeometries}!Game@{Game}}
+\doxysubsubsection{\texorpdfstring{mGeometries}{mGeometries}}
+{\footnotesize\ttfamily \label{class_game_a0e53612a0a54bdd46ea1d8b071260b77} 
+std\+::unordered\+\_\+map$<$std\+::string, std\+::unique\+\_\+ptr$<$Mesh\+Geometry$>$ $>$ Game\+::m\+Geometries}
+
+
+
+Geometry resources. 
+
+
+
+Definition at line \mbox{\hyperlink{_game_8hpp_source_l00148}{148}} of file \mbox{\hyperlink{_game_8hpp_source}{Game.\+hpp}}.
+
+\Hypertarget{class_game_a4f5868aab9c96810369a9ab91dec1d2b}\index{Game@{Game}!mInputLayout@{mInputLayout}}
+\index{mInputLayout@{mInputLayout}!Game@{Game}}
+\doxysubsubsection{\texorpdfstring{mInputLayout}{mInputLayout}}
+{\footnotesize\ttfamily \label{class_game_a4f5868aab9c96810369a9ab91dec1d2b} 
+std\+::vector$<$D3\+D12\+\_\+\+INPUT\+\_\+\+ELEMENT\+\_\+\+DESC$>$ Game\+::m\+Input\+Layout}
+
+
+
+Definition at line \mbox{\hyperlink{_game_8hpp_source_l00164}{164}} of file \mbox{\hyperlink{_game_8hpp_source}{Game.\+hpp}}.
+
+\Hypertarget{class_game_ab5cce9551fdd8b346b36747d6f4d3a38}\index{Game@{Game}!mLastMousePos@{mLastMousePos}}
+\index{mLastMousePos@{mLastMousePos}!Game@{Game}}
+\doxysubsubsection{\texorpdfstring{mLastMousePos}{mLastMousePos}}
+{\footnotesize\ttfamily \label{class_game_ab5cce9551fdd8b346b36747d6f4d3a38} 
+POINT Game\+::m\+Last\+Mouse\+Pos}
+
+
+
+Definition at line \mbox{\hyperlink{_game_8hpp_source_l00174}{174}} of file \mbox{\hyperlink{_game_8hpp_source}{Game.\+hpp}}.
+
+\Hypertarget{class_game_ad2759008a4629646703b6e34e0501f6c}\index{Game@{Game}!mMainPassCB@{mMainPassCB}}
+\index{mMainPassCB@{mMainPassCB}!Game@{Game}}
+\doxysubsubsection{\texorpdfstring{mMainPassCB}{mMainPassCB}}
+{\footnotesize\ttfamily \label{class_game_ad2759008a4629646703b6e34e0501f6c} 
+\mbox{\hyperlink{struct_pass_constants}{Pass\+Constants}} Game\+::m\+Main\+Pass\+CB}
+
+
+
+Definition at line \mbox{\hyperlink{_game_8hpp_source_l00172}{172}} of file \mbox{\hyperlink{_game_8hpp_source}{Game.\+hpp}}.
+
+\Hypertarget{class_game_a871400f233e46cc637f383106e89dd71}\index{Game@{Game}!mMaterials@{mMaterials}}
+\index{mMaterials@{mMaterials}!Game@{Game}}
+\doxysubsubsection{\texorpdfstring{mMaterials}{mMaterials}}
+{\footnotesize\ttfamily \label{class_game_a871400f233e46cc637f383106e89dd71} 
+std\+::unordered\+\_\+map$<$std\+::string, std\+::unique\+\_\+ptr$<$Material$>$ $>$ Game\+::m\+Materials}
+
+
+
+Material definitions. 
+
+
+
+Definition at line \mbox{\hyperlink{_game_8hpp_source_l00149}{149}} of file \mbox{\hyperlink{_game_8hpp_source}{Game.\+hpp}}.
+
+\Hypertarget{class_game_acb640d01b04bbb82f3f2b02ac09554b2}\index{Game@{Game}!mOpaquePSO@{mOpaquePSO}}
+\index{mOpaquePSO@{mOpaquePSO}!Game@{Game}}
+\doxysubsubsection{\texorpdfstring{mOpaquePSO}{mOpaquePSO}}
+{\footnotesize\ttfamily \label{class_game_acb640d01b04bbb82f3f2b02ac09554b2} 
+Com\+Ptr$<$ID3\+D12\+Pipeline\+State$>$ Game\+::m\+Opaque\+PSO = nullptr}
+
+
+
+Definition at line \mbox{\hyperlink{_game_8hpp_source_l00166}{166}} of file \mbox{\hyperlink{_game_8hpp_source}{Game.\+hpp}}.
+
+\Hypertarget{class_game_a626d5d97ee0e536b99703094828f5f79}\index{Game@{Game}!mOpaqueRitems@{mOpaqueRitems}}
+\index{mOpaqueRitems@{mOpaqueRitems}!Game@{Game}}
+\doxysubsubsection{\texorpdfstring{mOpaqueRitems}{mOpaqueRitems}}
+{\footnotesize\ttfamily \label{class_game_a626d5d97ee0e536b99703094828f5f79} 
+std\+::vector$<$\mbox{\hyperlink{struct_render_item}{Render\+Item}}\texorpdfstring{$\ast$}{*}$>$ Game\+::m\+Opaque\+Ritems}
+
+
+
+Definition at line \mbox{\hyperlink{_game_8hpp_source_l00170}{170}} of file \mbox{\hyperlink{_game_8hpp_source}{Game.\+hpp}}.
+
+\Hypertarget{class_game_a1633a90f20203779bc1a1171c2d7ad77}\index{Game@{Game}!mPlayer@{mPlayer}}
+\index{mPlayer@{mPlayer}!Game@{Game}}
+\doxysubsubsection{\texorpdfstring{mPlayer}{mPlayer}}
+{\footnotesize\ttfamily \label{class_game_a1633a90f20203779bc1a1171c2d7ad77} 
+\mbox{\hyperlink{class_player}{Player}} Game\+::m\+Player}
+
+
+
+\doxylink{class_player}{Player} entity. 
+
+
+
+Definition at line \mbox{\hyperlink{_game_8hpp_source_l00178}{178}} of file \mbox{\hyperlink{_game_8hpp_source}{Game.\+hpp}}.
+
+\Hypertarget{class_game_a987fac1aded1b4f4b9495eb0f1464c12}\index{Game@{Game}!mRootSignature@{mRootSignature}}
+\index{mRootSignature@{mRootSignature}!Game@{Game}}
+\doxysubsubsection{\texorpdfstring{mRootSignature}{mRootSignature}}
+{\footnotesize\ttfamily \label{class_game_a987fac1aded1b4f4b9495eb0f1464c12} 
+Com\+Ptr$<$ID3\+D12\+Root\+Signature$>$ Game\+::m\+Root\+Signature = nullptr}
+
+
+
+Definition at line \mbox{\hyperlink{_game_8hpp_source_l00158}{158}} of file \mbox{\hyperlink{_game_8hpp_source}{Game.\+hpp}}.
+
+\Hypertarget{class_game_a5d821a872c24ff21b97300d24e37ac23}\index{Game@{Game}!mShaders@{mShaders}}
+\index{mShaders@{mShaders}!Game@{Game}}
+\doxysubsubsection{\texorpdfstring{mShaders}{mShaders}}
+{\footnotesize\ttfamily \label{class_game_a5d821a872c24ff21b97300d24e37ac23} 
+std\+::unordered\+\_\+map$<$std\+::string, Com\+Ptr$<$ID3\+DBlob$>$ $>$ Game\+::m\+Shaders}
+
+
+
+Definition at line \mbox{\hyperlink{_game_8hpp_source_l00162}{162}} of file \mbox{\hyperlink{_game_8hpp_source}{Game.\+hpp}}.
+
+\Hypertarget{class_game_a85befdbe03bbcdd30ad94cd64e0a1bd1}\index{Game@{Game}!mSrvDescriptorHeap@{mSrvDescriptorHeap}}
+\index{mSrvDescriptorHeap@{mSrvDescriptorHeap}!Game@{Game}}
+\doxysubsubsection{\texorpdfstring{mSrvDescriptorHeap}{mSrvDescriptorHeap}}
+{\footnotesize\ttfamily \label{class_game_a85befdbe03bbcdd30ad94cd64e0a1bd1} 
+Com\+Ptr$<$ID3\+D12\+Descriptor\+Heap$>$ Game\+::m\+Srv\+Descriptor\+Heap = nullptr}
+
+
+
+Definition at line \mbox{\hyperlink{_game_8hpp_source_l00160}{160}} of file \mbox{\hyperlink{_game_8hpp_source}{Game.\+hpp}}.
+
+\Hypertarget{class_game_a0baead77f3725081b986fb9d569c17dd}\index{Game@{Game}!mStateStack@{mStateStack}}
+\index{mStateStack@{mStateStack}!Game@{Game}}
+\doxysubsubsection{\texorpdfstring{mStateStack}{mStateStack}}
+{\footnotesize\ttfamily \label{class_game_a0baead77f3725081b986fb9d569c17dd} 
+\mbox{\hyperlink{class_state_stack}{State\+Stack}} Game\+::m\+State\+Stack}
+
+
+
+\doxylink{class_game}{Game} state manager. 
+
+
+
+Definition at line \mbox{\hyperlink{_game_8hpp_source_l00179}{179}} of file \mbox{\hyperlink{_game_8hpp_source}{Game.\+hpp}}.
+
+\Hypertarget{class_game_a914940e399d2418018640ef3da130371}\index{Game@{Game}!mTextures@{mTextures}}
+\index{mTextures@{mTextures}!Game@{Game}}
+\doxysubsubsection{\texorpdfstring{mTextures}{mTextures}}
+{\footnotesize\ttfamily \label{class_game_a914940e399d2418018640ef3da130371} 
+std\+::unordered\+\_\+map$<$std\+::string, std\+::unique\+\_\+ptr$<$Texture$>$ $>$ Game\+::m\+Textures}
+
+
+
+Texture resources. 
+
+
+
+Definition at line \mbox{\hyperlink{_game_8hpp_source_l00150}{150}} of file \mbox{\hyperlink{_game_8hpp_source}{Game.\+hpp}}.
+
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+Initialize\+Direct3\+D/Game.\+hpp\item 
+Initialize\+Direct3\+D/Game.\+cpp\end{DoxyCompactItemize}

@@ -1,0 +1,26 @@
+\doxysection{Command\+Queue.\+hpp}
+\hypertarget{_command_queue_8hpp_source}{}\label{_command_queue_8hpp_source}\index{InitializeDirect3D/CommandQueue.hpp@{InitializeDirect3D/CommandQueue.hpp}}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\Hypertarget{_command_queue_8hpp_source_l00001}00001\ \textcolor{preprocessor}{\#pragma\ region\ Step\ 10}}
+\DoxyCodeLine{\Hypertarget{_command_queue_8hpp_source_l00002}00002\ \textcolor{preprocessor}{\#pragma\ once}}
+\DoxyCodeLine{\Hypertarget{_command_queue_8hpp_source_l00003}00003\ }
+\DoxyCodeLine{\Hypertarget{_command_queue_8hpp_source_l00004}00004\ \textcolor{preprocessor}{\#include\ "{}Command.hpp"{}}}
+\DoxyCodeLine{\Hypertarget{_command_queue_8hpp_source_l00005}00005\ \textcolor{preprocessor}{\#include\ <queue>}}
+\DoxyCodeLine{\Hypertarget{_command_queue_8hpp_source_l00006}00006\ }
+\DoxyCodeLine{\Hypertarget{_command_queue_8hpp_source_l00021}\mbox{\hyperlink{class_command_queue}{00021}}\ \textcolor{keyword}{class\ }\mbox{\hyperlink{class_command_queue}{CommandQueue}}}
+\DoxyCodeLine{\Hypertarget{_command_queue_8hpp_source_l00022}00022\ \{}
+\DoxyCodeLine{\Hypertarget{_command_queue_8hpp_source_l00023}00023\ \textcolor{keyword}{public}:}
+\DoxyCodeLine{\Hypertarget{_command_queue_8hpp_source_l00031}00031\ \ \ \ \ \textcolor{keywordtype}{void}\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_command_queue_ad444e0d7af45d9e09b834f0cec1e1f43}{push}}(\textcolor{keyword}{const}\ \mbox{\hyperlink{struct_command}{Command}}\&\ command);}
+\DoxyCodeLine{\Hypertarget{_command_queue_8hpp_source_l00032}00032\ }
+\DoxyCodeLine{\Hypertarget{_command_queue_8hpp_source_l00048}00048\ \ \ \ \ \mbox{\hyperlink{struct_command}{Command}}\ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_command_queue_ac2dde510222b8df393b55978f4594194}{pop}}();}
+\DoxyCodeLine{\Hypertarget{_command_queue_8hpp_source_l00049}00049\ }
+\DoxyCodeLine{\Hypertarget{_command_queue_8hpp_source_l00056}00056\ \ \ \ \ \textcolor{keywordtype}{bool}\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_command_queue_a3a6eb6a7c83d9b20ad7a6cac63795ec1}{isEmpty}}()\ \textcolor{keyword}{const};}
+\DoxyCodeLine{\Hypertarget{_command_queue_8hpp_source_l00057}00057\ }
+\DoxyCodeLine{\Hypertarget{_command_queue_8hpp_source_l00058}00058\ \textcolor{keyword}{private}:}
+\DoxyCodeLine{\Hypertarget{_command_queue_8hpp_source_l00059}00059\ \ \ \ \ std::queue<Command>\ mQueue;\ }
+\DoxyCodeLine{\Hypertarget{_command_queue_8hpp_source_l00060}00060\ \};}
+\DoxyCodeLine{\Hypertarget{_command_queue_8hpp_source_l00061}00061\ }
+\DoxyCodeLine{\Hypertarget{_command_queue_8hpp_source_l00062}00062\ \textcolor{preprocessor}{\#pragma\ endregion}}
+
+\end{DoxyCode}

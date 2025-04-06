@@ -1,0 +1,319 @@
+\doxysection{Game\+State Class Reference}
+\hypertarget{class_game_state}{}\label{class_game_state}\index{GameState@{GameState}}
+
+
+Main gameplay state handling world simulation and player interaction.  
+
+
+
+
+{\ttfamily \#include $<$Game\+State.\+hpp$>$}
+
+Inheritance diagram for Game\+State\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=2.000000cm]{class_game_state}
+\end{center}
+\end{figure}
+\doxysubsubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{class_game_state_a05f2b11b65c32912f95c06d68b8bd4c4}{Game\+State}} (\mbox{\hyperlink{class_state_stack}{State\+Stack}} \texorpdfstring{$\ast$}{*}stack, \mbox{\hyperlink{struct_state_1_1_context}{Context}} \texorpdfstring{$\ast$}{*}context)
+\begin{DoxyCompactList}\small\item\em Constructs a \doxylink{class_game_state}{Game\+State} with state stack and context. \end{DoxyCompactList}\item 
+virtual \mbox{\hyperlink{class_game_state_ae623df5042cd0c17daa3394fdcb397b3}{\texorpdfstring{$\sim$}{\string~}\+Game\+State}} ()
+\begin{DoxyCompactList}\small\item\em Destructor for resource cleanup. \end{DoxyCompactList}\item 
+virtual void \mbox{\hyperlink{class_game_state_a0c1d83fbe03ca72edf6bb0fc3393f16b}{Draw}} () override
+\begin{DoxyCompactList}\small\item\em Draws all game world elements @override Required \doxylink{class_state}{State} override. \end{DoxyCompactList}\item 
+virtual bool \mbox{\hyperlink{class_game_state_ac02eeba1f6f23760e8743aaabe0c4b66}{Update}} (const Game\+Timer \&gt) override
+\begin{DoxyCompactList}\small\item\em Updates game world logic. \end{DoxyCompactList}\item 
+virtual bool \mbox{\hyperlink{class_game_state_a7064a942c979e53745548e01c7041bc0}{Handle\+Event}} (WPARAM btn\+State) override
+\begin{DoxyCompactList}\small\item\em Handles discrete input events. \end{DoxyCompactList}\item 
+virtual bool \mbox{\hyperlink{class_game_state_acc2bebd7a5e37a7f16e3748a9de0333b}{Handle\+Real\+Time\+Input}} () override
+\begin{DoxyCompactList}\small\item\em Handles continuous/real-\/time input. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_game_state_aaf255a97137afb613c3509da8f01aa06}{Process\+Input}} ()
+\begin{DoxyCompactList}\small\item\em Centralized input processing method. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Public Member Functions inherited from \mbox{\hyperlink{class_state}{State}}}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{class_state_a56e553adc0a9d1ae254c4987d7959e80}{State}} (\mbox{\hyperlink{class_state_stack}{State\+Stack}} \texorpdfstring{$\ast$}{*}stack, \mbox{\hyperlink{struct_state_1_1_context}{Context}} \texorpdfstring{$\ast$}{*}context)
+\begin{DoxyCompactList}\small\item\em Constructs a \doxylink{class_state}{State} with stack and context. \end{DoxyCompactList}\item 
+virtual \mbox{\hyperlink{class_state_afab438d92b90dc18d194dbd9c9c8bab3}{\texorpdfstring{$\sim$}{\string~}\+State}} ()
+\begin{DoxyCompactList}\small\item\em Destructor for state cleanup. \end{DoxyCompactList}\item 
+virtual bool \mbox{\hyperlink{class_state_a10883ba27a2ab2325030196d37049c7b}{Is\+Transparent}} () const
+\begin{DoxyCompactList}\small\item\em Checks if state allows lower states to render. \end{DoxyCompactList}\item 
+std\+::vector$<$ std\+::unique\+\_\+ptr$<$ \mbox{\hyperlink{struct_render_item}{Render\+Item}} $>$ $>$ \& \mbox{\hyperlink{class_state_a2ad4d797a56e5ac8b2984a0c1ee306df}{get\+Render\+Items}} ()
+\begin{DoxyCompactList}\small\item\em Gets render items for drawing. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{struct_state_1_1_context}{Context}} \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{class_state_a012280737b795337fdc0110c96e8a628}{Get\+Context}} () const
+\begin{DoxyCompactList}\small\item\em Gets shared context object. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsection*{Public Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{class_world}{World}} \mbox{\hyperlink{class_game_state_abae3784758f93e8affba727139d51455}{m\+World}}
+\begin{DoxyCompactList}\small\item\em Main game world container managing entities and systems. \end{DoxyCompactList}\item 
+std\+::unique\+\_\+ptr$<$ \mbox{\hyperlink{class_scene_node}{Scene\+Node}} $>$ \mbox{\hyperlink{class_game_state_a02e4e919bb98bd3f89b18c66d82a6c59}{m\+Pause\+State\+Scene\+Graph}}
+\begin{DoxyCompactList}\small\item\em Scene graph for pause menu overlay. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsection*{Additional Inherited Members}
+\doxysubsection*{Public Types inherited from \mbox{\hyperlink{class_state}{State}}}
+\begin{DoxyCompactItemize}
+\item 
+typedef std\+::unique\+\_\+ptr$<$ \mbox{\hyperlink{class_state}{State}} $>$ \mbox{\hyperlink{class_state_a2d93174b87266daa690f8f0f3b62e5a3}{State\+Ptr}}
+\begin{DoxyCompactList}\small\item\em Unique pointer type for automatic state management. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Protected Member Functions inherited from \mbox{\hyperlink{class_state}{State}}}
+\begin{DoxyCompactItemize}
+\item 
+void \mbox{\hyperlink{class_state_aa6ff837626a9f78e951b968366daca36}{Request\+Stack\+Push}} (\mbox{\hyperlink{namespace_states_a571a0dc62822f97bb9511eb013d8e1c3}{States\+::\+ID}} state\+ID)
+\begin{DoxyCompactList}\small\item\em Requests a new state to be pushed onto the stack. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_state_a86e0b195558375f3b09fffe42b56e4b4}{Request\+Stack\+Pop}} ()
+\begin{DoxyCompactList}\small\item\em Requests current state to be popped from stack. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_state_adb49547f6caf41a15f4934530cbe75ee}{Request\+State\+Clear}} ()
+\begin{DoxyCompactList}\small\item\em Requests all states to be cleared from stack. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Protected Attributes inherited from \mbox{\hyperlink{class_state}{State}}}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{class_state_stack}{State\+Stack}} \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{class_state_af0424dd012cc1ceb6e0f416982aa9228}{m\+Stack}}
+\begin{DoxyCompactList}\small\item\em \doxylink{class_state}{State} stack manager. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{struct_state_1_1_context}{Context}} \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{class_state_aa800112d4ab036b690e8db72c21d7a4b}{m\+Context}}
+\begin{DoxyCompactList}\small\item\em Shared context reference. \end{DoxyCompactList}\item 
+std\+::unique\+\_\+ptr$<$ \mbox{\hyperlink{class_scene_node}{Scene\+Node}} $>$ \mbox{\hyperlink{class_state_a41a93dcd04a21a7978db91329d10b6d3}{m\+Scene\+Graph}}
+\begin{DoxyCompactList}\small\item\em Root scene node for state. \end{DoxyCompactList}\item 
+std\+::vector$<$ std\+::unique\+\_\+ptr$<$ \mbox{\hyperlink{struct_render_item}{Render\+Item}} $>$ $>$ \mbox{\hyperlink{class_state_a505581614dd080700cda88bd1b930960}{m\+All\+Ritems}}
+\begin{DoxyCompactList}\small\item\em Renderable items. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Main gameplay state handling world simulation and player interaction. 
+
+Manages core game functionality including\+:
+\begin{DoxyItemize}
+\item \doxylink{class_world}{World} updates and rendering
+\item \doxylink{class_player}{Player} input handling (both events and real-\/time)
+\item Pause state management 
+\end{DoxyItemize}
+
+Definition at line \mbox{\hyperlink{_game_state_8hpp_source_l00014}{14}} of file \mbox{\hyperlink{_game_state_8hpp_source}{Game\+State.\+hpp}}.
+
+
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\Hypertarget{class_game_state_a05f2b11b65c32912f95c06d68b8bd4c4}\index{GameState@{GameState}!GameState@{GameState}}
+\index{GameState@{GameState}!GameState@{GameState}}
+\doxysubsubsection{\texorpdfstring{GameState()}{GameState()}}
+{\footnotesize\ttfamily \label{class_game_state_a05f2b11b65c32912f95c06d68b8bd4c4} 
+Game\+State\+::\+Game\+State (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{class_state_stack}{State\+Stack}} \texorpdfstring{$\ast$}{*}}]{stack}{, }\item[{\mbox{\hyperlink{struct_state_1_1_context}{Context}} \texorpdfstring{$\ast$}{*}}]{context}{}\end{DoxyParamCaption})}
+
+
+
+Constructs a \doxylink{class_game_state}{Game\+State} with state stack and context. 
+
+Constructs the core gameplay state.
+
+
+\begin{DoxyParams}{Parameters}
+{\em stack} & \doxylink{class_state}{State} stack for push/pop operations \\
+\hline
+{\em context} & Shared context containing game resources\\
+\hline
+{\em stack} & \doxylink{class_state}{State} stack manager \\
+\hline
+{\em context} & Shared game context\\
+\hline
+\end{DoxyParams}
+Initializes\+:
+\begin{DoxyItemize}
+\item \doxylink{class_game}{Game} world simulation
+\item Pause state UI elements
+\item Rendering resources
+\item Input command system 
+\end{DoxyItemize}
+
+Definition at line \mbox{\hyperlink{_game_state_8cpp_source_l00016}{16}} of file \mbox{\hyperlink{_game_state_8cpp_source}{Game\+State.\+cpp}}.
+
+\Hypertarget{class_game_state_ae623df5042cd0c17daa3394fdcb397b3}\index{GameState@{GameState}!````~GameState@{\texorpdfstring{$\sim$}{\string~}GameState}}
+\index{````~GameState@{\texorpdfstring{$\sim$}{\string~}GameState}!GameState@{GameState}}
+\doxysubsubsection{\texorpdfstring{\texorpdfstring{$\sim$}{\string~}GameState()}{\string~GameState()}}
+{\footnotesize\ttfamily \label{class_game_state_ae623df5042cd0c17daa3394fdcb397b3} 
+Game\+State\+::\texorpdfstring{$\sim$}{\string~}\+Game\+State (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [virtual]}}
+
+
+
+Destructor for resource cleanup. 
+
+
+
+Definition at line \mbox{\hyperlink{_game_state_8cpp_source_l00047}{47}} of file \mbox{\hyperlink{_game_state_8cpp_source}{Game\+State.\+cpp}}.
+
+
+
+\doxysubsection{Member Function Documentation}
+\Hypertarget{class_game_state_a0c1d83fbe03ca72edf6bb0fc3393f16b}\index{GameState@{GameState}!Draw@{Draw}}
+\index{Draw@{Draw}!GameState@{GameState}}
+\doxysubsubsection{\texorpdfstring{Draw()}{Draw()}}
+{\footnotesize\ttfamily \label{class_game_state_a0c1d83fbe03ca72edf6bb0fc3393f16b} 
+void Game\+State\+::\+Draw (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+
+
+Draws all game world elements @override Required \doxylink{class_state}{State} override. 
+
+Renders game world and UI elements. 
+
+Implements \mbox{\hyperlink{class_state_a8b0cdb0e7450a9bb3580a33dfbe4d981}{State}}.
+
+
+
+Definition at line \mbox{\hyperlink{_game_state_8cpp_source_l00054}{54}} of file \mbox{\hyperlink{_game_state_8cpp_source}{Game\+State.\+cpp}}.
+
+\Hypertarget{class_game_state_a7064a942c979e53745548e01c7041bc0}\index{GameState@{GameState}!HandleEvent@{HandleEvent}}
+\index{HandleEvent@{HandleEvent}!GameState@{GameState}}
+\doxysubsubsection{\texorpdfstring{HandleEvent()}{HandleEvent()}}
+{\footnotesize\ttfamily \label{class_game_state_a7064a942c979e53745548e01c7041bc0} 
+bool Game\+State\+::\+Handle\+Event (\begin{DoxyParamCaption}\item[{WPARAM}]{btn\+State}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+
+
+Handles discrete input events. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em btn\+State} & Bitmask of button states \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+True if event was consumed, false to propagate @override Required \doxylink{class_state}{State} override
+\end{DoxyReturn}
+
+\begin{DoxyParams}{Parameters}
+{\em btn\+State} & Bitmask of button states \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+True to consume event, false to propagate 
+\end{DoxyReturn}
+
+
+Implements \mbox{\hyperlink{class_state_a60ec54e00e893e60d137c4278be8a7f6}{State}}.
+
+
+
+Definition at line \mbox{\hyperlink{_game_state_8cpp_source_l00076}{76}} of file \mbox{\hyperlink{_game_state_8cpp_source}{Game\+State.\+cpp}}.
+
+\Hypertarget{class_game_state_acc2bebd7a5e37a7f16e3748a9de0333b}\index{GameState@{GameState}!HandleRealTimeInput@{HandleRealTimeInput}}
+\index{HandleRealTimeInput@{HandleRealTimeInput}!GameState@{GameState}}
+\doxysubsubsection{\texorpdfstring{HandleRealTimeInput()}{HandleRealTimeInput()}}
+{\footnotesize\ttfamily \label{class_game_state_acc2bebd7a5e37a7f16e3748a9de0333b} 
+bool Game\+State\+::\+Handle\+Real\+Time\+Input (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+
+
+Handles continuous/real-\/time input. 
+
+Handles real-\/time input processing.
+
+\begin{DoxyReturn}{Returns}
+True if input was processed, false to propagate @override Required \doxylink{class_state}{State} override
+
+True to consume input, false to propagate 
+\end{DoxyReturn}
+
+
+Implements \mbox{\hyperlink{class_state_a69e1835a95f6a70a0cad6ab78bcae73e}{State}}.
+
+
+
+Definition at line \mbox{\hyperlink{_game_state_8cpp_source_l00090}{90}} of file \mbox{\hyperlink{_game_state_8cpp_source}{Game\+State.\+cpp}}.
+
+\Hypertarget{class_game_state_aaf255a97137afb613c3509da8f01aa06}\index{GameState@{GameState}!ProcessInput@{ProcessInput}}
+\index{ProcessInput@{ProcessInput}!GameState@{GameState}}
+\doxysubsubsection{\texorpdfstring{ProcessInput()}{ProcessInput()}}
+{\footnotesize\ttfamily \label{class_game_state_aaf255a97137afb613c3509da8f01aa06} 
+void Game\+State\+::\+Process\+Input (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})}
+
+
+
+Centralized input processing method. 
+
+Processes player input commands.
+
+Coordinates between event-\/driven and real-\/time input systems
+
+Routes input through\+:
+\begin{DoxyItemize}
+\item Event-\/based commands
+\item Continuous control commands 
+\end{DoxyItemize}
+
+Definition at line \mbox{\hyperlink{_game_state_8cpp_source_l00104}{104}} of file \mbox{\hyperlink{_game_state_8cpp_source}{Game\+State.\+cpp}}.
+
+\Hypertarget{class_game_state_ac02eeba1f6f23760e8743aaabe0c4b66}\index{GameState@{GameState}!Update@{Update}}
+\index{Update@{Update}!GameState@{GameState}}
+\doxysubsubsection{\texorpdfstring{Update()}{Update()}}
+{\footnotesize\ttfamily \label{class_game_state_ac02eeba1f6f23760e8743aaabe0c4b66} 
+bool Game\+State\+::\+Update (\begin{DoxyParamCaption}\item[{const Game\+Timer \&}]{gt}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+
+
+Updates game world logic. 
+
+Updates game world simulation.
+
+
+\begin{DoxyParams}{Parameters}
+{\em gt} & Game\+Timer with frame timing information \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+True to continue updates, false to block lower states @override Required \doxylink{class_state}{State} override
+\end{DoxyReturn}
+
+\begin{DoxyParams}{Parameters}
+{\em gt} & \doxylink{class_game}{Game} timer with frame timing \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+True to continue updates in lower states 
+\end{DoxyReturn}
+
+
+Implements \mbox{\hyperlink{class_state_aac563804ae22878944783a7f25b15b51}{State}}.
+
+
+
+Definition at line \mbox{\hyperlink{_game_state_8cpp_source_l00065}{65}} of file \mbox{\hyperlink{_game_state_8cpp_source}{Game\+State.\+cpp}}.
+
+
+
+\doxysubsection{Member Data Documentation}
+\Hypertarget{class_game_state_a02e4e919bb98bd3f89b18c66d82a6c59}\index{GameState@{GameState}!mPauseStateSceneGraph@{mPauseStateSceneGraph}}
+\index{mPauseStateSceneGraph@{mPauseStateSceneGraph}!GameState@{GameState}}
+\doxysubsubsection{\texorpdfstring{mPauseStateSceneGraph}{mPauseStateSceneGraph}}
+{\footnotesize\ttfamily \label{class_game_state_a02e4e919bb98bd3f89b18c66d82a6c59} 
+std\+::unique\+\_\+ptr$<$\mbox{\hyperlink{class_scene_node}{Scene\+Node}}$>$ Game\+State\+::m\+Pause\+State\+Scene\+Graph}
+
+
+
+Scene graph for pause menu overlay. 
+
+
+
+Definition at line \mbox{\hyperlink{_game_state_8hpp_source_l00080}{80}} of file \mbox{\hyperlink{_game_state_8hpp_source}{Game\+State.\+hpp}}.
+
+\Hypertarget{class_game_state_abae3784758f93e8affba727139d51455}\index{GameState@{GameState}!mWorld@{mWorld}}
+\index{mWorld@{mWorld}!GameState@{GameState}}
+\doxysubsubsection{\texorpdfstring{mWorld}{mWorld}}
+{\footnotesize\ttfamily \label{class_game_state_abae3784758f93e8affba727139d51455} 
+\mbox{\hyperlink{class_world}{World}} Game\+State\+::m\+World}
+
+
+
+Main game world container managing entities and systems. 
+
+
+
+Definition at line \mbox{\hyperlink{_game_state_8hpp_source_l00074}{74}} of file \mbox{\hyperlink{_game_state_8hpp_source}{Game\+State.\+hpp}}.
+
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+Initialize\+Direct3\+D/Game\+State.\+hpp\item 
+Initialize\+Direct3\+D/Game\+State.\+cpp\end{DoxyCompactItemize}

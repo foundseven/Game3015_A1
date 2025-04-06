@@ -24,7 +24,8 @@
 */
 var NAVTREE =
 [
-  [ "Game3015_A2", "index.html", [
+  [ "Galaxy Invaders", "index.html", [
+    [ "Deprecated List", "deprecated.html", null ],
     [ "Namespaces", "namespaces.html", [
       [ "Namespace List", "namespaces.html", "namespaces_dup" ],
       [ "Namespace Members", "namespacemembers.html", [
@@ -41,6 +42,7 @@ var NAVTREE =
         [ "All", "functions.html", null ],
         [ "Functions", "functions_func.html", null ],
         [ "Variables", "functions_vars.html", null ],
+        [ "Typedefs", "functions_type.html", null ],
         [ "Enumerations", "functions_enum.html", null ],
         [ "Enumerator", "functions_eval.html", null ]
       ] ]
@@ -54,7 +56,8 @@ var NAVTREE =
 
 var NAVTREEINDEX =
 [
-"_aircraft_8hpp_source.html"
+"_aircraft_8cpp_source.html",
+"namespacemembers.html"
 ];
 
 var SYNCONMSG = 'click to disable panel synchronization';

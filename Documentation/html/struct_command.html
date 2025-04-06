@@ -5,7 +5,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=11"/>
 <meta name="generator" content="Doxygen 1.13.2"/>
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
-<title>Game3015_A2: Command Struct Reference</title>
+<title>Galaxy Invaders: Command Struct Reference</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
@@ -32,9 +32,9 @@
  <tbody>
  <tr id="projectrow">
   <td id="projectalign">
-   <div id="projectname">Game3015_A2<span id="projectnumber">&#160;2.0</span>
+   <div id="projectname">Galaxy Invaders<span id="projectnumber">&#160;3.0</span>
    </div>
-   <div id="projectbrief">A DirectX 12-based aircraft combat game.</div>
+   <div id="projectbrief">Roam the galaxy in 2D/3D</div>
   </td>
     <td>        <div id="MSearchBox" class="MSearchBoxInactive">
         <span class="left">
@@ -136,6 +136,8 @@ Public Attributes</h2></td></tr>
 <p>Encapsulates an executable action with category filtering.</p>
 <p>The <a class="el" href="struct_command.html" title="Encapsulates an action to be executed on scene nodes.">Command</a> class is part of the command pattern implementation, allowing for flexible and decoupled execution of actions on scene nodes.</p>
 <p>Implements the <a class="el" href="struct_command.html" title="Encapsulates an action to be executed on scene nodes.">Command</a> pattern for game actions. Commands are executed on SceneNodes that match the specified category mask. </p>
+
+<p class="definition">Definition at line <a class="el" href="_command_8hpp_source.html#l00017">17</a> of file <a class="el" href="_command_8hpp_source.html">Command.hpp</a>.</p>
 </div><h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
 <a id="a18df2d81039392daeb0b78c346a70537" name="a18df2d81039392daeb0b78c346a70537"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a18df2d81039392daeb0b78c346a70537">&#9670;&#160;</a></span>Command()</h2>
@@ -155,6 +157,8 @@ Public Attributes</h2></td></tr>
 <p>Constructs a default command with empty action and no category. </p>
 <p>Default constructor for <a class="el" href="struct_command.html" title="Encapsulates an action to be executed on scene nodes.">Command</a>.</p>
 <p>Initializes a <a class="el" href="struct_command.html" title="Encapsulates an action to be executed on scene nodes.">Command</a> object with no action and the None category. This allows for later assignment of specific actions and categories. </p>
+
+<p class="definition">Definition at line <a class="el" href="_command_8cpp_source.html#l00018">18</a> of file <a class="el" href="_command_8cpp_source.html">Command.cpp</a>.</p>
 
 </div>
 </div>
@@ -183,6 +187,8 @@ Public Attributes</h2></td></tr>
 <dl class="section note"><dt>Note</dt><dd>The function should be created using derivedAction() to ensure type safety and proper downcasting.</dd></dl>
 <p>This std::function takes a <a class="el" href="class_scene_node.html" title="Represents a node in the scene graph.">SceneNode</a> reference and a const GameTimer reference as parameters, allowing for time-based actions on scene nodes. </p>
 
+<p class="definition">Definition at line <a class="el" href="_command_8hpp_source.html#l00032">32</a> of file <a class="el" href="_command_8hpp_source.html">Command.hpp</a>.</p>
+
 </div>
 </div>
 <a id="a1529e898c9e6dd47b1826b5b1eac09fb" name="a1529e898c9e6dd47b1826b5b1eac09fb"></a>
@@ -201,15 +207,17 @@ Public Attributes</h2></td></tr>
 <p><a class="el" href="namespace_category.html" title="Bitmask categories for scene object classification and collision filtering.">Category</a> flags determining which scene nodes the command applies to.</p>
 <dl class="section see"><dt>See also</dt><dd><a class="el" href="namespace_category.html#a2ff936dbd42aeae91fdfb6f8456a8ab0" title="Bitmask flags representing object categories in the game world.">Category::Type</a></dd></dl>
 <p>The command will only execute on nodes matching any of these categories. Use bitwise OR to combine categories: </p><div class="fragment"><div class="line"><a class="code hl_enumvalue" href="namespace_category.html#a2ff936dbd42aeae91fdfb6f8456a8ab0ac17fded322e70d4086e2f5dfcc706679">Category::PlayerAircraft</a> | <a class="code hl_enumvalue" href="namespace_category.html#a2ff936dbd42aeae91fdfb6f8456a8ab0a05584389175665f09038745d7486f798">Category::AlliedAircraft</a></div>
-<div class="ttc" id="anamespace_category_html_a2ff936dbd42aeae91fdfb6f8456a8ab0a05584389175665f09038745d7486f798"><div class="ttname"><a href="namespace_category.html#a2ff936dbd42aeae91fdfb6f8456a8ab0a05584389175665f09038745d7486f798">Category::AlliedAircraft</a></div><div class="ttdeci">@ AlliedAircraft</div><div class="ttdoc">Friendly NPC aircraft (non-player combatants)</div><div class="ttdef"><b>Definition</b> Category.hpp:32</div></div>
-<div class="ttc" id="anamespace_category_html_a2ff936dbd42aeae91fdfb6f8456a8ab0ac17fded322e70d4086e2f5dfcc706679"><div class="ttname"><a href="namespace_category.html#a2ff936dbd42aeae91fdfb6f8456a8ab0ac17fded322e70d4086e2f5dfcc706679">Category::PlayerAircraft</a></div><div class="ttdeci">@ PlayerAircraft</div><div class="ttdoc">User-controlled aircraft (see Aircraft::Eagle)</div><div class="ttdef"><b>Definition</b> Category.hpp:31</div></div>
+<div class="ttc" id="anamespace_category_html_a2ff936dbd42aeae91fdfb6f8456a8ab0a05584389175665f09038745d7486f798"><div class="ttname"><a href="namespace_category.html#a2ff936dbd42aeae91fdfb6f8456a8ab0a05584389175665f09038745d7486f798">Category::AlliedAircraft</a></div><div class="ttdeci">@ AlliedAircraft</div><div class="ttdoc">Friendly NPC aircraft (non-player combatants)</div><div class="ttdef"><b>Definition</b> <a href="_category_8hpp_source.html#l00032">Category.hpp:32</a></div></div>
+<div class="ttc" id="anamespace_category_html_a2ff936dbd42aeae91fdfb6f8456a8ab0ac17fded322e70d4086e2f5dfcc706679"><div class="ttname"><a href="namespace_category.html#a2ff936dbd42aeae91fdfb6f8456a8ab0ac17fded322e70d4086e2f5dfcc706679">Category::PlayerAircraft</a></div><div class="ttdeci">@ PlayerAircraft</div><div class="ttdoc">User-controlled aircraft (see Aircraft::Eagle)</div><div class="ttdef"><b>Definition</b> <a href="_category_8hpp_source.html#l00031">Category.hpp:31</a></div></div>
 </div><!-- fragment --><p>Uses bit flags from the <a class="el" href="namespace_category.html" title="Bitmask categories for scene object classification and collision filtering.">Category</a> enum to specify target nodes. Default value is <a class="el" href="namespace_category.html#a2ff936dbd42aeae91fdfb6f8456a8ab0af5e99963224a9d7e0d16e4a782446ebf" title="Default/no category (inactive objects)">Category::None</a>. </p>
+
+<p class="definition">Definition at line <a class="el" href="_command_8hpp_source.html#l00044">44</a> of file <a class="el" href="_command_8hpp_source.html">Command.hpp</a>.</p>
 
 </div>
 </div>
 <hr/>The documentation for this struct was generated from the following files:<ul>
 <li>InitializeDirect3D/<a class="el" href="_command_8hpp_source.html">Command.hpp</a></li>
-<li>InitializeDirect3D/<b>Command.cpp</b></li>
+<li>InitializeDirect3D/<a class="el" href="_command_8cpp_source.html">Command.cpp</a></li>
 </ul>
 </div><!-- contents -->
 </div><!-- doc-content -->

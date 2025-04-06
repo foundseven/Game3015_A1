@@ -9,6 +9,14 @@ using Microsoft::WRL::ComPtr;
 using namespace std;
 using namespace DirectX;
 
+/**
+ * @brief Main window procedure for handling Windows messages.
+ * @param hwnd Handle to the window receiving the message.
+ * @param msg The message identifier.
+ * @param wParam Additional message information (varies by message).
+ * @param lParam Additional message information (varies by message).
+ * @return Result of the message processing (varies by message).
+ */
 LRESULT CALLBACK
 MainWndProc(HWND hwnd, UINT msg, WPARAM wParam, LPARAM lParam)
 {
@@ -17,12 +25,22 @@ MainWndProc(HWND hwnd, UINT msg, WPARAM wParam, LPARAM lParam)
     return D3DApp::GetApp()->MsgProc(hwnd, msg, wParam, lParam);
 }
 
+// Static member initialization
 D3DApp* D3DApp::mApp = nullptr;
+
+/**
+ * @brief Retrieves the singleton instance of the application.
+ * @return Pointer to the D3DApp instance.
+ */
 D3DApp* D3DApp::GetApp()
 {
     return mApp;
 }
 
+/**
+ * @brief Constructor for the D3DApp class.
+ * @param hInstance Handle to the application instance.
+ */
 D3DApp::D3DApp(HINSTANCE hInstance)
 :	mhAppInst(hInstance)
 {
@@ -31,32 +49,55 @@ D3DApp::D3DApp(HINSTANCE hInstance)
     mApp = this;
 }
 
+/**
+ * @brief Destructor for the D3DApp class.
+ */
 D3DApp::~D3DApp()
 {
 	if(md3dDevice != nullptr)
 		FlushCommandQueue();
 }
 
+/**
+ * @brief Gets the application instance handle.
+ * @return Handle to the application instance.
+ */
 HINSTANCE D3DApp::AppInst()const
 {
 	return mhAppInst;
 }
 
-HWND D3DApp::MainWnd()const
+/**
+ * @brief Gets the main window handle.
+ * @return Handle to the main window.
+ */
+HWND D3DApp::MainWnd() const
 {
 	return mhMainWnd;
 }
 
-float D3DApp::AspectRatio()const
+/**
+ * @brief Gets the aspect ratio of the client area.
+ * @return Aspect ratio as a float (width/height).
+ */
+float D3DApp::AspectRatio() const
 {
 	return static_cast<float>(mClientWidth) / mClientHeight;
 }
 
-bool D3DApp::Get4xMsaaState()const
+/**
+ * @brief Checks if 4x MSAA is enabled.
+ * @return True if 4x MSAA is enabled; otherwise false.
+ */
+bool D3DApp::Get4xMsaaState() const
 {
-    return m4xMsaaState;
+	return m4xMsaaState;
 }
 
+/**
+ * @brief Enables or disables 4x MSAA and recreates buffers if necessary.
+ * @param value True to enable 4x MSAA; false to disable it.
+ */
 void D3DApp::Set4xMsaaState(bool value)
 {
     if(m4xMsaaState != value)
@@ -69,6 +110,10 @@ void D3DApp::Set4xMsaaState(bool value)
     }
 }
 
+/**
+ * @brief Runs the main application loop.
+ * @return Exit code of the application.
+ */
 int D3DApp::Run()
 {
 	MSG msg = {0};
@@ -77,13 +122,13 @@ int D3DApp::Run()
 
 	while(msg.message != WM_QUIT)
 	{
-		// If there are Window messages then process them.
+		// Process Windows messages if any exist in the queue.
 		if(PeekMessage( &msg, 0, 0, 0, PM_REMOVE ))
 		{
             TranslateMessage( &msg );
             DispatchMessage( &msg );
 		}
-		// Otherwise, do animation/game stuff.
+		// Otherwise, execute game loop logic.
 		else
         {	
 			mTimer.Tick();
@@ -104,6 +149,10 @@ int D3DApp::Run()
 	return (int)msg.wParam;
 }
 
+/**
+ * @brief Initializes the application by creating a window and initializing Direct3D.
+ * @return True if initialization succeeds; otherwise false.
+ */
 bool D3DApp::Initialize()
 {
 	if(!InitMainWindow())
@@ -112,12 +161,15 @@ bool D3DApp::Initialize()
 	if(!InitDirect3D())
 		return false;
 
-    // Do the initial resize code.
+	// Perform initial resize operations.
     OnResize();
 
 	return true;
 }
- 
+
+/**
+ * @brief Creates RTV and DSV descriptor heaps for rendering targets and depth buffers.
+ */
 void D3DApp::CreateRtvAndDsvDescriptorHeaps()
 {
     D3D12_DESCRIPTOR_HEAP_DESC rtvHeapDesc;
@@ -138,6 +190,9 @@ void D3DApp::CreateRtvAndDsvDescriptorHeaps()
         &dsvHeapDesc, IID_PPV_ARGS(mDsvHeap.GetAddressOf())));
 }
 
+/**
+ * @brief Handles resizing of swap chain buffers and depth/stencil buffers when window size changes.
+ */
 void D3DApp::OnResize()
 {
 	assert(md3dDevice);
@@ -721,10 +776,3 @@ void D3DApp::LogOutputDisplayModes(IDXGIOutput* output, DXGI_FORMAT format)
         ::OutputDebugString(text.c_str());
     }
 }
-
-
-
-
-
-
-

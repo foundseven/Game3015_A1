@@ -1,0 +1,254 @@
+\doxysection{Instructions\+State Class Reference}
+\hypertarget{class_instructions_state}{}\label{class_instructions_state}\index{InstructionsState@{InstructionsState}}
+
+
+\doxylink{class_state}{State} for displaying game instructions/controls.  
+
+
+
+
+{\ttfamily \#include $<$Instructions\+State.\+hpp$>$}
+
+Inheritance diagram for Instructions\+State\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=2.000000cm]{class_instructions_state}
+\end{center}
+\end{figure}
+\doxysubsubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{class_instructions_state_af10f7cd5bbc757c57a15c8a60cb7a1ad}{Instructions\+State}} (\mbox{\hyperlink{class_state_stack}{State\+Stack}} \texorpdfstring{$\ast$}{*}stack, \mbox{\hyperlink{struct_state_1_1_context}{Context}} \texorpdfstring{$\ast$}{*}context)
+\begin{DoxyCompactList}\small\item\em Constructs an \doxylink{class_instructions_state}{Instructions\+State} with stack and context. \end{DoxyCompactList}\item 
+virtual \mbox{\hyperlink{class_instructions_state_aba7c16edb26a1374758f706ea67845dc}{\texorpdfstring{$\sim$}{\string~}\+Instructions\+State}} ()
+\begin{DoxyCompactList}\small\item\em Destructor for cleanup operations. \end{DoxyCompactList}\item 
+virtual void \mbox{\hyperlink{class_instructions_state_a3b91ddac0c72dff5b8467ce857d378b8}{Draw}} () override
+\begin{DoxyCompactList}\small\item\em Renders instructional content and UI elements @override Required \doxylink{class_state}{State} override. \end{DoxyCompactList}\item 
+virtual bool \mbox{\hyperlink{class_instructions_state_a05dc686960c27fa06f911a2e70dd0ecb}{Update}} (const Game\+Timer \&gt) override
+\begin{DoxyCompactList}\small\item\em Updates instructional content animations/timing. \end{DoxyCompactList}\item 
+virtual bool \mbox{\hyperlink{class_instructions_state_a95934c488609c9011c3a3d0990546709}{Handle\+Event}} (WPARAM btn\+State) override
+\begin{DoxyCompactList}\small\item\em Handles discrete input events (button presses) \end{DoxyCompactList}\item 
+virtual bool \mbox{\hyperlink{class_instructions_state_ab31ebc8383d23903259b252a9f106e19}{Handle\+Real\+Time\+Input}} () override
+\begin{DoxyCompactList}\small\item\em Handles continuous input (keyboard/controller state) \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Public Member Functions inherited from \mbox{\hyperlink{class_state}{State}}}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{class_state_a56e553adc0a9d1ae254c4987d7959e80}{State}} (\mbox{\hyperlink{class_state_stack}{State\+Stack}} \texorpdfstring{$\ast$}{*}stack, \mbox{\hyperlink{struct_state_1_1_context}{Context}} \texorpdfstring{$\ast$}{*}context)
+\begin{DoxyCompactList}\small\item\em Constructs a \doxylink{class_state}{State} with stack and context. \end{DoxyCompactList}\item 
+virtual \mbox{\hyperlink{class_state_afab438d92b90dc18d194dbd9c9c8bab3}{\texorpdfstring{$\sim$}{\string~}\+State}} ()
+\begin{DoxyCompactList}\small\item\em Destructor for state cleanup. \end{DoxyCompactList}\item 
+virtual bool \mbox{\hyperlink{class_state_a10883ba27a2ab2325030196d37049c7b}{Is\+Transparent}} () const
+\begin{DoxyCompactList}\small\item\em Checks if state allows lower states to render. \end{DoxyCompactList}\item 
+std\+::vector$<$ std\+::unique\+\_\+ptr$<$ \mbox{\hyperlink{struct_render_item}{Render\+Item}} $>$ $>$ \& \mbox{\hyperlink{class_state_a2ad4d797a56e5ac8b2984a0c1ee306df}{get\+Render\+Items}} ()
+\begin{DoxyCompactList}\small\item\em Gets render items for drawing. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{struct_state_1_1_context}{Context}} \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{class_state_a012280737b795337fdc0110c96e8a628}{Get\+Context}} () const
+\begin{DoxyCompactList}\small\item\em Gets shared context object. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsection*{Additional Inherited Members}
+\doxysubsection*{Public Types inherited from \mbox{\hyperlink{class_state}{State}}}
+\begin{DoxyCompactItemize}
+\item 
+typedef std\+::unique\+\_\+ptr$<$ \mbox{\hyperlink{class_state}{State}} $>$ \mbox{\hyperlink{class_state_a2d93174b87266daa690f8f0f3b62e5a3}{State\+Ptr}}
+\begin{DoxyCompactList}\small\item\em Unique pointer type for automatic state management. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Protected Member Functions inherited from \mbox{\hyperlink{class_state}{State}}}
+\begin{DoxyCompactItemize}
+\item 
+void \mbox{\hyperlink{class_state_aa6ff837626a9f78e951b968366daca36}{Request\+Stack\+Push}} (\mbox{\hyperlink{namespace_states_a571a0dc62822f97bb9511eb013d8e1c3}{States\+::\+ID}} state\+ID)
+\begin{DoxyCompactList}\small\item\em Requests a new state to be pushed onto the stack. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_state_a86e0b195558375f3b09fffe42b56e4b4}{Request\+Stack\+Pop}} ()
+\begin{DoxyCompactList}\small\item\em Requests current state to be popped from stack. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_state_adb49547f6caf41a15f4934530cbe75ee}{Request\+State\+Clear}} ()
+\begin{DoxyCompactList}\small\item\em Requests all states to be cleared from stack. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Protected Attributes inherited from \mbox{\hyperlink{class_state}{State}}}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{class_state_stack}{State\+Stack}} \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{class_state_af0424dd012cc1ceb6e0f416982aa9228}{m\+Stack}}
+\begin{DoxyCompactList}\small\item\em \doxylink{class_state}{State} stack manager. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{struct_state_1_1_context}{Context}} \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{class_state_aa800112d4ab036b690e8db72c21d7a4b}{m\+Context}}
+\begin{DoxyCompactList}\small\item\em Shared context reference. \end{DoxyCompactList}\item 
+std\+::unique\+\_\+ptr$<$ \mbox{\hyperlink{class_scene_node}{Scene\+Node}} $>$ \mbox{\hyperlink{class_state_a41a93dcd04a21a7978db91329d10b6d3}{m\+Scene\+Graph}}
+\begin{DoxyCompactList}\small\item\em Root scene node for state. \end{DoxyCompactList}\item 
+std\+::vector$<$ std\+::unique\+\_\+ptr$<$ \mbox{\hyperlink{struct_render_item}{Render\+Item}} $>$ $>$ \mbox{\hyperlink{class_state_a505581614dd080700cda88bd1b930960}{m\+All\+Ritems}}
+\begin{DoxyCompactList}\small\item\em Renderable items. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+\doxylink{class_state}{State} for displaying game instructions/controls. 
+
+Handles presentation of tutorial information and control schemes. Inherits core state functionality while specializing for instructional content. 
+
+Definition at line \mbox{\hyperlink{_instructions_state_8hpp_source_l00011}{11}} of file \mbox{\hyperlink{_instructions_state_8hpp_source}{Instructions\+State.\+hpp}}.
+
+
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\Hypertarget{class_instructions_state_af10f7cd5bbc757c57a15c8a60cb7a1ad}\index{InstructionsState@{InstructionsState}!InstructionsState@{InstructionsState}}
+\index{InstructionsState@{InstructionsState}!InstructionsState@{InstructionsState}}
+\doxysubsubsection{\texorpdfstring{InstructionsState()}{InstructionsState()}}
+{\footnotesize\ttfamily \label{class_instructions_state_af10f7cd5bbc757c57a15c8a60cb7a1ad} 
+Instructions\+State\+::\+Instructions\+State (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{class_state_stack}{State\+Stack}} \texorpdfstring{$\ast$}{*}}]{stack}{, }\item[{\mbox{\hyperlink{struct_state_1_1_context}{Context}} \texorpdfstring{$\ast$}{*}}]{context}{}\end{DoxyParamCaption})}
+
+
+
+Constructs an \doxylink{class_instructions_state}{Instructions\+State} with stack and context. 
+
+Constructs the Instructions \doxylink{class_state}{State} with UI elements.
+
+
+\begin{DoxyParams}{Parameters}
+{\em stack} & Reference to state stack for push/pop operations \\
+\hline
+{\em context} & Shared game context (resources, settings, etc.)\\
+\hline
+{\em stack} & \doxylink{class_state}{State} stack manager \\
+\hline
+{\em context} & Shared game context\\
+\hline
+\end{DoxyParams}
+Initializes\+:
+\begin{DoxyItemize}
+\item Background galaxy texture
+\item Control scheme visualization (WASD)
+\item Return to menu button
+\item Frame rendering resources 
+\end{DoxyItemize}
+
+Definition at line \mbox{\hyperlink{_instructions_state_8cpp_source_l00017}{17}} of file \mbox{\hyperlink{_instructions_state_8cpp_source}{Instructions\+State.\+cpp}}.
+
+\Hypertarget{class_instructions_state_aba7c16edb26a1374758f706ea67845dc}\index{InstructionsState@{InstructionsState}!````~InstructionsState@{\texorpdfstring{$\sim$}{\string~}InstructionsState}}
+\index{````~InstructionsState@{\texorpdfstring{$\sim$}{\string~}InstructionsState}!InstructionsState@{InstructionsState}}
+\doxysubsubsection{\texorpdfstring{\texorpdfstring{$\sim$}{\string~}InstructionsState()}{\string~InstructionsState()}}
+{\footnotesize\ttfamily \label{class_instructions_state_aba7c16edb26a1374758f706ea67845dc} 
+Instructions\+State\+::\texorpdfstring{$\sim$}{\string~}\+Instructions\+State (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [virtual]}}
+
+
+
+Destructor for cleanup operations. 
+
+Destructor for resource cleanup. 
+
+Definition at line \mbox{\hyperlink{_instructions_state_8cpp_source_l00068}{68}} of file \mbox{\hyperlink{_instructions_state_8cpp_source}{Instructions\+State.\+cpp}}.
+
+
+
+\doxysubsection{Member Function Documentation}
+\Hypertarget{class_instructions_state_a3b91ddac0c72dff5b8467ce857d378b8}\index{InstructionsState@{InstructionsState}!Draw@{Draw}}
+\index{Draw@{Draw}!InstructionsState@{InstructionsState}}
+\doxysubsubsection{\texorpdfstring{Draw()}{Draw()}}
+{\footnotesize\ttfamily \label{class_instructions_state_a3b91ddac0c72dff5b8467ce857d378b8} 
+void Instructions\+State\+::\+Draw (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+
+
+Renders instructional content and UI elements @override Required \doxylink{class_state}{State} override. 
+
+Renders instruction screen elements. 
+
+Implements \mbox{\hyperlink{class_state_a8b0cdb0e7450a9bb3580a33dfbe4d981}{State}}.
+
+
+
+Definition at line \mbox{\hyperlink{_instructions_state_8cpp_source_l00075}{75}} of file \mbox{\hyperlink{_instructions_state_8cpp_source}{Instructions\+State.\+cpp}}.
+
+\Hypertarget{class_instructions_state_a95934c488609c9011c3a3d0990546709}\index{InstructionsState@{InstructionsState}!HandleEvent@{HandleEvent}}
+\index{HandleEvent@{HandleEvent}!InstructionsState@{InstructionsState}}
+\doxysubsubsection{\texorpdfstring{HandleEvent()}{HandleEvent()}}
+{\footnotesize\ttfamily \label{class_instructions_state_a95934c488609c9011c3a3d0990546709} 
+bool Instructions\+State\+::\+Handle\+Event (\begin{DoxyParamCaption}\item[{WPARAM}]{btn\+State}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+
+
+Handles discrete input events (button presses) 
+
+Handles input events for state transitions.
+
+
+\begin{DoxyParams}{Parameters}
+{\em btn\+State} & Bitmask of button states \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+True if event was consumed, false to propagate @override Required \doxylink{class_state}{State} override
+\end{DoxyReturn}
+
+\begin{DoxyParams}{Parameters}
+{\em btn\+State} & Bitmask of button states \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+True to consume event, false to propagate 
+\end{DoxyReturn}
+
+
+Implements \mbox{\hyperlink{class_state_a60ec54e00e893e60d137c4278be8a7f6}{State}}.
+
+
+
+Definition at line \mbox{\hyperlink{_instructions_state_8cpp_source_l00099}{99}} of file \mbox{\hyperlink{_instructions_state_8cpp_source}{Instructions\+State.\+cpp}}.
+
+\Hypertarget{class_instructions_state_ab31ebc8383d23903259b252a9f106e19}\index{InstructionsState@{InstructionsState}!HandleRealTimeInput@{HandleRealTimeInput}}
+\index{HandleRealTimeInput@{HandleRealTimeInput}!InstructionsState@{InstructionsState}}
+\doxysubsubsection{\texorpdfstring{HandleRealTimeInput()}{HandleRealTimeInput()}}
+{\footnotesize\ttfamily \label{class_instructions_state_ab31ebc8383d23903259b252a9f106e19} 
+bool Instructions\+State\+::\+Handle\+Real\+Time\+Input (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+
+
+Handles continuous input (keyboard/controller state) 
+
+Handles real-\/time input processing.
+
+\begin{DoxyReturn}{Returns}
+True if input was processed, false to propagate @override Required \doxylink{class_state}{State} override
+
+True to consume input, false to propagate 
+\end{DoxyReturn}
+
+
+Implements \mbox{\hyperlink{class_state_a69e1835a95f6a70a0cad6ab78bcae73e}{State}}.
+
+
+
+Definition at line \mbox{\hyperlink{_instructions_state_8cpp_source_l00115}{115}} of file \mbox{\hyperlink{_instructions_state_8cpp_source}{Instructions\+State.\+cpp}}.
+
+\Hypertarget{class_instructions_state_a05dc686960c27fa06f911a2e70dd0ecb}\index{InstructionsState@{InstructionsState}!Update@{Update}}
+\index{Update@{Update}!InstructionsState@{InstructionsState}}
+\doxysubsubsection{\texorpdfstring{Update()}{Update()}}
+{\footnotesize\ttfamily \label{class_instructions_state_a05dc686960c27fa06f911a2e70dd0ecb} 
+bool Instructions\+State\+::\+Update (\begin{DoxyParamCaption}\item[{const Game\+Timer \&}]{gt}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+
+
+Updates instructional content animations/timing. 
+
+Updates instruction screen logic.
+
+
+\begin{DoxyParams}{Parameters}
+{\em gt} & Game\+Timer with frame timing information \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+True to continue updates, false to block lower states @override Required \doxylink{class_state}{State} override
+\end{DoxyReturn}
+
+\begin{DoxyParams}{Parameters}
+{\em gt} & \doxylink{class_game}{Game} timer with frame timing \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+True to continue updates in lower states 
+\end{DoxyReturn}
+
+
+Implements \mbox{\hyperlink{class_state_aac563804ae22878944783a7f25b15b51}{State}}.
+
+
+
+Definition at line \mbox{\hyperlink{_instructions_state_8cpp_source_l00087}{87}} of file \mbox{\hyperlink{_instructions_state_8cpp_source}{Instructions\+State.\+cpp}}.
+
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+Initialize\+Direct3\+D/Instructions\+State.\+hpp\item 
+Initialize\+Direct3\+D/Instructions\+State.\+cpp\end{DoxyCompactItemize}
